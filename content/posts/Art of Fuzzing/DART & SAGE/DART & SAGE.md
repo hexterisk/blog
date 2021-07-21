@@ -19,7 +19,7 @@ Back in 2005, researchers at Microsoft came up with a concolic testing tool call
 Breaking down the three techniques mentioned:
 
 For given functions _f_ and _h_,
-```
+```c
 int f (int x) { 
 	return 2 * x;
 }
@@ -98,7 +98,7 @@ DART maintains a symbolic memory map _S_ that maps memory address to symbolic ex
 
 During the initiation of execution of _P_, _S_ records the mapping of random values to input parameters. The following algorithms takes an expression _e_ in a context _M_ with already available expression set _S_ and is evaluated as follows:
 
-```
+```c
 evaluate_symbolic (e, M, S):
 	
 	// Switch case to match expression.
@@ -170,7 +170,7 @@ Two completeness flags work in conjunction to indicate cases when symbolic execu
 1.  **all\_linear**: set to 0 when symbolic expression becomes non-linear (➋).
 2.  **all\_locs\_definite**: set to 0 when value of a symbolic variable is unknown (➌).
 
-```
+```c
 run DART () =
 
 	// Initialise all flags to 1.
@@ -215,7 +215,7 @@ Therefore, _for i ∈ 0 ≤ i ≤ |stack|_, _stack\[i\] = (stack\[i\].branch, st
 
 The program is instrumented as follows:
 
-```
+```c
 instrumented program(stack, I) =
 
 	// Random initialization of uninitialized input parameters in M0.
@@ -309,7 +309,7 @@ instrumented program(stack, I) =
 
 Any third party constraint solver can be employed for the task. An abstraction of the working of a suitable constraint solver is as follows:
 
-```
+```c
 solve_path_constraint(ktry, path_constraint, stack) =
 
 	// Take latest path constraint from the stack.
