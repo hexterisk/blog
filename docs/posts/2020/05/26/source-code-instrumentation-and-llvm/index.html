@@ -26,7 +26,7 @@ Intermediate Representations Representation of a program in a state that lies be
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.d644853e3e89ab1ec568894a9a3df34b7e4e5bfd66060890b1e4297657fd91e8.css">
+<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.bc21949b46a7b314448099a92fed1807acac025093285f474b88259eec0c62ba.css">
 
 
 
@@ -112,25 +112,30 @@ Intermediate Representations Representation of a program in a state that lies be
 
             <div class="content">
                 
-    <main class="post">
+<main class="post">
 
-        <div class="post-info">
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>17 minutes
-
-            
-
-            </p>
-        </div>
-
-        <article>
-            <h1 class="post-title">
-                <a href="https://hexterisk.github.io/blog/posts/2020/05/26/source-code-instrumentation-and-llvm/">Source Code Instrumentation and LLVM</a>
-            </h1>
+    <div class="post-info">
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-clock">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>17 minutes
 
             
 
-            <div class="post-content">
-                <p><strong>Source Code Instrumentation</strong> adds specific code meant for instrumentation/analysis, called <strong>Instrumentation Code</strong>, to the source files of the program under consideration. The source files are then compiled and executed. Since the instrumentation code is integrated into the binary itself, the output from the execution includes the dump of the instrumentation code which can then be used for further analysis and component testing.</p>
+        </p>
+    </div>
+
+    <article>
+        <h1 class="post-title">
+            <a href="https://hexterisk.github.io/blog/posts/2020/05/26/source-code-instrumentation-and-llvm/">Source Code Instrumentation and LLVM</a>
+        </h1>
+
+        
+
+        <div class="post-content">
+            <p><strong>Source Code Instrumentation</strong> adds specific code meant for instrumentation/analysis, called <strong>Instrumentation Code</strong>, to the source files of the program under consideration. The source files are then compiled and executed. Since the instrumentation code is integrated into the binary itself, the output from the execution includes the dump of the instrumentation code which can then be used for further analysis and component testing.</p>
 <h2 id="intermediate-representations">Intermediate Representations</h2>
 <p>Representation of a program in a state that lies between the source code and the compiled binary(specifically, the assembly code). Compilers have a stage of intermediate code generation, where they natively generate IR of the source code.</p>
 <p>IR is then used to emit generic assembly code allowing us to use a single universal assembler that can handle the final translation of assembly to machine code for every language. Otherwise, a full native compiler would be required for different languages and different architecture machines.</p>
@@ -662,52 +667,74 @@ Function Name: _GLOBAL__sub_I_calc.cpp
 <p>Counting the number of basic blocks and instructions, the output from our instrumentation checks out.</p>
 <p>Credits for the guidance to Mike Shah&rsquo;s talk “Intro to LLVM” at FOSDEM 18.</p>
 
-            </div>
-        </article>
+        </div>
+    </article>
 
-        <hr />
+    <hr />
 
-        <div class="post-info">
-                <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://hexterisk.github.io/blog/tags/binary">binary</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/tags/source">source</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/tags/instrument">instrument</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/tags/llvm">llvm</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/tags/ir">ir</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/tags/linear">linear</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/tags/tuple">tuple</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/tags/stack">stack</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/tags/three-address-code">three address code</a></span>
-                </p>
+    <div class="post-info">
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-tag meta-icon">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                <line x1="7" y1="7" x2="7" y2="7"></line>
+            </svg><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/binary">binary</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/source">source</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/instrument">instrument</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/llvm">llvm</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/ir">ir</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/linear">linear</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/tuple">tuple</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/stack">stack</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/three-address-code">three address code</a></span>
+        </p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>3471 Words</p>
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-file-text">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>3471 Words</p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-05-26 05:30 &#43;0530</p>
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-calendar">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>2020-05-26 05:30 &#43;0530</p>
+    </div>
+
+    
+    <div class="pagination">
+        <div class="pagination__title">
+            <span class="pagination__title-h"></span>
+            <hr />
         </div>
 
-        
-            <div class="pagination">
-                <div class="pagination__title">
-                    <span class="pagination__title-h"></span>
-                    <hr />
-                </div>
+        <div class="pagination__buttons">
 
-                <div class="pagination__buttons">
-                    
-                        <span class="button previous">
-                            <a href="https://hexterisk.github.io/blog/posts/2020/06/03/dynamic-binary-instrumentation-and-pin/">
-                                <span class="button__icon">←</span>
-                                <span class="button__text">Dynamic Binary Instrumentation and Pin</span>
-                            </a>
-                        </span>
-                    
+            
+            <span class="button previous">
+                <a href="https://hexterisk.github.io/blog/posts/2020/05/21/symbolic-execution-and-angr/">
+                    <span class="button__text">Symbolic Execution and Angr</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
 
-                    
-                        <span class="button next">
-                            <a href="https://hexterisk.github.io/blog/posts/2020/05/21/symbolic-execution-and-angr/">
-                                <span class="button__text">Symbolic Execution and Angr</span>
-                                <span class="button__icon">→</span>
-                            </a>
-                        </span>
-                    
-                </div>
-            </div>
-        
+            
+            <span class="button next">
+                <a href="https://hexterisk.github.io/blog/posts/2020/06/03/dynamic-binary-instrumentation-and-pin/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Dynamic Binary Instrumentation and Pin</span>
+                </a>
+            </span>
+            
 
-        
-    </main>
+        </div>
+    </div>
+    
+
+    
+</main>
 
             </div>
 

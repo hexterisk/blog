@@ -12,7 +12,7 @@ weight: 10
 categories: ["art-of-fuzzing"]
 ---
 
-Fuzzing can be segregated into different types based on the facet of the process we look from.
+Fuzzing can be segregated into different types based on the facet of the process we look at.
 
 ## Program Structure
 

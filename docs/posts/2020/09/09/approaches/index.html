@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
-<meta name="description" content="Fuzzing can be segregated into different types based on the facet of the process we look from.
+<meta name="description" content="Fuzzing can be segregated into different types based on the facet of the process we look at.
 Program Structure Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
 Blackbox Fuzzing This approach involves the assumption that the target is a black box since we don&amp;rsquo;t have any knowledge of the internal behavior, source code or the implementation of the target application, hence the name." />
 <meta name="keywords" content="" />
@@ -27,7 +27,7 @@ Blackbox Fuzzing This approach involves the assumption that the target is a blac
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.d644853e3e89ab1ec568894a9a3df34b7e4e5bfd66060890b1e4297657fd91e8.css">
+<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.bc21949b46a7b314448099a92fed1807acac025093285f474b88259eec0c62ba.css">
 
 
 
@@ -42,7 +42,7 @@ Blackbox Fuzzing This approach involves the assumption that the target is a blac
     <meta name="theme-color" content="#252627">
 
 <meta itemprop="name" content="Approaches">
-<meta itemprop="description" content="Fuzzing can be segregated into different types based on the facet of the process we look from.
+<meta itemprop="description" content="Fuzzing can be segregated into different types based on the facet of the process we look at.
 Program Structure Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
 Blackbox Fuzzing This approach involves the assumption that the target is a black box since we don&rsquo;t have any knowledge of the internal behavior, source code or the implementation of the target application, hence the name."><meta itemprop="datePublished" content="2020-09-09T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-09-09T00:00:00&#43;00:00" />
@@ -51,7 +51,7 @@ Blackbox Fuzzing This approach involves the assumption that the target is a blac
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
 <meta name="twitter:title" content="Approaches"/>
-<meta name="twitter:description" content="Fuzzing can be segregated into different types based on the facet of the process we look from.
+<meta name="twitter:description" content="Fuzzing can be segregated into different types based on the facet of the process we look at.
 Program Structure Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
 Blackbox Fuzzing This approach involves the assumption that the target is a black box since we don&rsquo;t have any knowledge of the internal behavior, source code or the implementation of the target application, hence the name."/>
 
@@ -115,25 +115,30 @@ Blackbox Fuzzing This approach involves the assumption that the target is a blac
 
             <div class="content">
                 
-    <main class="post">
+<main class="post">
 
-        <div class="post-info">
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>6 minutes
-
-            
-
-            </p>
-        </div>
-
-        <article>
-            <h1 class="post-title">
-                <a href="https://hexterisk.github.io/blog/posts/2020/09/09/approaches/">Approaches</a>
-            </h1>
+    <div class="post-info">
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-clock">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>6 minutes
 
             
 
-            <div class="post-content">
-                <p>Fuzzing can be segregated into different types based on the facet of the process we look from.</p>
+        </p>
+    </div>
+
+    <article>
+        <h1 class="post-title">
+            <a href="https://hexterisk.github.io/blog/posts/2020/09/09/approaches/">Approaches</a>
+        </h1>
+
+        
+
+        <div class="post-content">
+            <p>Fuzzing can be segregated into different types based on the facet of the process we look at.</p>
 <h2 id="program-structure">Program Structure</h2>
 <p>Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.</p>
 <h3 id="blackbox-fuzzing">Blackbox Fuzzing</h3>
@@ -204,52 +209,74 @@ Blackbox Fuzzing This approach involves the assumption that the target is a blac
 <h3 id="dumb-fuzzer">Dumb Fuzzer</h3>
 <p>The class of fuzzers that do not require an input model and can be used to universally generate test cases for a wide variety of applications. However, their usability generally goes down with increasing input model complexity, since flipping random bytes would not care about maintaining a format in the generated test case.</p>
 
-            </div>
-        </article>
+        </div>
+    </article>
 
-        <hr />
+    <hr />
 
-        <div class="post-info">
-                <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://hexterisk.github.io/blog/tags/fuzzing">fuzzing</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/tags/blackbox">blackbox</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/tags/whitebox">whitebox</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/tags/greybox">greybox</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/tags/dumb-fuzzer">dumb-fuzzer</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/tags/smart-fuzzer">smart-fuzzer</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/tags/coverage-guided">coverage-guided</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/tags/mutator">mutator</a></span>
-                </p>
+    <div class="post-info">
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-tag meta-icon">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                <line x1="7" y1="7" x2="7" y2="7"></line>
+            </svg><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/fuzzing">fuzzing</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/blackbox">blackbox</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/whitebox">whitebox</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/greybox">greybox</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/dumb-fuzzer">dumb-fuzzer</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/smart-fuzzer">smart-fuzzer</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/coverage-guided">coverage-guided</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/mutator">mutator</a></span>
+        </p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1194 Words</p>
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-file-text">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>1194 Words</p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-09-09 05:30 &#43;0530</p>
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-calendar">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>2020-09-09 05:30 &#43;0530</p>
+    </div>
+
+    
+    <div class="pagination">
+        <div class="pagination__title">
+            <span class="pagination__title-h"></span>
+            <hr />
         </div>
 
-        
-            <div class="pagination">
-                <div class="pagination__title">
-                    <span class="pagination__title-h"></span>
-                    <hr />
-                </div>
+        <div class="pagination__buttons">
 
-                <div class="pagination__buttons">
-                    
-                        <span class="button previous">
-                            <a href="https://hexterisk.github.io/blog/posts/2020/09/16/sanitation/">
-                                <span class="button__icon">←</span>
-                                <span class="button__text">Sanitation</span>
-                            </a>
-                        </span>
-                    
+            
+            <span class="button previous">
+                <a href="https://hexterisk.github.io/blog/posts/2020/09/05/introduction/">
+                    <span class="button__text">Introduction</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
 
-                    
-                        <span class="button next">
-                            <a href="https://hexterisk.github.io/blog/posts/2020/09/05/introduction/">
-                                <span class="button__text">Introduction</span>
-                                <span class="button__icon">→</span>
-                            </a>
-                        </span>
-                    
-                </div>
-            </div>
-        
+            
+            <span class="button next">
+                <a href="https://hexterisk.github.io/blog/posts/2020/09/16/sanitation/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Sanitation</span>
+                </a>
+            </span>
+            
 
-        
-    </main>
+        </div>
+    </div>
+    
+
+    
+</main>
 
             </div>
 

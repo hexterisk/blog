@@ -20,7 +20,7 @@ A constraint solver must be versatile, that is, it should be able to act as an:
 
 ## Formulating Programs
 
-Assume a formula _𝑆ₚ(𝑥, 𝑦)_ which holds if and only if program _P(x)_ outputs value _y_ such that
+Assume a formula _𝑆ₚ(𝑥, 𝑦)_ which holds if and only if program _P(x)_ outputs value _y_ such that:
 
 **Program:** f(_𝑥_) { return _𝑥_ + _𝑥_ }
 
@@ -28,7 +28,7 @@ Assume a formula _𝑆ₚ(𝑥, 𝑦)_ which holds if and only if program _P(x)_
 
 Now, with the program represented as a formula, the solver can be versatile.
 
-### Solver as an  **Interpreter**:
+### Solver as an Interpreter:
 
 Given x, evaluate f(x).
 
@@ -36,7 +36,7 @@ Given x, evaluate f(x).
 
 ⇨ 𝑦 ↦ 6
 
-### Solver as an  **Inverter**:
+### Solver as an Inverter:
 
 Given f(x), find x.
 
@@ -44,7 +44,7 @@ Given f(x), find x.
 
 ⇨ 𝑥 ↦ 3
 
-##### This solver “bidirectionality” enables **Synthesis**.
+##### This solver “bidirectionality” enables Synthesis.
 
 ## Specifications
 
@@ -54,7 +54,7 @@ A predicate is a binary-valued function of non-binary variables.
 
 **Postcondition** (denoted 𝑝𝑜𝑠𝑡(𝑥, 𝑦)) is a predicate over parameters of _f_ and its return value 𝑦 that holds when _f_ returns. Therefore, _f_ ensures that 𝑝𝑜𝑠𝑡(𝑥, 𝑦) holds.
 
-These pre- and post-conditions are known as **Contracts**.
+These pre and post-conditions are known as **Contracts**.
 
 Usually, these contracts are tested (that is, evaluated dynamically, during execution).
 
@@ -77,11 +77,11 @@ The problem at hand is to basically translate preconditions, postconditions, loo
 
 ∀𝑥 . 𝑝𝑟𝑒(𝑥) ⇒ 𝑆ₚ(𝑥, 𝑦) ∧ 𝑝𝑜𝑠𝑡(𝑥, 𝑦)
 
-where, 𝑝𝑟𝑒(𝑥) is valid for all 𝑥_._
+where,      𝑝𝑟𝑒(𝑥) is valid for all 𝑥.
+        
+            𝑆ₚ(𝑥, 𝑦) computes 𝑦 from 𝑥.
 
-            𝑆ₚ(𝑥, 𝑦) computes 𝑦 from 𝑥_._
-
- 𝑝𝑜𝑠𝑡(𝑥, 𝑦) is correct.
+            𝑝𝑜𝑠𝑡(𝑥, 𝑦) is correct.
 
 To prove correctness for all inputs _𝑥_, search for counterexample 𝑥 where 𝜙 does not hold:
 
@@ -118,13 +118,13 @@ The **Satisfiability Modulo Theories** problem is a decision problem for logical
 
 In simpler words, SMT Solvers are built on top of SAT solvers, and they are able to combine the powers of the SAT solver with other domain specific theory solvers(the extensible property comes in here) to solve NP complete problems. Thus, SMT Solvers rely on our ability to solve satisfiability problems, to take problems with boolean variables and constraints to tell us whether there is an assignment to these variables that satisfies that particular problem. A SAT Solver then tries random assignments and propagates them through the constraints. When it runs into a contradiction, it analyses the set of limitations that led to the contradiction and summarizes them into a new constraint so that the same problem can be avoided next time onwards.
 
-For example,
+For example, say a stage is given:
 
-say a stage is given, _x>5 AND y<5 AND (y>x OR y>2)_
+_x>5 AND y<5 AND (y>x OR y>2)_
 
 SMT solver will divide it into domain specific theories.
 
-⇨ _|x>5| AND |y<5| AND (|y>x| OR |y>2|)_,    Linear Arithmetic Theory and Boolean Logic.
+⇨ _|x>5| AND |y<5| AND (|y>x| OR |y>2|)_ // Linear Arithmetic Theory and Boolean Logic.
 
 ⇨ _f1 AND f2 AND (f3 OR f4)_
 
@@ -157,7 +157,7 @@ Introducing the powers of [Z3](https://github.com/Z3Prover/z3/wiki#background) i
 
 Follow [archived docs](https://hexterisk.github.io/Z3Py-Archive/guide-examples.htm) for basic syntax and a jump start.
 
-[Official Docs](https://z3prover.github.io/api/html/)for referencing the API in different languages.
+[Official Docs](https://z3prover.github.io/api/html/) for reference to the API in different languages.
 
 Taking Z3 for a spin, let's tackle a well-known problem: Sudoku Solver.
 
@@ -186,7 +186,7 @@ Examining the `validate_serial` function, it is clear that
 
 Using the constraints and computations specified, we'll write a Z3 script to give us our good serial.
 
-Read this [page](https://hexterisk.tech/Z3Py-Archive/Serial%20solver%20using%20Z3.html) implemented in this [IPython Notebook](https://github.com/hexterisk/Z3Py-Archive/blob/master/Serial%20solver%20using%20Z3.ipynb) to follow the solution for this problem.
+Read this [page](https://hexterisk.github.io/Z3Py-Archive/Serial%20solver%20using%20Z3.html) implemented in this [IPython Notebook](https://github.com/hexterisk/Z3Py-Archive/blob/master/Serial%20solver%20using%20Z3.ipynb) to follow the solution for this problem.
 
 ![](/Constraint_Solvers_and_Z3/2020-05-27-182912_1920x1080_scrot.png)
 _Output._

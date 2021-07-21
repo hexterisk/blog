@@ -37,7 +37,7 @@ Either the program will be able to handle the provided input just fine, or it wi
 
 The aim of fuzzing is to test the program under obscure and extreme cases. You should never replace unit, integration and system tests with fuzzing since the target still needs to be tested for cases with normal input. Instead, supplement the tests with fuzzing for the best results.
 
-Fuzzing can be resource intensive, while the resources might be constrained. In such cases, you need to find a balance between generating new test cases, executing the program, target constraints, performing sanitation and finding bugs. It's an optimization problem. The picture and the decision making gets clearer with the understanding of different forms of fuzzing and their uses cases.
+Fuzzing can be resource intensive, while the resources might be constrained. In such cases, you need to find a balance between generating new test cases, executing the program, target constraints, performing sanitation and finding bugs. It's an optimization problem. The picture and the decision making gets clearer with the understanding of different forms of fuzzing and their uses case.
 
 The target could be a binary, a kernel or even a protocol. The concept is versatile and adaptable to all scenarios, as long as it accepts an input.
 

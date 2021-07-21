@@ -6,7 +6,17 @@
     <description>Recent content on Pwn the world.</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 16 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://hexterisk.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://hexterisk.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DART &amp; SAGE</title>
+      <link>https://hexterisk.github.io/blog/posts/2020/09/25/dart-sage/</link>
+      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/posts/2020/09/25/dart-sage/</guid>
+      <description>Back in 2005, researchers at Microsoft came up with a concolic testing tool called DART(Directed Automated Random Testing). The tool can be used in the unit testing phase, as well as can be applied to large programs.
+ We present a new tool, named DART, for automatically testing software that combines three main techniques: (1) automated extraction of the interface of a program with its external environment using static source-code parsing; (2) automatic generation of a test driver for this interface that performs random testing to simulate the most general environment the program can operate in; and (3) dynamic analysis of how the program behaves under random testing and automatic generation of new test inputs to direct systematically the execution along alternative program paths.</description>
+    </item>
+    
     <item>
       <title>Sanitation</title>
       <link>https://hexterisk.github.io/blog/posts/2020/09/16/sanitation/</link>
@@ -23,7 +33,7 @@ Sanitizers are employed by instrumenting the source code. The compiled binary, t
       <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/posts/2020/09/09/approaches/</guid>
-      <description>Fuzzing can be segregated into different types based on the facet of the process we look from.
+      <description>Fuzzing can be segregated into different types based on the facet of the process we look at.
 Program Structure Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
 Blackbox Fuzzing This approach involves the assumption that the target is a black box since we don&amp;rsquo;t have any knowledge of the internal behavior, source code or the implementation of the target application, hence the name.</description>
     </item>
@@ -97,16 +107,6 @@ The age long discussion of MySQL versus MariaDB is something that an average dev
       <description>Dynamic Binary Instrumentation is the process of monitoring or measuring a binary&amp;rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
 We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.
 Instrumentation Code The technique requires injecting Instrumentation Code into a running binary.</description>
-    </item>
-    
-    <item>
-      <title>Source Code Instrumentation and LLVM</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/05/26/source-code-instrumentation-and-llvm/</link>
-      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/posts/2020/05/26/source-code-instrumentation-and-llvm/</guid>
-      <description>Source Code Instrumentation adds specific code meant for instrumentation/analysis, called Instrumentation Code, to the source files of the program under consideration. The source files are then compiled and executed. Since the instrumentation code is integrated into the binary itself, the output from the execution includes the dump of the instrumentation code which can then be used for further analysis and component testing.
-Intermediate Representations Representation of a program in a state that lies between the source code and the compiled binary(specifically, the assembly code).</description>
     </item>
     
   </channel>

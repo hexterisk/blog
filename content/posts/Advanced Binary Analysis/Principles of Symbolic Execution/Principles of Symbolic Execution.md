@@ -16,6 +16,7 @@ categories: ["Advanced Binary Analysis"]
 
 *   Symbex executes (or emulates) an application with **symbolic values.**
     *   **Symbolic values** represent a domain covering possible concrete values, represented by symbols like _φ_.
+*   **Symbolic variables** are just memory addresses that will hold symbolic values.
 *   Symbolic execution computes logical formulas over these symbols. These formulas represent the operations performed on the symbols during execution and describe limits for the range of values the symbols can represent.
     *   Many symbex engines maintain the symbols and formulas as metadata in addition to concrete values rather than replacing the concrete values.
 *   The collection of symbolic values and formulas that a symbex engine maintains is called the **Symbolic State**.
@@ -28,6 +29,18 @@ A symbolic expression (_φj_ , with _j ∈ N)_ corresponds either to a symbolic 
 *   **Symbolic Expression Store** (_σ_) is the set of all the symbolic expressions used in the symbolic execution.
 *   Symbex maintains a mapping of variables (or in the case of binary symbex, registers and memory locations) to symbolic expression.
 *   I refer to the combination of the path constraint and all symbolic expressions and mappings as the **symbolic state**.
+
+Various notations for a symbolic expression _e_ are as follows:
+
+*   _m_ - symbolic variable
+*   _c_ - constant
+*   _\*(e, e')_ - multiplication
+*   _≤(e, e')_ - comparison
+*   _¬e'_ - negation
+*   _\*e'_ - pointer dereference
+and more.
+
+Symbolic variables of an expression _e_ are the set of addresses _m_ that occur in it.
 
 ## Path Constraint
 
@@ -113,7 +126,7 @@ Known as **Concolic Execution**, as in “concrete symbolic execution” because
 Symbex engines that explore multiple program paths in parallel are called **online**, while engines that explore only one path at a time are called **offline**.
 
 *   Online symbex doesn’t execute the same instruction multiple times, thus making it efficient but making it memory-intensive to keep track of all states in parallel. In contrast, offline implementations often analyze the same chunk of code multiple times, having to run the entire program from the start for every program path. 
-*   Online symbex attempt to keep the memory overhead to a minimum by merging identical parts of program states together, splitting them only when they diverge. This optimization is known as **copy on write** because it copies merged states when a write causes them to diverge, creating a fresh private copy of the state for the path issuing the write.
+*   Offline symbex attempt to keep the memory overhead to a minimum by merging identical parts of program states together, splitting them only when they diverge. This optimization is known as **copy on write** because it copies merged states when a write causes them to diverge, creating a fresh private copy of the state for the path issuing the write.
 
 ### Symbolic State
 

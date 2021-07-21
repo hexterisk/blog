@@ -24,7 +24,7 @@ Symbols Different values in a program(such as the user input) are substituted wi
       
       <guid>https://hexterisk.github.io/blog/posts/2020/05/15/constraint-solvers-and-z3/</guid>
       <description>A constraint solver must be versatile, that is, it should be able to act as an:
- Interpreter: Given the input, solve for the output of the equation. Inverter: Given the output, solve for the input of the equation. Synthesizer: Act as both Interpreter and Inverter.  Formulating Programs Assume a formula 𝑆ₚ(𝑥, 𝑦) which holds if and only if program P(x) outputs value y such that
+ Interpreter: Given the input, solve for the output of the equation. Inverter: Given the output, solve for the input of the equation. Synthesizer: Act as both Interpreter and Inverter.  Formulating Programs Assume a formula 𝑆ₚ(𝑥, 𝑦) which holds if and only if program P(x) outputs value y such that:
 Program: f(𝑥) { return 𝑥 + 𝑥 }</description>
     </item>
     
