@@ -91,22 +91,23 @@ Therefore, static analysis of a PE allows extraction of a lot of metadata that c
     </item>
     
     <item>
-      <title>Dockerise MySQL &#43; phpMyAdmin</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/07/02/dockerise-mysql-phpmyadmin/</link>
-      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
+      <title>Dynamic Taint Analysis and Pin</title>
+      <link>https://hexterisk.github.io/blog/posts/2020/07/18/dynamic-taint-analysis-and-pin/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/07/02/dockerise-mysql-phpmyadmin/</guid>
-      <description>A common requirement in a large number of software projects is a relational database with an easy to use management tool. Considering how often a developer needs this, setting it up everytime from scratch can be a drag. However, with the advent of containerisation, we can have a setup off the ground in a couple of minutes, whether it&amp;rsquo;s a development or a production environment.
-The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific.</description>
+      <guid>https://hexterisk.github.io/blog/posts/2020/07/18/dynamic-taint-analysis-and-pin/</guid>
+      <description>Dynamic Taint Analysis is a technique used to discover what part of memory or register are controllable by the some data we are interested, such as the user input, at a given program state. This is done by marking the interested data. There on after, any piece of data that comes in contact with the tainted data by any means, like getting computed from the tainted data, is tainted too, thus spreading the taint throughout the execution.</description>
     </item>
     
     <item>
-      <title>Dynamic Taint Analysis and Pin</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/06/12/dynamic-taint-analysis-and-pin/</link>
-      <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
+      <title>Dynamic Binary Instrumentation and Pin</title>
+      <link>https://hexterisk.github.io/blog/posts/2020/07/10/dynamic-binary-instrumentation-and-pin/</link>
+      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/06/12/dynamic-taint-analysis-and-pin/</guid>
-      <description>Dynamic Taint Analysis is a technique used to discover what part of memory or register are controllable by the some data we are interested, such as the user input, at a given program state. This is done by marking the interested data. There on after, any piece of data that comes in contact with the tainted data by any means, like getting computed from the tainted data, is tainted too, thus spreading the taint throughout the execution.</description>
+      <guid>https://hexterisk.github.io/blog/posts/2020/07/10/dynamic-binary-instrumentation-and-pin/</guid>
+      <description>Dynamic Binary Instrumentation is the process of monitoring or measuring a binary&amp;rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
+We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.
+ Instrumentation Code The technique requires injecting Instrumentation Code into a running binary.</description>
     </item>
     
   </channel>

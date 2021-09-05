@@ -1,7 +1,7 @@
 ---
 author:
   name: "hexterisk"
-date: 2020-06-12
+date: 2020-07-18
 linktitle: Dynamic Taint Analysis and Pin
 type:
 - post

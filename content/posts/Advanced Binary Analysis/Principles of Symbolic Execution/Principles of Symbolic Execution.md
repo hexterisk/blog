@@ -1,7 +1,7 @@
 ---
 author:
   name: "hexterisk"
-date: 2020-04-20
+date: 2020-05-02
 linktitle: Principles of Symbolic Execution
 type:
 - post

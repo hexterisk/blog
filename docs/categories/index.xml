@@ -26,6 +26,15 @@
     </item>
     
     <item>
+      <title>practical-binary-analysis</title>
+      <link>https://hexterisk.github.io/blog/categories/practical-binary-analysis/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/categories/practical-binary-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Dev-Ops</title>
       <link>https://hexterisk.github.io/blog/categories/dev-ops/</link>
       <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
@@ -35,18 +44,9 @@
     </item>
     
     <item>
-      <title>practical-binary-analysis</title>
-      <link>https://hexterisk.github.io/blog/categories/practical-binary-analysis/</link>
-      <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/categories/practical-binary-analysis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Pentesting</title>
       <link>https://hexterisk.github.io/blog/categories/pentesting/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/categories/pentesting/</guid>
       <description></description>
@@ -55,7 +55,7 @@
     <item>
       <title>advanced-binary-analysis</title>
       <link>https://hexterisk.github.io/blog/categories/advanced-binary-analysis/</link>
-      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/categories/advanced-binary-analysis/</guid>
       <description></description>
@@ -64,7 +64,7 @@
     <item>
       <title>Cryptopals</title>
       <link>https://hexterisk.github.io/blog/categories/cryptopals/</link>
-      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/categories/cryptopals/</guid>
       <description></description>
@@ -73,7 +73,7 @@
     <item>
       <title>basic-binary-analysis</title>
       <link>https://hexterisk.github.io/blog/categories/basic-binary-analysis/</link>
-      <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/categories/basic-binary-analysis/</guid>
       <description></description>

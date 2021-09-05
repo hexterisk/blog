@@ -6,13 +6,13 @@
     <description>Recent content in testing on Pwn the world.</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 09 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://hexterisk.github.io/blog/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://hexterisk.github.io/blog/tags/testing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Serial 2</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/05/09/serial-2/</link>
-      <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
+      <link>https://hexterisk.github.io/blog/posts/2020/05/31/serial-2/</link>
+      <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/05/09/serial-2/</guid>
+      <guid>https://hexterisk.github.io/blog/posts/2020/05/31/serial-2/</guid>
       <description>Name: serial: 2 Date release: 27 Sep 2019 Author: sk4 Series: serial   Initial Discovery VMIP is the VM’s IP Address
 LHIP is the Local Host’s IP Address
 Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.
@@ -24,10 +24,10 @@ Output of netdiscover.
     
     <item>
       <title>Serial 1</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/05/08/serial-1/</link>
-      <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+      <link>https://hexterisk.github.io/blog/posts/2020/05/29/serial-1/</link>
+      <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/05/08/serial-1/</guid>
+      <guid>https://hexterisk.github.io/blog/posts/2020/05/29/serial-1/</guid>
       <description>Name: serial: 1 Date release: 20 Aug 2019 Author: sk4 Series: serial   Initial Discovery VMIP is the VM’s IP Address
 LHIP is the Local Host’s IP Address
 Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.

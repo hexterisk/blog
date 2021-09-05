@@ -1,7 +1,7 @@
 ---
 author:
   name: "hexterisk"
-date: 2020-03-19
+date: 2020-03-29
 linktitle: Simple Code Injection Techniques for ELF
 type:
 - post

@@ -741,110 +741,11 @@ Collection of subsequent printable bytes can be extremely unreliable since any r
         </item>
         
         <item>
-            <title>Dockerise MySQL &#43; phpMyAdmin</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/07/02/dockerise-mysql-phpmyadmin/</link>
-            <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
-            
-            <guid>https://hexterisk.github.io/blog/posts/2020/07/02/dockerise-mysql-phpmyadmin/</guid>
-            <description>A common requirement in a large number of software projects is a relational database with an easy to use management tool. Considering how often a developer needs this, setting it up everytime from scratch can be a drag. However, with the advent of containerisation, we can have a setup off the ground in a couple of minutes, whether it&amp;rsquo;s a development or a production environment.
-The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific.</description>
-            <content type="html"><![CDATA[<p>A common requirement in a large number of software projects is a relational database with an easy to use management tool. Considering how often a developer needs this, setting it up everytime from scratch can be a drag. However, with the advent of containerisation, we can have a setup off the ground in a couple of minutes, whether it&rsquo;s a development or a production environment.</p>
-<p>The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific. MariaDB is a fork of MySQL and is developed separately, and therefore contains a number of incompatibilities when compared to the standard MySQL. However, the fundamental infrastructure of the database and indexing are the same:</p>
-<ul>
-<li>Data and Table definitions are compatible.</li>
-<li>Client protocols, structures, and APIs are identical.</li>
-<li>MySQL connectors will work with MariaDB without modification.</li>
-<li>Command-line tools and commands are mostly the same.</li>
-</ul>
-<p>In fact, MariaDB developers perform a monthly merge of MariaDB&rsquo;s codebase with MySQL&rsquo;s to ensure running compatibility in future versions. Therefore there shouldn&rsquo;t be any trouble if the developer decides to switch the database in the middle of the development cycle.</p>
-<p>The major difference comes in the number of storage engines supported. MariaDB(Supported <a href="https://mariadb.com/kb/en/library/storage-engines/">storage engines</a>) provides support for more storage engines than MySQL(<a href="https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html">storage engines</a>) does. One must understand that it&rsquo;s not a matter of which one supports more engines, it&rsquo;s a matter of which one supports the engine that meets the requirements.</p>
-<p>I&rsquo;ll be using MySQL for the example. At any time, MySQL can be swapped out with MariaDB by simply replacing the container image.</p>
-<p>One thing to note is that user and password can be set up for phpMyAdmin too, but you need not use them if you are not interested in changing any default configurations(mainly authentication).</p>
-<p> </p>
-<h2 id="instant-approach">Instant Approach</h2>
-<p>The approach that leads to instant deployment of the setup is to deploy containers from the command-line itself.</p>
-<p>This is the boiler plate config. More options like mounting volumes can be used as per requirement.</p>
-<h3 id="deploy-database">Deploy Database</h3>
-<p>Run <code>docker run --name DB_CONTAINER_NAME -e MYSQL_ROOT_PASSWORD=PASSWORD -d mysql:latest</code>.</p>
-<ul>
-<li>Pass the desired name for the container to the <code>--name</code> parameter. Replace <em>DB_CONTAINER_NAME</em> with the desired name.</li>
-<li>Pass the password for the root user of the DB to the <code>-e MYSQL_ROOT_PASSWORD</code> parameter. Replace <em>PASSWORD</em> with the desired password.
-<ul>
-<li>Required by the container.</li>
-</ul>
-</li>
-<li>The <code>-d</code> parameter deploys the container in the “detached” mode, that is, in the background.</li>
-<li>The <code>mysql:latest</code> parameter ensures the container is deployed with the image of latest MySQL. Can be replace with MariaDB as per requirement.</li>
-<li>Username and password for any user(root included) cannot be the same, and neither of these can be equal to the root password.</li>
-</ul>
-<p>The container should deploy with no issues whatsoever. Run <code>docker ps</code> to verify.</p>
-<p><img src="/Dockerise_MySQL_+_phpMyAdmin/2020-07-17-200632-screenshot.png" alt="">
-<em>Sample output for database container.</em></p>
-<p>Following the screenshot, I deployed a MySQL container named <em>test_sql_container</em> with the password <em>rootpassword</em>.</p>
-<h3 id="deploy-phpmyadmin">Deploy phpMyAdmin</h3>
-<p>Run <code>docker run --name CONTAINER_NAME -d --link DB_CONTAINER_NAME:db -p PORT:80 phpmyadmin/phpmyadmin</code>.</p>
-<ul>
-<li>Pass the desired name for the container to the <code>--name</code> parameter. Replace <em>CONTAINER_NAME</em> with the desired name.</li>
-<li>Pass the name of the container deployed for DB previously to the <code>--link</code> parameter. Replace <em>DB_CONTAINER_NAME</em> like before.</li>
-<li>Pass the port to bind the container to the <code>-p</code> parameter. Replace <em>PORT</em> with the desired port number.</li>
-<li>The <code>phpmyadmin/phpmyadmin</code> is the docker image as listed on docker hub.</li>
-</ul>
-<p>The container should deploy with no issues whatsoever. Run <code>docker ps</code> to verify.</p>
-<p><img src="/Dockerise_MySQL_+_phpMyAdmin/2020-07-17-200743-screenshot.png" alt="">
-<em>Sample output for database and management tool containers.</em></p>
-<p>Following the screenshot, I deployed a phpMyAdmin container named <em>test_myadmin_container</em> linked to a database container named <em>test_sql_container</em> attached to port <em>8081</em>.</p>
-<p>Login to phpMyAdmin page on <code>localhost:PORT</code> with <code>root:PASSWORD</code>(username: root and password: PASSWORD), where <em>PORT</em> is the port phpMyAdmin is bound to in the second stage, and the <em>PASSWORD</em> is the root password set in the first stage.</p>
-<p>According to the commands I entered (following the screenshots), I can access the phpMyAdmin dashboard on <code>localhost:8081</code> and I can login using the credentials <code>root:rootpassword</code>.</p>
-<p>DISCLAIMER: These containers are ephemeral and will not save any state since no volumes have been mounted. Any changes made will be lost when the container are closed. Checkout the documentation to see <a href="https://docs.docker.com/storage/volumes/">how to mount volumes</a> if you&rsquo;re not familiar with it.</p>
-<p> </p>
-<h2 id="composed-approach">Composed Approach</h2>
-<p>This approach involves writing a docker-compose file. The content will be as follows.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.7&#34;</span>
-<span style="color:#f92672">services</span>:
-
-  <span style="color:#f92672">db-server</span>:
-    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mysql:latest</span>
-    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">test_sql_container</span>
-    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-    <span style="color:#f92672">environment</span>:
-      <span style="color:#f92672">MYSQL_ROOT_PASSWORD</span>: <span style="color:#ae81ff">secret</span>
-    <span style="color:#f92672">ports</span>:
-      - <span style="color:#e6db74">&#34;3306:3306&#34;</span>
-    
-  <span style="color:#f92672">phpmyadmin</span>:
-    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">phpmyadmin/phpmyadmin</span>
-    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">test_myadmin_container</span>
-    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-    <span style="color:#f92672">environment</span>:
-      <span style="color:#f92672">PMA_HOST</span>: <span style="color:#ae81ff">db-server</span>
-    <span style="color:#f92672">links</span>:
-      - <span style="color:#ae81ff">db-server</span>
-    <span style="color:#f92672">ports</span>:
-      - <span style="color:#e6db74">&#34;8081:80&#34;</span>
-</code></pre></div><p>Apart from the common parameters such as the <code>image</code> and <code>container_name</code>, following things should be noticed.</p>
-<p>For the database container:</p>
-<ul>
-<li><code>MYSQL_ROOT_PASSWORD</code> parameter can not be given the value “root” for password.</li>
-<li>Username and password for any user(root included) cannot be the same, and neither of these can be equal to the root password.</li>
-</ul>
-<p>For the management panel container:</p>
-<ul>
-<li>An environment variable for <code>PMA_HOST</code> has to be set to the name of the database service(<em>db-server</em> in the file). It defines the address/host name of the database server.</li>
-<li>The database service needs to be explicitly linked to the management panel container using the parameter <code>links</code>.</li>
-</ul>
-<p>Run <code>docker-compose up -d</code> to deploy the containers based on the docker-compose file.</p>
-<p><img src="/Dockerise_MySQL_+_phpMyAdmin/2020-07-17-213248-screenshot.png" alt="">
-<em>Sample output.</em></p>
-<p>The containers have been deployed as follows. Modifications to the docker-compose file can be made as per requirement, use the sample file above to maintain consistency so that the right parameters receive the right</p>
-]]></content>
-        </item>
-        
-        <item>
             <title>Dynamic Taint Analysis and Pin</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/06/12/dynamic-taint-analysis-and-pin/</link>
-            <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/07/18/dynamic-taint-analysis-and-pin/</link>
+            <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/06/12/dynamic-taint-analysis-and-pin/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/07/18/dynamic-taint-analysis-and-pin/</guid>
             <description>Dynamic Taint Analysis is a technique used to discover what part of memory or register are controllable by the some data we are interested, such as the user input, at a given program state. This is done by marking the interested data. There on after, any piece of data that comes in contact with the tainted data by any means, like getting computed from the tainted data, is tainted too, thus spreading the taint throughout the execution.</description>
             <content type="html"><![CDATA[<p><strong>Dynamic Taint Analysis</strong> is a technique used to discover what part of memory or register are controllable by the some data we are interested, such as the user input, at a given program state. This is done by marking the interested data. There on after, any piece of data that comes in contact with the tainted data by any means, like getting computed from the tainted data, is tainted too, thus spreading the taint throughout the execution.</p>
 <p><img src="/Dynamic_Taint_Analysis_and_Pin/image.png" alt="">
@@ -1091,10 +992,10 @@ VOID <span style="color:#a6e22e">Syscall_entry</span>(THREADID thread_id, CONTEX
         
         <item>
             <title>Dynamic Binary Instrumentation and Pin</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/06/03/dynamic-binary-instrumentation-and-pin/</link>
-            <pubDate>Wed, 03 Jun 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/07/10/dynamic-binary-instrumentation-and-pin/</link>
+            <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/06/03/dynamic-binary-instrumentation-and-pin/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/07/10/dynamic-binary-instrumentation-and-pin/</guid>
             <description>Dynamic Binary Instrumentation is the process of monitoring or measuring a binary&amp;rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
 We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.
  Instrumentation Code The technique requires injecting Instrumentation Code into a running binary.</description>
@@ -1516,11 +1417,110 @@ Iterations: <span style="color:#ae81ff">250</span>
         </item>
         
         <item>
-            <title>Source Code Instrumentation and LLVM</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/05/26/source-code-instrumentation-and-llvm/</link>
-            <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+            <title>Dockerise MySQL &#43; phpMyAdmin</title>
+            <link>https://hexterisk.github.io/blog/posts/2020/07/02/dockerise-mysql-phpmyadmin/</link>
+            <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/05/26/source-code-instrumentation-and-llvm/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/07/02/dockerise-mysql-phpmyadmin/</guid>
+            <description>A common requirement in a large number of software projects is a relational database with an easy to use management tool. Considering how often a developer needs this, setting it up everytime from scratch can be a drag. However, with the advent of containerisation, we can have a setup off the ground in a couple of minutes, whether it&amp;rsquo;s a development or a production environment.
+The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific.</description>
+            <content type="html"><![CDATA[<p>A common requirement in a large number of software projects is a relational database with an easy to use management tool. Considering how often a developer needs this, setting it up everytime from scratch can be a drag. However, with the advent of containerisation, we can have a setup off the ground in a couple of minutes, whether it&rsquo;s a development or a production environment.</p>
+<p>The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific. MariaDB is a fork of MySQL and is developed separately, and therefore contains a number of incompatibilities when compared to the standard MySQL. However, the fundamental infrastructure of the database and indexing are the same:</p>
+<ul>
+<li>Data and Table definitions are compatible.</li>
+<li>Client protocols, structures, and APIs are identical.</li>
+<li>MySQL connectors will work with MariaDB without modification.</li>
+<li>Command-line tools and commands are mostly the same.</li>
+</ul>
+<p>In fact, MariaDB developers perform a monthly merge of MariaDB&rsquo;s codebase with MySQL&rsquo;s to ensure running compatibility in future versions. Therefore there shouldn&rsquo;t be any trouble if the developer decides to switch the database in the middle of the development cycle.</p>
+<p>The major difference comes in the number of storage engines supported. MariaDB(Supported <a href="https://mariadb.com/kb/en/library/storage-engines/">storage engines</a>) provides support for more storage engines than MySQL(<a href="https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html">storage engines</a>) does. One must understand that it&rsquo;s not a matter of which one supports more engines, it&rsquo;s a matter of which one supports the engine that meets the requirements.</p>
+<p>I&rsquo;ll be using MySQL for the example. At any time, MySQL can be swapped out with MariaDB by simply replacing the container image.</p>
+<p>One thing to note is that user and password can be set up for phpMyAdmin too, but you need not use them if you are not interested in changing any default configurations(mainly authentication).</p>
+<p> </p>
+<h2 id="instant-approach">Instant Approach</h2>
+<p>The approach that leads to instant deployment of the setup is to deploy containers from the command-line itself.</p>
+<p>This is the boiler plate config. More options like mounting volumes can be used as per requirement.</p>
+<h3 id="deploy-database">Deploy Database</h3>
+<p>Run <code>docker run --name DB_CONTAINER_NAME -e MYSQL_ROOT_PASSWORD=PASSWORD -d mysql:latest</code>.</p>
+<ul>
+<li>Pass the desired name for the container to the <code>--name</code> parameter. Replace <em>DB_CONTAINER_NAME</em> with the desired name.</li>
+<li>Pass the password for the root user of the DB to the <code>-e MYSQL_ROOT_PASSWORD</code> parameter. Replace <em>PASSWORD</em> with the desired password.
+<ul>
+<li>Required by the container.</li>
+</ul>
+</li>
+<li>The <code>-d</code> parameter deploys the container in the “detached” mode, that is, in the background.</li>
+<li>The <code>mysql:latest</code> parameter ensures the container is deployed with the image of latest MySQL. Can be replace with MariaDB as per requirement.</li>
+<li>Username and password for any user(root included) cannot be the same, and neither of these can be equal to the root password.</li>
+</ul>
+<p>The container should deploy with no issues whatsoever. Run <code>docker ps</code> to verify.</p>
+<p><img src="/Dockerise_MySQL_+_phpMyAdmin/2020-07-17-200632-screenshot.png" alt="">
+<em>Sample output for database container.</em></p>
+<p>Following the screenshot, I deployed a MySQL container named <em>test_sql_container</em> with the password <em>rootpassword</em>.</p>
+<h3 id="deploy-phpmyadmin">Deploy phpMyAdmin</h3>
+<p>Run <code>docker run --name CONTAINER_NAME -d --link DB_CONTAINER_NAME:db -p PORT:80 phpmyadmin/phpmyadmin</code>.</p>
+<ul>
+<li>Pass the desired name for the container to the <code>--name</code> parameter. Replace <em>CONTAINER_NAME</em> with the desired name.</li>
+<li>Pass the name of the container deployed for DB previously to the <code>--link</code> parameter. Replace <em>DB_CONTAINER_NAME</em> like before.</li>
+<li>Pass the port to bind the container to the <code>-p</code> parameter. Replace <em>PORT</em> with the desired port number.</li>
+<li>The <code>phpmyadmin/phpmyadmin</code> is the docker image as listed on docker hub.</li>
+</ul>
+<p>The container should deploy with no issues whatsoever. Run <code>docker ps</code> to verify.</p>
+<p><img src="/Dockerise_MySQL_+_phpMyAdmin/2020-07-17-200743-screenshot.png" alt="">
+<em>Sample output for database and management tool containers.</em></p>
+<p>Following the screenshot, I deployed a phpMyAdmin container named <em>test_myadmin_container</em> linked to a database container named <em>test_sql_container</em> attached to port <em>8081</em>.</p>
+<p>Login to phpMyAdmin page on <code>localhost:PORT</code> with <code>root:PASSWORD</code>(username: root and password: PASSWORD), where <em>PORT</em> is the port phpMyAdmin is bound to in the second stage, and the <em>PASSWORD</em> is the root password set in the first stage.</p>
+<p>According to the commands I entered (following the screenshots), I can access the phpMyAdmin dashboard on <code>localhost:8081</code> and I can login using the credentials <code>root:rootpassword</code>.</p>
+<p>DISCLAIMER: These containers are ephemeral and will not save any state since no volumes have been mounted. Any changes made will be lost when the container are closed. Checkout the documentation to see <a href="https://docs.docker.com/storage/volumes/">how to mount volumes</a> if you&rsquo;re not familiar with it.</p>
+<p> </p>
+<h2 id="composed-approach">Composed Approach</h2>
+<p>This approach involves writing a docker-compose file. The content will be as follows.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.7&#34;</span>
+<span style="color:#f92672">services</span>:
+
+  <span style="color:#f92672">db-server</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mysql:latest</span>
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">test_sql_container</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+    <span style="color:#f92672">environment</span>:
+      <span style="color:#f92672">MYSQL_ROOT_PASSWORD</span>: <span style="color:#ae81ff">secret</span>
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#e6db74">&#34;3306:3306&#34;</span>
+    
+  <span style="color:#f92672">phpmyadmin</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">phpmyadmin/phpmyadmin</span>
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">test_myadmin_container</span>
+    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+    <span style="color:#f92672">environment</span>:
+      <span style="color:#f92672">PMA_HOST</span>: <span style="color:#ae81ff">db-server</span>
+    <span style="color:#f92672">links</span>:
+      - <span style="color:#ae81ff">db-server</span>
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#e6db74">&#34;8081:80&#34;</span>
+</code></pre></div><p>Apart from the common parameters such as the <code>image</code> and <code>container_name</code>, following things should be noticed.</p>
+<p>For the database container:</p>
+<ul>
+<li><code>MYSQL_ROOT_PASSWORD</code> parameter can not be given the value “root” for password.</li>
+<li>Username and password for any user(root included) cannot be the same, and neither of these can be equal to the root password.</li>
+</ul>
+<p>For the management panel container:</p>
+<ul>
+<li>An environment variable for <code>PMA_HOST</code> has to be set to the name of the database service(<em>db-server</em> in the file). It defines the address/host name of the database server.</li>
+<li>The database service needs to be explicitly linked to the management panel container using the parameter <code>links</code>.</li>
+</ul>
+<p>Run <code>docker-compose up -d</code> to deploy the containers based on the docker-compose file.</p>
+<p><img src="/Dockerise_MySQL_+_phpMyAdmin/2020-07-17-213248-screenshot.png" alt="">
+<em>Sample output.</em></p>
+<p>The containers have been deployed as follows. Modifications to the docker-compose file can be made as per requirement, use the sample file above to maintain consistency so that the right parameters receive the right</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Source Code Instrumentation and LLVM</title>
+            <link>https://hexterisk.github.io/blog/posts/2020/06/27/source-code-instrumentation-and-llvm/</link>
+            <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://hexterisk.github.io/blog/posts/2020/06/27/source-code-instrumentation-and-llvm/</guid>
             <description>Source Code Instrumentation adds specific code meant for instrumentation/analysis, called Instrumentation Code, to the source files of the program under consideration. The source files are then compiled and executed. Since the instrumentation code is integrated into the binary itself, the output from the execution includes the dump of the instrumentation code which can then be used for further analysis and component testing.
  Intermediate Representations Representation of a program in a state that lies between the source code and the compiled binary(specifically, the assembly code).</description>
             <content type="html"><![CDATA[<p><strong>Source Code Instrumentation</strong> adds specific code meant for instrumentation/analysis, called <strong>Instrumentation Code</strong>, to the source files of the program under consideration. The source files are then compiled and executed. Since the instrumentation code is integrated into the binary itself, the output from the execution includes the dump of the instrumentation code which can then be used for further analysis and component testing.</p>
@@ -2062,10 +2062,10 @@ Function Name: _GLOBAL__sub_I_calc.cpp
         
         <item>
             <title>Symbolic Execution and Angr</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/05/21/symbolic-execution-and-angr/</link>
-            <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/06/16/symbolic-execution-and-angr/</link>
+            <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/05/21/symbolic-execution-and-angr/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/06/16/symbolic-execution-and-angr/</guid>
             <description>Symbolic Execution is mainly focused on converting a program made up of a concrete set of instructions into an equation-like format. This is achieved with two core components:
  Symbols Different values in a program(such as the user input) are substituted with Symbols(variables or placeholders). These symbols pertain to a domain full of values, allowing us to explore the program in a much more open form, basically “walking through the program” with a domain full of values(handled by any one of the constraint solving backends like Z3) instead of walking a fixed path due to a fixed hard-coded value/input.</description>
             <content type="html"><![CDATA[<p><strong>Symbolic Execution</strong> is mainly focused on converting a program made up of a concrete set of instructions into an equation-like format. This is achieved with two core components:</p>
@@ -2324,10 +2324,10 @@ Function Name: _GLOBAL__sub_I_calc.cpp
         
         <item>
             <title>Constraint Solvers and Z3</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/05/15/constraint-solvers-and-z3/</link>
-            <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/06/05/constraint-solvers-and-z3/</link>
+            <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/05/15/constraint-solvers-and-z3/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/06/05/constraint-solvers-and-z3/</guid>
             <description>A constraint solver must be versatile, that is, it should be able to act as an:
  Interpreter: Given the input, solve for the output of the equation. Inverter: Given the output, solve for the input of the equation. Synthesizer: Act as both Interpreter and Inverter.   Formulating Programs Assume a formula 𝑆ₚ(𝑥, 𝑦) which holds if and only if program P(x) outputs value y such that:
 Program: f(𝑥) { return 𝑥 + 𝑥 }</description>
@@ -2464,10 +2464,10 @@ Program: f(𝑥) { return 𝑥 + 𝑥 }</description>
         
         <item>
             <title>Serial 2</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/05/09/serial-2/</link>
-            <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/05/31/serial-2/</link>
+            <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/05/09/serial-2/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/05/31/serial-2/</guid>
             <description>Name: serial: 2 Date release: 27 Sep 2019 Author: sk4 Series: serial   Initial Discovery VMIP is the VM’s IP Address
 LHIP is the Local Host’s IP Address
 Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.
@@ -2785,10 +2785,10 @@ loop <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x4009c9</
         
         <item>
             <title>Serial 1</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/05/08/serial-1/</link>
-            <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/05/29/serial-1/</link>
+            <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/05/08/serial-1/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/05/29/serial-1/</guid>
             <description>Name: serial: 1 Date release: 20 Aug 2019 Author: sk4 Series: serial   Initial Discovery VMIP is the VM’s IP Address
 LHIP is the Local Host’s IP Address
 Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.
@@ -2943,10 +2943,10 @@ print(base64<span style="color:#f92672">.</span>b64decode(<span style="color:#e6
         
         <item>
             <title>Taint Analysis</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/05/03/taint-analysis/</link>
-            <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/05/23/taint-analysis/</link>
+            <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/05/03/taint-analysis/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/05/23/taint-analysis/</guid>
             <description>Taint Analysis is a program analysis technique that allows you to determine the influence that a selected program state has on other parts of the program state. Taint any data that a program receives from the network, track that data, and raise an alert if it affects the program counter. If an operation uses the value of some tainted object, say X, to derive a value for another, say Y, then object Y becomes tainted.</description>
             <content type="html"><![CDATA[<p><strong>Taint Analysis</strong> is a program analysis technique that allows you to determine the influence that a selected program state has on other parts of the program state. Taint any data that a program receives from the network, track that data, and raise an alert if it affects the program counter. If an operation uses the value of some tainted object, say <em>X</em>, to derive a value for another, say <em>Y</em>, then object <em>Y</em> becomes tainted. Object <em>X</em> tainted the object <em>Y</em>. Taint Analysis can be classified into two types.</p>
 <p> </p>
@@ -3018,10 +3018,10 @@ print(base64<span style="color:#f92672">.</span>b64decode(<span style="color:#e6
         
         <item>
             <title>Binary Obfuscation</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/04/28/binary-obfuscation/</link>
-            <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/05/14/binary-obfuscation/</link>
+            <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/04/28/binary-obfuscation/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/05/14/binary-obfuscation/</guid>
             <description>The main aim of Binary Obfuscation is to hinder the process of static analysis of a binary. Renaming the symbols(variables and functions) of a binary implies that the clues as to what data a variable holds or what task a function performs that could be obtained from their names, are lost. This makes it a little harder for the analysts to keep a track of all the symbols without documenting them.</description>
             <content type="html"><![CDATA[<p>The main aim of <strong>Binary Obfuscation</strong> is to hinder the process of static analysis of a binary. </p>
 <p>Renaming the <strong>symbols</strong>(variables and functions) of a binary implies that the clues as to what data a variable holds or what task a function performs that could be obtained from their names, are lost. This makes it a little harder for the analysts to keep a track of all the symbols without documenting them. </p>
@@ -3066,10 +3066,10 @@ print(base64<span style="color:#f92672">.</span>b64decode(<span style="color:#e6
         
         <item>
             <title>Binary Instrumentation</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/04/25/binary-instrumentation/</link>
-            <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/05/10/binary-instrumentation/</link>
+            <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/04/25/binary-instrumentation/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/05/10/binary-instrumentation/</guid>
             <description>Inserting new code at any point in an existing binary to observe or modify the binary’s behavior in some way is called instrumenting the binary. The point where you add new code is called the instrumentation point, and the added code is called instrumentation code.
 Tradeoffs of Dynamic and Static Binary Instrumentation.
  Static Binary Instrumentation Static Binary Instrumentation works by disassembling a binary and then adding instrumentation code where needed and storing the updated binary permanently on disk.</description>
@@ -3135,10 +3135,10 @@ Tradeoffs of Dynamic and Static Binary Instrumentation.
         
         <item>
             <title>Principles of Symbolic Execution</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/04/20/principles-of-symbolic-execution/</link>
-            <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/05/02/principles-of-symbolic-execution/</link>
+            <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/04/20/principles-of-symbolic-execution/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/05/02/principles-of-symbolic-execution/</guid>
             <description>Symbolic Execution, or symbex, is a software analysis technique that expresses program state in terms of logical formulas that you can automatically reason about to answer complex questions about a program’s behavior. Can automatically increase the code coverage of dynamic analyses by generating new inputs that lead to unexplored program paths. Apply it sparingly and carefully because of scalability issues.
  Symbex executes (or emulates) an application with symbolic values.  Symbolic values represent a domain covering possible concrete values, represented by symbols like φ.</description>
             <content type="html"><![CDATA[<p><strong>Symbolic Execution</strong>, or <strong>symbex</strong>, is a software analysis technique that expresses program state in terms of logical formulas that you can automatically reason about to answer complex questions about a program’s behavior. Can automatically increase the code coverage of dynamic analyses by generating new inputs that lead to unexplored program paths. Apply it sparingly and carefully because of scalability issues.</p>
@@ -3297,10 +3297,10 @@ and more.</li>
         
         <item>
             <title>Set 6</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/04/10/set-6/</link>
-            <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/04/25/set-6/</link>
+            <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/04/10/set-6/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/04/25/set-6/</guid>
             <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
  Challenge 41: Implement unpadded message recovery oracle Link
  Nate Lawson says we should stop calling it &amp;ldquo;RSA padding&amp;rdquo; and start calling it &amp;ldquo;RSA armoring&amp;rdquo;. Here&amp;rsquo;s why.
@@ -4242,10 +4242,10 @@ recovered_plaintext <span style="color:#f92672">=</span> padding_oracle_attack(c
         
         <item>
             <title>Set 5</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/04/02/set-5/</link>
-            <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/04/18/set-5/</link>
+            <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/04/02/set-5/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/04/18/set-5/</guid>
             <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
 Challenge 33: Implement Diffie-Hellman Link
  For one of the most important algorithms in cryptography this exercise couldn&amp;rsquo;t be a whole lot easier.
@@ -5210,10 +5210,10 @@ RSA_Broadcast_Attack(message<span style="color:#f92672">.</span>encode(), RSA(<s
         
         <item>
             <title>Set 4</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/27/set-4/</link>
-            <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/04/14/set-4/</link>
+            <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/27/set-4/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/04/14/set-4/</guid>
             <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
 Challenge 25: Break &amp;ldquo;random access read/write&amp;rdquo; AES CTR Link
  Back to CTR. Encrypt the recovered plaintext from this file (the ECB exercise) under CTR with a random key (for this exercise the key should be unknown to you, but hold on to it).
@@ -6006,10 +6006,10 @@ response <span style="color:#f92672">=</span> app<span style="color:#f92672">.</
         
         <item>
             <title>Set 3</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/23/set-3/</link>
-            <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/04/09/set-3/</link>
+            <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/23/set-3/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/04/09/set-3/</guid>
             <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
  Challenge 17: The CBC padding oracle Link
  This is the best-known attack on modern block-cipher cryptography.
@@ -6724,10 +6724,10 @@ deciphered_bytes <span style="color:#f92672">=</span> MT19937_CTR(cipher_bytes, 
         
         <item>
             <title>Set 2</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/21/set-2/</link>
-            <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/04/05/set-2/</link>
+            <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/21/set-2/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/04/05/set-2/</guid>
             <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
  Challenge 9: Implement PKCS#7 padding Link
  A block cipher transforms a fixed-sized block (usually 8 or 16 bytes) of plaintext into ciphertext. But we almost never want to transform a single block; we encrypt irregularly-sized messages.
@@ -7496,10 +7496,10 @@ Number of bytes of padding required:  7</p>
         
         <item>
             <title>Set 1</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/20/set-1/</link>
-            <pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/04/02/set-1/</link>
+            <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/20/set-1/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/04/02/set-1/</guid>
             <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
 Challenge 1: Convert hex to base64 Link
  The string:
@@ -8046,10 +8046,10 @@ ECB ciphered text index: 132/205</p>
         
         <item>
             <title>Simple Code Injection Techniques for ELF</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/19/simple-code-injection-techniques-for-elf/</link>
-            <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/03/29/simple-code-injection-techniques-for-elf/</link>
+            <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/19/simple-code-injection-techniques-for-elf/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/03/29/simple-code-injection-techniques-for-elf/</guid>
             <description>Bare-Metal Binary Modification  Modify an existing binary is by directly editing the bytes of a binary file in hexadecimal format, using a program like hexedit.  Use a disassembler to identify the code or data bytes to be changed and then use a hex editor to make the changes. Advantage: Simple and requires only basic tools. Any padding bytes, dead code (such as unused functions), or unused data, can be overwritten with something new.</description>
             <content type="html"><![CDATA[<h2 id="bare-metal-binary-modification">Bare-Metal Binary Modification</h2>
 <ul>
@@ -8100,10 +8100,10 @@ ECB ciphered text index: 132/205</p>
         
         <item>
             <title>Disassembly and Binary Analysis Fundamentals</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/16/disassembly-and-binary-analysis-fundamentals/</link>
-            <pubDate>Mon, 16 Mar 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/03/23/disassembly-and-binary-analysis-fundamentals/</link>
+            <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/16/disassembly-and-binary-analysis-fundamentals/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/03/23/disassembly-and-binary-analysis-fundamentals/</guid>
             <description>Static Disassembly When people say disassembly, they usually mean static disassembly, which involves extracting the instructions from a binary without executing it.
 Linear Disassembly Disassembly desynchronization due to inline data interpreted as code. The instruction where the disassembly resynchronizes is shaded gray.
  It iterates through all code segments in a binary, decoding all bytes consecutively and parsing them into a list of instructions. Many simple disassemblers, including objdump, use this approach.</description>
@@ -8338,10 +8338,10 @@ x = x + 10 					# x ∈ [15,∞]</p>
         
         <item>
             <title>Trace Analysis</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/13/trace-analysis/</link>
-            <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/03/18/trace-analysis/</link>
+            <pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/13/trace-analysis/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/03/18/trace-analysis/</guid>
             <description>System Call Trace strace can be used to investigate system call behavior. In some cases, you may want to attach strace to a running process. To do this, you need to use the -p pid option, where pid is the process ID of the process you want to attach to.
 $ strace ./ctf show_me_the_flag ➊ execve(&amp;#34;./ctf&amp;#34;, [&amp;#34;./ctf&amp;#34;, &amp;#34;show_me_the_flag&amp;#34;], [/* 73 vars */]) = 0 brk(NULL) = 0x1053000 access(&amp;#34;/etc/ld.so.nohwcap&amp;#34;, F_OK) = -1 ENOENT (No such file or directory) mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f703477e000 access(&amp;#34;/etc/ld.</description>
             <content type="html"><![CDATA[<h2 id="system-call-trace">System Call Trace</h2>
@@ -8477,10 +8477,10 @@ std<span style="color:#f92672">::</span>char_traits<span style="color:#f92672">&
         
         <item>
             <title>Stack and it&#39;s Frames</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/10/stack-and-its-frames/</link>
-            <pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/03/13/stack-and-its-frames/</link>
+            <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/10/stack-and-its-frames/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/03/13/stack-and-its-frames/</guid>
             <description>Stack is a data structure, and means exactly what it&amp;rsquo;s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a LIFO(last in, first out) structure. Memory for functions, local variables, and flow control is stored in the stack.
  Stack Layout The stack grows from higher addresses to lower addresses.</description>
             <content type="html"><![CDATA[<p><strong>Stack</strong> is a data structure, and means exactly what it&rsquo;s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a <strong>LIFO</strong>(last in, first out) structure. </p>
@@ -8569,10 +8569,10 @@ std<span style="color:#f92672">::</span>char_traits<span style="color:#f92672">&
         
         <item>
             <title>The PE Format</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/06/the-pe-format/</link>
-            <pubDate>Fri, 06 Mar 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/03/09/the-pe-format/</link>
+            <pubDate>Mon, 09 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/06/the-pe-format/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/03/09/the-pe-format/</guid>
             <description>PE is a modified version of the Common Object File Format (COFF), thus also referred to as PE/COFF. The 64-bit version of PE is called PE32+. The structure is defined in WinNT.h, which is included in the Microsoft Windows Software Developer Kit.  PE32+ binary structure.
  An MS-DOS header is included for backward compatibility. Thus it can also be interpreted as an MS-DOS binary. The main function of the MS-DOS header is to describe how to load and execute an MS-DOS stub, which comes right after the MSDOS header.</description>
             <content type="html"><![CDATA[<ul>
@@ -8632,10 +8632,10 @@ std<span style="color:#f92672">::</span>char_traits<span style="color:#f92672">&
         
         <item>
             <title>The ELF Format</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/03/the-elf-format/</link>
-            <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/03/04/the-elf-format/</link>
+            <pubDate>Wed, 04 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/03/the-elf-format/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/03/04/the-elf-format/</guid>
             <description>ELF binaries really consist of only four types of components:  Executable Header Program Headers (optional) Sections Section Headers, one per section (optional)  64-bit ELF binary structure.
  Executable Header  Every ELF file starts with an executable header, which is just a structured series of bytes telling you that it’s an ELF file and other metadata. Format of executable header: /usr/include/elf.h  typedef struct { unsigned char e_ident[16]; /* Magic number and other info */ uint16_t e_type; /* Object file type */ uint16_t e_machine; /* Architecture */ uint32_t e_version; /* Object file version */ uint64_t e_entry; /* Entry point virtual address */ uint64_t e_phoff; /* Program header table file offset */ uint64_t e_shoff; /* Section header table file offset */ uint32_t e_flags; /* Processor-specific flags */ uint16_t e_ehsize; /* ELF header size in bytes */ uint16_t e_phentsize; /* Program header table entry size */ uint16_t e_phnum; /* Program header table entry count */ uint16_t e_shentsize; /* Section header table entry size */ uint16_t e_shnum; /* Section header table entry count */ uint16_t e_shstrndx; /* Section header string table index */ } Elf64_Ehdr;  Section Headers  The code and data in an ELF binary are logically divided into contiguous non-overlapping chunks called Sections.</description>
             <content type="html"><![CDATA[<p>ELF binaries really consist of only four types of components: </p>
