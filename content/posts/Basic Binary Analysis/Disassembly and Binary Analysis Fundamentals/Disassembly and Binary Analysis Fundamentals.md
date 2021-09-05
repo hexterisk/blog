@@ -32,6 +32,8 @@ _Disassembly desynchronization due to inline data interpreted as code. The instr
     *   To maximize code coverage, recursive disassemblers typically assume that the bytes directly after a call instruction must also be disassembled since they are the most likely target of an eventual ret. Additionally, disassemblers assume that both edges of a conditional jump target valid instructions. Both of these assumptions may be violated in rare cases, such as in deliberately obfuscated binaries.
 *   The downside of this approach is that not all control flow is so easy to follow. For instance, it’s often difficult, if not impossible, to statically figure out the possible targets of indirect jumps or calls. As a result, the disassembler may miss blocks of code, or even entire functions, targeted by indirect jumps or calls, unless it uses special heuristics to resolve the control flow. For example, jump tables make recursive disassembly more difficult because they use **indirect control flow**.
 
+&nbsp;
+
 ## Dynamic Disassembly
 
 Dynamic disassembly, more commonly known as **execution tracing**, logs each executed instruction as the binary runs.
@@ -53,6 +55,8 @@ Tools that try to automatically generate inputs to cover new code paths in a giv
     *   Basically initializing variables with symbolic values like α instead of numeric values and then computing **path constraints.** which are just restrictions on the concrete values that the symbols could take, given the branches that have been traversed so far.
 *   The key point is that given the list of path constraints, you can check whether there’s any concrete input that would satisfy all these constraints. There are special programs, called **constraint solvers**, that check, given a list of constraints, whether there’s any way to satisfy these constraints.
 *   Helps with code coverage problem by adjusting path constraints for the solver.
+
+&nbsp;
 
 ## Structuring Disassembled Code and Data
 
@@ -122,6 +126,8 @@ _CFGs and connections between functions (left) and the corresponding call graph 
 ```
 
 As you can see, the single add instruction results in 10 VEX instructions, plus some metadata. First, there’s some metadata that says this is an **IR super block** (**IRSB**) ➊ corresponding to one machine instruction. The IRSB contains four temporary values labeled t0–t3, all of type **Ity\_I64** (64-bit integer) ➋. Then there’s an **IMark** ➌, which is metadata stating the machine instruction’s address and length, among other things. Next come the actual IR instructions modeling the add. First, there are two GET instructions that fetch 64-bit values from rax and rdx into temporary stores t2 and t1, respectively ➍. Note that, here, rax and rdx are just symbolic names for the parts of VEX’s state used to model these registers—the VEX instructions don’t fetch from the real rax or rdx registers but rather from VEX’s mirror state of those registers. To perform the actual addition, the IR uses VEX’s Add64 instruction, adding the two 64-bit integers t2 and t1 and storing the result in t0 ➎. After the addition, there are some PUT instructions that model the add instruction’s side effects, such as updating the x86 status flags ➏. Then, another PUT stores the result of the addition into VEX’s state representing rax ➐. Finally, the VEX IR models updating the program counter to the next instruction ➑. The **Ijk\_Boring** (**Jump Kind Boring**) ➒ is a control-flow hint that says the add instruction doesn’t affect the control flow in any interesting way; since the add isn’t a branch of any kind, control just “falls through” to the next instruction in memory. In contrast, branch instructions can be marked with hints like **Ijk\_Call** or **Ijk\_Ret** to inform the analysis that a call or return is taking place, for example.
+
+&nbsp;
 
 ## Fundamental Analysis Methods
 
@@ -218,6 +224,8 @@ The use-def chain for y in B2 contains statements 2 and 7. This is because at th
 *   Aims to extract all instructions (or, for source-based analysis, lines of code) that contribute to the values of a chosen set of variables at a certain point in the program (called the **slicing criterion**).
     *   **Backward slicing** searches backward for lines that affect the chosen slicing criterion.
     *   **Forward slicing** starts from a point in the program and then searches forward.
+
+&nbsp;
 
 ## Effects of Compiler Settings on Disassembly
 

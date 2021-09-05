@@ -13,6 +13,7 @@ categories: ["basic-binary-analysis"]
 ---
 
 ## The C Compilation Process
+
 *   Compilation is the process of translating human readable source code into machine code that the processor can execute.
 *   **Binary Code** is the machine code that systems execute.
 *   **Binary Executable Files**, or **Binaries**,  store the executable binary program, that is, the code and data belonging to each program.
@@ -142,6 +143,8 @@ $ ./a.out
 Hello, world!
 ```
 
+&nbsp;
+
 ## Symbols and Stripped Binaries
 
 *   **Symbols** keep track of symbolic names and records which binary code and data correspond to. They provide a mapping from high-level names to address and size. This information is required by linker.
@@ -194,6 +197,8 @@ Num:	Value 				Size 	Type 	Bind 	Vis 		Ndx 	Name
 2: 		0000000000000000 	0 		FUNC 	GLOBAL 	DEFAULT 	UND 	__libc_start_main@GLIBC_2.2.5 (2)
 3: 		0000000000000000 	0 		NOTYPE 	WEAK 	DEFAULT 	UND 	__gmon_start__
 ```
+
+&nbsp;
 
 ## Loading and Executing a Binary
 

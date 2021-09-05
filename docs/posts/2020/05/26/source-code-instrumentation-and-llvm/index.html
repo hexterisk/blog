@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="Source Code Instrumentation adds specific code meant for instrumentation/analysis, called Instrumentation Code, to the source files of the program under consideration. The source files are then compiled and executed. Since the instrumentation code is integrated into the binary itself, the output from the execution includes the dump of the instrumentation code which can then be used for further analysis and component testing.
-Intermediate Representations Representation of a program in a state that lies between the source code and the compiled binary(specifically, the assembly code)." />
+ Intermediate Representations Representation of a program in a state that lies between the source code and the compiled binary(specifically, the assembly code)." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -42,15 +42,15 @@ Intermediate Representations Representation of a program in a state that lies be
 
 <meta itemprop="name" content="Source Code Instrumentation and LLVM">
 <meta itemprop="description" content="Source Code Instrumentation adds specific code meant for instrumentation/analysis, called Instrumentation Code, to the source files of the program under consideration. The source files are then compiled and executed. Since the instrumentation code is integrated into the binary itself, the output from the execution includes the dump of the instrumentation code which can then be used for further analysis and component testing.
-Intermediate Representations Representation of a program in a state that lies between the source code and the compiled binary(specifically, the assembly code)."><meta itemprop="datePublished" content="2020-05-26T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-26T00:00:00&#43;00:00" />
+ Intermediate Representations Representation of a program in a state that lies between the source code and the compiled binary(specifically, the assembly code)."><meta itemprop="datePublished" content="2020-05-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-26T00:00:00+00:00" />
 <meta itemprop="wordCount" content="3471"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="binary,source,instrument,llvm,ir,linear,tuple,stack,three address code," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
 <meta name="twitter:title" content="Source Code Instrumentation and LLVM"/>
 <meta name="twitter:description" content="Source Code Instrumentation adds specific code meant for instrumentation/analysis, called Instrumentation Code, to the source files of the program under consideration. The source files are then compiled and executed. Since the instrumentation code is integrated into the binary itself, the output from the execution includes the dump of the instrumentation code which can then be used for further analysis and component testing.
-Intermediate Representations Representation of a program in a state that lies between the source code and the compiled binary(specifically, the assembly code)."/>
+ Intermediate Representations Representation of a program in a state that lies between the source code and the compiled binary(specifically, the assembly code)."/>
 
 
 
@@ -136,6 +136,7 @@ Intermediate Representations Representation of a program in a state that lies be
 
         <div class="post-content">
             <p><strong>Source Code Instrumentation</strong> adds specific code meant for instrumentation/analysis, called <strong>Instrumentation Code</strong>, to the source files of the program under consideration. The source files are then compiled and executed. Since the instrumentation code is integrated into the binary itself, the output from the execution includes the dump of the instrumentation code which can then be used for further analysis and component testing.</p>
+<p> </p>
 <h2 id="intermediate-representations">Intermediate Representations</h2>
 <p>Representation of a program in a state that lies between the source code and the compiled binary(specifically, the assembly code). Compilers have a stage of intermediate code generation, where they natively generate IR of the source code.</p>
 <p>IR is then used to emit generic assembly code allowing us to use a single universal assembler that can handle the final translation of assembly to machine code for every language. Otherwise, a full native compiler would be required for different languages and different architecture machines.</p>
@@ -323,6 +324,7 @@ next: ...
     
     <span style="color:#75715e">// φ-function will determine which out of the parameters given to us were actually used to get there. So the first time the loop is ran, x1 will have the value of x0 while all the subsequent times, x1 will have the value of x2. Similar for y1.
 </span></code></pre></div><p>The primary benefit of this form is it&rsquo;s ability to simultaneously simplify and improve results of various compiler optimizations just by simplifying properties of the variables.</p>
+<p> </p>
 <h2 id="llvm">LLVM</h2>
 <p><strong>L</strong>ow <strong>L</strong>evel <strong>V</strong>irtual <strong>M</strong>achine is an IR. The main idea behind it was to get an interface to the compilation process so that optimizations to the binary could be applied then itself, rather than using JIT compilers to provide runtime optimizations. This was because these compilations by virtual machines(such as JVM) were online which meant that these optimizations had to be performed every time a certain piece of code ran. Thus, the heavy lifting task of optimization was moved from runtime to compile time.</p>
 <p>Use the following script to setup LLVM.</p>
@@ -529,6 +531,7 @@ attributes <span style="color:#960050;background-color:#1e0010">#</span><span st
 <li>The four load instructions can be seen to dereferences values stored at the given addresses into integer variables.</li>
 <li>The addition is then performed on these integers and the result returned.</li>
 </ul>
+<p> </p>
 <h2 id="instrumentation">Instrumentation</h2>
 <p>We&rsquo;ll create a simple C++ program to instrument. </p>
 <p>Since printing statements is a cliché now, we&rsquo;ll do something different. Let&rsquo;s find loops and predict their number of iterations. It&rsquo;s a rudimentary approach full of loop holes, but works for naïve programs.</p>

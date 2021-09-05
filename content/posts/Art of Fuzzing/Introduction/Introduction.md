@@ -41,6 +41,8 @@ Fuzzing can be resource intensive, while the resources might be constrained. In 
 
 The target could be a binary, a kernel or even a protocol. The concept is versatile and adaptable to all scenarios, as long as it accepts an input.
 
+&nbsp;
+
 ## Bugs
 
 Generally, the types of bugs discovered by a fuzzing process are as follows:

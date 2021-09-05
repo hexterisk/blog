@@ -16,6 +16,8 @@ categories: ["basic-binary-analysis"]
 
 Memory for functions, local variables, and flow control is stored in the stack.
 
+&nbsp;
+
 ## Stack Layout
 
 The stack grows from higher addresses to lower addresses. This behavior can be categorized as _growing downwards_ or _allocation in a top-down manner_. Therefore, top of the stack is actually the lower-most address being used by the stack at that moment.
@@ -91,6 +93,8 @@ The only differences between the architectures x86 and x64 we are concerned with
 
 Since these differences have been tended to more or less, the following material is in reference to the x86 architecture since it's much more elaborate.
 
+&nbsp;
+
 ## Flow of Control:
 
 1.  Arguments are placed on the stack using `push` instructions.
@@ -100,6 +104,8 @@ Since these differences have been tended to more or less, the following material
 5.  Through the use of a Function Epilogue, the stack is restored. `ESP` is adjusted to free the local variables, and `EBP` is restored so that the calling function can address its variables properly.
 6.  The function returns by calling the `ret` instruction. This pops the return address off the stack and into `EIP`, so that the program will continue executing from where the original call was made.
 7.  The stack is adjusted to remove the arguments that were sent, unless they’ll be used again later.
+
+&nbsp;
 
 ## Stack and Frame Analysis
 

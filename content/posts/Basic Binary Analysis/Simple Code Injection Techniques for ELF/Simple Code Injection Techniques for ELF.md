@@ -21,10 +21,14 @@ categories: ["Basic Binary Analysis"]
     *   Works for cases like replacing malware's anti-debugging checks with nop.
     *   **Off-by-one** bugs typically occur in loops when the programmer uses an erroneous loop condition that causes the loop to read or write one too few or one too many bytes.
 
+&nbsp;
+
 ## Modifying Shared Library Behavior Using LD\_PRELOAD
 
 *   **LD\_PRELOAD** is an environment variable influencing the behavior of the dynamic linker. It allows you to specify one or more libraries for the linker to load before any other library, including standard system libraries such as libc.so. If a preloaded library contains a function with the same name as a function in a library loaded later, the first function is the one that will be used at runtime. This allows you to override library functions (even standard library functions like malloc or printf) with your own versions of those functions.
 *   The **dlfcn.h** header is often included when writing libraries for use with LD\_PRELOAD because it provides the **dlsym** function.
+
+&nbsp;
 
 ## Injecting a Code Section
 
@@ -40,6 +44,8 @@ Step ➋ is overwriting one of the .note.\* section headers to turn it into a he
 Step ➌ is where the PT\_NOTE program header is changed by setting p\_type to PT\_LOAD to indicate that the header now describes a loadable segment instead of a PT\_NOTE segment. This causes the loader to load the segment (which encompasses the new .injected section) into memory when the program starts.
 
 Step ➍ is redirecting the entry point (e\_entry field in the ELF executable header), is made to point to an address in the new .injected section, instead of the original entry point, which is usually somewhere in .text. Done only if some code in the .injected section is to be run right at the start of the program.
+
+&nbsp;
 
 ## Calling Injected Code
 

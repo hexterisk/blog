@@ -7,7 +7,7 @@
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="Dynamic Binary Instrumentation is the process of monitoring or measuring a binary&amp;rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
 We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.
-Instrumentation Code The technique requires injecting Instrumentation Code into a running binary." />
+ Instrumentation Code The technique requires injecting Instrumentation Code into a running binary." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -44,8 +44,8 @@ Instrumentation Code The technique requires injecting Instrumentation Code into 
 <meta itemprop="name" content="Dynamic Binary Instrumentation and Pin">
 <meta itemprop="description" content="Dynamic Binary Instrumentation is the process of monitoring or measuring a binary&rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
 We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.
-Instrumentation Code The technique requires injecting Instrumentation Code into a running binary."><meta itemprop="datePublished" content="2020-06-03T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-06-03T00:00:00&#43;00:00" />
+ Instrumentation Code The technique requires injecting Instrumentation Code into a running binary."><meta itemprop="datePublished" content="2020-06-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-06-03T00:00:00+00:00" />
 <meta itemprop="wordCount" content="2548"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="binary,granularity,trace,img,jit,probe,aslr,bbl,debugging," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
@@ -53,7 +53,7 @@ Instrumentation Code The technique requires injecting Instrumentation Code into 
 <meta name="twitter:title" content="Dynamic Binary Instrumentation and Pin"/>
 <meta name="twitter:description" content="Dynamic Binary Instrumentation is the process of monitoring or measuring a binary&rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
 We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.
-Instrumentation Code The technique requires injecting Instrumentation Code into a running binary."/>
+ Instrumentation Code The technique requires injecting Instrumentation Code into a running binary."/>
 
 
 
@@ -140,10 +140,13 @@ Instrumentation Code The technique requires injecting Instrumentation Code into 
         <div class="post-content">
             <p><strong>Dynamic Binary Instrumentation</strong> is the process of monitoring or measuring a binary&rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.</p>
 <p>We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.</p>
+<p> </p>
 <h2 id="instrumentation-code">Instrumentation Code</h2>
 <p>The technique requires injecting <strong>Instrumentation Code</strong> into a running binary. DBI Frameworks introduce a layer between the OS and the application, making this injected code completely transparent to the application we inject it in. We simply add hooks to parts of interest. These hooks intercept the instruction execution and transfers control to the instrumentation code, thus we can observe and modify the instructions of the program being instrumented, as it executes.</p>
+<p> </p>
 <h2 id="code-coverage">Code Coverage</h2>
 <p>High code coverage will most definitely require running the binary a lot of times. Since different types of input will trigger different paths of the binary, this section could particularly benefit from the help of fuzzers.</p>
+<p> </p>
 <h2 id="granularity">Granularity</h2>
 <p>There are different levels at which we can apply instrumentation.</p>
 <h3 id="bbl-basic-block">BBL: Basic Block</h3>
@@ -152,8 +155,10 @@ Instrumentation Code The technique requires injecting Instrumentation Code into 
 <p>Sequence of instructions that is always entered at the top and may have multiple exits. If Pin detects a jump to an instruction in the middle of a trace, it will create a new trace beginning at the target.</p>
 <h3 id="img-image-of-the-binary">IMG: Image of the Binary</h3>
 <p>Image instrumentation lets the Pintool inspect and instrument an entire image, IMG, when it is first loaded. A Pintool can walk the sections(SEC) of the image, the routines(RTN) of a section, and the instructions(INS) of a routine.</p>
+<p> </p>
 <h2 id="performance">Performance</h2>
 <p>The impact/overhead on performance/runtime of the binary is dependent on many factors, but it will most definitely depend on the granularity of instrumentation, as well as the tasks performed by the instrumentation code. The execution will be delayed between each hook, for as long as the instrumentation code does its job.</p>
+<p> </p>
 <h2 id="use-cases">Use cases</h2>
 <ul>
 <li>Profiling for compiler optimization/performance profiling.
@@ -178,6 +183,7 @@ Instrumentation Code The technique requires injecting Instrumentation Code into 
 </ul>
 </li>
 </ul>
+<p> </p>
 <h2 id="pin">Pin</h2>
 <p>Pin is an instrumentation engine created by Intel. It comes packed with a JIT for x86 and x86_64.</p>
 <p><img src="https://hexterisk.github.io/blog/Dynamic_Binary_Instrumentation_and_Pin/image.png" alt="">

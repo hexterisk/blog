@@ -14,6 +14,8 @@ categories: ["Cryptopals"]
 
 Refer to this [repository](https://github.com/hexterisk/cryptopals-solutions) for solution scripts and the IPython Notebook pertaining to the explanations here.
 
+&nbsp;
+
 ### Challenge 9: Implement PKCS#7 padding
 [Link](https://cryptopals.com/sets/2/challenges/9)
 
@@ -63,7 +65,7 @@ test(PKCS7_pad(plaintext.encode(), block_size) == target_bytes)
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
+&nbsp;
 
 ### Challenge 10: Implement CBC mode
 [Link](https://cryptopals.com/sets/2/challenges/10)
@@ -308,7 +310,7 @@ Play that funky music 
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
+&nbsp;
 
 ### Challenge 11: An ECB/CBC detection oracle
 [Link](https://cryptopals.com/sets/2/challenges/11)
@@ -401,7 +403,7 @@ test(True)
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
+&nbsp;
 
 ### Challenge 12: Byte-at-a-time ECB decryption (Simple)
 [Link](https://cryptopals.com/sets/2/challenges/12)
@@ -583,7 +585,7 @@ test(True)
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
+&nbsp;
 
 ### Challenge 13: ECB cut-and-paste
 [Link](https://cryptopals.com/sets/2/challenges/13)
@@ -704,7 +706,7 @@ test(cracked_cipher_plaintext['role'] == 'admin')
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
+&nbsp;
 
 ### Challenge 14: Byte-at-a-time ECB decryption (Harder)
 [Link](https://cryptopals.com/sets/2/challenges/14)
@@ -831,7 +833,7 @@ test(True)
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
+&nbsp;
 
 ### Challenge 15: PKCS#7 padding validation
 [Link](https://cryptopals.com/sets/2/challenges/15)
@@ -862,7 +864,7 @@ test(target_string.encode() == PKCS7_unpad(given_string.encode()))
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
+&nbsp;
 
 ### Challenge 16: CBC bitflipping attacks
 [Link](https://cryptopals.com/sets/2/challenges/16)
@@ -965,10 +967,7 @@ def CBC_bit_flipping(parameter: bytes, keysize: int, encryptor: callable) -> byt
     
     # Padding required to bridge gap between randomstringlength and block.
     padding = 0
-    random_blocks = 0
-
-
-    # Find the prefix length.
+    random_blocks = 0    # Find the prefix length.
     cipher_length = len(encryptor(b'', IV, random_key))
     prefix_length = len(os.path.commonprefix([encryptor(b'AAAA', IV, random_key), encryptor(b'', IV, random_key)]))
     print("Prefix length: ", prefix_length)

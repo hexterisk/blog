@@ -56,8 +56,8 @@ Should produce:
 SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t
 So go ahead and make that happen.
 You&rsquo;ll need to use this code for the rest of the exercises.
- Data, essentially raw bytes/binary (0, 1), can be represented in various forms and formats as required. These representations may be used for simply the presentation of data, or may be required by some protocol so as to prevent misinterpretation of data."><meta itemprop="datePublished" content="2020-03-20T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-20T00:00:00&#43;00:00" />
+ Data, essentially raw bytes/binary (0, 1), can be represented in various forms and formats as required. These representations may be used for simply the presentation of data, or may be required by some protocol so as to prevent misinterpretation of data."><meta itemprop="datePublished" content="2020-03-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-20T00:00:00+00:00" />
 <meta itemprop="wordCount" content="4045"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="Matasano,cryptography,AES,ECB,xor,base64," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
@@ -195,6 +195,7 @@ target_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-2-fixed-xor">Challenge 2: Fixed XOR</h3>
 <p><a href="https://cryptopals.com/sets/1/challenges/2">Link</a></p>
 <blockquote>
@@ -241,6 +242,7 @@ key_byte_string <span style="color:#f92672">=</span> bytes<span style="color:#f9
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-3-single-byte-xor-cipher">Challenge 3: Single-byte XOR cipher</h3>
 <p><a href="https://cryptopals.com/sets/1/challenges/3">Link</a></p>
 <blockquote>
@@ -268,7 +270,7 @@ hex_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
     
     ascii_text_chars <span style="color:#f92672">=</span> list(range(<span style="color:#ae81ff">97</span>, <span style="color:#ae81ff">122</span>)) <span style="color:#f92672">+</span> [<span style="color:#ae81ff">32</span>]
-    best_candidate <span style="color:#f92672">=</span> None
+    best_candidate <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
     
     <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span><span style="color:#f92672">**</span><span style="color:#ae81ff">8</span>): <span style="color:#75715e"># for every possible key</span>
         
@@ -280,7 +282,7 @@ hex_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34
         nb_letters <span style="color:#f92672">=</span> sum([ x <span style="color:#f92672">in</span> ascii_text_chars <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> candidate_message])
         
         <span style="color:#75715e"># if the obtained message has more letters than any other candidate before</span>
-        <span style="color:#66d9ef">if</span> best_candidate <span style="color:#f92672">==</span> None <span style="color:#f92672">or</span> nb_letters <span style="color:#f92672">&gt;</span> best_candidate[<span style="color:#e6db74">&#34;nb_letters&#34;</span>]:
+        <span style="color:#66d9ef">if</span> best_candidate <span style="color:#f92672">==</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">or</span> nb_letters <span style="color:#f92672">&gt;</span> best_candidate[<span style="color:#e6db74">&#34;nb_letters&#34;</span>]:
             <span style="color:#75715e"># store the current key and message as our best candidate so far</span>
             best_candidate <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;message&#34;</span>: candidate_message<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>), <span style="color:#e6db74">&#34;nb_letters&#34;</span>: nb_letters, <span style="color:#e6db74">&#34;key&#34;</span>: candidate_key}
     
@@ -329,11 +331,11 @@ This will help us decrypt some of the letters in the text. We can then recognise
             
     <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#34;score&#34;</span> : max_score, <span style="color:#e6db74">&#34;key&#34;</span> : key, <span style="color:#e6db74">&#34;message&#34;</span> : plaintext}
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">byte_string <span style="color:#f92672">=</span> bytes<span style="color:#f92672">.</span>fromhex(hex_string)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Using scoring technique...&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#34;Using scoring technique...&#34;</span>)
 single_byte_xor_score(byte_string)[<span style="color:#e6db74">&#39;message&#39;</span>]
 </code></pre></div><p>Using scoring technique&hellip;<br>
 &ldquo;Cooking MC&rsquo;s like a pound of bacon&rdquo;</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Using ASCII counting technique...&#34;</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(<span style="color:#e6db74">&#34;Using ASCII counting technique...&#34;</span>)
 single_byte_xor_letters(byte_string)[<span style="color:#e6db74">&#39;message&#39;</span>]
 </code></pre></div><p>Using ASCII counting technique&hellip;<br>
 &ldquo;Cooking MC&rsquo;s like a pound of bacon&rdquo;</p>
@@ -342,6 +344,7 @@ single_byte_xor_letters(byte_string)[<span style="color:#e6db74">&#39;message&#3
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-4-detect-single-character-xor">Challenge 4: Detect single-character XOR</h3>
 <p><a href="https://cryptopals.com/sets/1/challenges/4">Link</a></p>
 <blockquote>
@@ -378,6 +381,7 @@ plaintext
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-5-implement-repeating-key-xor">Challenge 5: Implement repeating-key XOR</h3>
 <p><a href="https://cryptopals.com/sets/1/challenges/5">Link</a></p>
 <blockquote>
@@ -416,6 +420,7 @@ bytekey <span style="color:#f92672">=</span> key<span style="color:#f92672">.</s
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-6-break-repeating-key-xor">Challenge 6: Break repeating-key XOR</h3>
 <p><a href="https://cryptopals.com/sets/1/challenges/6">Link</a></p>
 <blockquote>
@@ -519,7 +524,7 @@ A repeating key means that the letters at a fixed interval will be xored with th
 key
 </code></pre></div><p>&lsquo;Terminator X: Bring the noise&rsquo;</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plaintext <span style="color:#f92672">=</span> repeated_xor(byte_data, key<span style="color:#f92672">.</span>encode())<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)
-<span style="color:#66d9ef">print</span>(plaintext<span style="color:#f92672">.</span>strip(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>))
+print(plaintext<span style="color:#f92672">.</span>strip(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>))
 </code></pre></div><p>I&rsquo;m back and I&rsquo;m ringin&rsquo; the bell 
 A rockin' on the mike while the fly girls yell 
 In ecstasy in the back of me 
@@ -588,12 +593,13 @@ Play that funky music white boy you say it, say it
 Play that funky music A little louder now 
 Play that funky music, white boy Come on, Come on, Come on 
 Play that funky music</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test(True)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test(<span style="color:#66d9ef">True</span>)
 </code></pre></div>
 
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-7-aes-in-ecb-mode">Challenge 7: AES in ECB mode</h3>
 <p><a href="https://cryptopals.com/sets/1/challenges/7">Link</a></p>
 <blockquote>
@@ -634,6 +640,7 @@ byte_text
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-8-detect-aes-in-ecb-mode">Challenge 8: Detect AES in ECB mode</h3>
 <p><a href="https://cryptopals.com/sets/1/challenges/8">Link</a></p>
 <blockquote>
@@ -672,8 +679,8 @@ text_ECB <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&
         max_score <span style="color:#f92672">=</span> score
         text_ECB <span style="color:#f92672">=</span> cipher
         
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Number of repitions: {}&#34;</span><span style="color:#f92672">.</span>format(max_score))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;ECB ciphered text index: {0}/{1}&#34;</span><span style="color:#f92672">.</span>format(ciphertext_list<span style="color:#f92672">.</span>index(text_ECB), len(ciphertext_list)))
+print(<span style="color:#e6db74">&#34;Number of repitions: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(max_score))
+print(<span style="color:#e6db74">&#34;ECB ciphered text index: </span><span style="color:#e6db74">{0}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{1}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(ciphertext_list<span style="color:#f92672">.</span>index(text_ECB), len(ciphertext_list)))
 </code></pre></div><p>Number of repitions: 3
 ECB ciphered text index: 132/205</p>
 

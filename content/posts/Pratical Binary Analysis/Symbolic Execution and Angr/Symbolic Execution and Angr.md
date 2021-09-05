@@ -14,9 +14,13 @@ categories: ["practical-binary-analysis"]
 
 **Symbolic Execution** is mainly focused on converting a program made up of a concrete set of instructions into an equation-like format. This is achieved with two core components:
 
+&nbsp;
+
 ## Symbols
 
 Different values in a program(such as the user input) are substituted with **Symbols**(variables or placeholders). These symbols pertain to a domain full of values, allowing us to explore the program in a much more open form, basically “walking through the program” with a domain full of values(handled by any one of the constraint solving backends like Z3) instead of walking a fixed path due to a fixed hard-coded value/input.
+
+&nbsp;
 
 ## Execution Paths
 
@@ -32,6 +36,8 @@ Another thing to consider is that a strategy often used at a branch is to take b
 
 The strategy of approach is chosen between “path by path” reasoning, “all paths at same time” reasoning or a set of heuristics to make a search traceable(pruning paths early in control flow graphs depending on their end result) would not necessarily make a huge difference to the outcome, but can make a huge difference to the efficiency of resources. Thus, an intelligible decision should be made to prevent path explosion. Some sort of random testing is done to explore initial set of paths, and the we can start looking at the paths in the neighborhood.
 
+&nbsp;
+
 ## Angr
 
 I would highly recommend reading through the [Angr docs](http://docs.angr.io/) for a comprehensive surface-level understanding of different classes and methods supported by Angr, with their usecases, as well as reading [Federico Lagrasta’s intorductory series on Angr](https://blog.notso.pro/2019-03-20-angr-introduction-part0/).
@@ -39,6 +45,8 @@ I would highly recommend reading through the [Angr docs](http://docs.angr.io/) f
 Now, I'd be amiss if I didn't highlight the fact that while Angr manages to be a stroke of brilliance, it isn't that tough. It's the lack of resources that proves to be overwhelming, especially with so many version changes. There are a lot of writeups you could read through, but that doesn't help much from an absolute beginner's point of view. Therefore, I intend to solve the CMU bomb binaries in order to learn Angr, and will be documenting the journey in the hopes that it would probably be useful to someone, someday.
 
 View the [PPT](https://github.com/hexterisk/bomblab-Angr/blob/master/Fuzzing%20and%20Symbolic%20Execution.pptx) for a quick intro to Symbolic Execution.
+
+&nbsp;
 
 ## x64 CMU Bomb Lab
 

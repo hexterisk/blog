@@ -104,6 +104,8 @@ fstat(1, st_mode=S_IFCHR|0620, st_rdev=makedev(136, 1), ...) = 0
 
 When tracing a program from the start, strace includes all the system calls used by the program interpreter to set up the process, making the output quite verbose. The first system call in the output is execve, which is called by your shell to launch the program ➊. After that, the program interpreter takes over and starts setting up the execution environment. This involves setting up memory regions and setting the correct memory access permissions using mprotect. Additionally, you can see the system calls used to look up and load the required dynamic libraries. The dynamic linker is searching for the lib5ae9b7f.so library in a number of standard subfolders, followed by in your current working directory (➋ /ch3) since LD\_LIBRARY\_PATH environment variable was set to it earlier to tell the dynamic linker to add your current working directory to its search path. When the library is found, the dynamic linker reads it and maps it into memory ➌. The setup process is repeated for other required libraries, such as libstdc++.so.6 ➍, and it accounts for the vast majority of the strace output. It isn’t until the last three system calls that you finally see application specific behavior. The first system call used is write, which is used to print checking 'show\_me\_the\_flag' to the screen ➎. You see another write call to print the string ok ➏, and finally, there’s a call to exit\_group, which leads to the exit with status code 1 ➐.
 
+&nbsp;
+
 ## Library Call Trace
 
 **ltrace** can be used to investigate system call behavior.

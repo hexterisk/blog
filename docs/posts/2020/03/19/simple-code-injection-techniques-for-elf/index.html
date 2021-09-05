@@ -40,8 +40,8 @@
     <meta name="theme-color" content="#252627">
 
 <meta itemprop="name" content="Simple Code Injection Techniques for ELF">
-<meta itemprop="description" content="Bare-Metal Binary Modification  Modify an existing binary is by directly editing the bytes of a binary file in hexadecimal format, using a program like hexedit.  Use a disassembler to identify the code or data bytes to be changed and then use a hex editor to make the changes. Advantage: Simple and requires only basic tools. Any padding bytes, dead code (such as unused functions), or unused data, can be overwritten with something new."><meta itemprop="datePublished" content="2020-03-19T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-19T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Bare-Metal Binary Modification  Modify an existing binary is by directly editing the bytes of a binary file in hexadecimal format, using a program like hexedit.  Use a disassembler to identify the code or data bytes to be changed and then use a hex editor to make the changes. Advantage: Simple and requires only basic tools. Any padding bytes, dead code (such as unused functions), or unused data, can be overwritten with something new."><meta itemprop="datePublished" content="2020-03-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-19T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1051"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="binary,code,injection,elf,objdump,readelf,hijack," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
@@ -144,11 +144,13 @@
 </ul>
 </li>
 </ul>
+<p> </p>
 <h2 id="modifying-shared-library-behavior-using-ld_preload">Modifying Shared Library Behavior Using LD_PRELOAD</h2>
 <ul>
 <li><strong>LD_PRELOAD</strong> is an environment variable influencing the behavior of the dynamic linker. It allows you to specify one or more libraries for the linker to load before any other library, including standard system libraries such as libc.so. If a preloaded library contains a function with the same name as a function in a library loaded later, the first function is the one that will be used at runtime. This allows you to override library functions (even standard library functions like malloc or printf) with your own versions of those functions.</li>
 <li>The <strong>dlfcn.h</strong> header is often included when writing libraries for use with LD_PRELOAD because it provides the <strong>dlsym</strong> function.</li>
 </ul>
+<p> </p>
 <h2 id="injecting-a-code-section">Injecting a Code Section</h2>
 <p><img src="https://hexterisk.github.io/blog/Simple_Code_Injection_Techniques_for_ELF/image.png" alt="">
 <em>Replacing .note.ABI-tag with an injected code section.</em></p>
@@ -159,6 +161,7 @@
 <p>Step ➋ is overwriting one of the .note.* section headers to turn it into a header for the new code section (.injected). Choosing to overwrite the header for the .note.ABI-tag section, the sh_type is changed from SHT_NOTE to SHT_PROGBITS to denote that the header now describes a code section. Moreover, the sh_addr, sh_offset, and sh_size fields are changed to describe the location and size of the new .injected section instead of the now obsolete .note.ABI-tag section. Finally, the section alignment (sh_addralign) is changed to 16 bytes to ensure that the code will be properly aligned when loaded into memory, and the SHF_EXECINSTR flag is added to the sh_flags field to mark the section as executable.</p>
 <p>Step ➌ is where the PT_NOTE program header is changed by setting p_type to PT_LOAD to indicate that the header now describes a loadable segment instead of a PT_NOTE segment. This causes the loader to load the segment (which encompasses the new .injected section) into memory when the program starts.</p>
 <p>Step ➍ is redirecting the entry point (e_entry field in the ELF executable header), is made to point to an address in the new .injected section, instead of the original entry point, which is usually somewhere in .text. Done only if some code in the .injected section is to be run right at the start of the program.</p>
+<p> </p>
 <h2 id="calling-injected-code">Calling Injected Code</h2>
 <p>Injected code might be required to call at any instant during the execution of the binary. Following are the ways to call the injected code:</p>
 <h3 id="entry-point-modification">Entry Point Modification</h3>

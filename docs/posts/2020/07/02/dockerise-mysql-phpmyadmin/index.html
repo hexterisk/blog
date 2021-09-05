@@ -42,8 +42,8 @@ The age long discussion of MySQL versus MariaDB is something that an average dev
 
 <meta itemprop="name" content="Dockerise MySQL &#43; phpMyAdmin">
 <meta itemprop="description" content="A common requirement in a large number of software projects is a relational database with an easy to use management tool. Considering how often a developer needs this, setting it up everytime from scratch can be a drag. However, with the advent of containerisation, we can have a setup off the ground in a couple of minutes, whether it&rsquo;s a development or a production environment.
-The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific."><meta itemprop="datePublished" content="2020-07-02T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-07-02T00:00:00&#43;00:00" />
+The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific."><meta itemprop="datePublished" content="2020-07-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-02T00:00:00+00:00" />
 <meta itemprop="wordCount" content="905"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="docker,mysql,phpmyadmin,container,docker-compose," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
@@ -147,6 +147,7 @@ The age long discussion of MySQL versus MariaDB is something that an average dev
 <p>The major difference comes in the number of storage engines supported. MariaDB(Supported <a href="https://mariadb.com/kb/en/library/storage-engines/">storage engines</a>) provides support for more storage engines than MySQL(<a href="https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html">storage engines</a>) does. One must understand that it&rsquo;s not a matter of which one supports more engines, it&rsquo;s a matter of which one supports the engine that meets the requirements.</p>
 <p>I&rsquo;ll be using MySQL for the example. At any time, MySQL can be swapped out with MariaDB by simply replacing the container image.</p>
 <p>One thing to note is that user and password can be set up for phpMyAdmin too, but you need not use them if you are not interested in changing any default configurations(mainly authentication).</p>
+<p> </p>
 <h2 id="instant-approach">Instant Approach</h2>
 <p>The approach that leads to instant deployment of the setup is to deploy containers from the command-line itself.</p>
 <p>This is the boiler plate config. More options like mounting volumes can be used as per requirement.</p>
@@ -182,6 +183,7 @@ The age long discussion of MySQL versus MariaDB is something that an average dev
 <p>Login to phpMyAdmin page on <code>localhost:PORT</code> with <code>root:PASSWORD</code>(username: root and password: PASSWORD), where <em>PORT</em> is the port phpMyAdmin is bound to in the second stage, and the <em>PASSWORD</em> is the root password set in the first stage.</p>
 <p>According to the commands I entered (following the screenshots), I can access the phpMyAdmin dashboard on <code>localhost:8081</code> and I can login using the credentials <code>root:rootpassword</code>.</p>
 <p>DISCLAIMER: These containers are ephemeral and will not save any state since no volumes have been mounted. Any changes made will be lost when the container are closed. Checkout the documentation to see <a href="https://docs.docker.com/storage/volumes/">how to mount volumes</a> if you&rsquo;re not familiar with it.</p>
+<p> </p>
 <h2 id="composed-approach">Composed Approach</h2>
 <p>This approach involves writing a docker-compose file. The content will be as follows.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.7&#34;</span>

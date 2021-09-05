@@ -16,13 +16,19 @@ categories: ["practical-binary-analysis"]
 
 We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.
 
+&nbsp;
+
 ## Instrumentation Code
 
 The technique requires injecting **Instrumentation Code** into a running binary. DBI Frameworks introduce a layer between the OS and the application, making this injected code completely transparent to the application we inject it in. We simply add hooks to parts of interest. These hooks intercept the instruction execution and transfers control to the instrumentation code, thus we can observe and modify the instructions of the program being instrumented, as it executes.
 
+&nbsp;
+
 ## Code Coverage
 
 High code coverage will most definitely require running the binary a lot of times. Since different types of input will trigger different paths of the binary, this section could particularly benefit from the help of fuzzers.
+
+&nbsp;
 
 ## Granularity
 
@@ -40,9 +46,13 @@ Sequence of instructions that is always entered at the top and may have multiple
 
 Image instrumentation lets the Pintool inspect and instrument an entire image, IMG, when it is first loaded. A Pintool can walk the sections(SEC) of the image, the routines(RTN) of a section, and the instructions(INS) of a routine.
 
+&nbsp;
+
 ## Performance
 
 The impact/overhead on performance/runtime of the binary is dependent on many factors, but it will most definitely depend on the granularity of instrumentation, as well as the tasks performed by the instrumentation code. The execution will be delayed between each hook, for as long as the instrumentation code does its job.
+
+&nbsp;
 
 ## Use cases
 
@@ -58,6 +68,8 @@ The impact/overhead on performance/runtime of the binary is dependent on many fa
 *   Architectural research.
     *   Processor and cache simulation
     *   Trace collection
+
+&nbsp;
 
 ## Pin
 

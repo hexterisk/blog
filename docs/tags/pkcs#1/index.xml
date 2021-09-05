@@ -14,7 +14,7 @@
       
       <guid>https://hexterisk.github.io/blog/posts/2020/04/10/set-6/</guid>
       <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
-Challenge 41: Implement unpadded message recovery oracle Link
+ Challenge 41: Implement unpadded message recovery oracle Link
  Nate Lawson says we should stop calling it &amp;ldquo;RSA padding&amp;rdquo; and start calling it &amp;ldquo;RSA armoring&amp;rdquo;. Here&amp;rsquo;s why.
 Imagine a web application, again with the Javascript encryption, taking RSA-encrypted messages which (again: Javascript) aren&amp;rsquo;t padded before encryption at all.
 You can submit an arbitrary RSA blob and the server will return plaintext.</description>

@@ -14,6 +14,8 @@ categories: ["art-of-fuzzing"]
 
 Fuzzing can be segregated into different types based on the facet of the process we look at.
 
+&nbsp;
+
 ## Program Structure
 
 Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
@@ -64,6 +66,8 @@ For example, a developer might employ the whitebox approach to fuzz their applic
 
 The objective of this approach is to combine the efficiency of the blackbox approach while maintaining the effectiveness of the whitebox approach. It uses lightweight instrumentation techniques, which adds considerable performance overhead, but provides enough feedback about the program to successfully generate evolved, valid inputs on every iteration of the fuzzing cycle.
 
+&nbsp;
+
 ## Input Generation
 
 Test cases require to be constantly generated so that the fuzzing process doesn't halt. This generation can be done in different ways.
@@ -92,6 +96,8 @@ For example, in the figure, once _input\[0\]_ is found out to be '_P'_, mutation
 
 ![](/Fuzzing_Approaches/image.png)
 _Coverage guided fuzzing._
+
+&nbsp;
 
 ## Input Structure
 

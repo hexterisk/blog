@@ -33,7 +33,7 @@
       <guid>https://hexterisk.github.io/blog/posts/2020/04/25/binary-instrumentation/</guid>
       <description>Inserting new code at any point in an existing binary to observe or modify the binary’s behavior in some way is called instrumenting the binary. The point where you add new code is called the instrumentation point, and the added code is called instrumentation code.
 Tradeoffs of Dynamic and Static Binary Instrumentation.
-Static Binary Instrumentation Static Binary Instrumentation works by disassembling a binary and then adding instrumentation code where needed and storing the updated binary permanently on disk.</description>
+ Static Binary Instrumentation Static Binary Instrumentation works by disassembling a binary and then adding instrumentation code where needed and storing the updated binary permanently on disk.</description>
     </item>
     
     <item>

@@ -29,6 +29,8 @@ I'll be using MySQL for the example. At any time, MySQL can be swapped out with 
 
 One thing to note is that user and password can be set up for phpMyAdmin too, but you need not use them if you are not interested in changing any default configurations(mainly authentication).
 
+&nbsp;
+
 ## Instant Approach
 
 The approach that leads to instant deployment of the setup is to deploy containers from the command-line itself.
@@ -74,6 +76,8 @@ Login to phpMyAdmin page on `localhost:PORT` with `root:PASSWORD`(username: root
 According to the commands I entered (following the screenshots), I can access the phpMyAdmin dashboard on `localhost:8081` and I can login using the credentials `root:rootpassword`.
 
 DISCLAIMER: These containers are ephemeral and will not save any state since no volumes have been mounted. Any changes made will be lost when the container are closed. Checkout the documentation to see [how to mount volumes](https://docs.docker.com/storage/volumes/) if you're not familiar with it.
+
+&nbsp;
 
 ## Composed Approach
 

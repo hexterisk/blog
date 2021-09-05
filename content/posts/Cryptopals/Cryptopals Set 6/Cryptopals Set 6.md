@@ -14,6 +14,8 @@ categories: ["Cryptopals"]
 
 Refer to this [repository](https://github.com/hexterisk/cryptopals-solutions) for solution scripts and the IPython Notebook pertaining to the explanations here.
 
+&nbsp;
+
 ### Challenge 41: Implement unpadded message recovery oracle
 [Link](https://cryptopals.com/sets/6/challenges/41)
 
@@ -95,6 +97,8 @@ ciphertext = rsa_server.encrypt(plaintext.encode())
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
+
+&nbsp;
 
 ### Challenge 42: Bleichenbacher's e=3 RSA Attack
 [Link](https://cryptopals.com/sets/6/challenges/42)
@@ -206,6 +210,8 @@ else:
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
+
+&nbsp;
 
 ### Challenge 43: DSA key recovery from nonce
 [Link](https://cryptopals.com/sets/6/challenges/43)
@@ -433,6 +439,8 @@ else:
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
+&nbsp;
+
 ### Challenge 44: DSA nonce recovery from repeated nonce
 [Link](https://cryptopals.com/sets/6/challenges/44)
 
@@ -505,6 +513,8 @@ hashlib.sha1(hex(recovered_x)[2:].encode()).hexdigest()
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
+
+&nbsp;
 
 ### Challenge 45: DSA parameter tampering
 [Link](https://cryptopals.com/sets/6/challenges/45)
@@ -643,6 +653,8 @@ def DSA_parameter_tampering() -> bool:
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
+&nbsp;
+
 ### Challenge 46: RSA parity oracle
 [Link](https://cryptopals.com/sets/6/challenges/46)
 
@@ -741,6 +753,8 @@ plaintext = parity_attack(byte_string, RSA(1024))
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
+
+&nbsp;
 
 ### Challenge 47: Bleichenbacher's PKCS 1.5 Padding Oracle (Simple Case)
 [Link](https://cryptopals.com/sets/6/challenges/47)
@@ -952,6 +966,8 @@ recovered_plaintext = padding_oracle_attack(c, rsa)
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
+
+&nbsp;
 
 ### Challenge 48: Bleichenbacher's PKCS 1.5 Padding Oracle (Complete Case)
 [Link](https://cryptopals.com/sets/6/challenges/48)

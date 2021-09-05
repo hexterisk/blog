@@ -40,8 +40,8 @@
     <meta name="theme-color" content="#252627">
 
 <meta itemprop="name" content="Taint Analysis">
-<meta itemprop="description" content="Taint Analysis is a program analysis technique that allows you to determine the influence that a selected program state has on other parts of the program state. Taint any data that a program receives from the network, track that data, and raise an alert if it affects the program counter. If an operation uses the value of some tainted object, say X, to derive a value for another, say Y, then object Y becomes tainted."><meta itemprop="datePublished" content="2020-05-03T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-03T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Taint Analysis is a program analysis technique that allows you to determine the influence that a selected program state has on other parts of the program state. Taint any data that a program receives from the network, track that data, and raise an alert if it affects the program counter. If an operation uses the value of some tainted object, say X, to derive a value for another, say Y, then object Y becomes tainted."><meta itemprop="datePublished" content="2020-05-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-03T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1531"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="binary,rev,reversing,c,pe,windows,taint,DTA,DFA,source,sink," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
@@ -133,8 +133,10 @@
 
         <div class="post-content">
             <p><strong>Taint Analysis</strong> is a program analysis technique that allows you to determine the influence that a selected program state has on other parts of the program state. Taint any data that a program receives from the network, track that data, and raise an alert if it affects the program counter. If an operation uses the value of some tainted object, say <em>X</em>, to derive a value for another, say <em>Y</em>, then object <em>Y</em> becomes tainted. Object <em>X</em> tainted the object <em>Y</em>. Taint Analysis can be classified into two types.</p>
+<p> </p>
 <h2 id="static-taint-analysis">Static Taint Analysis</h2>
 <p>The advantage of using static analysis is the fact that it provides better code coverage than dynamic analysis. On the other hand, the principal disadvantage of the static analysis is that it&rsquo;s not as accurate than the dynamic analysis - It cannot access the runtime information for example. We can&rsquo;t retrieve registers or memory values.</p>
+<p> </p>
 <h2 id="dynamic-taint-analysis">Dynamic Taint Analysis</h2>
 <p><strong>DTA (Dynamic Taint Analysis)</strong>, also called <strong>DFT</strong> (<strong>Data Flow Tracking)</strong>, <strong>Taint Tracking</strong>,</p>
 <ul>
@@ -144,6 +146,7 @@
 <li>DTA instruments all instructions that handle data to track data flow, either in registers or in memory. In practice, this includes nearly all instructions, which means that DTA leads to very high performance overhead on instrumented programs.</li>
 <li>DTA only for offline analysis of programs since slowdowns of 10x are expected. While a 10x overhead may be acceptable during security tests of a web server, for instance, it usually isn’t okay in production.</li>
 </ul>
+<p> </p>
 <h2 id="steps">Steps</h2>
 <h3 id="taint-sources">Taint Sources</h3>
 <p>Program locations where the data that’s interesting to track is selected, like system calls. Data is tainted using API calls, which take a register or memory address to mark as tainted as the input. These API calls are provided by the DTA library being used.</p>

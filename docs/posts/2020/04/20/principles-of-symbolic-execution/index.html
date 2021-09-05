@@ -42,8 +42,8 @@
 
 <meta itemprop="name" content="Principles of Symbolic Execution">
 <meta itemprop="description" content="Symbolic Execution, or symbex, is a software analysis technique that expresses program state in terms of logical formulas that you can automatically reason about to answer complex questions about a program’s behavior. Can automatically increase the code coverage of dynamic analyses by generating new inputs that lead to unexplored program paths. Apply it sparingly and carefully because of scalability issues.
- Symbex executes (or emulates) an application with symbolic values.  Symbolic values represent a domain covering possible concrete values, represented by symbols like φ."><meta itemprop="datePublished" content="2020-04-20T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-04-20T00:00:00&#43;00:00" />
+ Symbex executes (or emulates) an application with symbolic values.  Symbolic values represent a domain covering possible concrete values, represented by symbols like φ."><meta itemprop="datePublished" content="2020-04-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-20T00:00:00+00:00" />
 <meta itemprop="wordCount" content="2624"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="binary,symbols,execution,path,constraints,expression," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
@@ -151,6 +151,7 @@
 <li>The collection of symbolic values and formulas that a symbex engine maintains is called the <strong>Symbolic State</strong>.</li>
 <li>Symbex engine computes two different kinds of formulas over these symbolic values: a set of <strong>symbolic expressions</strong> and a <strong>path constraint.</strong></li>
 </ul>
+<p> </p>
 <h2 id="symbolic-expressions">Symbolic Expressions</h2>
 <p>A symbolic expression (<em>φj</em> , with <em>j ∈ N)</em> corresponds either to a symbolic value <em>αi</em> or to some mathematical combination of symbolic expressions, such as <em>φ3 = φ1 + φ2</em>.</p>
 <ul>
@@ -169,6 +170,7 @@
 and more.</li>
 </ul>
 <p>Symbolic variables of an expression <em>e</em> are the set of addresses <em>m</em> that occur in it.</p>
+<p> </p>
 <h2 id="path-constraint">Path Constraint</h2>
 <p>A path constraint (π) encodes the limitations imposed on the symbolic expressions by the branches taken during execution. For instance, if the symbolic execution takes a branch if(x &lt; 5) and then another branch if(y &gt;= 4), where x and y are mapped to the symbolic expressions φ1 and φ2, respectively, the path constraint formula becomes φ1 &lt; 5 ∧ φ2 ≥ 4. </p>
 <ul>
@@ -211,6 +213,7 @@ and more.</li>
 <li>To reach the call to bar instead, avoid the if(x &gt;= 5) branch by changing the path constraint <em>φ1 ≥ 5</em> to <em>φ1 &lt; 5</em> and ask the constraint solver for a new model.</li>
 <li>Thus, a possible model would be <em>α1 = 4 ∧ α2 = 0</em>.</li>
 </ul>
+<p> </p>
 <h2 id="variants">Variants</h2>
 <p><img src="https://hexterisk.github.io/blog/Principles_of_Symbolic_Execution/1_image.png" alt="">
 <em>Symbolic execution design dimensions.</em></p>
@@ -270,6 +273,7 @@ and more.</li>
 <li><strong>BFS</strong> (<strong>Breadth-First Search</strong>) does the opposite, exploring all paths in parallel but taking longer to reach deeply nested code.</li>
 </ul>
 <p>Concolic execution explores only one path at a time as driven by concrete inputs, but can also be combined with the heuristic path exploration approach or even with the approach of exploring all paths. The easiest way to explore multiple paths is to run the application repeatedly, each time with new inputs discovered by “flipping” branch constraints in the previous run. A more sophisticated approach is to take snapshots of the program state so that after exploring one path, the snapshot can restore the state to an earlier point in the execution and explore another path from there.</p>
+<p> </p>
 <h2 id="optimisation">Optimisation</h2>
 <h3 id="simplifying-constraints">Simplifying Constraints</h3>
 <p>Simplifying constraints as much as possible to keep usage of the constraint solver to an absolute minimum can reduce computation extensively since constraint solving is the most computationally expensive aspect of symbex. Thus, aim to reduce the complexity of the constraint solver’s task, thereby speeding up the symbolic execution, without significantly affecting the accuracy of the analysis.</p>

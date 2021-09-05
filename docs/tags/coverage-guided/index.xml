@@ -6,7 +6,18 @@
     <description>Recent content in coverage-guided on Pwn the world.</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://hexterisk.github.io/blog/tags/coverage-guided/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://hexterisk.github.io/blog/tags/coverage-guided/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Architecture</title>
+      <link>https://hexterisk.github.io/blog/posts/2020/09/16/architecture/</link>
+      <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/posts/2020/09/16/architecture/</guid>
+      <description>A robust pipeline needs to be established to ensure that a fuzzer is effective and efficient. The pipeline is required to perform the following tasks:
+ Generate new test cases. Ensure delivery of the test cases to, and safe execution, of the target. Record the statistics from the execution of the test cases. Reproduce the crashes. Triage the crashes.  Generic fuzzing pipeline.
+Separate modules perform different set of the aforementioned tasks.</description>
+    </item>
+    
     <item>
       <title>Approaches</title>
       <link>https://hexterisk.github.io/blog/posts/2020/09/09/approaches/</link>
@@ -14,7 +25,7 @@
       
       <guid>https://hexterisk.github.io/blog/posts/2020/09/09/approaches/</guid>
       <description>Fuzzing can be segregated into different types based on the facet of the process we look at.
-Program Structure Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
+ Program Structure Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
 Blackbox Fuzzing This approach involves the assumption that the target is a black box since we don&amp;rsquo;t have any knowledge of the internal behavior, source code or the implementation of the target application, hence the name.</description>
     </item>
     

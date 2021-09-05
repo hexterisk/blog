@@ -14,6 +14,8 @@ categories: ["practical-binary-analysis"]
 
 **Source Code Instrumentation** adds specific code meant for instrumentation/analysis, called **Instrumentation Code**, to the source files of the program under consideration. The source files are then compiled and executed. Since the instrumentation code is integrated into the binary itself, the output from the execution includes the dump of the instrumentation code which can then be used for further analysis and component testing.
 
+&nbsp;
+
 ## Intermediate Representations
 
 Representation of a program in a state that lies between the source code and the compiled binary(specifically, the assembly code). Compilers have a stage of intermediate code generation, where they natively generate IR of the source code.
@@ -271,6 +273,8 @@ next: ...
 
 The primary benefit of this form is it's ability to simultaneously simplify and improve results of various compiler optimizations just by simplifying properties of the variables.
 
+&nbsp;
+
 ## LLVM
 
 **L**ow **L**evel **V**irtual **M**achine is an IR. The main idea behind it was to get an interface to the compilation process so that optimizations to the binary could be applied then itself, rather than using JIT compilers to provide runtime optimizations. This was because these compilations by virtual machines(such as JVM) were online which meant that these optimizations had to be performed every time a certain piece of code ran. Thus, the heavy lifting task of optimization was moved from runtime to compile time.
@@ -450,6 +454,8 @@ The `addptr` function performs **pass by pointers**.
 *   The `i32**`s are the addresses.
 *   The four load instructions can be seen to dereferences values stored at the given addresses into integer variables.
 *   The addition is then performed on these integers and the result returned.
+
+&nbsp;
 
 ## Instrumentation
 

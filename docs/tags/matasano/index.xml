@@ -14,7 +14,7 @@
       
       <guid>https://hexterisk.github.io/blog/posts/2020/04/10/set-6/</guid>
       <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
-Challenge 41: Implement unpadded message recovery oracle Link
+ Challenge 41: Implement unpadded message recovery oracle Link
  Nate Lawson says we should stop calling it &amp;ldquo;RSA padding&amp;rdquo; and start calling it &amp;ldquo;RSA armoring&amp;rdquo;. Here&amp;rsquo;s why.
 Imagine a web application, again with the Javascript encryption, taking RSA-encrypted messages which (again: Javascript) aren&amp;rsquo;t padded before encryption at all.
 You can submit an arbitrary RSA blob and the server will return plaintext.</description>
@@ -52,7 +52,7 @@ Now, write the code that allows you to &amp;ldquo;seek&amp;rdquo; into the ciphe
       
       <guid>https://hexterisk.github.io/blog/posts/2020/03/23/set-3/</guid>
       <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
-Challenge 17: The CBC padding oracle Link
+ Challenge 17: The CBC padding oracle Link
  This is the best-known attack on modern block-cipher cryptography.
 Combine your padding code and your CBC code to write two functions.
 The first function should select at random one of the following 10 strings:
@@ -76,7 +76,7 @@ MDAwMDA5aXRoIG15IHJhZy10b3AgZG93biBzbyBteSBoYWlyIGNhbiBibG93
       
       <guid>https://hexterisk.github.io/blog/posts/2020/03/21/set-2/</guid>
       <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
-Challenge 9: Implement PKCS#7 padding Link
+ Challenge 9: Implement PKCS#7 padding Link
  A block cipher transforms a fixed-sized block (usually 8 or 16 bytes) of plaintext into ciphertext. But we almost never want to transform a single block; we encrypt irregularly-sized messages.
 One way we account for irregularly-sized messages is by padding, creating a plaintext that is an even multiple of the blocksize.</description>
     </item>

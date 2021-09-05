@@ -14,9 +14,13 @@ categories: ["advanced-binary-analysis"]
 
 **Taint Analysis** is a program analysis technique that allows you to determine the influence that a selected program state has on other parts of the program state. Taint any data that a program receives from the network, track that data, and raise an alert if it affects the program counter. If an operation uses the value of some tainted object, say _X_, to derive a value for another, say _Y_, then object _Y_ becomes tainted. Object _X_ tainted the object _Y_. Taint Analysis can be classified into two types.
 
+&nbsp;
+
 ## Static Taint Analysis
 
 The advantage of using static analysis is the fact that it provides better code coverage than dynamic analysis. On the other hand, the principal disadvantage of the static analysis is that it's not as accurate than the dynamic analysis - It cannot access the runtime information for example. We can't retrieve registers or memory values.
+
+&nbsp;
 
 ## Dynamic Taint Analysis
 
@@ -27,6 +31,8 @@ The advantage of using static analysis is the fact that it provides better code 
 *   Taint analysis on static instrumentation require inserting the necessary taint analysis logic at compile time rather than at runtime. Usually results in better performance but requires source code.
 *   DTA instruments all instructions that handle data to track data flow, either in registers or in memory. In practice, this includes nearly all instructions, which means that DTA leads to very high performance overhead on instrumented programs.
 *   DTA only for offline analysis of programs since slowdowns of 10x are expected. While a 10x overhead may be acceptable during security tests of a web server, for instance, it usually isn’t okay in production.
+
+&nbsp;
 
 ## Steps
 

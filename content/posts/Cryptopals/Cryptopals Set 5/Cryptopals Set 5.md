@@ -130,8 +130,7 @@ assert client1.gen_shared_secret_key(client2.gen_public_key()) == client2.gen_sh
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
-
-
+&nbsp;
 
 ### Challenge 34: Implement a MITM key-fixing attack on Diffie-Hellman with parameter injection
 [Link](https://cryptopals.com/sets/5/challenges/34)
@@ -239,8 +238,7 @@ parameter_injection_attack(alice, bob)
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
-
-
+&nbsp;
 
 ### Challenge 35: Implement DH with negotiated groups, and break with malicious "g" parameters
 [Link](https://cryptopals.com/sets/5/challenges/35)
@@ -347,8 +345,7 @@ malicious_g_attack()
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
-
-
+&nbsp;
 
 ### Challenge 36: Implement Secure Remote Password (SRP)
 [Link](https://cryptopals.com/sets/5/challenges/36)
@@ -524,8 +521,7 @@ def implement_SRP() -> bool:
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
-
-
+&nbsp;
 
 ### Challenge 37: Break SRP with a zero key
 [Link](https://cryptopals.com/sets/5/challenges/37)
@@ -668,8 +664,7 @@ def implement_SRP_zero() -> bool:
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
-
-
+&nbsp;
 
 ### Challenge 38: Offline dictionary attack on simplified SRP
 [Link](https://cryptopals.com/sets/5/challenges/38)
@@ -835,8 +830,7 @@ def MITM_SRP() -> bool:
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
-
-
+&nbsp;
 
 ### Challenge 39: Implement RSA
 [Link](https://cryptopals.com/sets/5/challenges/39)
@@ -963,8 +957,7 @@ ciphertext = rsa.encrypt(message.encode())
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
-
-
+&nbsp;
 
 ### Challenge 40: Implement an E=3 RSA Broadcast attack
 [Link](https://cryptopals.com/sets/5/challenges/40)

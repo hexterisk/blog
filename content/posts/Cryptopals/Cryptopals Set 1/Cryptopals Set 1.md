@@ -66,8 +66,7 @@ base64_byte_string = b64encode(byte_string)
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
-
+&nbsp;
 
 ### Challenge 2: Fixed XOR
 [Link](https://cryptopals.com/sets/1/challenges/2)
@@ -134,8 +133,7 @@ assert result == target_string
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
-
+&nbsp;
 
 ### Challenge 3: Single-byte XOR cipher
 [Link](https://cryptopals.com/sets/1/challenges/3)
@@ -266,8 +264,7 @@ Using ASCII counting technique...
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
-
+&nbsp;
 
 ### Challenge 4: Detect single-character XOR
 [Link](https://cryptopals.com/sets/1/challenges/4)
@@ -311,8 +308,7 @@ plaintext
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
-
+&nbsp;
 
 ### Challenge 5: Implement repeating-key XOR
 [Link](https://cryptopals.com/sets/1/challenges/5)
@@ -370,8 +366,7 @@ assert target_string == ciphertext.hex()
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
-
+&nbsp;
 
 ### Challenge 6: Break repeating-key XOR
 [Link](https://cryptopals.com/sets/1/challenges/6)
@@ -585,8 +580,7 @@ test(True)
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
-
+&nbsp;
 
 ### Challenge 7: AES in ECB mode
 [Link](https://cryptopals.com/sets/1/challenges/7)
@@ -641,8 +635,7 @@ b"I'm back and I'm ringin' the bell \nA rockin' on the mike while the fly girls 
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
-
+&nbsp;
 
 ### Challenge 8: Detect AES in ECB mode
 [Link](https://cryptopals.com/sets/1/challenges/8)

@@ -18,6 +18,8 @@ Renaming the **symbols**(variables and functions) of a binary implies that the c
 
 Moreover, some obfuscation techniques specifically target automated tools, rendering their outputs practically unusable. For example, careful modification of some binary instructions can cause automated disassemblers to fail, while it executes just the same as the original instructions.
 
+&nbsp;
+
 ## Junk Code Insertion
 
 The actual instruction is hidden among a bunch of other instructions. While the actual instruction to be executed might be trivial, these “other” instructions seem to be performing something pretty complicated, yet essentially do zero work.
@@ -27,12 +29,16 @@ Such instructions when closely analysed, can easily be segregated into typically
 ![](/Binary_Obfuscation/cc5ac2e806cd2b62.gif)
 _Junk Code Insertion technique._
 
+&nbsp;
+
 ## Metamorphic Code
 
 The actual instruction is expanded into a series of instruction that essentially give the same result. The effectiveness depends on the creativity of how complex can a simple instruction be made to look.
 
 ![](/Binary_Obfuscation/efa49547f45c2d7e.gif)
 _Metamorphic Code technique._
+
+&nbsp;
 
 ## Data Encoding
 
@@ -41,12 +47,16 @@ Static data values are forced to be computed at run time instead of hard coding 
 ![](/Binary_Obfuscation/de138c9f51bad4b5.gif)
 _Data Encoding technique._
 
+&nbsp;
+
 ## Opaque Predicates
 
 Extra computational checks are added in place of trivial branching instructions that will always yield the same output. The flow of code execution, therefore, now include checks that aren't needed since the flow is set in code and is always going to be the same. This simply makes the code a lot more complicated than it actually is. The involvement of such computational instructions as well as presence of extra branches(that will never be taken) can hinder the analyst and confuse decompilers.
 
 ![](/Binary_Obfuscation/2_image.png)
 _Opaque Predicates technique._
+
+&nbsp;
 
 ## Splitting
 
@@ -55,12 +65,16 @@ Blocks of codes are split into smaller blocks, with the addition of unnecessary 
 ![](/Binary_Obfuscation/1_image.png)
 _Splitting technique._
 
+&nbsp;
+
 ## Control Flow Flattening
 
 A simple flow of code execution is transformed into a **state machine**. A state of decision making(**dispatch table**) is introduced which keeps track of the current state of execution, updates the current state at every pass and transfers the execution to different branches based on the current state.
 
 ![](/Binary_Obfuscation/350577af599d101d.gif)
 _Control Flow Flattening technique._
+
+&nbsp;
 
 ## Polymorphic Code
 

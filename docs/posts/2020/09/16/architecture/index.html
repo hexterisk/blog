@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:hexterisk]">
+<meta name="description" content="A robust pipeline needs to be established to ensure that a fuzzer is effective and efficient. The pipeline is required to perform the following tasks:
+ Generate new test cases. Ensure delivery of the test cases to, and safe execution, of the target. Record the statistics from the execution of the test cases. Reproduce the crashes. Triage the crashes.  Generic fuzzing pipeline.
+Separate modules perform different set of the aforementioned tasks." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://hexterisk.github.io/blog/posts/2020/09/16/architecture/" />
+
+
+    <title>
+        
+            Architecture: Pwn the world.  — A noob&#39;s attempt at blogging.
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.bc21949b46a7b314448099a92fed1807acac025093285f474b88259eec0c62ba.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://hexterisk.github.io/blog/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://hexterisk.github.io/blog/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://hexterisk.github.io/blog/favicon-16x16.png">
+    <link rel="manifest" href="https://hexterisk.github.io/blog/site.webmanifest">
+    <link rel="mask-icon" href="https://hexterisk.github.io/blog/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://hexterisk.github.io/blog/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+<meta itemprop="name" content="Architecture">
+<meta itemprop="description" content="A robust pipeline needs to be established to ensure that a fuzzer is effective and efficient. The pipeline is required to perform the following tasks:
+ Generate new test cases. Ensure delivery of the test cases to, and safe execution, of the target. Record the statistics from the execution of the test cases. Reproduce the crashes. Triage the crashes.  Generic fuzzing pipeline.
+Separate modules perform different set of the aforementioned tasks."><meta itemprop="datePublished" content="2020-09-16T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-09-16T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1050"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+<meta itemprop="keywords" content="fuzzing,mutator,harness,reproducer,minimizer,triage,coverage-guided,bug-report," /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
+
+<meta name="twitter:title" content="Architecture"/>
+<meta name="twitter:description" content="A robust pipeline needs to be established to ensure that a fuzzer is effective and efficient. The pipeline is required to perform the following tasks:
+ Generate new test cases. Ensure delivery of the test cases to, and safe execution, of the target. Record the statistics from the execution of the test cases. Reproduce the crashes. Triage the crashes.  Generic fuzzing pipeline.
+Separate modules perform different set of the aforementioned tasks."/>
+
+
+
+    <meta property="article:section" content="art-of-fuzzing" />
+
+
+
+    <meta property="article:published_time" content="2020-09-16 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://hexterisk.github.io/blog/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$cd ~/</span>
+            <span class="logo__cursor" style=""></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://hexterisk.github.io/blog/about/">About</a></li><li><a href="https://hexterisk.github.io/blog/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+<main class="post">
+
+    <div class="post-info">
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-clock">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>5 minutes
+
+            
+
+        </p>
+    </div>
+
+    <article>
+        <h1 class="post-title">
+            <a href="https://hexterisk.github.io/blog/posts/2020/09/16/architecture/">Architecture</a>
+        </h1>
+
+        
+
+        <div class="post-content">
+            <p>A robust pipeline needs to be established to ensure that a fuzzer is effective and efficient. The pipeline is required to perform the following tasks:</p>
+<ol>
+<li>Generate new test cases.</li>
+<li>Ensure delivery of the test cases to, and safe execution, of the target.</li>
+<li>Record the statistics from the execution of the test cases.</li>
+<li>Reproduce the crashes.</li>
+<li>Triage the crashes.</li>
+</ol>
+<p><img src="https://hexterisk.github.io/blog/Fuzzing_Architecture/chart.jpg" alt="">
+<em>Generic fuzzing pipeline.</em></p>
+<p>Separate modules perform different set of the aforementioned tasks. The underlying code in these modules is aligned with the principles of code resusability and modularity. This way, different modules can be swapped as per requirement of the program being fuzzed.</p>
+<p> </p>
+<h2 id="mutator">Mutator</h2>
+<p>A value is taken as the <strong>seed</strong>. It could be a single value, or it could be a bunch of values, known as a <strong>corpus</strong>. This seed(s) could be completely random, could be meticulously crafted or could be somewhere in the middle; it depends on the information we have about the program being fuzzed. This seed value is then sent to the <strong>mutator</strong>, which applies a pre-decided set of operations to “mutate” (transform) the seed and generate a new input(test case). </p>
+<p>The mutation operations are dictated by the programmer of the module, and are generally focused on:</p>
+<ul>
+<li>extreme cases, such as
+<ul>
+<li>minimum and maximum allowed integers.</li>
+<li>strings of length zero, or longer than the allowed buffer.</li>
+</ul>
+</li>
+<li>specific values that can trigger crashes, such as
+<ul>
+<li>null value</li>
+<li>unicode characters</li>
+<li>semi-colons</li>
+</ul>
+</li>
+</ul>
+<p>Usually, a factor is set by the programmer to decide the amount of mutation to produce in the new input.</p>
+<p> </p>
+<h2 id="harness">Harness</h2>
+<p>A <strong>target function</strong> is a function that takes an input and works on it. A <strong>harness</strong> is a function that acts like a wrapper over the specified target function to ensure that the mutated input reaches the target function. The wrapper acts as an interface between the mutated inputs and the target function. It is also responsible for ensuring that any crashes or bugs encountered in the target function during fuzzing are handled safely, and that they do not interfere with the fuzzing pipeline.</p>
+<p>A harness benefits from various statistics that can collected from a single run of fuzz testing, the most prominent being code coverage and crash detection. However, employing such techniques could make the process of building the harness a bit more tricky.</p>
+<h3 id="coverage-guided-fuzzing">Coverage Guided Fuzzing</h3>
+<p>An input to a target function will go through a bunch of constraints and processing. At some point, the input is either gonna be accepted or invalidated. The path that particular input took to reach that exact point is the amount of code covered by that input. Therefore, <strong>Code Coverage</strong> is a measure of the amount of code that has been tested during the fuzzing process, and therefore the aim is to get a high code coverage. It can be measured by basic blocks (general choice), branches or code paths.</p>
+<p>Certain code blocks, such as checks on input, might get frequently executed. And there might be some blocks that might never get executed, such as redundant error checks. </p>
+<p>Code coverage measurements provide an insight into the fuzzing process about what parts of the binary are getting executed. These insights can be used to improve the mutator&rsquo;s output - any input that has covered a significant amount of code can be used as the seed to generate new test cases. This would somewhat ensure that the test cases generated thereafter would at least cover that much code.</p>
+<p>NOTE: The technique is only effective when the target is deterministic.</p>
+<h3 id="crash-detection">Crash Detection</h3>
+<p>It is critical to be able to detect a crash as soon as it happens in order to make the process efficient, done with the help of timeouts and checking response at regular time periods. Moreover, at the expense of making the process a bit more complicated and resource intensive, we can extract any and all metadata pertaining to the crash too, such as attaching a debugger to the process would allow us to fetch the full trace of the bug.</p>
+<p> </p>
+<h2 id="reproducer">Reproducer</h2>
+<p>A crash doesn&rsquo;t just occur due to bugs; the execution environment could be in a unique position, unfavorable to the target&rsquo;s execution which might cause the target to crash. Therefore, inputs that triggered a crash must be recorded, along with it&rsquo;s seed, so that they can be re-run multiple times over to ensure that the crash triggered by them was due to a legitimate bug, and not circumstantial. Thus, a <strong>reproducer</strong> has the responsibility to re-run the target and test if a crash-triggering input is legitimate or not.</p>
+<p> </p>
+<h2 id="minimizer">Minimizer</h2>
+<p>Once a reproducer confirms the effectiveness of a test case, it needs to be reduced. Over time, test cases generated may grow in size and complexity, and may become completely different that the original seed. This would not only lead to a higher execution time, it might also harbor certain mutations that are irrelevant towards triggering the bug altogether. A <strong>minimizer</strong> narrows down the test case to the bare minimum set of alterations required to trigger the same bug. The target function is executed several times, reducing the alterations made to the test case every time, till it reaches the point where only the smallest of the changes remain that are still capable of causing the crash. This is done in order to simplify the analysis for the cause of the bug; if the exact alteration triggering the crash is known, it&rsquo;ll be easier to find out the reason for the occurrence of the bug.</p>
+<p>Therefore, a minimizer module may not be employed in the pipeline unless it is decided that an observed crash would be triaged.</p>
+<h3 id="triage">Triage</h3>
+<p>Once a bug is confirmed and a bug triage is performed, a bug report is drawn up. It may contain either of a bug patch or a bug exploit, or both. The report would also contain additional information such as the exception type, register values, stack trace and the test case used to trigger it. Moreover, the crash needs to be categorized so that it can be prioritized accordingly. It would also aid in tracking unique bugs. A Microsoft tool, known as <strong>!exploitable</strong> (<strong>bang exploitable</strong>), works in conjunction WinDbg to categorize the crashes.</p>
+<p>Sanitizers are an effective tool for detection of any violations that might occur. They also aid in the report as all sanitizers provide an extensive log of the crash.</p>
+
+        </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-tag meta-icon">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                <line x1="7" y1="7" x2="7" y2="7"></line>
+            </svg><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/fuzzing">fuzzing</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/mutator">mutator</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/harness">harness</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/reproducer">reproducer</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/minimizer">minimizer</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/triage">triage</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/coverage-guided">coverage-guided</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/bug-report">bug-report</a></span>
+        </p>
+
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-file-text">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>1050 Words</p>
+
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-calendar">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>2020-09-16 05:30 &#43;0530</p>
+    </div>
+
+    
+    <div class="pagination">
+        <div class="pagination__title">
+            <span class="pagination__title-h"></span>
+            <hr />
+        </div>
+
+        <div class="pagination__buttons">
+
+            
+            <span class="button previous">
+                <a href="https://hexterisk.github.io/blog/posts/2020/09/09/approaches/">
+                    <span class="button__text">Approaches</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+
+            
+            <span class="button next">
+                <a href="https://hexterisk.github.io/blog/posts/2020/09/21/sanitation/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Sanitation</span>
+                </a>
+            </span>
+            
+
+        </div>
+    </div>
+    
+
+    
+</main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content" style="margin-bottom: -0.8rem;">
+            <span><a style="text-decoration: none;"> .</a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span><a style="text-decoration: none;" style="font-size: 1.4rem; margin-bottom: -1.0rem;">..:</a></span>
+        </div>
+    </div>
+</footer>
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+
+
+
+    </body>
+</html>

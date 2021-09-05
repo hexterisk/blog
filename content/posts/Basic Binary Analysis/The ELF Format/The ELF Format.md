@@ -22,6 +22,8 @@ ELF binaries really consist of only four types of components: 
 ![](/The_ELF_Format/1_image.png)
 _64-bit ELF binary structure._
 
+&nbsp;
+
 ## Executable Header
 
 *   Every ELF file starts with an executable header, which is just a structured series of bytes telling you that it’s an ELF file and other metadata.
@@ -46,6 +48,8 @@ uint16_t e_shstrndx; /* Section header string table index */
 } Elf64_Ehdr;
 ```
 
+&nbsp;
+
 ## Section Headers
 
 *   The code and data in an ELF binary are logically divided into contiguous non-overlapping chunks called **Sections**. Sections don’t have any predetermined structure; instead, the structure of each section varies depending on the contents.
@@ -69,6 +73,8 @@ uint64_t sh_addralign; /* Section alignment */
 uint64_t sh_entsize; /* Entry size if section holds table */
 } Elf64_Shdr;
 ```
+
+&nbsp;
 
 ## Sections
 
@@ -190,6 +196,8 @@ Disassembly of section .plt:
 *   zGOT has been incorporated because:
     *   GOT is a data section and thus it’s okay for it to be writable. Therefore it makes sense to have the additional layer of indirection through the GOT since this extra layer of indirection allows you to avoid creating writable code sections (leaving PLT read-only). While an attacker may still succeed in changing the addresses in the GOT, this attack model is a lot less powerful than the ability to inject arbitrary code.
     *   A dynamic library will have only exist in a single physical copy while it will likely be mapped to multiple completely different virtual address for each process. Thus you can’t patch addresses resolved on behalf of a library directly into the code because the address would work only in the context of one process and break the others. Patching them into the GOT instead does work because each process has its own private copy of the GOT.
+
+&nbsp;
 
 ## Program Headers
 

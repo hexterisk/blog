@@ -18,6 +18,8 @@ A constraint solver must be versatile, that is, it should be able to act as an:
 *   **Inverter**: Given the output, solve for the input of the equation.
 *   **Synthesizer**: Act as both Interpreter and Inverter.
 
+&nbsp;
+
 ## Formulating Programs
 
 Assume a formula _𝑆ₚ(𝑥, 𝑦)_ which holds if and only if program _P(x)_ outputs value _y_ such that:
@@ -46,6 +48,8 @@ Given f(x), find x.
 
 ##### This solver “bidirectionality” enables Synthesis.
 
+&nbsp;
+
 ## Specifications
 
 A predicate is a binary-valued function of non-binary variables.
@@ -65,6 +69,8 @@ However, with solvers, we want to test these contracts statically, at design tim
 
 ![](/Constraint_Solvers_and_Z3/FireShot%20Capture%20210%20-%20%20-%20homes.cs.washington.edu.png)
 _Contracts tested during design with solvers._
+
+&nbsp;
 
 ## Verification Problem
 
@@ -98,6 +104,8 @@ Since 𝑆ₚ always holds, as we can always find 𝑦 given 𝑥,
 ![](/Constraint_Solvers_and_Z3/2_FireShot%20Capture%20210%20-%20%20-%20homes.cs.washington.edu.png)
 _Passing the verification condition to the solver._
 
+&nbsp;
+
 ## SAT Solver
 
 A formula/constraint _F_ is satisfiable if there is some assignment of appropriate values to its uninterpreted symbols under which _F_ evaluates to true. Thus, the language of SAT Solvers is Boolean logic.
@@ -109,6 +117,8 @@ If yes, the solver returns a model _m_, a valuation of _𝑥, 𝑦, 𝑧_ that s
 Such problems are typically in the CNF(Conjuctive Normal Form) form, that is, a conjunction of one or more clauses, where a clause is a disjunction of literals (an AND of ORs).
 
 SAT solvers are automatic and efficient. As a result, they are frequently used as the “engine” behind verification applications.
+
+&nbsp;
 
 ## SMT Solver
 
@@ -150,6 +160,8 @@ Some of the popular theories are:
     *   Within a formula, a call to a function is made, which we know nothing about, except the fact that it will always give the same output for a given input value, such as square root.
 
 A very popular SMT Solver is Z3.
+
+&nbsp;
 
 ## Z3
 

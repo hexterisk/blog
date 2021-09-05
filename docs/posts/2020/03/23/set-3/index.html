@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
-Challenge 17: The CBC padding oracle Link
+ Challenge 17: The CBC padding oracle Link
  This is the best-known attack on modern block-cipher cryptography.
 Combine your padding code and your CBC code to write two functions.
 The first function should select at random one of the following 10 strings:
@@ -56,7 +56,7 @@ MDAwMDA5aXRoIG15IHJhZy10b3AgZG93biBzbyBteSBoYWlyIGNhbiBibG93
 
 <meta itemprop="name" content="Set 3">
 <meta itemprop="description" content="Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
-Challenge 17: The CBC padding oracle Link
+ Challenge 17: The CBC padding oracle Link
  This is the best-known attack on modern block-cipher cryptography.
 Combine your padding code and your CBC code to write two functions.
 The first function should select at random one of the following 10 strings:
@@ -70,15 +70,15 @@ MDAwMDA2QW5kIGEgaGlnaCBoYXQgd2l0aCBhIHNvdXBlZCB1cCB0ZW1wbw==
 MDAwMDA3SSdtIG9uIGEgcm9sbCwgaXQncyB0aW1lIHRvIGdvIHNvbG8=
 MDAwMDA4b2xsaW4nIGluIG15IGZpdmUgcG9pbnQgb2g=
 MDAwMDA5aXRoIG15IHJhZy10b3AgZG93biBzbyBteSBoYWlyIGNhbiBibG93
-&hellip; generate a random AES key (which it should save for all future encryptions), pad the string out to the 16-byte AES block size and CBC-encrypt it under that key, providing the caller the ciphertext and IV."><meta itemprop="datePublished" content="2020-03-23T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-23T00:00:00&#43;00:00" />
+&hellip; generate a random AES key (which it should save for all future encryptions), pad the string out to the 16-byte AES block size and CBC-encrypt it under that key, providing the caller the ciphertext and IV."><meta itemprop="datePublished" content="2020-03-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-23T00:00:00+00:00" />
 <meta itemprop="wordCount" content="4883"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="Matasano,cryptography,AES,ECB,CBC,CTR,xor,MT19937,Mersenne,PRNG,seed," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
 <meta name="twitter:title" content="Set 3"/>
 <meta name="twitter:description" content="Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
-Challenge 17: The CBC padding oracle Link
+ Challenge 17: The CBC padding oracle Link
  This is the best-known attack on modern block-cipher cryptography.
 Combine your padding code and your CBC code to write two functions.
 The first function should select at random one of the following 10 strings:
@@ -178,6 +178,7 @@ MDAwMDA5aXRoIG15IHJhZy10b3AgZG93biBzbyBteSBoYWlyIGNhbiBibG93
 
         <div class="post-content">
             <p>Refer to this <a href="https://github.com/hexterisk/cryptopals-solutions">repository</a> for solution scripts and the IPython Notebook pertaining to the explanations here.</p>
+<p> </p>
 <h3 id="challenge-17-the-cbc-padding-oracle">Challenge 17: The CBC padding oracle</h3>
 <p><a href="https://cryptopals.com/sets/3/challenges/17">Link</a></p>
 <blockquote>
@@ -252,9 +253,9 @@ b64_strings <span style="color:#f92672">=</span> [
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
     plaintext <span style="color:#f92672">=</span> AES_CBC_decrypt(ciphertext, IV, key)
     <span style="color:#66d9ef">if</span> PKCS7_padded(plaintext):
-        <span style="color:#66d9ef">return</span> True
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
     <span style="color:#66d9ef">else</span>:
-        <span style="color:#66d9ef">return</span> False
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
 </code></pre></div><p><img src="https://hexterisk.github.io/blog/Cryptopals_Set_3/image.png" alt="">
 <em>AES CBC Decryption.</em></p>
 <p>The philosophy for the padding attack stems from the design of the CBC encryption mechanism. The ciphertext from the previous block is xored with the intermediate state of the next block formed during it&rsquo;s decryption. Since we have control over the ciphertext, maybe we can manipulate the blocks in some way into giving us some sort of indication towards it&rsquo;s effectiveness.</p>
@@ -331,7 +332,7 @@ b64_strings <span style="color:#f92672">=</span> [
                 mod_block <span style="color:#f92672">=</span> modify_block(base_block, k, j, plain_block)                
                 check <span style="color:#f92672">=</span> decryptor(target_block, mod_block, key)
                 <span style="color:#75715e"># Make a list of all values that satisfy the padding.</span>
-                <span style="color:#66d9ef">if</span> check <span style="color:#f92672">==</span> True:
+                <span style="color:#66d9ef">if</span> check <span style="color:#f92672">==</span> <span style="color:#66d9ef">True</span>:
                     possible_last_bytes <span style="color:#f92672">+=</span> bytes([k])
                 
             <span style="color:#75715e"># If more than one possible bytes have been found, then verify their validity by checking the next byte.</span>
@@ -342,7 +343,7 @@ b64_strings <span style="color:#f92672">=</span> [
                         mod_block <span style="color:#f92672">=</span> modify_block(base_block, k, j<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, chr(byte)<span style="color:#f92672">+</span>plain_block)                
                         
                         check <span style="color:#f92672">=</span> decryptor(target_block, mod_block, key)
-                        <span style="color:#66d9ef">if</span> check <span style="color:#f92672">==</span> True:
+                        <span style="color:#66d9ef">if</span> check <span style="color:#f92672">==</span> <span style="color:#66d9ef">True</span>:
                             possible_last_bytes <span style="color:#f92672">=</span> [byte]
                             <span style="color:#66d9ef">break</span>
             <span style="color:#75715e"># Append the decrypted byte to the plain block.                </span>
@@ -364,6 +365,7 @@ result
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-18-implement-ctr-the-stream-cipher-mode">Challenge 18: Implement CTR, the stream cipher mode</h3>
 <p><a href="https://cryptopals.com/sets/3/challenges/18">Link</a></p>
 <blockquote>
@@ -407,11 +409,11 @@ nonce <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
     <span style="color:#75715e"># 8 byte because format says 64bit.</span>
     nonce_bytes <span style="color:#f92672">=</span> nonce<span style="color:#f92672">.</span>to_bytes(<span style="color:#ae81ff">8</span>, <span style="color:#e6db74">&#34;little&#34;</span>)
     
-    <span style="color:#66d9ef">while</span> True:
+    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
         counter_bytes <span style="color:#f92672">=</span> counter<span style="color:#f92672">.</span>to_bytes(<span style="color:#ae81ff">8</span>, <span style="color:#e6db74">&#34;little&#34;</span>)
         <span style="color:#75715e"># Keep getting 16byte block from the encryption function.</span>
         keystream_block <span style="color:#f92672">=</span> AES_ECB_encrypt(nonce_bytes <span style="color:#f92672">+</span> counter_bytes, key)
-        <span style="color:#66d9ef">yield</span> <span style="color:#f92672">from</span> keystream_block
+        <span style="color:#66d9ef">yield from</span> keystream_block
         counter <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
 </code></pre></div><p><img src="https://hexterisk.github.io/blog/Cryptopals_Set_3/2_image.png" alt="">
 <em>AES CTR Encryption.</em></p>
@@ -441,6 +443,7 @@ byte_text<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">
 
 
 <p>I came up with the solution for #19 involving scoring texts based on letter frequency, and it turned out to be the solution for #20 too.</p>
+<p> </p>
 <h3 id="challenge-19-break-fixed-nonce-ctr-mode-using-substitutions">Challenge 19: Break fixed-nonce CTR mode using substitutions</h3>
 <p><a href="https://cryptopals.com/sets/3/challenges/19">Link</a></p>
 <blockquote>
@@ -495,6 +498,7 @@ And since the keystream is the same for every ciphertext:<br>
 Attack this cryptosystem piecemeal: guess letters, use expected English language frequence to validate guesses, catch common English trigrams, and so on.</p>
 </blockquote>
 <p>and</p>
+<p> </p>
 <h3 id="challenge-20-break-fixed-nonce-ctr-statistically">Challenge 20: Break fixed-nonce CTR statistically</h3>
 <p><a href="https://cryptopals.com/sets/3/challenges/20">Link</a></p>
 <blockquote>
@@ -538,6 +542,7 @@ message
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-21-implement-the-mt19937-mersenne-twister-rng">Challenge 21: Implement the MT19937 Mersenne Twister RNG</h3>
 <p><a href="https://cryptopals.com/sets/3/challenges/21">Link</a></p>
 <blockquote>
@@ -611,7 +616,7 @@ If you&rsquo;re writing in Python, Ruby, or (gah) PHP, your language is probably
         self<span style="color:#f92672">.</span>index <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Check if the numbers look random</span>
 <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>):
-    <span style="color:#66d9ef">print</span>(MT19937(i)<span style="color:#f92672">.</span>extract_number())
+    print(MT19937(i)<span style="color:#f92672">.</span>extract_number())
 </code></pre></div><p><code>2357136044</code><br>
 <code>1791095845</code><br>
 <code>1872583848</code><br>
@@ -627,6 +632,7 @@ If you&rsquo;re writing in Python, Ruby, or (gah) PHP, your language is probably
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-22-crack-an-mt19937-seed">Challenge 22: Crack an MT19937 seed</h3>
 <p><a href="https://cryptopals.com/sets/3/challenges/22">Link</a></p>
 <blockquote>
@@ -686,6 +692,7 @@ number <span style="color:#f92672">=</span> break_MT19937_seed(MT19937_timestamp
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-23-clone-an-mt19937-rng-from-its-output">Challenge 23: Clone an MT19937 RNG from its output</h3>
 <p><a href="https://cryptopals.com/sets/3/challenges/23">Link</a></p>
 <blockquote>
@@ -705,7 +712,7 @@ The new &ldquo;spliced&rdquo; generator should predict the values of the origina
     <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">    Convert an integer to it&#39;s binary form, and return the bits in a list.
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
-    <span style="color:#66d9ef">return</span> [int(b) <span style="color:#66d9ef">for</span> b <span style="color:#f92672">in</span> <span style="color:#e6db74">&#34;{:032b}&#34;</span><span style="color:#f92672">.</span>format(x)]
+    <span style="color:#66d9ef">return</span> [int(b) <span style="color:#66d9ef">for</span> b <span style="color:#f92672">in</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:032b}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(x)]
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">bit_list_to_int</span>(l: list) <span style="color:#f92672">-&gt;</span> int:
     <span style="color:#e6db74">&#34;&#34;&#34;
@@ -726,7 +733,7 @@ The new &ldquo;spliced&rdquo; generator should predict the values of the origina
     <span style="color:#66d9ef">else</span>:
         <span style="color:#66d9ef">assert</span> direction <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;right&#34;</span>
 
-    x <span style="color:#f92672">=</span> [None]<span style="color:#f92672">*</span><span style="color:#ae81ff">32</span>
+    x <span style="color:#f92672">=</span> [<span style="color:#66d9ef">None</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">32</span>
     <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">32</span>):
         <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&lt;</span> shift:
             x[n] <span style="color:#f92672">=</span> y[n]
@@ -780,12 +787,13 @@ cloned_rng <span style="color:#f92672">=</span> get_cloned_rng(rng)
 <span style="color:#75715e"># Check that the two PRNGs produce the same output.</span>
 <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">99</span>):
     <span style="color:#66d9ef">if</span> rng<span style="color:#f92672">.</span>extract_number() <span style="color:#f92672">!=</span> cloned_rng<span style="color:#f92672">.</span>extract_number():
-        test(rng<span style="color:#f92672">.</span>extract_number() <span style="color:#f92672">==</span> <span style="color:#66d9ef">print</span>(cloned_rng<span style="color:#f92672">.</span>extract_number()))
+        test(rng<span style="color:#f92672">.</span>extract_number() <span style="color:#f92672">==</span> print(cloned_rng<span style="color:#f92672">.</span>extract_number()))
 </code></pre></div>
 
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-24-create-the-mt19937-stream-cipher-and-break-it">Challenge 24: Create the MT19937 stream cipher and break it</h3>
 <p><a href="https://cryptopals.com/sets/3/challenges/24">Link</a></p>
 <blockquote>
@@ -810,9 +818,9 @@ Write a function to check if any given password token is actually the product of
     <span style="color:#66d9ef">assert</span> math<span style="color:#f92672">.</span>log2(seed) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">16</span>
     
     prng <span style="color:#f92672">=</span> MT19937(seed)
-    <span style="color:#66d9ef">while</span> True:
+    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
         number <span style="color:#f92672">=</span> prng<span style="color:#f92672">.</span>extract_number()
-        <span style="color:#66d9ef">yield</span> <span style="color:#f92672">from</span> number.to_bytes(<span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#34;big&#34;</span>)
+        <span style="color:#66d9ef">yield from</span> number<span style="color:#f92672">.</span>to_bytes(<span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#34;big&#34;</span>)
 </code></pre></div><p>The function to encrypt a given string via a MT19937 generated keystream.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">MT19937_CTR</span>(string: str, seed: int) <span style="color:#f92672">-&gt;</span> bytes:
     <span style="color:#e6db74">&#34;&#34;&#34;
@@ -837,7 +845,7 @@ string <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span>
 string <span style="color:#f92672">+=</span> plaintext<span style="color:#f92672">.</span>encode()
 
 seed <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">**</span><span style="color:#ae81ff">16</span>)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Seed value coded to be&#34;</span>, seed)
+print(<span style="color:#e6db74">&#34;&gt; Seed value coded to be&#34;</span>, seed)
 cipher_bytes <span style="color:#f92672">=</span> MT19937_CTR(string, seed)
 deciphered_bytes <span style="color:#f92672">=</span> MT19937_CTR(cipher_bytes, seed)
 
@@ -849,8 +857,8 @@ deciphered_bytes <span style="color:#f92672">=</span> MT19937_CTR(cipher_bytes, 
     deciphered_bytes <span style="color:#f92672">=</span> MT19937_CTR(cipher_bytes, seed)
     <span style="color:#66d9ef">try</span>:
         <span style="color:#66d9ef">assert</span> string <span style="color:#f92672">==</span> deciphered_bytes
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Brute force successful.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Seed:&#34;</span>, seed)
-        test(True)
+        print(<span style="color:#e6db74">&#34;&gt; Brute force successful.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Seed:&#34;</span>, seed)
+        test(<span style="color:#66d9ef">True</span>)
         <span style="color:#66d9ef">break</span>
     <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">AssertionError</span>:
         <span style="color:#66d9ef">continue</span>

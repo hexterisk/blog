@@ -22,6 +22,8 @@ categories: ["Advanced Binary Analysis"]
 *   The collection of symbolic values and formulas that a symbex engine maintains is called the **Symbolic State**.
 *   Symbex engine computes two different kinds of formulas over these symbolic values: a set of **symbolic expressions** and a **path constraint.**
 
+&nbsp;
+
 ## Symbolic Expressions
 
 A symbolic expression (_φj_ , with _j ∈ N)_ corresponds either to a symbolic value _αi_ or to some mathematical combination of symbolic expressions, such as _φ3 = φ1 + φ2_.
@@ -41,6 +43,8 @@ Various notations for a symbolic expression _e_ are as follows:
 and more.
 
 Symbolic variables of an expression _e_ are the set of addresses _m_ that occur in it.
+
+&nbsp;
 
 ## Path Constraint
 
@@ -86,6 +90,8 @@ Step ➍ takes the _else_ case.
 
 *   To reach the call to bar instead, avoid the if(x >= 5) branch by changing the path constraint _φ1 ≥ 5_ to _φ1 < 5_ and ask the constraint solver for a new model.
 *   Thus, a possible model would be _α1 = 4 ∧ α2 = 0_.
+
+&nbsp;
 
 ## Variants
 
@@ -157,6 +163,8 @@ Classic symbolic execution explores all program paths, forking off a new symboli
 *   **BFS** (**Breadth-First Search**) does the opposite, exploring all paths in parallel but taking longer to reach deeply nested code.
 
 Concolic execution explores only one path at a time as driven by concrete inputs, but can also be combined with the heuristic path exploration approach or even with the approach of exploring all paths. The easiest way to explore multiple paths is to run the application repeatedly, each time with new inputs discovered by “flipping” branch constraints in the previous run. A more sophisticated approach is to take snapshots of the program state so that after exploring one path, the snapshot can restore the state to an earlier point in the execution and explore another path from there.
+
+&nbsp;
 
 ## Optimisation
 

@@ -6,14 +6,14 @@
     <description>Recent content in dart on Pwn the world.</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 25 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://hexterisk.github.io/blog/tags/dart/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://hexterisk.github.io/blog/tags/dart/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DART &amp; SAGE</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/09/25/dart-sage/</link>
-      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      <link>https://hexterisk.github.io/blog/posts/2020/10/04/dart-sage/</link>
+      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/09/25/dart-sage/</guid>
-      <description>Back in 2005, researchers at Microsoft came up with a concolic testing tool called DART(Directed Automated Random Testing). The tool can be used in the unit testing phase, as well as can be applied to large programs.
+      <guid>https://hexterisk.github.io/blog/posts/2020/10/04/dart-sage/</guid>
+      <description>DART Back in 2005, researchers at Microsoft came up with a concolic testing tool called DART(Directed Automated Random Testing). The tool can be used in the unit testing phase, as well as can be applied to large programs.
  We present a new tool, named DART, for automatically testing software that combines three main techniques: (1) automated extraction of the interface of a program with its external environment using static source-code parsing; (2) automatic generation of a test driver for this interface that performs random testing to simulate the most general environment the program can operate in; and (3) dynamic analysis of how the program behaves under random testing and automatic generation of new test inputs to direct systematically the execution along alternative program paths.</description>
     </item>
     

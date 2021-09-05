@@ -93,8 +93,7 @@ deciphered_bytes = xor_bytes(ciphertext, recovered_keystream)
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
-
-
+&nbsp;
 
 ### Challenge 26: CTR bitflipping
 [Link](https://cryptopals.com/sets/4/challenges/26)
@@ -169,8 +168,7 @@ modified_ciphertext = ciphertext[:prefix_length] + injected_bytes + ciphertext[p
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
-
-
+&nbsp;
 
 ### Challenge 27: Recover the key from CBC with IV=Key
 [Link](https://cryptopals.com/sets/4/challenges/27)
@@ -277,8 +275,7 @@ except Exception as e:
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
-
-
+&nbsp;
 
 ### Challenge 28: Implement a SHA-1 keyed MAC
 [Link](https://cryptopals.com/sets/4/challenges/28)
@@ -401,8 +398,7 @@ h = hashlib.sha1(random_key + message.encode())
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
-
-
+&nbsp;
 
 ### Challenge 29: Break a SHA-1 keyed MAC using length extension
 [Link](https://cryptopals.com/sets/4/challenges/29)
@@ -490,8 +486,7 @@ modified_message, new_md = sha1_length_extension_attack(message.encode(), origin
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
-
-
+&nbsp;
 
 ### Challenge 30: Break an MD4 keyed MAC using length extension
 [Link](https://cryptopals.com/sets/4/challenges/30)
@@ -665,8 +660,7 @@ modified_message, new_md = md4_length_extension_attack(message.encode(), origina
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
-
-
+&nbsp;
 
 ### Challenge 31: Implement and break HMAC-SHA1 with an artificial timing leak
 [Link](https://cryptopals.com/sets/4/challenges/31)
@@ -868,8 +862,7 @@ for _ in range(hashlib.sha1().digest_size * 2):
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
-
+&nbsp;
 
 ### Challenge 32: Break HMAC-SHA1 with a slightly less artificial timing leak
 [Link](https://cryptopals.com/sets/4/challenges/32)

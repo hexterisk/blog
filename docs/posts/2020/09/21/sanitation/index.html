@@ -10,7 +10,7 @@ Sanitizers are employed by instrumenting the source code. The compiled binary, t
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://hexterisk.github.io/blog/posts/2020/09/16/sanitation/" />
+<link rel="canonical" href="https://hexterisk.github.io/blog/posts/2020/09/21/sanitation/" />
 
 
     <title>
@@ -42,8 +42,8 @@ Sanitizers are employed by instrumenting the source code. The compiled binary, t
 
 <meta itemprop="name" content="Sanitation">
 <meta itemprop="description" content="Sanitation tools, or sanitizers, are a set of libraries that can directly observe and flag an incorrect behavior for a certain class of violation at runtime.
-Sanitizers are employed by instrumenting the source code. The compiled binary, therefore, essentially has certain tripwires that catch any invalid or incorrect behavior and reports it. The fact that it only brings about minimal performance overhead allows it to be coupled with fuzzing techniques, a powerful combination."><meta itemprop="datePublished" content="2020-09-16T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-09-16T00:00:00&#43;00:00" />
+Sanitizers are employed by instrumenting the source code. The compiled binary, therefore, essentially has certain tripwires that catch any invalid or incorrect behavior and reports it. The fact that it only brings about minimal performance overhead allows it to be coupled with fuzzing techniques, a powerful combination."><meta itemprop="datePublished" content="2020-09-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-09-21T00:00:00+00:00" />
 <meta itemprop="wordCount" content="574"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="sanitizer,ASan,MSan,UBSan,address-sanitizer,memory-sanitizer,undefined-behavior-sanitizer,TSan,thread-sanitizer," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
@@ -58,7 +58,7 @@ Sanitizers are employed by instrumenting the source code. The compiled binary, t
 
 
 
-    <meta property="article:published_time" content="2020-09-16 00:00:00 &#43;0000 UTC" />
+    <meta property="article:published_time" content="2020-09-21 00:00:00 &#43;0000 UTC" />
 
 
 
@@ -129,7 +129,7 @@ Sanitizers are employed by instrumenting the source code. The compiled binary, t
 
     <article>
         <h1 class="post-title">
-            <a href="https://hexterisk.github.io/blog/posts/2020/09/16/sanitation/">Sanitation</a>
+            <a href="https://hexterisk.github.io/blog/posts/2020/09/21/sanitation/">Sanitation</a>
         </h1>
 
         
@@ -137,6 +137,7 @@ Sanitizers are employed by instrumenting the source code. The compiled binary, t
         <div class="post-content">
             <p>Sanitation tools, or <a href="https://github.com/google/sanitizers">sanitizers</a>, are a set of libraries that can directly observe and flag an incorrect behavior for a certain class of violation at runtime.</p>
 <p>Sanitizers are employed by instrumenting the source code. The compiled binary, therefore, essentially has certain tripwires that catch any invalid or incorrect behavior and reports it. The fact that it only brings about minimal performance overhead allows it to be coupled with fuzzing techniques, a powerful combination.</p>
+<p> </p>
 <h2 id="input-sanitation">Input sanitation</h2>
 <p>Randomly generated test cases can cause crashes in situations where assumptions were made about the input, and/or proper filtering and cleaning of the input was not implemented.</p>
 <p>The assumptions can be of:</p>
@@ -158,12 +159,14 @@ Sanitizers are employed by instrumenting the source code. The compiled binary, t
 </li>
 </ul>
 <p>Such bugs are generally low priority and can be avoided with proper documentation and good programming practices. Therefore, data sanitation is done on the randomly generated test cases to play along with such assumptions so that clean data can enter the application, to explore the more dangerous part.</p>
+<p> </p>
 <h2 id="address-sanitation">Address sanitation</h2>
 <p><strong>ASan</strong> detects use-after-frees, buffer overflows and stack-use-after-return.</p>
 <p>A shadow memory bitmap is created, where a single bit corresponds to a single byte of the actual memory. Operations corresponding to a memory access are instrumented and the areas neighboring the memory are tainted to check for any changes.</p>
 <p><img src="https://hexterisk.github.io/blog/Fuzzing_Sanitation/s.png" alt="">
 <em>ASan tainted the bytes surrounding ‘buf’.</em></p>
 <p>ASan is tracking the areas surrounding the buffers (red zones). Since the string being copied into the buffer is longer than the buffer size, some bytes are going to overflow into the surrounding memory areas. The surrounding memory area is invalid in this context, since we only have access to the memory reserved by the buffer. ASan will catch this and throw an error.</p>
+<p> </p>
 <h2 id="thread-sanitation">Thread sanitation</h2>
 <p><strong>TSan</strong> detects:</p>
 <ul>
@@ -190,6 +193,7 @@ Sanitizers are employed by instrumenting the source code. The compiled binary, t
 </ul>
 </li>
 </ol>
+<p> </p>
 <h2 id="memory-sanitation">Memory sanitation</h2>
 <p><strong>MSAN</strong> detects read operations on uninitialized memory.</p>
 <p>A bit-to-bit shadow memory map is created and uninitialized memory is tainted. A secondary shadow map may also be employed to keep track of the origin of a freshly allocated memory and propagated with the uninitialized memory. The origin can later be used to track the fault if an illegal operation on the memory is reported.</p>
@@ -205,6 +209,7 @@ Sanitizers are employed by instrumenting the source code. The compiled binary, t
 <li>Copy.</li>
 <li>Mathematical operations.</li>
 </ul>
+<p> </p>
 <h2 id="undefined-behavior-sanitation">Undefined Behavior sanitation</h2>
 <p><strong>UBSan</strong> detects any undefined behavior, mainly:</p>
 <ul>
@@ -253,7 +258,7 @@ Sanitizers are employed by instrumenting the source code. The compiled binary, t
                 <line x1="16" y1="2" x2="16" y2="6"></line>
                 <line x1="8" y1="2" x2="8" y2="6"></line>
                 <line x1="3" y1="10" x2="21" y2="10"></line>
-            </svg>2020-09-16 05:30 &#43;0530</p>
+            </svg>2020-09-21 05:30 &#43;0530</p>
     </div>
 
     
@@ -267,8 +272,8 @@ Sanitizers are employed by instrumenting the source code. The compiled binary, t
 
             
             <span class="button previous">
-                <a href="https://hexterisk.github.io/blog/posts/2020/09/09/approaches/">
-                    <span class="button__text">Approaches</span>
+                <a href="https://hexterisk.github.io/blog/posts/2020/09/16/architecture/">
+                    <span class="button__text">Architecture</span>
                     <span class="button__icon">→</span>
                 </a>
             </span>
@@ -276,7 +281,7 @@ Sanitizers are employed by instrumenting the source code. The compiled binary, t
 
             
             <span class="button next">
-                <a href="https://hexterisk.github.io/blog/posts/2020/09/25/dart-sage/">
+                <a href="https://hexterisk.github.io/blog/posts/2020/10/04/dart-sage/">
                     <span class="button__icon">←</span>
                     <span class="button__text">DART &amp; SAGE</span>
                 </a>

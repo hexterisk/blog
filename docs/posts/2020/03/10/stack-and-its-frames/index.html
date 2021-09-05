@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="Stack is a data structure, and means exactly what it&amp;rsquo;s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a LIFO(last in, first out) structure. Memory for functions, local variables, and flow control is stored in the stack.
-Stack Layout The stack grows from higher addresses to lower addresses." />
+ Stack Layout The stack grows from higher addresses to lower addresses." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -42,15 +42,15 @@ Stack Layout The stack grows from higher addresses to lower addresses." />
 
 <meta itemprop="name" content="Stack and it&#39;s Frames">
 <meta itemprop="description" content="Stack is a data structure, and means exactly what it&rsquo;s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a LIFO(last in, first out) structure. Memory for functions, local variables, and flow control is stored in the stack.
-Stack Layout The stack grows from higher addresses to lower addresses."><meta itemprop="datePublished" content="2020-03-10T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-10T00:00:00&#43;00:00" />
+ Stack Layout The stack grows from higher addresses to lower addresses."><meta itemprop="datePublished" content="2020-03-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-10T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1164"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="binary,symbols,execution,path,constraints,expression," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
 <meta name="twitter:title" content="Stack and it&#39;s Frames"/>
 <meta name="twitter:description" content="Stack is a data structure, and means exactly what it&rsquo;s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a LIFO(last in, first out) structure. Memory for functions, local variables, and flow control is stored in the stack.
-Stack Layout The stack grows from higher addresses to lower addresses."/>
+ Stack Layout The stack grows from higher addresses to lower addresses."/>
 
 
 
@@ -137,6 +137,7 @@ Stack Layout The stack grows from higher addresses to lower addresses."/>
         <div class="post-content">
             <p><strong>Stack</strong> is a data structure, and means exactly what it&rsquo;s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a <strong>LIFO</strong>(last in, first out) structure. </p>
 <p>Memory for functions, local variables, and flow control is stored in the stack.</p>
+<p> </p>
 <h2 id="stack-layout">Stack Layout</h2>
 <p>The stack grows from higher addresses to lower addresses. This behavior can be categorized as <em>growing downwards</em> or <em>allocation in a top-down manner</em>. Therefore, top of the stack is actually the lower-most address being used by the stack at that moment.</p>
 <p><img src="https://hexterisk.github.io/blog/Stack_and_it's_Frames/1Yz9K.gif" alt="">
@@ -186,6 +187,7 @@ Stack Layout The stack grows from higher addresses to lower addresses."/>
 <li>Address length (x86: 32 bit, x64: 64bit)</li>
 </ul>
 <p>Since these differences have been tended to more or less, the following material is in reference to the x86 architecture since it&rsquo;s much more elaborate.</p>
+<p> </p>
 <h2 id="flow-of-control">Flow of Control:</h2>
 <ol>
 <li>Arguments are placed on the stack using <code>push</code> instructions.</li>
@@ -196,6 +198,7 @@ Stack Layout The stack grows from higher addresses to lower addresses."/>
 <li>The function returns by calling the <code>ret</code> instruction. This pops the return address off the stack and into <code>EIP</code>, so that the program will continue executing from where the original call was made.</li>
 <li>The stack is adjusted to remove the arguments that were sent, unless they’ll be used again later.</li>
 </ol>
+<p> </p>
 <h2 id="stack-and-frame-analysis">Stack and Frame Analysis</h2>
 <p><img src="https://hexterisk.github.io/blog/Stack_and_it's_Frames/1_image.png" alt="">
 <em>Individual stack frame (notice how addresses go from higher to lower from bottom to top).</em></p>

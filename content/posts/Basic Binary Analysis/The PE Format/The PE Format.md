@@ -24,6 +24,8 @@ _PE32+ binary structure._
 *   The MS-DOS header starts with a magic value, which consists of the ASCII characters **MZ**. For this reason, it’s also sometimes referred to as an **MZ header**.
 *   The field **e\_lfanew** contains the file offset at which the real PE binary begins. Thus, when a PE-aware program loader opens the binary, it can read the MS-DOS header and then skip past it and the MS-DOS stub to go right to the start of the PE headers.
 
+&nbsp;
+
 ## Executable Header
 
 The struct **IMAGE\_NT\_HEADERS64** encompasses a 32- bit signature, a PE file header, and a PE optional header. You could say that struct IMAGE\_NT\_HEADERS64 as a whole is PE’s version of the executable header.
@@ -32,6 +34,8 @@ The struct **IMAGE\_NT\_HEADERS64** encompasses a 32- bit signature, a PE file h
 *   The file header describes general properties of the file. The most important fields are _Machine_, _NumberOfSections_, _SizeOfOptionalHeader_, and _Characteristics_.
 *   The PE optional header provides metadata. It may be missing in object files.
 
+&nbsp;
+
 ## Section Header Table
 
 *   An array of **IMAGE\_SECTION\_HEADER** structures, each of which describes a single section, denoting its size in the file and in memory (SizeOfRawData and VirtualSize), its file offset and virtual address (PointerToRawData and VirtualAddress), relocation information, and any flags (Characteristics).
@@ -39,6 +43,8 @@ The struct **IMAGE\_NT\_HEADERS64** encompasses a 32- bit signature, a PE file h
 *   Instead of referring to a string table as the ELF section headers do, PE section headers specify the section name using a simple character array field, aptly called _**Name**_. Because the array is only 8 bytes long, PE section names are limited to 8 characters.
 *   PE format does not explicitly distinguish between sections and segments. The closest thing PE files have to ELF’s execution view is the **DataDirectory**, which provides the loader with a shortcut to certain portions of the binary needed for setting up the execution.
 *   There is no separate program header table; the section header table is used for both linking and loading.
+
+&nbsp;
 
 ## Sections
 

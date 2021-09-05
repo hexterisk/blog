@@ -1,7 +1,7 @@
 ---
 author:
   name: "hexterisk"
-date: 2020-09-16
+date: 2020-09-21
 linktitle: Sanitation
 type:
 - post
@@ -15,6 +15,8 @@ categories: ["art-of-fuzzing"]
 Sanitation tools, or [sanitizers](https://github.com/google/sanitizers), are a set of libraries that can directly observe and flag an incorrect behavior for a certain class of violation at runtime.
 
 Sanitizers are employed by instrumenting the source code. The compiled binary, therefore, essentially has certain tripwires that catch any invalid or incorrect behavior and reports it. The fact that it only brings about minimal performance overhead allows it to be coupled with fuzzing techniques, a powerful combination.
+
+&nbsp;
 
 ## Input sanitation
 
@@ -31,6 +33,8 @@ The assumptions can be of:
 
 Such bugs are generally low priority and can be avoided with proper documentation and good programming practices. Therefore, data sanitation is done on the randomly generated test cases to play along with such assumptions so that clean data can enter the application, to explore the more dangerous part.
 
+&nbsp;
+
 ## Address sanitation
 
 **ASan** detects use-after-frees, buffer overflows and stack-use-after-return.
@@ -41,6 +45,8 @@ A shadow memory bitmap is created, where a single bit corresponds to a single by
 _ASan tainted the bytes surrounding ‘buf’._
 
 ASan is tracking the areas surrounding the buffers (red zones). Since the string being copied into the buffer is longer than the buffer size, some bytes are going to overflow into the surrounding memory areas. The surrounding memory area is invalid in this context, since we only have access to the memory reserved by the buffer. ASan will catch this and throw an error.
+
+&nbsp;
 
 ## Thread sanitation
 
@@ -63,6 +69,8 @@ Thread sanitation can be implemented in two ways:
     *   Intercepts thread and synchronization management.
     *   Manages all read/write operations.
 
+&nbsp;
+
 ## Memory sanitation
 
 **MSAN** detects read operations on uninitialized memory.
@@ -80,6 +88,8 @@ The following operations are allowed (as long as their result is not used):
 *   Read.
 *   Copy.
 *   Mathematical operations.
+
+&nbsp;
 
 ## Undefined Behavior sanitation
 

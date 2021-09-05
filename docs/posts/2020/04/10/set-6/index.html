@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
-Challenge 41: Implement unpadded message recovery oracle Link
+ Challenge 41: Implement unpadded message recovery oracle Link
  Nate Lawson says we should stop calling it &amp;ldquo;RSA padding&amp;rdquo; and start calling it &amp;ldquo;RSA armoring&amp;rdquo;. Here&amp;rsquo;s why.
 Imagine a web application, again with the Javascript encryption, taking RSA-encrypted messages which (again: Javascript) aren&amp;rsquo;t padded before encryption at all.
 You can submit an arbitrary RSA blob and the server will return plaintext." />
@@ -45,18 +45,18 @@ You can submit an arbitrary RSA blob and the server will return plaintext." />
 
 <meta itemprop="name" content="Set 6">
 <meta itemprop="description" content="Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
-Challenge 41: Implement unpadded message recovery oracle Link
+ Challenge 41: Implement unpadded message recovery oracle Link
  Nate Lawson says we should stop calling it &ldquo;RSA padding&rdquo; and start calling it &ldquo;RSA armoring&rdquo;. Here&rsquo;s why.
 Imagine a web application, again with the Javascript encryption, taking RSA-encrypted messages which (again: Javascript) aren&rsquo;t padded before encryption at all.
-You can submit an arbitrary RSA blob and the server will return plaintext."><meta itemprop="datePublished" content="2020-04-10T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-04-10T00:00:00&#43;00:00" />
+You can submit an arbitrary RSA blob and the server will return plaintext."><meta itemprop="datePublished" content="2020-04-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-10T00:00:00+00:00" />
 <meta itemprop="wordCount" content="5849"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="Matasano,cryptography,DSA,RSA,Bleichenbacher,nonce,xor,e=3,PKCS#1,oracle,PKCS1.5," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
 <meta name="twitter:title" content="Set 6"/>
 <meta name="twitter:description" content="Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
-Challenge 41: Implement unpadded message recovery oracle Link
+ Challenge 41: Implement unpadded message recovery oracle Link
  Nate Lawson says we should stop calling it &ldquo;RSA padding&rdquo; and start calling it &ldquo;RSA armoring&rdquo;. Here&rsquo;s why.
 Imagine a web application, again with the Javascript encryption, taking RSA-encrypted messages which (again: Javascript) aren&rsquo;t padded before encryption at all.
 You can submit an arbitrary RSA blob and the server will return plaintext."/>
@@ -145,6 +145,7 @@ You can submit an arbitrary RSA blob and the server will return plaintext."/>
 
         <div class="post-content">
             <p>Refer to this <a href="https://github.com/hexterisk/cryptopals-solutions">repository</a> for solution scripts and the IPython Notebook pertaining to the explanations here.</p>
+<p> </p>
 <h3 id="challenge-41-implement-unpadded-message-recovery-oracle">Challenge 41: Implement unpadded message recovery oracle</h3>
 <p><a href="https://cryptopals.com/sets/6/challenges/41">Link</a></p>
 <blockquote>
@@ -196,7 +197,7 @@ Implement that attack.</p>
     
     (E, N) <span style="color:#f92672">=</span> rsa_server<span style="color:#f92672">.</span>get_public_key()
     S <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">1</span>, N)
-    <span style="color:#66d9ef">while</span> True:
+    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
         <span style="color:#66d9ef">if</span> S <span style="color:#f92672">%</span> N <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>:
             <span style="color:#66d9ef">break</span>
     
@@ -214,6 +215,7 @@ ciphertext <span style="color:#f92672">=</span> rsa_server<span style="color:#f9
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-42-bleichenbachers-e3-rsa-attack">Challenge 42: Bleichenbacher&rsquo;s e=3 RSA Attack</h3>
 <p><a href="https://cryptopals.com/sets/6/challenges/42">Link</a></p>
 <blockquote>
@@ -262,10 +264,10 @@ ASN1_SHA1 <span style="color:#f92672">=</span> <span style="color:#e6db74">b</sp
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">verify_signature</span>(self: object, message: bytes, signature: bytes) <span style="color:#f92672">-&gt;</span> bool:
         cipher <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>encrypt(signature, <span style="color:#e6db74">&#34;big&#34;</span>)
         block <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\x00</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">+</span> cipher<span style="color:#f92672">.</span>to_bytes((cipher<span style="color:#f92672">.</span>bit_length() <span style="color:#f92672">+</span> <span style="color:#ae81ff">7</span>) <span style="color:#f92672">//</span> <span style="color:#ae81ff">8</span>, <span style="color:#e6db74">&#34;big&#34;</span>)
-        r <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>compile(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\x00\x01\xff</span><span style="color:#e6db74">+?</span><span style="color:#ae81ff">\x00</span><span style="color:#e6db74">.{15}(.{20})&#39;</span>, re<span style="color:#f92672">.</span>DOTALL)
+        r <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>compile(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\x00\x01\xff</span><span style="color:#e6db74">+?</span><span style="color:#ae81ff">\x00</span><span style="color:#e6db74">.</span><span style="color:#e6db74">{15}</span><span style="color:#e6db74">(.</span><span style="color:#e6db74">{20}</span><span style="color:#e6db74">)&#39;</span>, re<span style="color:#f92672">.</span>DOTALL)
         m <span style="color:#f92672">=</span> r<span style="color:#f92672">.</span>match(block)
         <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> m:
-            <span style="color:#66d9ef">return</span> False
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
         digest <span style="color:#f92672">=</span> m<span style="color:#f92672">.</span>group(<span style="color:#ae81ff">1</span>)
         <span style="color:#66d9ef">return</span> digest <span style="color:#f92672">==</span> hashlib<span style="color:#f92672">.</span>sha1(message)<span style="color:#f92672">.</span>digest()
 </code></pre></div><p>Test the oracle.</p>
@@ -274,7 +276,7 @@ signature <span style="color:#f92672">=</span> rsa<span style="color:#f92672">.<
 <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> rsa<span style="color:#f92672">.</span>verify_signature(message<span style="color:#f92672">.</span>encode(), signature):
     <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">Exception</span>(message <span style="color:#f92672">+</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34; has invalid signature &#34;</span> <span style="color:#f92672">+</span> signature)
 <span style="color:#66d9ef">else</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Signature verified for message:&#34;</span>, message)
+    print(<span style="color:#e6db74">&#34;&gt; Signature verified for message:&#34;</span>, message)
 </code></pre></div><p><code>&gt; Signature verified for message: hi mom</code></p>
 <p>A broken padding validator(and this is pretty common) might just check for the presence of <code>FF 00 ASN.1</code> and would simply parse the <code>HASH</code> present right after. This leaves us the room to play with the bytes between <code>00 01 FF</code> and <code>FF 00 ASN.1</code></p>
 <p>Now, the caveat here is that the message is not signed. Instead, the PKCS#1 padded hash of the message is signed.</p>
@@ -293,15 +295,16 @@ signature <span style="color:#f92672">=</span> rsa<span style="color:#f92672">.<
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">forged_signature <span style="color:#f92672">=</span> forge_signature(message<span style="color:#f92672">.</span>encode())
 <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> rsa<span style="color:#f92672">.</span>verify_signature(message<span style="color:#f92672">.</span>encode(), forged_signature):
     <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">Exception</span>(message <span style="color:#f92672">+</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34; has invalid signature &#34;</span> <span style="color:#f92672">+</span> forged_signature)
-    test(False)
+    test(<span style="color:#66d9ef">False</span>)
 <span style="color:#66d9ef">else</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Signature verified for message:&#34;</span>, message)
+    print(<span style="color:#e6db74">&#34;&gt; Signature verified for message:&#34;</span>, message)
 </code></pre></div><p><code>&gt; Signature verified for message: hi mom</code></p>
 
 
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-43-dsa-key-recovery-from-nonce">Challenge 43: DSA key recovery from nonce</h3>
 <p><a href="https://cryptopals.com/sets/6/challenges/43">Link</a></p>
 <blockquote>
@@ -385,7 +388,7 @@ Obviously, it also generates the same signature for that string.</p>
     
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_signature</span>(self: object, message: bytes) <span style="color:#f92672">-&gt;</span> (int, int):
         
-        <span style="color:#66d9ef">while</span> True:
+        <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
             k <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">1</span>, self<span style="color:#f92672">.</span>q <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
             r <span style="color:#f92672">=</span> pow(self<span style="color:#f92672">.</span>g, k, self<span style="color:#f92672">.</span>p) <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>q
             <span style="color:#66d9ef">if</span> r <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
@@ -398,9 +401,9 @@ Obviously, it also generates the same signature for that string.</p>
     
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">verify_signature</span>(self: object, r: int, s: int, message: bytes) <span style="color:#f92672">-&gt;</span> bool:
         <span style="color:#66d9ef">if</span> r <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> r <span style="color:#f92672">&gt;</span> self<span style="color:#f92672">.</span>q:
-            <span style="color:#66d9ef">return</span> False
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
         <span style="color:#66d9ef">if</span> s <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> s <span style="color:#f92672">&gt;</span> self<span style="color:#f92672">.</span>q:
-            <span style="color:#66d9ef">return</span> False
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
         
         w <span style="color:#f92672">=</span> mod_inverse(s, self<span style="color:#f92672">.</span>q)
         u1 <span style="color:#f92672">=</span> (self<span style="color:#f92672">.</span>H(message) <span style="color:#f92672">*</span> w) <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>q
@@ -423,7 +426,7 @@ Obviously, it also generates the same signature for that string.</p>
     q <span style="color:#f92672">=</span> getPrime(N)
     
     p <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-    <span style="color:#66d9ef">while</span> True:
+    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
         p <span style="color:#f92672">=</span> getPrime(key_length)
         <span style="color:#66d9ef">if</span> (p <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> q <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
             <span style="color:#66d9ef">break</span>
@@ -431,7 +434,7 @@ Obviously, it also generates the same signature for that string.</p>
     g <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
     h <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
     
-    <span style="color:#66d9ef">while</span> True:
+    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
         h <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">2</span>, p <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>)
         g <span style="color:#f92672">=</span> h<span style="color:#f92672">**</span>((p <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">/</span> q)
         <span style="color:#66d9ef">if</span> g <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>:
@@ -492,10 +495,10 @@ y <span style="color:#f92672">=</span> int(<span style="color:#e6db74">&#34;84ad
 
 key <span style="color:#f92672">=</span> key_recovery_from_nonce(q, r, s, y, dsa<span style="color:#f92672">.</span>H(message<span style="color:#f92672">.</span>encode()))
 <span style="color:#66d9ef">if</span> key <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Brute force successful.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Private key:&#34;</span>, key)
-    test(True)
+    print(<span style="color:#e6db74">&#34;&gt; Brute force successful.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Private key:&#34;</span>, key)
+    test(<span style="color:#66d9ef">True</span>)
 <span style="color:#66d9ef">else</span>:
-    test(False)
+    test(<span style="color:#66d9ef">False</span>)
 </code></pre></div><p><code>&gt; Brute force successful.</code></p>
 <p><code>Private key: 125489817134406768603130881762531825565433175625</code></p>
 
@@ -503,6 +506,7 @@ key <span style="color:#f92672">=</span> key_recovery_from_nonce(q, r, s, y, dsa
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-44-dsa-nonce-recovery-from-repeated-nonce">Challenge 44: DSA nonce recovery from repeated nonce</h3>
 <p><a href="https://cryptopals.com/sets/6/challenges/44">Link</a></p>
 <blockquote>
@@ -534,7 +538,7 @@ This is easy to find, because when the same k is used r will be the same, since 
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
 
     <span style="color:#75715e"># Find indices of signatures with matching r.</span>
-    found <span style="color:#f92672">=</span> False
+    found <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
     r1, s1, s2, m1, m2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
     <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(message_dicts)):
         <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(len(message_dicts[i:])):
@@ -543,7 +547,7 @@ This is easy to find, because when the same k is used r will be the same, since 
                 m2 <span style="color:#f92672">=</span> message_dicts[j][<span style="color:#e6db74">&#34;m&#34;</span>]
                 <span style="color:#66d9ef">if</span> m1 <span style="color:#f92672">==</span> m2:
                     <span style="color:#66d9ef">continue</span>
-                found <span style="color:#f92672">=</span> True
+                found <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
                 r1 <span style="color:#f92672">=</span> message_dicts[i][<span style="color:#e6db74">&#34;r&#34;</span>]
                 s1 <span style="color:#f92672">=</span> message_dicts[i][<span style="color:#e6db74">&#34;s&#34;</span>]
                 s2 <span style="color:#f92672">=</span> message_dicts[j][<span style="color:#e6db74">&#34;s&#34;</span>]                
@@ -565,6 +569,7 @@ hashlib<span style="color:#f92672">.</span>sha1(hex(recovered_x)[<span style="co
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-45-dsa-parameter-tampering">Challenge 45: DSA parameter tampering</h3>
 <p><a href="https://cryptopals.com/sets/6/challenges/45">Link</a></p>
 <blockquote>
@@ -584,7 +589,7 @@ Sign &ldquo;Hello, world&rdquo;. And &ldquo;Goodbye, world&rdquo;.</p>
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
     
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_signature</span>(self: object, message: bytes) <span style="color:#f92672">-&gt;</span> (int, int):
-        <span style="color:#66d9ef">while</span> True:
+        <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
             k <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">1</span>, self<span style="color:#f92672">.</span>q <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
             r <span style="color:#f92672">=</span> pow(self<span style="color:#f92672">.</span>g, k, self<span style="color:#f92672">.</span>p) <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>q                
             s <span style="color:#f92672">=</span> (mod_inverse(k, self<span style="color:#f92672">.</span>q) <span style="color:#f92672">*</span> (self<span style="color:#f92672">.</span>H(message) <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>x <span style="color:#f92672">*</span> r)) <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>q
@@ -600,18 +605,18 @@ Sign &ldquo;Hello, world&rdquo;. And &ldquo;Goodbye, world&rdquo;.</p>
 message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Original message&#34;</span>
 
 signature <span style="color:#f92672">=</span> dsa<span style="color:#f92672">.</span>generate_signature(message<span style="color:#f92672">.</span>encode())
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Message:&#34;</span>, message)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Signature generated for g = 0.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">r:&#34;</span>, signature[<span style="color:#ae81ff">0</span>], <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">s:&#34;</span>, signature[<span style="color:#ae81ff">1</span>])
+print(<span style="color:#e6db74">&#34;&gt; Message:&#34;</span>, message)
+print(<span style="color:#e6db74">&#34;&gt; Signature generated for g = 0.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">r:&#34;</span>, signature[<span style="color:#ae81ff">0</span>], <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">s:&#34;</span>, signature[<span style="color:#ae81ff">1</span>])
 check <span style="color:#f92672">=</span> dsa<span style="color:#f92672">.</span>verify_signature(signature[<span style="color:#ae81ff">0</span>], signature[<span style="color:#ae81ff">1</span>], message<span style="color:#f92672">.</span>encode())
 <span style="color:#66d9ef">if</span> check:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Signature successfully verified.&#34;</span>)
+    print(<span style="color:#e6db74">&#34;&gt; Signature successfully verified.&#34;</span>)
     
 tampered_message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Tampered message!&#34;</span>
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Trying to verify signature of initial message for message:&#34;</span>, tampered_message)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Values from previous signature:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">r:&#34;</span>, signature[<span style="color:#ae81ff">0</span>], <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">s:&#34;</span>, signature[<span style="color:#ae81ff">1</span>])
+print(<span style="color:#e6db74">&#34;&gt; Trying to verify signature of initial message for message:&#34;</span>, tampered_message)
+print(<span style="color:#e6db74">&#34;&gt; Values from previous signature:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">r:&#34;</span>, signature[<span style="color:#ae81ff">0</span>], <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">s:&#34;</span>, signature[<span style="color:#ae81ff">1</span>])
 check <span style="color:#f92672">=</span> dsa<span style="color:#f92672">.</span>verify_signature(signature[<span style="color:#ae81ff">0</span>], signature[<span style="color:#ae81ff">1</span>], tampered_message<span style="color:#f92672">.</span>encode())
 <span style="color:#66d9ef">if</span> check:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Signature successfully verified.&#34;</span>)
+    print(<span style="color:#e6db74">&#34;&gt; Signature successfully verified.&#34;</span>)
 </code></pre></div><p><code>&gt; Message: Original message</code>
 <code>&gt; Signature generated for g = 0.</code></p>
 <p><code>r: 0 </code>
@@ -633,11 +638,11 @@ check <span style="color:#f92672">=</span> dsa<span style="color:#f92672">.</spa
     dsa <span style="color:#f92672">=</span> DSA_flawed(g <span style="color:#f92672">=</span> DSA<span style="color:#f92672">.</span>DEFAULT_P <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
     message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;g = (p + 1) DSA&#34;</span>
     signature <span style="color:#f92672">=</span> dsa<span style="color:#f92672">.</span>generate_signature(message<span style="color:#f92672">.</span>encode())
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Message:&#34;</span>, message)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Signature generated for g = (p + 1).</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">r:&#34;</span>, signature[<span style="color:#ae81ff">0</span>], <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">s:&#34;</span>, signature[<span style="color:#ae81ff">1</span>])
+    print(<span style="color:#e6db74">&#34;&gt; Message:&#34;</span>, message)
+    print(<span style="color:#e6db74">&#34;&gt; Signature generated for g = (p + 1).</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">r:&#34;</span>, signature[<span style="color:#ae81ff">0</span>], <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">s:&#34;</span>, signature[<span style="color:#ae81ff">1</span>])
     check <span style="color:#f92672">=</span> dsa<span style="color:#f92672">.</span>verify_signature(signature[<span style="color:#ae81ff">0</span>], signature[<span style="color:#ae81ff">1</span>], message<span style="color:#f92672">.</span>encode())
     <span style="color:#66d9ef">if</span> check:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Signature successfully verified for original message.&#34;</span>)
+        print(<span style="color:#e6db74">&#34;&gt; Signature successfully verified for original message.&#34;</span>)
     
     z <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span>)
     y <span style="color:#f92672">=</span> dsa<span style="color:#f92672">.</span>key_distribution()
@@ -647,15 +652,15 @@ check <span style="color:#f92672">=</span> dsa<span style="color:#f92672">.</spa
     message1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello, world&#34;</span>
     message2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Goodbye, world&#34;</span>
     
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Values from forged signature:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">r:&#34;</span>, forged_r, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">s:&#34;</span>, forged_s)
+    print(<span style="color:#e6db74">&#34;&gt; Values from forged signature:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">r:&#34;</span>, forged_r, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">s:&#34;</span>, forged_s)
     
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Message 1:&#34;</span>, message1)
+    print(<span style="color:#e6db74">&#34;&gt; Message 1:&#34;</span>, message1)
     <span style="color:#66d9ef">if</span> dsa<span style="color:#f92672">.</span>verify_signature(forged_r, forged_s, message1<span style="color:#f92672">.</span>encode()):
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Signature successfully verified for message 1.&#34;</span>)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Message 2:&#34;</span>, message2)
+        print(<span style="color:#e6db74">&#34;&gt; Signature successfully verified for message 1.&#34;</span>)
+    print(<span style="color:#e6db74">&#34;&gt; Message 2:&#34;</span>, message2)
     <span style="color:#66d9ef">if</span> dsa<span style="color:#f92672">.</span>verify_signature(forged_r, forged_s, message2<span style="color:#f92672">.</span>encode()):
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Signature successfully verified for message 2.&#34;</span>)
-        <span style="color:#66d9ef">return</span> True
+        print(<span style="color:#e6db74">&#34;&gt; Signature successfully verified for message 2.&#34;</span>)
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
 </code></pre></div><p><code>&gt; Message: g = (p + 1) DSA</code></p>
 <p><code>&gt; Signature generated for g = (p + 1).</code></p>
 <p><code>r: 1 </code></p>
@@ -673,6 +678,7 @@ check <span style="color:#f92672">=</span> dsa<span style="color:#f92672">.</spa
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-46-rsa-parity-oracle">Challenge 46: RSA parity oracle</h3>
 <p><a href="https://cryptopals.com/sets/6/challenges/46">Link</a></p>
 <blockquote>
@@ -710,7 +716,7 @@ given_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#
 </code></pre></div><p>Test the parity check function.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">rsa <span style="color:#f92672">=</span> RSA(<span style="color:#ae81ff">1024</span>)
 ciphertext <span style="color:#f92672">=</span> rsa<span style="color:#f92672">.</span>encrypt(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;Hello&#34;</span>)
-<span style="color:#66d9ef">print</span>(check_parity(ciphertext, rsa))
+print(check_parity(ciphertext, rsa))
 </code></pre></div><p><code>1</code></p>
 <p>The idea is to multiply the number by factors of 2 to check if the number wrapped around the modulus.</p>
 <p>Refer to this post on <a href="https://crypto.stackexchange.com/questions/11053/rsa-least-significant-bit-oracle-attack">crypto.stackexchange</a> for an explanation.</p>
@@ -754,6 +760,7 @@ plaintext <span style="color:#f92672">=</span> parity_attack(byte_string, RSA(<s
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-47-bleichenbachers-pkcs-15-padding-oracle-simple-case">Challenge 47: Bleichenbacher&rsquo;s PKCS 1.5 Padding Oracle (Simple Case)</h3>
 <p><a href="https://cryptopals.com/sets/6/challenges/47">Link</a></p>
 <blockquote>
@@ -865,7 +872,7 @@ message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ki
     
     <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> rsa<span style="color:#f92672">.</span>PKCS1_check_padding(ciphertext):
         <span style="color:#75715e">#Step 1 Blinding</span>
-        <span style="color:#66d9ef">while</span> True:
+        <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
             s <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>, n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
             c0 <span style="color:#f92672">=</span> (ciphertext <span style="color:#f92672">*</span> pow(s, e, n)) <span style="color:#f92672">%</span> n
             <span style="color:#66d9ef">if</span> rsa<span style="color:#f92672">.</span>PKCS1_check_padding(c0):
@@ -875,11 +882,11 @@ message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ki
         c0 <span style="color:#f92672">=</span> ciphertext
         
     <span style="color:#75715e"># Step 2 Searching for PKCS conforming messages</span>
-    <span style="color:#66d9ef">while</span> True:
+    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
         <span style="color:#75715e"># 2a</span>
         <span style="color:#66d9ef">if</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
             s <span style="color:#f92672">=</span> (n <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> B <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">//</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> B)
-            <span style="color:#66d9ef">while</span> True:
+            <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
                 c <span style="color:#f92672">=</span> (c0 <span style="color:#f92672">*</span> pow(s, e, n)) <span style="color:#f92672">%</span> n
                 <span style="color:#66d9ef">if</span> rsa<span style="color:#f92672">.</span>PKCS1_check_padding(c):
                     <span style="color:#66d9ef">break</span>
@@ -899,7 +906,7 @@ message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ki
             r <span style="color:#f92672">=</span> ceil(<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> (b <span style="color:#f92672">*</span> s <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> B), n)
             s <span style="color:#f92672">=</span> ceil(<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> B <span style="color:#f92672">+</span> r <span style="color:#f92672">*</span> n, b)
 
-            <span style="color:#66d9ef">while</span> True:
+            <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
                 c <span style="color:#f92672">=</span> (c0 <span style="color:#f92672">*</span> pow(s, e, n)) <span style="color:#f92672">%</span> n
                 <span style="color:#66d9ef">if</span> rsa<span style="color:#f92672">.</span>PKCS1_check_padding(c):
                     <span style="color:#66d9ef">break</span>
@@ -935,7 +942,7 @@ m <span style="color:#f92672">=</span> rsa<span style="color:#f92672">.</span>PK
 
 c <span style="color:#f92672">=</span> rsa<span style="color:#f92672">.</span>encrypt(m)
 <span style="color:#66d9ef">assert</span> rsa<span style="color:#f92672">.</span>PKCS1_check_padding(c)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Ciphertext padding verified.&#34;</span>)
+print(<span style="color:#e6db74">&#34;&gt; Ciphertext padding verified.&#34;</span>)
 recovered_plaintext <span style="color:#f92672">=</span> padding_oracle_attack(c, rsa)
 </code></pre></div><p><code>&gt; Ciphertext padding verified.</code></p>
 
@@ -943,6 +950,7 @@ recovered_plaintext <span style="color:#f92672">=</span> padding_oracle_attack(c
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 
 
+<p> </p>
 <h3 id="challenge-48-bleichenbachers-pkcs-15-padding-oracle-complete-case">Challenge 48: Bleichenbacher&rsquo;s PKCS 1.5 Padding Oracle (Complete Case)</h3>
 <p><a href="https://cryptopals.com/sets/6/challenges/48">Link</a></p>
 <blockquote>
@@ -981,7 +989,7 @@ message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ki
     
     <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> rsa<span style="color:#f92672">.</span>PKCS1_check_padding(ciphertext):
         <span style="color:#75715e">#Step 1 Blinding</span>
-        <span style="color:#66d9ef">while</span> True:
+        <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
             s <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>, n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
             c0 <span style="color:#f92672">=</span> (ciphertext <span style="color:#f92672">*</span> pow(s, e, n)) <span style="color:#f92672">%</span> n
             <span style="color:#66d9ef">if</span> rsa<span style="color:#f92672">.</span>PKCS1_check_padding(c0):
@@ -991,11 +999,11 @@ message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ki
         c0 <span style="color:#f92672">=</span> ciphertext
         
     <span style="color:#75715e"># Step 2 Searching for PKCS conforming messages</span>
-    <span style="color:#66d9ef">while</span> True:
+    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
         <span style="color:#75715e"># 2a</span>
         <span style="color:#66d9ef">if</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
             s <span style="color:#f92672">=</span> (n <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> B <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">//</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> B)
-            <span style="color:#66d9ef">while</span> True:
+            <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
                 c <span style="color:#f92672">=</span> (c0 <span style="color:#f92672">*</span> pow(s, e, n)) <span style="color:#f92672">%</span> n
                 <span style="color:#66d9ef">if</span> rsa<span style="color:#f92672">.</span>PKCS1_check_padding(c):
                     <span style="color:#66d9ef">break</span>
@@ -1003,7 +1011,7 @@ message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ki
 
         <span style="color:#75715e">#2b</span>
         <span style="color:#66d9ef">elif</span> len(M) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2</span>:
-            <span style="color:#66d9ef">while</span> True:
+            <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
                 s <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
                 c <span style="color:#f92672">=</span> (c0 <span style="color:#f92672">*</span> pow(s, e, n)) <span style="color:#f92672">%</span> n
                 <span style="color:#66d9ef">if</span> rsa<span style="color:#f92672">.</span>PKCS1_check_padding(c):
@@ -1023,7 +1031,7 @@ message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ki
             r <span style="color:#f92672">=</span> ceil(<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> (b <span style="color:#f92672">*</span> s <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> B), n)
             s <span style="color:#f92672">=</span> ceil(<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> B <span style="color:#f92672">+</span> r <span style="color:#f92672">*</span> n, b)
 
-            <span style="color:#66d9ef">while</span> True:
+            <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
                 c <span style="color:#f92672">=</span> (c0 <span style="color:#f92672">*</span> pow(s, e, n)) <span style="color:#f92672">%</span> n
                 <span style="color:#66d9ef">if</span> rsa<span style="color:#f92672">.</span>PKCS1_check_padding(c):
                     <span style="color:#66d9ef">break</span>
@@ -1059,7 +1067,7 @@ m <span style="color:#f92672">=</span> rsa<span style="color:#f92672">.</span>PK
 
 c <span style="color:#f92672">=</span> rsa<span style="color:#f92672">.</span>encrypt(m)
 <span style="color:#66d9ef">assert</span> rsa<span style="color:#f92672">.</span>PKCS1_check_padding(c)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Ciphertext padding verified.&#34;</span>)
+print(<span style="color:#e6db74">&#34;&gt; Ciphertext padding verified.&#34;</span>)
 recovered_plaintext <span style="color:#f92672">=</span> padding_oracle_attack(c, rsa)
 </code></pre></div><p><code>&gt; Ciphertext padding verified.</code></p>
 

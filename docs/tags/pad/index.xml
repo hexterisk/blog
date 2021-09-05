@@ -26,7 +26,7 @@ Now, write the code that allows you to &amp;ldquo;seek&amp;rdquo; into the ciphe
       
       <guid>https://hexterisk.github.io/blog/posts/2020/03/21/set-2/</guid>
       <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
-Challenge 9: Implement PKCS#7 padding Link
+ Challenge 9: Implement PKCS#7 padding Link
  A block cipher transforms a fixed-sized block (usually 8 or 16 bytes) of plaintext into ciphertext. But we almost never want to transform a single block; we encrypt irregularly-sized messages.
 One way we account for irregularly-sized messages is by padding, creating a plaintext that is an even multiple of the blocksize.</description>
     </item>

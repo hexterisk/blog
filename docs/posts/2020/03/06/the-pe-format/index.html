@@ -42,8 +42,8 @@
 
 <meta itemprop="name" content="The PE Format">
 <meta itemprop="description" content="PE is a modified version of the Common Object File Format (COFF), thus also referred to as PE/COFF. The 64-bit version of PE is called PE32&#43;. The structure is defined in WinNT.h, which is included in the Microsoft Windows Software Developer Kit.  PE32&#43; binary structure.
- An MS-DOS header is included for backward compatibility. Thus it can also be interpreted as an MS-DOS binary. The main function of the MS-DOS header is to describe how to load and execute an MS-DOS stub, which comes right after the MSDOS header."><meta itemprop="datePublished" content="2020-03-06T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-06T00:00:00&#43;00:00" />
+ An MS-DOS header is included for backward compatibility. Thus it can also be interpreted as an MS-DOS binary. The main function of the MS-DOS header is to describe how to load and execute an MS-DOS stub, which comes right after the MSDOS header."><meta itemprop="datePublished" content="2020-03-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-06T00:00:00+00:00" />
 <meta itemprop="wordCount" content="703"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="binary,rev,reversing,c,pe,windows," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
@@ -148,6 +148,7 @@
 <li>The MS-DOS header starts with a magic value, which consists of the ASCII characters <strong>MZ</strong>. For this reason, it’s also sometimes referred to as an <strong>MZ header</strong>.</li>
 <li>The field <strong>e_lfanew</strong> contains the file offset at which the real PE binary begins. Thus, when a PE-aware program loader opens the binary, it can read the MS-DOS header and then skip past it and the MS-DOS stub to go right to the start of the PE headers.</li>
 </ul>
+<p> </p>
 <h2 id="executable-header">Executable Header</h2>
 <p>The struct <strong>IMAGE_NT_HEADERS64</strong> encompasses a 32- bit signature, a PE file header, and a PE optional header. You could say that struct IMAGE_NT_HEADERS64 as a whole is PE’s version of the executable header.</p>
 <ul>
@@ -155,6 +156,7 @@
 <li>The file header describes general properties of the file. The most important fields are <em>Machine</em>, <em>NumberOfSections</em>, <em>SizeOfOptionalHeader</em>, and <em>Characteristics</em>.</li>
 <li>The PE optional header provides metadata. It may be missing in object files.</li>
 </ul>
+<p> </p>
 <h2 id="section-header-table">Section Header Table</h2>
 <ul>
 <li>An array of <strong>IMAGE_SECTION_HEADER</strong> structures, each of which describes a single section, denoting its size in the file and in memory (SizeOfRawData and VirtualSize), its file offset and virtual address (PointerToRawData and VirtualAddress), relocation information, and any flags (Characteristics).
@@ -166,6 +168,7 @@
 <li>PE format does not explicitly distinguish between sections and segments. The closest thing PE files have to ELF’s execution view is the <strong>DataDirectory</strong>, which provides the loader with a shortcut to certain portions of the binary needed for setting up the execution.</li>
 <li>There is no separate program header table; the section header table is used for both linking and loading.</li>
 </ul>
+<p> </p>
 <h2 id="sections">Sections</h2>
 <p>Many of the sections in PE files are directly comparable to ELF sections, often even having (almost) the same name.</p>
 <ul>

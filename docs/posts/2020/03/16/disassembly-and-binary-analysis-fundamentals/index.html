@@ -44,8 +44,8 @@ Linear Disassembly Disassembly desynchronization due to inline data interpreted 
 <meta itemprop="name" content="Disassembly and Binary Analysis Fundamentals">
 <meta itemprop="description" content="Static Disassembly When people say disassembly, they usually mean static disassembly, which involves extracting the instructions from a binary without executing it.
 Linear Disassembly Disassembly desynchronization due to inline data interpreted as code. The instruction where the disassembly resynchronizes is shaded gray.
- It iterates through all code segments in a binary, decoding all bytes consecutively and parsing them into a list of instructions. Many simple disassemblers, including objdump, use this approach."><meta itemprop="datePublished" content="2020-03-16T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-16T00:00:00&#43;00:00" />
+ It iterates through all code segments in a binary, decoding all bytes consecutively and parsing them into a list of instructions. Many simple disassemblers, including objdump, use this approach."><meta itemprop="datePublished" content="2020-03-16T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-16T00:00:00+00:00" />
 <meta itemprop="wordCount" content="3921"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="binary,rev,reversing,c,disassembly,fuzzer,symbol,control flow," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
@@ -161,6 +161,7 @@ Linear Disassembly Disassembly desynchronization due to inline data interpreted 
 </li>
 <li>The downside of this approach is that not all control flow is so easy to follow. For instance, it’s often difficult, if not impossible, to statically figure out the possible targets of indirect jumps or calls. As a result, the disassembler may miss blocks of code, or even entire functions, targeted by indirect jumps or calls, unless it uses special heuristics to resolve the control flow. For example, jump tables make recursive disassembly more difficult because they use <strong>indirect control flow</strong>.</li>
 </ul>
+<p> </p>
 <h2 id="dynamic-disassembly">Dynamic Disassembly</h2>
 <p>Dynamic disassembly, more commonly known as <strong>execution tracing</strong>, logs each executed instruction as the binary runs.</p>
 <ul>
@@ -187,6 +188,7 @@ Linear Disassembly Disassembly desynchronization due to inline data interpreted 
 <li>The key point is that given the list of path constraints, you can check whether there’s any concrete input that would satisfy all these constraints. There are special programs, called <strong>constraint solvers</strong>, that check, given a list of constraints, whether there’s any way to satisfy these constraints.</li>
 <li>Helps with code coverage problem by adjusting path constraints for the solver.</li>
 </ul>
+<p> </p>
 <h2 id="structuring-disassembled-code-and-data">Structuring Disassembled Code and Data</h2>
 <p>Large unstructured heaps of disassembled instructions are nearly impossible to analyze, so most disassemblers structure the disassembled code in some way that’s easier to analyze. Two ways:</p>
 <ol>
@@ -259,6 +261,7 @@ Linear Disassembly Disassembly desynchronization due to inline data interpreted 
 <span style="color:#960050;background-color:#1e0010">➒</span> NEXT: PUT(rip) <span style="color:#f92672">=</span> t3; Ijk_Boring
 }
 </code></pre></div><p>As you can see, the single add instruction results in 10 VEX instructions, plus some metadata. First, there’s some metadata that says this is an <strong>IR super block</strong> (<strong>IRSB</strong>) ➊ corresponding to one machine instruction. The IRSB contains four temporary values labeled t0–t3, all of type <strong>Ity_I64</strong> (64-bit integer) ➋. Then there’s an <strong>IMark</strong> ➌, which is metadata stating the machine instruction’s address and length, among other things. Next come the actual IR instructions modeling the add. First, there are two GET instructions that fetch 64-bit values from rax and rdx into temporary stores t2 and t1, respectively ➍. Note that, here, rax and rdx are just symbolic names for the parts of VEX’s state used to model these registers—the VEX instructions don’t fetch from the real rax or rdx registers but rather from VEX’s mirror state of those registers. To perform the actual addition, the IR uses VEX’s Add64 instruction, adding the two 64-bit integers t2 and t1 and storing the result in t0 ➎. After the addition, there are some PUT instructions that model the add instruction’s side effects, such as updating the x86 status flags ➏. Then, another PUT stores the result of the addition into VEX’s state representing rax ➐. Finally, the VEX IR models updating the program counter to the next instruction ➑. The <strong>Ijk_Boring</strong> (<strong>Jump Kind Boring</strong>) ➒ is a control-flow hint that says the add instruction doesn’t affect the control flow in any interesting way; since the add isn’t a branch of any kind, control just “falls through” to the next instruction in memory. In contrast, branch instructions can be marked with hints like <strong>Ijk_Call</strong> or <strong>Ijk_Ret</strong> to inform the analysis that a call or return is taking place, for example.</p>
+<p> </p>
 <h2 id="fundamental-analysis-methods">Fundamental Analysis Methods</h2>
 <p>A few standard analysis that are widely applicable and aren’t stand-alone binary analysis techniques, but can be used as ingredients of more advanced binary analysis.</p>
 <h3 id="binary-analysis-properties">Binary Analysis Properties</h3>
@@ -351,6 +354,7 @@ x = x + 10 					# x ∈ [15,∞]</p>
 </ul>
 </li>
 </ul>
+<p> </p>
 <h2 id="effects-of-compiler-settings-on-disassembly">Effects of Compiler Settings on Disassembly</h2>
 <p>Optimized code is usually significantly harder to accurately disassemble (and therefore analyze). Optimized code corresponds less closely to the original source, making it less intuitive to a human. </p>
 <ul>

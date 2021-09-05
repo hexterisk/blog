@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
-<meta name="description" content="Name: serial: 1 Date release: 20 Aug 2019 Author: sk4 Series: serial  Initial Discovery VMIP is the VM’s IP Address
+<meta name="description" content="Name: serial: 1 Date release: 20 Aug 2019 Author: sk4 Series: serial   Initial Discovery VMIP is the VM’s IP Address
 LHIP is the Local Host’s IP Address
 Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.
 IP Discovery Run sudo netdiscover.
@@ -46,20 +46,20 @@ Output of netdiscover.
     <meta name="theme-color" content="#252627">
 
 <meta itemprop="name" content="Serial 1">
-<meta itemprop="description" content="Name: serial: 1 Date release: 20 Aug 2019 Author: sk4 Series: serial  Initial Discovery VMIP is the VM’s IP Address
+<meta itemprop="description" content="Name: serial: 1 Date release: 20 Aug 2019 Author: sk4 Series: serial   Initial Discovery VMIP is the VM’s IP Address
 LHIP is the Local Host’s IP Address
 Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.
 IP Discovery Run sudo netdiscover.
 It detects online hosts by sending ARP requests.
 Output of netdiscover.
-192.168.1.8 happens to be the IP of the VM."><meta itemprop="datePublished" content="2020-05-08T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-05-08T00:00:00&#43;00:00" />
+192.168.1.8 happens to be the IP of the VM."><meta itemprop="datePublished" content="2020-05-08T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-08T00:00:00+00:00" />
 <meta itemprop="wordCount" content="721"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="Serial1,Vulnhub,pentesting,penetration,testing,vim," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
 <meta name="twitter:title" content="Serial 1"/>
-<meta name="twitter:description" content="Name: serial: 1 Date release: 20 Aug 2019 Author: sk4 Series: serial  Initial Discovery VMIP is the VM’s IP Address
+<meta name="twitter:description" content="Name: serial: 1 Date release: 20 Aug 2019 Author: sk4 Series: serial   Initial Discovery VMIP is the VM’s IP Address
 LHIP is the Local Host’s IP Address
 Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.
 IP Discovery Run sudo netdiscover.
@@ -156,11 +156,11 @@ Output of netdiscover.
 <li><strong>Author</strong>: <a href="https://www.vulnhub.com/author/sk4,633/">sk4</a></li>
 <li><strong>Series</strong>: <a href="https://www.vulnhub.com/series/serial,231/">serial</a></li>
 </ul>
+<p> </p>
 <h2 id="initial-discovery">Initial Discovery</h2>
 <p><code>VMIP</code> is the VM’s IP Address</p>
 <p><code>LHIP</code> is the Local Host’s IP Address</p>
-<p>Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.<br>
- </p>
+<p>Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.</p>
 <h3 id="ip-discovery">IP Discovery</h3>
 <p>Run <code>sudo netdiscover</code>.</p>
 <p>It detects online hosts by sending ARP requests.</p>
@@ -206,7 +206,7 @@ Output of netdiscover.
 <p>The default cookie is <code>Tzo0OiJVc2VyIjoyOntzOjEwOiIAVXNlcgBuYW1lIjtzOjM6InNrNCI7czo5OiIAVXNlcgB3ZWwiO086NzoiV2VsY29tZSI6MDp7fX0 =</code>.</p>
 <p>Base64 decoding the cookie:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> base64
-<span style="color:#66d9ef">print</span>(base64<span style="color:#f92672">.</span>b64decode(<span style="color:#e6db74">&#34;Tzo0OiJVc2VyIjoyOntzOjEwOiIAVXNlcgBuYW1lIjtzOjM6InNrNCI7czo5OiIAVXNlcgB3ZWwiO086NzoiV2VsY29tZSI6MDp7fX0 =&#34;</span>))
+print(base64<span style="color:#f92672">.</span>b64decode(<span style="color:#e6db74">&#34;Tzo0OiJVc2VyIjoyOntzOjEwOiIAVXNlcgBuYW1lIjtzOjM6InNrNCI7czo5OiIAVXNlcgB3ZWwiO086NzoiV2VsY29tZSI6MDp7fX0 =&#34;</span>))
 </code></pre></div><p><code>O: 4: ”User”: 2: {s: 10: ”Username”; s: 3: ”sk4&quot;; s: 9: ”Userwel”; O: 7: ”Welcome”: 0: {}}</code></p>
 <h4 id="userclassphp">user.class.php</h4>
 <p><img src="https://hexterisk.github.io/blog/Serial_1/7_image.png" alt="">
@@ -216,6 +216,7 @@ Output of netdiscover.
 <p><img src="https://hexterisk.github.io/blog/Serial_1/8_image.png" alt="">
 <em>log.class.php</em></p>
 <p>The stray <strong>$type_log</strong> variable could be used to mention files. Other than that, Plain and simple file that executes an echo for the message provided to it.</p>
+<p> </p>
 <h2 id="hunting-begins">Hunting begins</h2>
 <p>We add the line <code>echo base64_encode(serialize(new User('admin')));</code> to obtain a cookie with user set as admin.</p>
 <p><img src="https://hexterisk.github.io/blog/Serial_1/12_image.png" alt="">

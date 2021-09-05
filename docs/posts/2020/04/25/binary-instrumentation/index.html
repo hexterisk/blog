@@ -7,7 +7,7 @@
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="Inserting new code at any point in an existing binary to observe or modify the binary’s behavior in some way is called instrumenting the binary. The point where you add new code is called the instrumentation point, and the added code is called instrumentation code.
 Tradeoffs of Dynamic and Static Binary Instrumentation.
-Static Binary Instrumentation Static Binary Instrumentation works by disassembling a binary and then adding instrumentation code where needed and storing the updated binary permanently on disk." />
+ Static Binary Instrumentation Static Binary Instrumentation works by disassembling a binary and then adding instrumentation code where needed and storing the updated binary permanently on disk." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -44,8 +44,8 @@ Static Binary Instrumentation Static Binary Instrumentation works by disassembli
 <meta itemprop="name" content="Binary Instrumentation">
 <meta itemprop="description" content="Inserting new code at any point in an existing binary to observe or modify the binary’s behavior in some way is called instrumenting the binary. The point where you add new code is called the instrumentation point, and the added code is called instrumentation code.
 Tradeoffs of Dynamic and Static Binary Instrumentation.
-Static Binary Instrumentation Static Binary Instrumentation works by disassembling a binary and then adding instrumentation code where needed and storing the updated binary permanently on disk."><meta itemprop="datePublished" content="2020-04-25T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-04-25T00:00:00&#43;00:00" />
+ Static Binary Instrumentation Static Binary Instrumentation works by disassembling a binary and then adding instrumentation code where needed and storing the updated binary permanently on disk."><meta itemprop="datePublished" content="2020-04-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-25T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1570"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="binary,rev,reversing,c,pe,windows,instrumentation," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
@@ -53,7 +53,7 @@ Static Binary Instrumentation Static Binary Instrumentation works by disassembli
 <meta name="twitter:title" content="Binary Instrumentation"/>
 <meta name="twitter:description" content="Inserting new code at any point in an existing binary to observe or modify the binary’s behavior in some way is called instrumenting the binary. The point where you add new code is called the instrumentation point, and the added code is called instrumentation code.
 Tradeoffs of Dynamic and Static Binary Instrumentation.
-Static Binary Instrumentation Static Binary Instrumentation works by disassembling a binary and then adding instrumentation code where needed and storing the updated binary permanently on disk."/>
+ Static Binary Instrumentation Static Binary Instrumentation works by disassembling a binary and then adding instrumentation code where needed and storing the updated binary permanently on disk."/>
 
 
 
@@ -141,6 +141,7 @@ Static Binary Instrumentation Static Binary Instrumentation works by disassembli
             <p>Inserting new code at any point in an existing binary to observe or modify the binary’s behavior in some way is called <strong>instrumenting</strong> the binary. The point where you add new code is called the <strong>instrumentation point</strong>, and the added code is called <strong>instrumentation code</strong>.</p>
 <p><img src="https://hexterisk.github.io/blog/Binary_Instrumentation/3_image.png" alt="">
 <em>Tradeoffs of Dynamic and Static Binary Instrumentation.</em></p>
+<p> </p>
 <h2 id="static-binary-instrumentation">Static Binary Instrumentation</h2>
 <p><strong>Static Binary Instrumentation</strong> works by disassembling a binary and then adding instrumentation code where needed and storing the updated binary permanently on disk.</p>
 <h3 id="naive-implementation">Naive Implementation</h3>
@@ -180,6 +181,7 @@ Static Binary Instrumentation Static Binary Instrumentation works by disassembli
 <li>On x64, you can read the program counter (<em>rip</em>) directly. </li>
 <li>The danger with PIE binaries is that they may read the program counter while running instrumented code and use it in address computations. This likely yields incorrect results because the layout of the instrumented code differs from the original layout that the address computation assumes. SBI engines solve this problem using instrument code constructs that read the program counter such that they return the value the program counter would have in the original code. That way, subsequent address computations yield the original code location just as in an uninstrumented binary, allowing the SBI engine to intercept control there with a trampoline.</li>
 </ul>
+<p> </p>
 <h2 id="dynamic-binary-instrumentation">Dynamic Binary Instrumentation</h2>
 <p>DBI engines monitor binaries (or rather, processes) as they execute and instrument the instruction stream. They don’t require disassembly or binary rewriting, making them less error-prone.</p>
 <h3 id="architecture">Architecture</h3>

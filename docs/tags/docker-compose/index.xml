@@ -25,7 +25,7 @@ The age long discussion of MySQL versus MariaDB is something that an average dev
       <guid>https://hexterisk.github.io/blog/posts/2020/01/22/authenticated-mongodb-container/</guid>
       <description>Unsecured mongodb servers have been prime targets for hacks aimed at exaction of ransom in exchange of data. Therefore, authenticated mongo database server is now more of a necessity to ensure security of your database.
 There are two ways to setup an authenticated mongo server container.
-Manually Setup the container Pulling the mongo docker image from dockerhub as it doesn&amp;rsquo;t exist on server/local machine.
+ Manually Setup the container Pulling the mongo docker image from dockerhub as it doesn&amp;rsquo;t exist on server/local machine.
 Create a directory for the database to be stored in on the server/local machine.</description>
     </item>
     

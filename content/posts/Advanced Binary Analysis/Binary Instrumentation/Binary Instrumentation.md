@@ -17,6 +17,8 @@ Inserting new code at any point in an existing binary to observe or modify the b
 ![](/Binary_Instrumentation/3_image.png)
 _Tradeoffs of Dynamic and Static Binary Instrumentation._
 
+&nbsp;
+
 ## Static Binary Instrumentation
 
 **Static Binary Instrumentation** works by disassembling a binary and then adding instrumentation code where needed and storing the updated binary permanently on disk.
@@ -74,6 +76,8 @@ At the binary level, switch statements are often implemented using a jump table 
 
 *   On x64, you can read the program counter (_rip_) directly. 
 *   The danger with PIE binaries is that they may read the program counter while running instrumented code and use it in address computations. This likely yields incorrect results because the layout of the instrumented code differs from the original layout that the address computation assumes. SBI engines solve this problem using instrument code constructs that read the program counter such that they return the value the program counter would have in the original code. That way, subsequent address computations yield the original code location just as in an uninstrumented binary, allowing the SBI engine to intercept control there with a trampoline.
+
+&nbsp;
 
 ## Dynamic Binary Instrumentation
 

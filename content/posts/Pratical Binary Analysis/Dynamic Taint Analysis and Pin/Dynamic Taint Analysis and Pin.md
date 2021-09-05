@@ -25,9 +25,13 @@ Regions of interest are:
 
 Dynamic Taint Analysis requires a Dynamic Binary Instrumentation framework as a prerequisite. We'll use Intel Pin.
 
+&nbsp;
+
 ## Shadow Memory
 
 It is the technique in which potentially every byte used by a program has a mirror byte during it's execution. These shadow bytes can be used to record information about their original counterparts, since these bytes are invisible to the program. We create a user shadow memory to mark all the addresses that can be tainted by the data in question.
+
+&nbsp;
 
 ## Example
 

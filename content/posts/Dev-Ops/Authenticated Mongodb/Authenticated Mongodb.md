@@ -16,6 +16,8 @@ Unsecured mongodb servers have been prime targets for hacks aimed at exaction of
 
 There are two ways to setup an authenticated mongo server container.
 
+&nbsp;
+
 ## Manually
 
 ### Setup the container
@@ -67,6 +69,8 @@ _Port pre-occupied by the initial container._
 _Restarting the container with the _auth_ flag._
 
 ⇨  **New users can be created in the same way.**
+
+&nbsp;
 
 ## Script
 
@@ -137,6 +141,8 @@ echo "Mongo users created."
 
 ![](/Authenticated_Mongodb/15_image.png)
 _Executing the above command gives a lot of output. Similar output will be present at the part where new users are being setup._
+
+&nbsp;
 
 ## Connecting to the Mongo container
 

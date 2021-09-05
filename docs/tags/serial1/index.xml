@@ -13,7 +13,7 @@
       <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/posts/2020/05/08/serial-1/</guid>
-      <description>Name: serial: 1 Date release: 20 Aug 2019 Author: sk4 Series: serial  Initial Discovery VMIP is the VM’s IP Address
+      <description>Name: serial: 1 Date release: 20 Aug 2019 Author: sk4 Series: serial   Initial Discovery VMIP is the VM’s IP Address
 LHIP is the Local Host’s IP Address
 Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.
 IP Discovery Run sudo netdiscover.

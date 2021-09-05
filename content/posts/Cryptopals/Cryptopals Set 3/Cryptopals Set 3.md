@@ -14,6 +14,8 @@ categories: ["Cryptopals"]
 
 Refer to this [repository](https://github.com/hexterisk/cryptopals-solutions) for solution scripts and the IPython Notebook pertaining to the explanations here.
 
+&nbsp;
+
 ### Challenge 17: The CBC padding oracle
 [Link](https://cryptopals.com/sets/3/challenges/17)
 
@@ -233,7 +235,7 @@ result
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
+&nbsp;
 
 ### Challenge 18: Implement CTR, the stream cipher mode
 [Link](https://cryptopals.com/sets/3/challenges/18)
@@ -334,6 +336,8 @@ byte_text.decode("utf-8")
 
 I came up with the solution for #19 involving scoring texts based on letter frequency, and it turned out to be the solution for #20 too.
 
+&nbsp;
+
 ### Challenge 19: Break fixed-nonce CTR mode using substitutions
 [Link](https://cryptopals.com/sets/3/challenges/19)
 
@@ -389,6 +393,8 @@ I came up with the solution for #19 involving scoring texts based on letter freq
 
 and
 
+&nbsp;
+
 ### Challenge 20: Break fixed-nonce CTR statistically
 [Link](https://cryptopals.com/sets/3/challenges/20)
 
@@ -439,7 +445,7 @@ message
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
+&nbsp;
 
 ### Challenge 21: Implement the MT19937 Mersenne Twister RNG
 [Link](https://cryptopals.com/sets/3/challenges/21)
@@ -540,7 +546,7 @@ for i in range(10):
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
+&nbsp;
 
 ### Challenge 22: Crack an MT19937 seed
 [Link](https://cryptopals.com/sets/3/challenges/22)
@@ -612,7 +618,7 @@ number = break_MT19937_seed(MT19937_timestamp_seed)
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
 
-
+&nbsp;
 
 ### Challenge 23: Clone an MT19937 RNG from its output
 [Link](https://cryptopals.com/sets/3/challenges/23)
@@ -726,6 +732,8 @@ for i in range(99):
 {{< rawhtml >}}
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
 {{< /rawhtml >}}
+
+&nbsp;
 
 ### Challenge 24: Create the MT19937 stream cipher and break it
 [Link](https://cryptopals.com/sets/3/challenges/24)

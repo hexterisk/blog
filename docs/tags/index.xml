@@ -6,11 +6,11 @@
     <description>Recent content in Tags on Pwn the world.</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 25 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://hexterisk.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://hexterisk.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>automated</title>
       <link>https://hexterisk.github.io/blog/tags/automated/</link>
-      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/tags/automated/</guid>
       <description></description>
@@ -19,7 +19,7 @@
     <item>
       <title>dart</title>
       <link>https://hexterisk.github.io/blog/tags/dart/</link>
-      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/tags/dart/</guid>
       <description></description>
@@ -28,7 +28,7 @@
     <item>
       <title>fuzzing</title>
       <link>https://hexterisk.github.io/blog/tags/fuzzing/</link>
-      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/tags/fuzzing/</guid>
       <description></description>
@@ -37,7 +37,7 @@
     <item>
       <title>greybox</title>
       <link>https://hexterisk.github.io/blog/tags/greybox/</link>
-      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/tags/greybox/</guid>
       <description></description>
@@ -46,7 +46,7 @@
     <item>
       <title>microsoft</title>
       <link>https://hexterisk.github.io/blog/tags/microsoft/</link>
-      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/tags/microsoft/</guid>
       <description></description>
@@ -55,7 +55,7 @@
     <item>
       <title>sage</title>
       <link>https://hexterisk.github.io/blog/tags/sage/</link>
-      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/tags/sage/</guid>
       <description></description>
@@ -64,7 +64,7 @@
     <item>
       <title>symbolic</title>
       <link>https://hexterisk.github.io/blog/tags/symbolic/</link>
-      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/tags/symbolic/</guid>
       <description></description>
@@ -73,7 +73,7 @@
     <item>
       <title>whitebox</title>
       <link>https://hexterisk.github.io/blog/tags/whitebox/</link>
-      <pubDate>Fri, 25 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/tags/whitebox/</guid>
       <description></description>
@@ -82,7 +82,7 @@
     <item>
       <title>address-sanitizer</title>
       <link>https://hexterisk.github.io/blog/tags/address-sanitizer/</link>
-      <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/tags/address-sanitizer/</guid>
       <description></description>
@@ -91,7 +91,7 @@
     <item>
       <title>ASan</title>
       <link>https://hexterisk.github.io/blog/tags/asan/</link>
-      <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/tags/asan/</guid>
       <description></description>

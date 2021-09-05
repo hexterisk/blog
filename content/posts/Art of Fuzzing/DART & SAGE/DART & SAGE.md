@@ -1,7 +1,7 @@
 ---
 author:
   name: "hexterisk"
-date: 2020-09-25
+date: 2020-10-04
 linktitle: DART & SAGE
 type:
 - post
@@ -11,6 +11,8 @@ tags: ["fuzzing", "microsoft", "whitebox", "greybox", "sage", "dart", "automated
 weight: 10
 categories: ["art-of-fuzzing"]
 ---
+
+## DART
 
 Back in 2005, researchers at Microsoft came up with a concolic testing tool called **DART**(**Directed Automated Random Testing**). The tool can be used in the unit testing phase, as well as can be applied to large programs.
 
@@ -72,7 +74,7 @@ _M' := M + \[ m → v \]_
 
 where,
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_M_ is the mapping of a memory address space beginning from \\(m\\) to \\(n\\)\-bit words (\\(n\\) can be taken as 32).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_M_ is the mapping of a memory address space beginning from _m_ to _n_\-bit words (_n_ can be taken as 32).
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_+_ denotes updation.
 
@@ -135,7 +137,7 @@ evaluate_symbolic (e, M, S):
 			// If either one is a constant, it'll evaluate the expression and return.
 			if f' is a constant c then
 				return ∗(f' , c)
-			else return ∗(c, f'')
+			else return ∗(c, f\'\')
 		
 		// Case is pointer dereference.
 		case ∗e':
@@ -222,7 +224,7 @@ instrumented program(stack, I) =
 	for each input x with I[x] undefined do
 			I[x] = random()
 	
-	Initialize memory M from M0 and I.
+	//Initialize memory M from M0 and I.
 
 	// Set up symbolic memory and prepare execution.
 	S = [m → m | m ∈ M0].
@@ -333,6 +335,7 @@ solve_path_constraint(ktry, path_constraint, stack) =
 		else
 			solve_path_constraint(j, path_constraint, stack)
 ```
+&nbsp;
 
 ## SAGE
 

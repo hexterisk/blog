@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="Fuzzing can be segregated into different types based on the facet of the process we look at.
-Program Structure Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
+ Program Structure Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
 Blackbox Fuzzing This approach involves the assumption that the target is a black box since we don&amp;rsquo;t have any knowledge of the internal behavior, source code or the implementation of the target application, hence the name." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
@@ -43,16 +43,16 @@ Blackbox Fuzzing This approach involves the assumption that the target is a blac
 
 <meta itemprop="name" content="Approaches">
 <meta itemprop="description" content="Fuzzing can be segregated into different types based on the facet of the process we look at.
-Program Structure Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
-Blackbox Fuzzing This approach involves the assumption that the target is a black box since we don&rsquo;t have any knowledge of the internal behavior, source code or the implementation of the target application, hence the name."><meta itemprop="datePublished" content="2020-09-09T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-09-09T00:00:00&#43;00:00" />
+ Program Structure Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
+Blackbox Fuzzing This approach involves the assumption that the target is a black box since we don&rsquo;t have any knowledge of the internal behavior, source code or the implementation of the target application, hence the name."><meta itemprop="datePublished" content="2020-09-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-09-09T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1194"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 <meta itemprop="keywords" content="fuzzing,blackbox,whitebox,greybox,dumb-fuzzer,smart-fuzzer,coverage-guided,mutator," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
 <meta name="twitter:title" content="Approaches"/>
 <meta name="twitter:description" content="Fuzzing can be segregated into different types based on the facet of the process we look at.
-Program Structure Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
+ Program Structure Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
 Blackbox Fuzzing This approach involves the assumption that the target is a black box since we don&rsquo;t have any knowledge of the internal behavior, source code or the implementation of the target application, hence the name."/>
 
 
@@ -139,6 +139,7 @@ Blackbox Fuzzing This approach involves the assumption that the target is a blac
 
         <div class="post-content">
             <p>Fuzzing can be segregated into different types based on the facet of the process we look at.</p>
+<p> </p>
 <h2 id="program-structure">Program Structure</h2>
 <p>Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.</p>
 <h3 id="blackbox-fuzzing">Blackbox Fuzzing</h3>
@@ -187,6 +188,7 @@ Blackbox Fuzzing This approach involves the assumption that the target is a blac
 <p>For example, a developer might employ the whitebox approach to fuzz their application for bugs in the development cycle itself.</p>
 <h3 id="greybox-fuzzing">Greybox Fuzzing</h3>
 <p>The objective of this approach is to combine the efficiency of the blackbox approach while maintaining the effectiveness of the whitebox approach. It uses lightweight instrumentation techniques, which adds considerable performance overhead, but provides enough feedback about the program to successfully generate evolved, valid inputs on every iteration of the fuzzing cycle.</p>
+<p> </p>
 <h2 id="input-generation">Input Generation</h2>
 <p>Test cases require to be constantly generated so that the fuzzing process doesn&rsquo;t halt. This generation can be done in different ways.</p>
 <h3 id="mutation-based">Mutation based</h3>
@@ -202,6 +204,7 @@ Blackbox Fuzzing This approach involves the assumption that the target is a blac
 <p>For example, in the figure, once <em>input[0]</em> is found out to be &lsquo;<em>P&rsquo;</em>, mutation can be performed on the input that triggered this path to make sure this stage is always passed and that we are testing for the subsequent bytes.</p>
 <p><img src="https://hexterisk.github.io/blog/Fuzzing_Approaches/image.png" alt="">
 <em>Coverage guided fuzzing.</em></p>
+<p> </p>
 <h2 id="input-structure">Input Structure</h2>
 <p>Fuzzers are used to generate all sorts of test cases. Some test cases might be valid, while others not. A valid test case is the one which is accepted by the target application. The chances of a generated seed being valid is inversely proportional to the complexity of the valid input format.</p>
 <h3 id="smart-fuzzer">Smart Fuzzer</h3>
@@ -264,9 +267,9 @@ Blackbox Fuzzing This approach involves the assumption that the target is a blac
 
             
             <span class="button next">
-                <a href="https://hexterisk.github.io/blog/posts/2020/09/16/sanitation/">
+                <a href="https://hexterisk.github.io/blog/posts/2020/09/16/architecture/">
                     <span class="button__icon">←</span>
-                    <span class="button__text">Sanitation</span>
+                    <span class="button__text">Architecture</span>
                 </a>
             </span>
             
