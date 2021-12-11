@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design-Patterns on Pwn the world.</title>
+    <link>https://hexterisk.github.io/blog/categories/design-patterns/</link>
+    <description>Recent content in Design-Patterns on Pwn the world.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 21 Oct 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hexterisk.github.io/blog/categories/design-patterns/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reuse</title>
+      <link>https://hexterisk.github.io/blog/posts/2020/10/21/reuse/</link>
+      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/posts/2020/10/21/reuse/</guid>
+      <description>While designing a class, always keep the Open-Closed Principle in mind. It states that,
+ software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+ This implies that an entity shall allow extensions to itself, but no modification to its source code. We are therefore allowed to extend our base class, and consequently implement re-usability.
+Class Inheritance Inheritance models an Is-A relationship, where the child class inherits properties from the parent class, making the child class a specialized version of the parent class.</description>
+    </item>
+    
+    <item>
+      <title>Overview</title>
+      <link>https://hexterisk.github.io/blog/posts/2020/10/14/overview/</link>
+      <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/posts/2020/10/14/overview/</guid>
+      <description>An general overview of the Design Patterns.
+Classification Purpose Purpose reflects the use case of a design pattern.
+Creational Pattern concerns the process of object creation.
+Structural Pattern deals with the composition of classes or objects.
+Behavioral Pattern characterizes the ways in which classes or objects interact and distribute responsibility.
+Catalog of design patterns based on Purpose.
+Scope The scope of a design patterns specifies where it is primarily applied.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://hexterisk.github.io/blog/posts/2020/10/10/introduction/</link>
+      <pubDate>Sat, 10 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/posts/2020/10/10/introduction/</guid>
+      <description>A design pattern is a code structure used to solve commonly occurring problems in software development. It is a generic description of different components&amp;rsquo; design, their relationships, and how they come together to solve the said problem in the specified context. It is characterized by:
+ Pattern Name  To associate a certain solution to a name for ease of reference, through appropriate association.   Problem  The design problem and issues to be addressed in a specified context, to which the solution described by the design pattern is applicable.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -26,7 +26,7 @@
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.bc21949b46a7b314448099a92fed1807acac025093285f474b88259eec0c62ba.css">
+<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
 
 
 
@@ -42,9 +42,14 @@
 
 <meta itemprop="name" content="Symbolic Execution and Angr">
 <meta itemprop="description" content="Symbolic Execution is mainly focused on converting a program made up of a concrete set of instructions into an equation-like format. This is achieved with two core components:
- Symbols Different values in a program(such as the user input) are substituted with Symbols(variables or placeholders). These symbols pertain to a domain full of values, allowing us to explore the program in a much more open form, basically “walking through the program” with a domain full of values(handled by any one of the constraint solving backends like Z3) instead of walking a fixed path due to a fixed hard-coded value/input."><meta itemprop="datePublished" content="2020-06-16T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-06-16T00:00:00+00:00" />
-<meta itemprop="wordCount" content="3378"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+ Symbols Different values in a program(such as the user input) are substituted with Symbols(variables or placeholders). These symbols pertain to a domain full of values, allowing us to explore the program in a much more open form, basically “walking through the program” with a domain full of values(handled by any one of the constraint solving backends like Z3) instead of walking a fixed path due to a fixed hard-coded value/input.">
+<meta itemprop="datePublished" content="2020-06-16T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-06-16T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="3378">
+<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+
+
+
 <meta itemprop="keywords" content="binary,symbols,execution,path,constraints,expression," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
@@ -336,7 +341,7 @@
 <em>Registers after the &ldquo;read_six_numbers&rdquo; function is called.</em></p>
 <p>We could simply apply the same approach as we did in <code>phase_2</code> (by pushing values to stack and popping in the end, minding the formatting), with a slight change: reversing the manipulation did by the first loop denoted by the blue arrow in the picture showing the disassembly of the <code>phase_6</code> function.</p>
 <p>This is because the instructions perform some form of manipulation (observed by the fact that the Angr gave an answer that wasn&rsquo;t right on popping, although it fit the conditions, verified by running in a debugger), that rearrange our input using their addresses. It&rsquo;s more than believable since a further look at the disassembly showed a linked list being initialized with the values given as input, and it becomes the subject of the manipulations in the loops shown by the red arrow in the picture showing the disassembly of the <code>phase_6</code> function.</p>
-<p>Since we got the modified input (from the “not so wrong&quot; output), we could simply reverse that transformation to get the original input.</p>
+<p>Since we got the modified input (from the “not so wrong&rdquo; output), we could simply reverse that transformation to get the original input.</p>
 <p>The instruction to be focused on is <code>000000000040115B                 mov     ecx, 7</code></p>
 <p>Therefore, we could just subtract the values we get from Angr to get the original input to bypass the stage.</p>
 <h3 id="alternative-approach">Alternative Approach</h3>
@@ -486,7 +491,7 @@
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
 
 

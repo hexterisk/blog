@@ -26,7 +26,7 @@ The age long discussion of MySQL versus MariaDB is something that an average dev
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.bc21949b46a7b314448099a92fed1807acac025093285f474b88259eec0c62ba.css">
+<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
 
 
 
@@ -42,9 +42,14 @@ The age long discussion of MySQL versus MariaDB is something that an average dev
 
 <meta itemprop="name" content="Dockerise MySQL &#43; phpMyAdmin">
 <meta itemprop="description" content="A common requirement in a large number of software projects is a relational database with an easy to use management tool. Considering how often a developer needs this, setting it up everytime from scratch can be a drag. However, with the advent of containerisation, we can have a setup off the ground in a couple of minutes, whether it&rsquo;s a development or a production environment.
-The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific."><meta itemprop="datePublished" content="2020-07-02T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-07-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="905"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific.">
+<meta itemprop="datePublished" content="2020-07-02T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-07-02T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="905">
+<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+
+
+
 <meta itemprop="keywords" content="docker,mysql,phpmyadmin,container,docker-compose," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
@@ -186,27 +191,27 @@ The age long discussion of MySQL versus MariaDB is something that an average dev
 <p> </p>
 <h2 id="composed-approach">Composed Approach</h2>
 <p>This approach involves writing a docker-compose file. The content will be as follows.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.7&#34;</span>
-<span style="color:#f92672">services</span>:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#34;3.7&#34;</span>
+<span style="color:#66d9ef">services</span>:
 
-  <span style="color:#f92672">db-server</span>:
-    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mysql:latest</span>
-    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">test_sql_container</span>
-    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-    <span style="color:#f92672">environment</span>:
-      <span style="color:#f92672">MYSQL_ROOT_PASSWORD</span>: <span style="color:#ae81ff">secret</span>
-    <span style="color:#f92672">ports</span>:
+  <span style="color:#66d9ef">db-server</span>:
+    <span style="color:#66d9ef">image</span>: mysql:latest
+    <span style="color:#66d9ef">container_name</span>: test_sql_container
+    <span style="color:#66d9ef">restart</span>: always
+    <span style="color:#66d9ef">environment</span>:
+      <span style="color:#66d9ef">MYSQL_ROOT_PASSWORD</span>: secret
+    <span style="color:#66d9ef">ports</span>:
       - <span style="color:#e6db74">&#34;3306:3306&#34;</span>
     
-  <span style="color:#f92672">phpmyadmin</span>:
-    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">phpmyadmin/phpmyadmin</span>
-    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">test_myadmin_container</span>
-    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
-    <span style="color:#f92672">environment</span>:
-      <span style="color:#f92672">PMA_HOST</span>: <span style="color:#ae81ff">db-server</span>
-    <span style="color:#f92672">links</span>:
-      - <span style="color:#ae81ff">db-server</span>
-    <span style="color:#f92672">ports</span>:
+  <span style="color:#66d9ef">phpmyadmin</span>:
+    <span style="color:#66d9ef">image</span>: phpmyadmin/phpmyadmin
+    <span style="color:#66d9ef">container_name</span>: test_myadmin_container
+    <span style="color:#66d9ef">restart</span>: always
+    <span style="color:#66d9ef">environment</span>:
+      <span style="color:#66d9ef">PMA_HOST</span>: db-server
+    <span style="color:#66d9ef">links</span>:
+      - db-server
+    <span style="color:#66d9ef">ports</span>:
       - <span style="color:#e6db74">&#34;8081:80&#34;</span>
 </code></pre></div><p>Apart from the common parameters such as the <code>image</code> and <code>container_name</code>, following things should be noticed.</p>
 <p>For the database container:</p>
@@ -323,7 +328,7 @@ The age long discussion of MySQL versus MariaDB is something that an average dev
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
 
 

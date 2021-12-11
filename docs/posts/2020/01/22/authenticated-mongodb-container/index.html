@@ -28,7 +28,7 @@ Create a directory for the database to be stored in on the server/local machine.
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.bc21949b46a7b314448099a92fed1807acac025093285f474b88259eec0c62ba.css">
+<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
 
 
 
@@ -46,9 +46,14 @@ Create a directory for the database to be stored in on the server/local machine.
 <meta itemprop="description" content="Unsecured mongodb servers have been prime targets for hacks aimed at exaction of ransom in exchange of data. Therefore, authenticated mongo database server is now more of a necessity to ensure security of your database.
 There are two ways to setup an authenticated mongo server container.
  Manually Setup the container Pulling the mongo docker image from dockerhub as it doesn&rsquo;t exist on server/local machine.
-Create a directory for the database to be stored in on the server/local machine."><meta itemprop="datePublished" content="2020-01-22T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-01-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="686"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+Create a directory for the database to be stored in on the server/local machine.">
+<meta itemprop="datePublished" content="2020-01-22T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-01-22T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="686">
+<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+
+
+
 <meta itemprop="keywords" content="mongo,database,docker,container,docker-compose," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
@@ -189,30 +194,30 @@ Create a directory for the database to be stored in on the server/local machine.
 └── data-volume/
 </code></pre>
 <p>An example <code>docker-compose.yml</code> file is shown. It can be tailored according to requirement.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.6&#34;</span>
-<span style="color:#f92672">services</span>:
-	<span style="color:#f92672">mongo</span>:
-		<span style="color:#f92672">image</span>: <span style="color:#ae81ff">mongo</span>
-		<span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">mongo_database</span>
-	<span style="color:#f92672">ports</span>:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#34;3.6&#34;</span>
+services:
+	mongo:
+		<span style="color:#66d9ef">image</span>: mongo
+		<span style="color:#66d9ef">container_name</span>: mongo_database
+	ports:
 		- <span style="color:#e6db74">&#34;1337:27017&#34;</span>
-	<span style="color:#f92672">volumes</span>:
-		- <span style="color:#ae81ff">./db/data-volume:/data/db</span>
+	volumes:
+		- ./db/data-volume:/data/db
 		- <span style="color:#e6db74">&#34;$PWD/mongo-entrypoint/:/docker-entrypoint-initdb.d/&#34;</span>
-	<span style="color:#f92672">command</span>: <span style="color:#ae81ff">mongod</span>
-	<span style="color:#f92672">environment</span>:
-  		- <span style="color:#ae81ff">MONGO_INITDB_ROOT_USERNAME_FILE=/run/secrets/mongo_admin_user</span>
-  		- <span style="color:#ae81ff">MONGO_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo_admin_password</span>
-	<span style="color:#f92672">secrets</span>:
-  		- <span style="color:#ae81ff">mongo_admin_password</span>
-  		- <span style="color:#ae81ff">mongo_admin_user</span>
-<span style="color:#f92672">volumes</span>:
-	<span style="color:#f92672">data-volume</span>:
-<span style="color:#f92672">secrets</span>:
-	<span style="color:#f92672">mongo_admin_user</span>:
-      		<span style="color:#f92672">file</span>: <span style="color:#ae81ff">./secrets/mongo_admin_user</span>
-	<span style="color:#f92672">mongo_admin_password</span>:
-      		<span style="color:#f92672">file</span>: <span style="color:#ae81ff">./secrets/mongo_admin_password</span>
+	<span style="color:#66d9ef">command</span>: mongod
+	environment:
+  		- MONGO_INITDB_ROOT_USERNAME_FILE=/run/secrets/mongo_admin_user
+  		- MONGO_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo_admin_password
+	secrets:
+  		- mongo_admin_password
+  		- mongo_admin_user
+volumes:
+	data-volume:
+secrets:
+	mongo_admin_user:
+      		<span style="color:#66d9ef">file</span>: ./secrets/mongo_admin_user
+	mongo_admin_password:
+      		<span style="color:#66d9ef">file</span>: ./secrets/mongo_admin_password
 </code></pre></div><ul>
 <li>Volumes:
 <ul>
@@ -356,7 +361,7 @@ echo <span style="color:#e6db74">&#34;Mongo users created.&#34;</span>
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
 
 

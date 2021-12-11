@@ -28,7 +28,7 @@ Now, write the code that allows you to &amp;ldquo;seek&amp;rdquo; into the ciphe
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.bc21949b46a7b314448099a92fed1807acac025093285f474b88259eec0c62ba.css">
+<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
 
 
 
@@ -46,9 +46,14 @@ Now, write the code that allows you to &amp;ldquo;seek&amp;rdquo; into the ciphe
 <meta itemprop="description" content="Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
 Challenge 25: Break &ldquo;random access read/write&rdquo; AES CTR Link
  Back to CTR. Encrypt the recovered plaintext from this file (the ECB exercise) under CTR with a random key (for this exercise the key should be unknown to you, but hold on to it).
-Now, write the code that allows you to &ldquo;seek&rdquo; into the ciphertext, decrypt, and re-encrypt with different plaintext."><meta itemprop="datePublished" content="2020-04-14T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-04-14T00:00:00+00:00" />
-<meta itemprop="wordCount" content="5107"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+Now, write the code that allows you to &ldquo;seek&rdquo; into the ciphertext, decrypt, and re-encrypt with different plaintext.">
+<meta itemprop="datePublished" content="2020-04-14T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-04-14T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="5107">
+<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+
+
+
 <meta itemprop="keywords" content="Matasano,cryptography,SHA-1,MAC,IV,CTR,xor,CBC,AES,pad,bit-flipping," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
@@ -183,9 +188,9 @@ nonce <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 
 plaintext <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;hello there&#34;</span>
 cipher <span style="color:#f92672">=</span> CTR(plaintext, random_key, nonce)
-print(<span style="color:#e6db74">&#34;Original text:&#34;</span>, CTR(cipher, random_key, nonce)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Original text:&#34;</span>, CTR(cipher, random_key, nonce)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))
 edited_cipher <span style="color:#f92672">=</span> edit(cipher, random_key, <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;####&#34;</span>, nonce)
-print(<span style="color:#e6db74">&#34;Edited text:&#34;</span>, CTR(edited_cipher, random_key, nonce)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Edited text:&#34;</span>, CTR(edited_cipher, random_key, nonce)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))
 </code></pre></div><p><code>Original text: hello there</code><br>
 <code>Edited text: hell####ere</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># If you give text as \x00 it gives out keystream, xors keystream with 0 and thus can decode keystream </span>
@@ -214,7 +219,7 @@ Re-implement <a href="https://cryptopals.com/sets/2/challenges/16">the CBC bitfl
 <span style="color:#f92672">import</span> os
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
 prepend_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;comment1=cooking%20MCs;userdata=&#34;</span>
-append_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;;comment2=</span><span style="color:#e6db74">%20li</span><span style="color:#e6db74">ke</span><span style="color:#e6db74">%20a</span><span style="color:#e6db74">%20pound</span><span style="color:#e6db74">%20o</span><span style="color:#e6db74">f%20bacon&#34;</span>
+append_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;;comment2=</span><span style="color:#e6db74">%20li</span><span style="color:#e6db74">ke%20a%20pound</span><span style="color:#e6db74">%20o</span><span style="color:#e6db74">f%20bacon&#34;</span>
 </code></pre></div><p>Function to prepend the URL encoded string to text and encrypt it with CTR.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">encryptor</span>(text: bytes, key: bytes, nonce: int) <span style="color:#f92672">-&gt;</span> bytes:
     <span style="color:#e6db74">&#34;&#34;&#34;
@@ -230,9 +235,9 @@ append_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
     decrypted_string <span style="color:#f92672">=</span> CTR(byte_string, random_key, nonce)
     <span style="color:#66d9ef">if</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;;admin=true;&#39;</span> <span style="color:#f92672">in</span> decrypted_string:
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
+        <span style="color:#66d9ef">return</span> True
     <span style="color:#66d9ef">else</span>:
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
+        <span style="color:#66d9ef">return</span> False
 </code></pre></div><p>We find out the common prefix length so as to get the length of the prepended string. We then seek to the index where our inserted text starts, we flip the bits through the xor operation and modify the ciphertext so that when it is decrypted, it reads “admin=true” somewhere in it.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">target_bytes <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;;admin=true;&#34;</span>
 random_key <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>urandom(<span style="color:#ae81ff">16</span>)
@@ -244,7 +249,7 @@ modified_string <span style="color:#f92672">=</span> <span style="color:#e6db74"
 <span style="color:#75715e"># keystream from that offset onwards with inut text to produce</span>
 <span style="color:#75715e"># the required string</span>
 prefix_length <span style="color:#f92672">=</span> len(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>commonprefix([encryptor(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;AAAA&#39;</span>, random_key, nonce), encryptor(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;</span>, random_key, nonce)]))
-print(<span style="color:#e6db74">&#34;Prefix length: &#34;</span>, prefix_length)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Prefix length: &#34;</span>, prefix_length)
 
 dummy_input <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;heytheremama&#34;</span>
 ciphertext <span style="color:#f92672">=</span> encryptor(dummy_input, random_key, nonce)
@@ -276,13 +281,13 @@ Modify the message (you are now the attacker):<br>
 <strong>C_1, C_2, C_3 -&gt; C_1, 0, C_1</strong><br>
 Decrypt the message (you are now the receiver) and raise the appropriate error if high-ASCII is found.<br>
 As the attacker, recovering the plaintext from the error, extract the key:<br>
-<strong>P'_1 XOR P'_3</strong></p>
+<strong>P&rsquo;_1 XOR P&rsquo;_3</strong></p>
 </blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Imports</span>
 <span style="color:#f92672">import</span> os
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
 prepend_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;comment1=cooking%20MCs;userdata=&#34;</span>
-append_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;;comment2=</span><span style="color:#e6db74">%20li</span><span style="color:#e6db74">ke</span><span style="color:#e6db74">%20a</span><span style="color:#e6db74">%20pound</span><span style="color:#e6db74">%20o</span><span style="color:#e6db74">f%20bacon&#34;</span>
+append_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;;comment2=</span><span style="color:#e6db74">%20li</span><span style="color:#e6db74">ke%20a%20pound</span><span style="color:#e6db74">%20o</span><span style="color:#e6db74">f%20bacon&#34;</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check_ascii_compliance</span>(plaintext: bytes) <span style="color:#f92672">-&gt;</span> bool:
     <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">    Returns true if all the characters of plaintext are ASCII compliant (ie are in the ASCII table).
@@ -301,7 +306,7 @@ append_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&
 </span><span style="color:#e6db74">    Decrypts the ciphertext via AES CBC Mode and checks if all characters are ASCII.
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
     decrypted_string <span style="color:#f92672">=</span> AES_CBC_decrypt(byte_string, IV, key)
-    print(len(decrypted_string), decrypted_string)
+    <span style="color:#66d9ef">print</span>(len(decrypted_string), decrypted_string)
     <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> check_ascii_compliance(decrypted_string):
         <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">Exception</span>(decrypted_string)
 </code></pre></div><p>Given K(key) = IV, and that we&rsquo;re in control of the cipher blocks being sent for decryption,</p>
@@ -337,7 +342,7 @@ c3 <span style="color:#f92672">=</span> ciphertext[<span style="color:#ae81ff">2
     p1 <span style="color:#f92672">=</span> decrypted_string[:keysize]
     p3 <span style="color:#f92672">=</span> decrypted_string[<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>keysize:]
     decrypted_key <span style="color:#f92672">=</span> xor_bytes(p1, p3)
-    print(<span style="color:#e6db74">&#34;&gt; Key found to be:&#34;</span>, decrypted_key)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Key found to be:&#34;</span>, decrypted_key)
 </code></pre></div><p><code>57 b'lorem&quot;=&quot;ipsum&quot;;&quot;W\xc3\x9b\xc3\xb8]\xc3\x95;l=|}W`VK\xc2\xb1(;h\xc2\x86\x06uL\xc3\xacV\xc3\x87\xc2\x97~:4\xc3\x88\x00l'</code><br>
 <code>&gt; Key found to be: b'\x1aET2.\x1d\x0e\x11aZPEH\x19P^'</code></p>
 <p>
@@ -373,14 +378,14 @@ Verify that you cannot tamper with the message without breaking the MAC you&rsqu
     <span style="color:#66d9ef">return</span> ((value <span style="color:#f92672">&lt;&lt;</span> shift) <span style="color:#f92672">&amp;</span>amp;amp;amp;amp;amp;amp; <span style="color:#ae81ff">0xffffffff</span>) <span style="color:#f92672">|</span> (value <span style="color:#f92672">&gt;&gt;</span> (<span style="color:#ae81ff">32</span> <span style="color:#f92672">-</span> shift))
 
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sha1</span>(message: bytes, ml<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, h0<span style="color:#f92672">=</span><span style="color:#ae81ff">0x67452301</span>, h1<span style="color:#f92672">=</span><span style="color:#ae81ff">0xEFCDAB89</span>, h2<span style="color:#f92672">=</span><span style="color:#ae81ff">0x98BADCFE</span>, h3<span style="color:#f92672">=</span><span style="color:#ae81ff">0x10325476</span>, h4<span style="color:#f92672">=</span><span style="color:#ae81ff">0xC3D2E1F0</span>) <span style="color:#f92672">-&gt;</span> bytes:
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sha1</span>(message: bytes, ml<span style="color:#f92672">=</span>None, h0<span style="color:#f92672">=</span><span style="color:#ae81ff">0x67452301</span>, h1<span style="color:#f92672">=</span><span style="color:#ae81ff">0xEFCDAB89</span>, h2<span style="color:#f92672">=</span><span style="color:#ae81ff">0x98BADCFE</span>, h3<span style="color:#f92672">=</span><span style="color:#ae81ff">0x10325476</span>, h4<span style="color:#f92672">=</span><span style="color:#ae81ff">0xC3D2E1F0</span>) <span style="color:#f92672">-&gt;</span> bytes:
     <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">    Returns a string containing the SHA1 hash of the input message. This is a pure python 3 SHA1
 </span><span style="color:#e6db74">    implementation, written starting from the SHA1 pseudo-code on Wikipedia.
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
     
     <span style="color:#75715e"># Pre-processing:</span>
-    <span style="color:#66d9ef">if</span> ml <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+    <span style="color:#66d9ef">if</span> ml <span style="color:#f92672">is</span> None:
         ml <span style="color:#f92672">=</span> len(message) <span style="color:#f92672">*</span> <span style="color:#ae81ff">8</span>
 
     message <span style="color:#f92672">+=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\x80</span><span style="color:#e6db74">&#39;</span>
@@ -478,7 +483,7 @@ Forge a variant of this message that ends with &ldquo;;admin=true&rdquo;.</p>
 <span style="color:#f92672">import</span> os
 <span style="color:#f92672">import</span> struct
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
-message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;comment1=cooking%20MCs;userdata=foo;comment2=</span><span style="color:#e6db74">%20li</span><span style="color:#e6db74">ke</span><span style="color:#e6db74">%20a</span><span style="color:#e6db74">%20pound</span><span style="color:#e6db74">%20o</span><span style="color:#e6db74">f%20bacon&#34;</span>
+message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;comment1=cooking%20MCs;userdata=foo;comment2=</span><span style="color:#e6db74">%20li</span><span style="color:#e6db74">ke%20a%20pound</span><span style="color:#e6db74">%20o</span><span style="color:#e6db74">f%20bacon&#34;</span>
 payload <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;;admin=true&#34;</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Generating a pseudo random key, to be run only once.</span>
 key <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>urandom(<span style="color:#ae81ff">16</span>)
@@ -500,11 +505,11 @@ key <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>u
 </span><span style="color:#e6db74">    Verifies the MAC.
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
     <span style="color:#66d9ef">if</span> sha1_mac(key, modified_message) <span style="color:#f92672">==</span> new_md:
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
+        <span style="color:#66d9ef">return</span> True
+    <span style="color:#66d9ef">return</span> False
 </code></pre></div><p>From the implementation, we know that the value returned from SHA1 is <em>(H0 &laquo; 128) | (H1 &laquo; 96) | (H2 &laquo; 64) | (H3 &laquo; 32) | H4</em>.</p>
 <p>The output can therefore be dissolved back into <em>H0</em>, <em>H1</em>, <em>H2</em>, <em>H3</em>, and <em>H4</em>. These values are then used to instantiate a new SHA-1 oracle, and this new oracle can resume computation from this point on.</p>
-<p>Now, when we get the hash <em>h</em> for a message <em>m</em>, we can compute the padding <em>p</em> applied to it. Let&rsquo;s assume that we know <em>m</em> and we want to compute has for a message <em>m'</em>. A padding <em>p'</em> will be in order. The final message comes out to be <em>m||p||m'||p'</em>. Since <em>m||p</em> is already 512 bits, <em>m'||p'</em> will be computed in it&rsquo;s own block. But wait, what if we already have the intermediary state between the blocks of <em>m||p</em> and <em>m'||p'</em> ? We could just resume the computation of <em>m'||p'</em> and just ignore the <em>m||p</em>. Well we do have the intermediary state. It&rsquo;s the hash of <em>m||p</em>. Therefore, we could just use the hash of any random message, and use it&rsquo;s value to sign any message we want to, and it would have a valid MAC. The implications of this are major. It makes forgery really easy and straight forward. </p>
+<p>Now, when we get the hash <em>h</em> for a message <em>m</em>, we can compute the padding <em>p</em> applied to it. Let&rsquo;s assume that we know <em>m</em> and we want to compute has for a message <em>m&rsquo;</em>. A padding <em>p&rsquo;</em> will be in order. The final message comes out to be <em>m||p||m'||p&rsquo;</em>. Since <em>m||p</em> is already 512 bits, <em>m'||p&rsquo;</em> will be computed in it&rsquo;s own block. But wait, what if we already have the intermediary state between the blocks of <em>m||p</em> and <em>m'||p&rsquo;</em> ? We could just resume the computation of <em>m'||p&rsquo;</em> and just ignore the <em>m||p</em>. Well we do have the intermediary state. It&rsquo;s the hash of <em>m||p</em>. Therefore, we could just use the hash of any random message, and use it&rsquo;s value to sign any message we want to, and it would have a valid MAC. The implications of this are major. It makes forgery really easy and straight forward. </p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sha1_length_extension_attack</span>(message: bytes, original_md: bytes, payload: bytes) <span style="color:#f92672">-&gt;</span> (bytes, bytes):
     <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">    Perform the SHA1 length extension attack.
@@ -514,7 +519,7 @@ key <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>u
         modified_message <span style="color:#f92672">=</span> md_pad(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;A&#39;</span><span style="color:#f92672">*</span>key_length <span style="color:#f92672">+</span> message)[key_length:] <span style="color:#f92672">+</span> payload
         new_md <span style="color:#f92672">=</span> sha1(payload, (len(modified_message) <span style="color:#f92672">+</span> key_length)<span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>, h[<span style="color:#ae81ff">0</span>], h[<span style="color:#ae81ff">1</span>], h[<span style="color:#ae81ff">2</span>], h[<span style="color:#ae81ff">3</span>], h[<span style="color:#ae81ff">4</span>])
         <span style="color:#66d9ef">if</span> validate(modified_message, new_md):
-            print(<span style="color:#e6db74">&#34;&gt; Length extension attack successful.&#34;</span>)
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Length extension attack successful.&#34;</span>)
             <span style="color:#66d9ef">return</span> modified_message, new_md
             <span style="color:#66d9ef">break</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">original_md <span style="color:#f92672">=</span> sha1_mac(key, message<span style="color:#f92672">.</span>encode())
@@ -536,7 +541,7 @@ modified_message, new_md <span style="color:#f92672">=</span> sha1_length_extens
 <span style="color:#f92672">import</span> struct
 <span style="color:#f92672">import</span> binascii
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
-message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;comment1=cooking%20MCs;userdata=foo;comment2=</span><span style="color:#e6db74">%20li</span><span style="color:#e6db74">ke</span><span style="color:#e6db74">%20a</span><span style="color:#e6db74">%20pound</span><span style="color:#e6db74">%20o</span><span style="color:#e6db74">f%20bacon&#34;</span>
+message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;comment1=cooking%20MCs;userdata=foo;comment2=</span><span style="color:#e6db74">%20li</span><span style="color:#e6db74">ke%20a%20pound</span><span style="color:#e6db74">%20o</span><span style="color:#e6db74">f%20bacon&#34;</span>
 payload <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;;admin=true&#34;</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Generating a pseudo random key, to be run only once.</span>
 key <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>urandom(<span style="color:#ae81ff">16</span>)
@@ -563,10 +568,10 @@ key <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>u
     _G <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> self, x, y, z: ((x <span style="color:#f92672">&amp;</span>amp;amp;amp;amp;amp;amp; y) <span style="color:#f92672">|</span> (x <span style="color:#f92672">&amp;</span>amp;amp;amp;amp;amp;amp; z) <span style="color:#f92672">|</span> (y <span style="color:#f92672">&amp;</span>amp;amp;amp;amp;amp;amp; z))
     _H <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> self, x, y, z: (x <span style="color:#f92672">^</span> y <span style="color:#f92672">^</span> z)
 
-    <span style="color:#66d9ef">def</span> __init__(self: object, message: bytes, ml<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, A<span style="color:#f92672">=</span><span style="color:#ae81ff">0x67452301</span>, B<span style="color:#f92672">=</span><span style="color:#ae81ff">0xefcdab89</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">0x98badcfe</span>, D<span style="color:#f92672">=</span><span style="color:#ae81ff">0x10325476</span>):
+    <span style="color:#66d9ef">def</span> __init__(self: object, message: bytes, ml<span style="color:#f92672">=</span>None, A<span style="color:#f92672">=</span><span style="color:#ae81ff">0x67452301</span>, B<span style="color:#f92672">=</span><span style="color:#ae81ff">0xefcdab89</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">0x98badcfe</span>, D<span style="color:#f92672">=</span><span style="color:#ae81ff">0x10325476</span>):
         self<span style="color:#f92672">.</span>A, self<span style="color:#f92672">.</span>B, self<span style="color:#f92672">.</span>C, self<span style="color:#f92672">.</span>D <span style="color:#f92672">=</span> A, B, C, D
 
-        <span style="color:#66d9ef">if</span> ml <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+        <span style="color:#66d9ef">if</span> ml <span style="color:#f92672">is</span> None:
             ml <span style="color:#f92672">=</span> len(message) <span style="color:#f92672">*</span> <span style="color:#ae81ff">8</span>
         length <span style="color:#f92672">=</span> struct<span style="color:#f92672">.</span>pack(<span style="color:#e6db74">&#39;&lt;Q&#39;</span>, ml)
 
@@ -648,8 +653,8 @@ key <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>u
 </span><span style="color:#e6db74">    Verifies if the padding is correct.
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
     <span style="color:#66d9ef">if</span> MD4(modified_message)<span style="color:#f92672">.</span>hex_digest() <span style="color:#f92672">==</span> new_md:
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
+        <span style="color:#66d9ef">return</span> True
+    <span style="color:#66d9ef">return</span> False
 </code></pre></div><p>We follow the same approach as the previous question: initialising a new instance of the oracle with an already existing, valid state derived from a valid hash.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">md4_length_extension_attack</span>(message: bytes, original_md: bytes, payload: bytes) <span style="color:#f92672">-&gt;</span> bytes:
     <span style="color:#e6db74">&#34;&#34;&#34;
@@ -660,7 +665,7 @@ key <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>u
         modified_message <span style="color:#f92672">=</span> md_pad(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;A&#39;</span><span style="color:#f92672">*</span>key_length <span style="color:#f92672">+</span> message)[key_length:] <span style="color:#f92672">+</span> payload
         new_md <span style="color:#f92672">=</span> MD4(payload, (len(modified_message) <span style="color:#f92672">+</span> key_length)<span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>, h[<span style="color:#ae81ff">0</span>], h[<span style="color:#ae81ff">1</span>], h[<span style="color:#ae81ff">2</span>], h[<span style="color:#ae81ff">3</span>])<span style="color:#f92672">.</span>hex_digest()
         <span style="color:#66d9ef">if</span> validate(modified_message, new_md):
-            print(<span style="color:#e6db74">&#34;&gt; Length extension attack successful.&#34;</span>)
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Length extension attack successful.&#34;</span>)
             <span style="color:#66d9ef">return</span> modified_message, new_md
             <span style="color:#66d9ef">break</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">original_md <span style="color:#f92672">=</span> MD4(message<span style="color:#f92672">.</span>encode())<span style="color:#f92672">.</span>hex_digest()
@@ -743,9 +748,9 @@ HMAC_obj <span style="color:#f92672">=</span> HMAC(<span style="color:#e6db74">b
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_insecure_compare</span>(self, hash1, hash2, delay):
         <span style="color:#66d9ef">for</span> b1, b2 <span style="color:#f92672">in</span> zip(hash1, hash2):
             <span style="color:#66d9ef">if</span> b1 <span style="color:#f92672">!=</span> b2:
-                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
+                <span style="color:#66d9ef">return</span> False
             time<span style="color:#f92672">.</span>sleep(delay)
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
+        <span style="color:#66d9ef">return</span> True
     
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">GET</span>(self):
         <span style="color:#66d9ef">global</span> HMAC_obj
@@ -761,20 +766,20 @@ HMAC_obj <span style="color:#f92672">=</span> HMAC(<span style="color:#e6db74">b
             <span style="color:#66d9ef">return</span> web<span style="color:#f92672">.</span>HTTPError(<span style="color:#ae81ff">500</span>)
 </code></pre></div><p>Test the web server.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">response1 <span style="color:#f92672">=</span> app<span style="color:#f92672">.</span>request(<span style="color:#e6db74">&#34;/hello?name=&#34;</span>)
-print(response1<span style="color:#f92672">.</span>data)
+<span style="color:#66d9ef">print</span>(response1<span style="color:#f92672">.</span>data)
 
 response2 <span style="color:#f92672">=</span> app<span style="color:#f92672">.</span>request(<span style="color:#e6db74">&#34;/hello?name=hexterisk&#34;</span>)
-print(json<span style="color:#f92672">.</span>loads(response2<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;&#39;&#34;</span>,<span style="color:#e6db74">&#39;&#34;&#39;</span>)))
+<span style="color:#66d9ef">print</span>(json<span style="color:#f92672">.</span>loads(response2<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;&#39;&#34;</span>,<span style="color:#e6db74">&#39;&#34;&#39;</span>)))
 </code></pre></div><p><code>b&quot;{'name': 'Hello, World!'}&quot;</code><br>
 <code>{'name': 'Hello, hexterisk!'}</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">filename <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;foo&#34;</span>
 signature <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;274b7c4d98605fcf739a0bf9237551623f415fb8&#34;</span>
 response <span style="color:#f92672">=</span> app<span style="color:#f92672">.</span>request(<span style="color:#e6db74">&#34;/test?delay=&#34;</span> <span style="color:#f92672">+</span> str(delay) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&amp;amp;amp;amp;amp;amp;amp;file=&#34;</span> <span style="color:#f92672">+</span> filename <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&amp;amp;amp;amp;amp;amp;amp;signature=&#34;</span> <span style="color:#f92672">+</span> signature)
-print(response)
+<span style="color:#66d9ef">print</span>(response)
 
 signature <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;8c80a95a8e72b3e822a13924553351a433e267d8&#34;</span>
 response <span style="color:#f92672">=</span> app<span style="color:#f92672">.</span>request(<span style="color:#e6db74">&#34;/test?delay=&#34;</span> <span style="color:#f92672">+</span> str(delay) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&amp;amp;amp;amp;amp;amp;amp;file=&#34;</span> <span style="color:#f92672">+</span> filename <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&amp;amp;amp;amp;amp;amp;amp;signature=&#34;</span> <span style="color:#f92672">+</span> signature)
-print(response)
+<span style="color:#66d9ef">print</span>(response)
 </code></pre></div><p><code>&lt;Storage {'status': 500, 'headers': {}, 'header_items': [], 'data': b'500'}&gt;</code><br>
 <code>&lt;Storage {'status': 200, 'headers': {}, 'header_items': [], 'data': b'200'}&gt;</code></p>
 <p><img src="https://hexterisk.github.io/blog/Cryptopals_Set_4/1_image.png" alt="">
@@ -793,12 +798,12 @@ print(response)
         finish <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time()
         times<span style="color:#f92672">.</span>append(finish <span style="color:#f92672">-</span> start)
     signature <span style="color:#f92672">+=</span> hex(times<span style="color:#f92672">.</span>index(max(times)))[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
-    print(<span style="color:#e6db74">&#34;&gt; Discovered signature:&#34;</span>, signature)    
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Discovered signature:&#34;</span>, signature)    
     response <span style="color:#f92672">=</span> app<span style="color:#f92672">.</span>request(<span style="color:#e6db74">&#34;/test?delay=&#34;</span> <span style="color:#f92672">+</span> str(delay) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&amp;amp;amp;amp;amp;amp;amp;file=&#34;</span> <span style="color:#f92672">+</span> filename <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&amp;amp;amp;amp;amp;amp;amp;signature=&#34;</span> <span style="color:#f92672">+</span> signature <span style="color:#f92672">+</span> hex(i)[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
     <span style="color:#66d9ef">if</span> response<span style="color:#f92672">.</span>status <span style="color:#f92672">==</span> <span style="color:#ae81ff">200</span>:
-        print(<span style="color:#e6db74">&#34;&gt; Brute force successful.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&gt; Signature:&#34;</span>, signature)
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Brute force successful.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&gt; Signature:&#34;</span>, signature)
     <span style="color:#66d9ef">else</span>:
-        print(<span style="color:#e6db74">&#34;Brute force failed.&#34;</span>)
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Brute force failed.&#34;</span>)
 </code></pre></div><p><code>&gt; Discovered signature: 8</code><br>
 <code>&gt; Discovered signature: 8c</code><br>
 <code>&gt; Discovered signature: 8c8</code><br>
@@ -871,13 +876,13 @@ print(response)
             runtime <span style="color:#f92672">+=</span> finish <span style="color:#f92672">-</span> start
         times<span style="color:#f92672">.</span>append(runtime)
     signature <span style="color:#f92672">+=</span> hex(times<span style="color:#f92672">.</span>index(max(times)))[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
-    print(<span style="color:#e6db74">&#34;&gt; Discovered signature:&#34;</span>, signature)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Discovered signature:&#34;</span>, signature)
 
 response <span style="color:#f92672">=</span> app<span style="color:#f92672">.</span>request(<span style="color:#e6db74">&#34;/test?delay=&#34;</span> <span style="color:#f92672">+</span> str(delay) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&amp;amp;amp;amp;amp;amp;amp;file=&#34;</span> <span style="color:#f92672">+</span> filename <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;&amp;amp;amp;amp;amp;amp;amp;signature=&#34;</span> <span style="color:#f92672">+</span> signature <span style="color:#f92672">+</span> hex(i)[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
 <span style="color:#66d9ef">if</span> response<span style="color:#f92672">.</span>status <span style="color:#f92672">==</span> <span style="color:#ae81ff">200</span>:
-    print(<span style="color:#e6db74">&#34;&gt; Brute force successful.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&gt; Signature:&#34;</span>, signature)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&gt; Brute force successful.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&gt; Signature:&#34;</span>, signature)
 <span style="color:#66d9ef">else</span>:
-    print(<span style="color:#e6db74">&#34;Brute force failed.&#34;</span>)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Brute force failed.&#34;</span>)
 </code></pre></div><p><code>&gt; Discovered signature: 8</code><br>
 <code>&gt; Discovered signature: 8c</code><br>
 <code>&gt; Discovered signature: 8c8</code><br>
@@ -1024,7 +1029,7 @@ response <span style="color:#f92672">=</span> app<span style="color:#f92672">.</
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
 
 

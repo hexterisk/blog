@@ -26,7 +26,7 @@
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.bc21949b46a7b314448099a92fed1807acac025093285f474b88259eec0c62ba.css">
+<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
 
 
 
@@ -42,9 +42,14 @@
 
 <meta itemprop="name" content="DART &amp; SAGE">
 <meta itemprop="description" content="DART Back in 2005, researchers at Microsoft came up with a concolic testing tool called DART(Directed Automated Random Testing). The tool can be used in the unit testing phase, as well as can be applied to large programs.
- We present a new tool, named DART, for automatically testing software that combines three main techniques: (1) automated extraction of the interface of a program with its external environment using static source-code parsing; (2) automatic generation of a test driver for this interface that performs random testing to simulate the most general environment the program can operate in; and (3) dynamic analysis of how the program behaves under random testing and automatic generation of new test inputs to direct systematically the execution along alternative program paths."><meta itemprop="datePublished" content="2020-10-04T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-10-04T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2525"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+ We present a new tool, named DART, for automatically testing software that combines three main techniques: (1) automated extraction of the interface of a program with its external environment using static source-code parsing; (2) automatic generation of a test driver for this interface that performs random testing to simulate the most general environment the program can operate in; and (3) dynamic analysis of how the program behaves under random testing and automatic generation of new test inputs to direct systematically the execution along alternative program paths.">
+<meta itemprop="datePublished" content="2020-10-04T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-10-04T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2525">
+<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+
+
+
 <meta itemprop="keywords" content="fuzzing,microsoft,whitebox,greybox,sage,dart,automated,symbolic," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
@@ -191,15 +196,15 @@
 <p>Let <em>C</em> be the set of conditional statements encountered in <em>P</em>.</p>
 <p>Let <em>A</em> be the set of assignment statements encountered in <em>P</em>.</p>
 <p>Then, execution of a program statement can be denoted as follows:</p>
-<p><em>M' := M + [ m → v ]</em></p>
+<p><em>M&rsquo; := M + [ m → v ]</em></p>
 <p>where,</p>
 <p>       <em>M</em> is the mapping of a memory address space beginning from <em>m</em> to <em>n</em>-bit words (<em>n</em> can be taken as 32).</p>
 <p>       <em>+</em> denotes updation.</p>
 <p>       <em>→</em> denotes assignment.</p>
 <p>       <em>m</em> is a memory address, which may or may not be holding a symbolic variable.</p>
-<p>       <em>M'</em> is therefore same as <em>M</em>, except that <em>m</em> is updated to the value <em>v</em>.</p>
-<p>⇨ <em>M' = v</em></p>
-<p>Thus, <em>M</em> and <em>M'</em> are the states (also called context), and the updated value <em>v</em> is the solution for the constraint and will be used as input in the next execution.</p>
+<p>       <em>M&rsquo;</em> is therefore same as <em>M</em>, except that <em>m</em> is updated to the value <em>v</em>.</p>
+<p>⇨ <em>M&rsquo; = v</em></p>
+<p>Thus, <em>M</em> and <em>M&rsquo;</em> are the states (also called context), and the updated value <em>v</em> is the solution for the constraint and will be used as input in the next execution.</p>
 <p>This program execution <em>E</em> is a finite sequence which goes on until an abort is encountered (such as a program crash) or a halt is encountered (such as program termination). This execution process can be denoted as follows:</p>
 <p><em>E := (A ⋃ C) * (abort | halt)</em></p>
 <p>This <em>E(P)</em> can be viewed as a tree, known as <strong>execution tree</strong>, where different paths branching from the current state are children of the current node, with leaf nodes being the abort and halt states. Each execution sequence is therefore a path in this tree.</p>
@@ -498,6 +503,13 @@
             
 
             
+            <span class="button next">
+                <a href="https://hexterisk.github.io/blog/posts/2020/10/10/introduction/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Introduction</span>
+                </a>
+            </span>
+            
 
         </div>
     </div>
@@ -536,7 +548,7 @@
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
 
 

@@ -6,7 +6,48 @@
     <description>Recent content on Pwn the world.</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 04 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://hexterisk.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Apr 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hexterisk.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reuse</title>
+      <link>https://hexterisk.github.io/blog/posts/2020/10/21/reuse/</link>
+      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/posts/2020/10/21/reuse/</guid>
+      <description>While designing a class, always keep the Open-Closed Principle in mind. It states that,
+ software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+ This implies that an entity shall allow extensions to itself, but no modification to its source code. We are therefore allowed to extend our base class, and consequently implement re-usability.
+Class Inheritance Inheritance models an Is-A relationship, where the child class inherits properties from the parent class, making the child class a specialized version of the parent class.</description>
+    </item>
+    
+    <item>
+      <title>Overview</title>
+      <link>https://hexterisk.github.io/blog/posts/2020/10/14/overview/</link>
+      <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/posts/2020/10/14/overview/</guid>
+      <description>An general overview of the Design Patterns.
+Classification Purpose Purpose reflects the use case of a design pattern.
+Creational Pattern concerns the process of object creation.
+Structural Pattern deals with the composition of classes or objects.
+Behavioral Pattern characterizes the ways in which classes or objects interact and distribute responsibility.
+Catalog of design patterns based on Purpose.
+Scope The scope of a design patterns specifies where it is primarily applied.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://hexterisk.github.io/blog/posts/2020/10/10/introduction/</link>
+      <pubDate>Sat, 10 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/posts/2020/10/10/introduction/</guid>
+      <description>A design pattern is a code structure used to solve commonly occurring problems in software development. It is a generic description of different components&amp;rsquo; design, their relationships, and how they come together to solve the said problem in the specified context. It is characterized by:
+ Pattern Name  To associate a certain solution to a name for ease of reference, through appropriate association.   Problem  The design problem and issues to be addressed in a specified context, to which the solution described by the design pattern is applicable.</description>
+    </item>
+    
     <item>
       <title>DART &amp; SAGE</title>
       <link>https://hexterisk.github.io/blog/posts/2020/10/04/dart-sage/</link>
@@ -78,36 +119,6 @@ The pre-machine learning era saw classification of traffic based on structured r
       
       <guid>https://hexterisk.github.io/blog/posts/2020/08/04/classification-of-malwares-through-dynamic-analysis/</guid>
       <description>Malwares come in many forms. Sometimes it&amp;rsquo;s a standalone binary whereas sometimes it&amp;rsquo;s a legitimate software having a malware inside it. Sometimes it&amp;rsquo;s a binary with malformed metadata and packed bytes to throw off the analyst whereas sometimes it acts as a downloader/launcher for a more malicious binary. Information extracted from static analysis can therefore be deemed unreliable and not as accurate when compared with information extracted from dynamic analysis.</description>
-    </item>
-    
-    <item>
-      <title>Classification of Malwares through Static Analysis</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/07/20/classification-of-malwares-through-static-analysis/</link>
-      <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/posts/2020/07/20/classification-of-malwares-through-static-analysis/</guid>
-      <description>Static analysis is the analysis of an executable file on a structural bases without executing it in controlled environment. It is the analysis of the executable&amp;rsquo;s static attributes such as different sections and memory characteristics.
-Therefore, static analysis of a PE allows extraction of a lot of metadata that can be useful in further analysis such as names of sections, imported DLLs and strings present which gives an early idea of the functions performed by the binary in question.</description>
-    </item>
-    
-    <item>
-      <title>Dynamic Taint Analysis and Pin</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/07/18/dynamic-taint-analysis-and-pin/</link>
-      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/posts/2020/07/18/dynamic-taint-analysis-and-pin/</guid>
-      <description>Dynamic Taint Analysis is a technique used to discover what part of memory or register are controllable by the some data we are interested, such as the user input, at a given program state. This is done by marking the interested data. There on after, any piece of data that comes in contact with the tainted data by any means, like getting computed from the tainted data, is tainted too, thus spreading the taint throughout the execution.</description>
-    </item>
-    
-    <item>
-      <title>Dynamic Binary Instrumentation and Pin</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/07/10/dynamic-binary-instrumentation-and-pin/</link>
-      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/posts/2020/07/10/dynamic-binary-instrumentation-and-pin/</guid>
-      <description>Dynamic Binary Instrumentation is the process of monitoring or measuring a binary&amp;rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
-We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.
- Instrumentation Code The technique requires injecting Instrumentation Code into a running binary.</description>
     </item>
     
   </channel>

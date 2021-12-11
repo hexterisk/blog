@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="System Call Trace strace can be used to investigate system call behavior. In some cases, you may want to attach strace to a running process. To do this, you need to use the -p pid option, where pid is the process ID of the process you want to attach to.
-$ strace ./ctf show_me_the_flag ➊ execve(&amp;#34;./ctf&amp;#34;, [&amp;#34;./ctf&amp;#34;, &amp;#34;show_me_the_flag&amp;#34;], [/* 73 vars */]) = 0 brk(NULL) = 0x1053000 access(&amp;#34;/etc/ld.so.nohwcap&amp;#34;, F_OK) = -1 ENOENT (No such file or directory) mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f703477e000 access(&amp;#34;/etc/ld." />
+$ strace ./ctf show_me_the_flag➊ execve(&amp;#34;./ctf&amp;#34;, [&amp;#34;./ctf&amp;#34;, &amp;#34;show_me_the_flag&amp;#34;], [/* 73 vars */]) = 0brk(NULL) = 0x1053000access(&amp;#34;/etc/ld.so.nohwcap&amp;#34;, F_OK) = -1 ENOENT (No such file or directory)mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f703477e000access(&amp;#34;/etc/ld." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -26,7 +26,7 @@ $ strace ./ctf show_me_the_flag ➊ execve(&amp;#34;./ctf&amp;#34;, [&amp;#34;./
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.bc21949b46a7b314448099a92fed1807acac025093285f474b88259eec0c62ba.css">
+<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
 
 
 
@@ -42,15 +42,20 @@ $ strace ./ctf show_me_the_flag ➊ execve(&amp;#34;./ctf&amp;#34;, [&amp;#34;./
 
 <meta itemprop="name" content="Trace Analysis">
 <meta itemprop="description" content="System Call Trace strace can be used to investigate system call behavior. In some cases, you may want to attach strace to a running process. To do this, you need to use the -p pid option, where pid is the process ID of the process you want to attach to.
-$ strace ./ctf show_me_the_flag ➊ execve(&#34;./ctf&#34;, [&#34;./ctf&#34;, &#34;show_me_the_flag&#34;], [/* 73 vars */]) = 0 brk(NULL) = 0x1053000 access(&#34;/etc/ld.so.nohwcap&#34;, F_OK) = -1 ENOENT (No such file or directory) mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f703477e000 access(&#34;/etc/ld."><meta itemprop="datePublished" content="2020-03-18T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-03-18T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1332"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+$ strace ./ctf show_me_the_flag➊ execve(&#34;./ctf&#34;, [&#34;./ctf&#34;, &#34;show_me_the_flag&#34;], [/* 73 vars */]) = 0brk(NULL) = 0x1053000access(&#34;/etc/ld.so.nohwcap&#34;, F_OK) = -1 ENOENT (No such file or directory)mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f703477e000access(&#34;/etc/ld.">
+<meta itemprop="datePublished" content="2020-03-18T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-03-18T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1332">
+<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+
+
+
 <meta itemprop="keywords" content="binary,rev,reversing,c,pe,windows," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
 <meta name="twitter:title" content="Trace Analysis"/>
 <meta name="twitter:description" content="System Call Trace strace can be used to investigate system call behavior. In some cases, you may want to attach strace to a running process. To do this, you need to use the -p pid option, where pid is the process ID of the process you want to attach to.
-$ strace ./ctf show_me_the_flag ➊ execve(&#34;./ctf&#34;, [&#34;./ctf&#34;, &#34;show_me_the_flag&#34;], [/* 73 vars */]) = 0 brk(NULL) = 0x1053000 access(&#34;/etc/ld.so.nohwcap&#34;, F_OK) = -1 ENOENT (No such file or directory) mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f703477e000 access(&#34;/etc/ld."/>
+$ strace ./ctf show_me_the_flag➊ execve(&#34;./ctf&#34;, [&#34;./ctf&#34;, &#34;show_me_the_flag&#34;], [/* 73 vars */]) = 0brk(NULL) = 0x1053000access(&#34;/etc/ld.so.nohwcap&#34;, F_OK) = -1 ENOENT (No such file or directory)mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f703477e000access(&#34;/etc/ld."/>
 
 
 
@@ -363,7 +368,7 @@ std<span style="color:#f92672">::</span>char_traits<span style="color:#f92672">&
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
 
 

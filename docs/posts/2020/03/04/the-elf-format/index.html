@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="ELF binaries really consist of only four types of components:  Executable Header Program Headers (optional) Sections Section Headers, one per section (optional)  64-bit ELF binary structure.
- Executable Header  Every ELF file starts with an executable header, which is just a structured series of bytes telling you that it’s an ELF file and other metadata. Format of executable header: /usr/include/elf.h  typedef struct { unsigned char e_ident[16]; /* Magic number and other info */ uint16_t e_type; /* Object file type */ uint16_t e_machine; /* Architecture */ uint32_t e_version; /* Object file version */ uint64_t e_entry; /* Entry point virtual address */ uint64_t e_phoff; /* Program header table file offset */ uint64_t e_shoff; /* Section header table file offset */ uint32_t e_flags; /* Processor-specific flags */ uint16_t e_ehsize; /* ELF header size in bytes */ uint16_t e_phentsize; /* Program header table entry size */ uint16_t e_phnum; /* Program header table entry count */ uint16_t e_shentsize; /* Section header table entry size */ uint16_t e_shnum; /* Section header table entry count */ uint16_t e_shstrndx; /* Section header string table index */ } Elf64_Ehdr;  Section Headers  The code and data in an ELF binary are logically divided into contiguous non-overlapping chunks called Sections." />
+ Executable Header  Every ELF file starts with an executable header, which is just a structured series of bytes telling you that it’s an ELF file and other metadata. Format of executable header: /usr/include/elf.h  typedef struct {unsigned char e_ident[16]; /* Magic number and other info */uint16_t e_type; /* Object file type */uint16_t e_machine; /* Architecture */uint32_t e_version; /* Object file version */uint64_t e_entry; /* Entry point virtual address */uint64_t e_phoff; /* Program header table file offset */uint64_t e_shoff; /* Section header table file offset */uint32_t e_flags; /* Processor-specific flags */uint16_t e_ehsize; /* ELF header size in bytes */uint16_t e_phentsize; /* Program header table entry size */uint16_t e_phnum; /* Program header table entry count */uint16_t e_shentsize; /* Section header table entry size */uint16_t e_shnum; /* Section header table entry count */uint16_t e_shstrndx; /* Section header string table index */} Elf64_Ehdr; Section Headers  The code and data in an ELF binary are logically divided into contiguous non-overlapping chunks called Sections." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="#252627" />
@@ -26,7 +26,7 @@
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.bc21949b46a7b314448099a92fed1807acac025093285f474b88259eec0c62ba.css">
+<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
 
 
 
@@ -42,15 +42,20 @@
 
 <meta itemprop="name" content="The ELF Format">
 <meta itemprop="description" content="ELF binaries really consist of only four types of components:  Executable Header Program Headers (optional) Sections Section Headers, one per section (optional)  64-bit ELF binary structure.
- Executable Header  Every ELF file starts with an executable header, which is just a structured series of bytes telling you that it’s an ELF file and other metadata. Format of executable header: /usr/include/elf.h  typedef struct { unsigned char e_ident[16]; /* Magic number and other info */ uint16_t e_type; /* Object file type */ uint16_t e_machine; /* Architecture */ uint32_t e_version; /* Object file version */ uint64_t e_entry; /* Entry point virtual address */ uint64_t e_phoff; /* Program header table file offset */ uint64_t e_shoff; /* Section header table file offset */ uint32_t e_flags; /* Processor-specific flags */ uint16_t e_ehsize; /* ELF header size in bytes */ uint16_t e_phentsize; /* Program header table entry size */ uint16_t e_phnum; /* Program header table entry count */ uint16_t e_shentsize; /* Section header table entry size */ uint16_t e_shnum; /* Section header table entry count */ uint16_t e_shstrndx; /* Section header string table index */ } Elf64_Ehdr;  Section Headers  The code and data in an ELF binary are logically divided into contiguous non-overlapping chunks called Sections."><meta itemprop="datePublished" content="2020-03-04T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-03-04T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2690"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+ Executable Header  Every ELF file starts with an executable header, which is just a structured series of bytes telling you that it’s an ELF file and other metadata. Format of executable header: /usr/include/elf.h  typedef struct {unsigned char e_ident[16]; /* Magic number and other info */uint16_t e_type; /* Object file type */uint16_t e_machine; /* Architecture */uint32_t e_version; /* Object file version */uint64_t e_entry; /* Entry point virtual address */uint64_t e_phoff; /* Program header table file offset */uint64_t e_shoff; /* Section header table file offset */uint32_t e_flags; /* Processor-specific flags */uint16_t e_ehsize; /* ELF header size in bytes */uint16_t e_phentsize; /* Program header table entry size */uint16_t e_phnum; /* Program header table entry count */uint16_t e_shentsize; /* Section header table entry size */uint16_t e_shnum; /* Section header table entry count */uint16_t e_shstrndx; /* Section header string table index */} Elf64_Ehdr; Section Headers  The code and data in an ELF binary are logically divided into contiguous non-overlapping chunks called Sections.">
+<meta itemprop="datePublished" content="2020-03-04T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-03-04T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2690">
+<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+
+
+
 <meta itemprop="keywords" content="binary,rev,reversing,c,elf,headers,sections," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
 <meta name="twitter:title" content="The ELF Format"/>
 <meta name="twitter:description" content="ELF binaries really consist of only four types of components:  Executable Header Program Headers (optional) Sections Section Headers, one per section (optional)  64-bit ELF binary structure.
- Executable Header  Every ELF file starts with an executable header, which is just a structured series of bytes telling you that it’s an ELF file and other metadata. Format of executable header: /usr/include/elf.h  typedef struct { unsigned char e_ident[16]; /* Magic number and other info */ uint16_t e_type; /* Object file type */ uint16_t e_machine; /* Architecture */ uint32_t e_version; /* Object file version */ uint64_t e_entry; /* Entry point virtual address */ uint64_t e_phoff; /* Program header table file offset */ uint64_t e_shoff; /* Section header table file offset */ uint32_t e_flags; /* Processor-specific flags */ uint16_t e_ehsize; /* ELF header size in bytes */ uint16_t e_phentsize; /* Program header table entry size */ uint16_t e_phnum; /* Program header table entry count */ uint16_t e_shentsize; /* Section header table entry size */ uint16_t e_shnum; /* Section header table entry count */ uint16_t e_shstrndx; /* Section header string table index */ } Elf64_Ehdr;  Section Headers  The code and data in an ELF binary are logically divided into contiguous non-overlapping chunks called Sections."/>
+ Executable Header  Every ELF file starts with an executable header, which is just a structured series of bytes telling you that it’s an ELF file and other metadata. Format of executable header: /usr/include/elf.h  typedef struct {unsigned char e_ident[16]; /* Magic number and other info */uint16_t e_type; /* Object file type */uint16_t e_machine; /* Architecture */uint32_t e_version; /* Object file version */uint64_t e_entry; /* Entry point virtual address */uint64_t e_phoff; /* Program header table file offset */uint64_t e_shoff; /* Section header table file offset */uint32_t e_flags; /* Processor-specific flags */uint16_t e_ehsize; /* ELF header size in bytes */uint16_t e_phentsize; /* Program header table entry size */uint16_t e_phnum; /* Program header table entry count */uint16_t e_shentsize; /* Section header table entry size */uint16_t e_shnum; /* Section header table entry count */uint16_t e_shstrndx; /* Section header string table index */} Elf64_Ehdr; Section Headers  The code and data in an ELF binary are logically divided into contiguous non-overlapping chunks called Sections."/>
 
 
 
@@ -152,19 +157,19 @@
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> {
 <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> e_ident[<span style="color:#ae81ff">16</span>]; <span style="color:#75715e">/* Magic number and other info */</span>
-<span style="color:#66d9ef">uint16_t</span> e_type; <span style="color:#75715e">/* Object file type */</span>
-<span style="color:#66d9ef">uint16_t</span> e_machine; <span style="color:#75715e">/* Architecture */</span>
-<span style="color:#66d9ef">uint32_t</span> e_version; <span style="color:#75715e">/* Object file version */</span>
-<span style="color:#66d9ef">uint64_t</span> e_entry; <span style="color:#75715e">/* Entry point virtual address */</span>
-<span style="color:#66d9ef">uint64_t</span> e_phoff; <span style="color:#75715e">/* Program header table file offset */</span>
-<span style="color:#66d9ef">uint64_t</span> e_shoff; <span style="color:#75715e">/* Section header table file offset */</span>
-<span style="color:#66d9ef">uint32_t</span> e_flags; <span style="color:#75715e">/* Processor-specific flags */</span>
-<span style="color:#66d9ef">uint16_t</span> e_ehsize; <span style="color:#75715e">/* ELF header size in bytes */</span>
-<span style="color:#66d9ef">uint16_t</span> e_phentsize; <span style="color:#75715e">/* Program header table entry size */</span>
-<span style="color:#66d9ef">uint16_t</span> e_phnum; <span style="color:#75715e">/* Program header table entry count */</span>
-<span style="color:#66d9ef">uint16_t</span> e_shentsize; <span style="color:#75715e">/* Section header table entry size */</span>
-<span style="color:#66d9ef">uint16_t</span> e_shnum; <span style="color:#75715e">/* Section header table entry count */</span>
-<span style="color:#66d9ef">uint16_t</span> e_shstrndx; <span style="color:#75715e">/* Section header string table index */</span>
+uint16_t e_type; <span style="color:#75715e">/* Object file type */</span>
+uint16_t e_machine; <span style="color:#75715e">/* Architecture */</span>
+uint32_t e_version; <span style="color:#75715e">/* Object file version */</span>
+uint64_t e_entry; <span style="color:#75715e">/* Entry point virtual address */</span>
+uint64_t e_phoff; <span style="color:#75715e">/* Program header table file offset */</span>
+uint64_t e_shoff; <span style="color:#75715e">/* Section header table file offset */</span>
+uint32_t e_flags; <span style="color:#75715e">/* Processor-specific flags */</span>
+uint16_t e_ehsize; <span style="color:#75715e">/* ELF header size in bytes */</span>
+uint16_t e_phentsize; <span style="color:#75715e">/* Program header table entry size */</span>
+uint16_t e_phnum; <span style="color:#75715e">/* Program header table entry count */</span>
+uint16_t e_shentsize; <span style="color:#75715e">/* Section header table entry size */</span>
+uint16_t e_shnum; <span style="color:#75715e">/* Section header table entry count */</span>
+uint16_t e_shstrndx; <span style="color:#75715e">/* Section header string table index */</span>
 } Elf64_Ehdr;
 </code></pre></div><p> </p>
 <h2 id="section-headers">Section Headers</h2>
@@ -177,16 +182,16 @@
 <li>Format of a section header: /usr/include/elf.h</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> {
-<span style="color:#66d9ef">uint32_t</span> sh_name; <span style="color:#75715e">/* Section name (string tbl index) */</span>
-<span style="color:#66d9ef">uint32_t</span> sh_type; <span style="color:#75715e">/* Section type */</span>
-<span style="color:#66d9ef">uint64_t</span> sh_flags; <span style="color:#75715e">/* Section flags */</span>
-<span style="color:#66d9ef">uint64_t</span> sh_addr; <span style="color:#75715e">/* Section virtual addr at execution */</span>
-<span style="color:#66d9ef">uint64_t</span> sh_offset; <span style="color:#75715e">/* Section file offset */</span>
-<span style="color:#66d9ef">uint64_t</span> sh_size; <span style="color:#75715e">/* Section size in bytes */</span>
-<span style="color:#66d9ef">uint32_t</span> sh_link; <span style="color:#75715e">/* Link to another section */</span>
-<span style="color:#66d9ef">uint32_t</span> sh_info; <span style="color:#75715e">/* Additional section information */</span>
-<span style="color:#66d9ef">uint64_t</span> sh_addralign; <span style="color:#75715e">/* Section alignment */</span>
-<span style="color:#66d9ef">uint64_t</span> sh_entsize; <span style="color:#75715e">/* Entry size if section holds table */</span>
+uint32_t sh_name; <span style="color:#75715e">/* Section name (string tbl index) */</span>
+uint32_t sh_type; <span style="color:#75715e">/* Section type */</span>
+uint64_t sh_flags; <span style="color:#75715e">/* Section flags */</span>
+uint64_t sh_addr; <span style="color:#75715e">/* Section virtual addr at execution */</span>
+uint64_t sh_offset; <span style="color:#75715e">/* Section file offset */</span>
+uint64_t sh_size; <span style="color:#75715e">/* Section size in bytes */</span>
+uint32_t sh_link; <span style="color:#75715e">/* Link to another section */</span>
+uint32_t sh_info; <span style="color:#75715e">/* Additional section information */</span>
+uint64_t sh_addralign; <span style="color:#75715e">/* Section alignment */</span>
+uint64_t sh_entsize; <span style="color:#75715e">/* Entry size if section holds table */</span>
 } Elf64_Shdr;
 </code></pre></div><p> </p>
 <h2 id="sections">Sections</h2>
@@ -339,14 +344,14 @@ Disassembly of section .plt:
 <li>Format of a program header: /usr/include/elf.h</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> {
-<span style="color:#66d9ef">uint32_t</span> p_type; <span style="color:#75715e">/* Segment type */</span>
-<span style="color:#66d9ef">uint32_t</span> p_flags; <span style="color:#75715e">/* Segment flags */</span>
-<span style="color:#66d9ef">uint64_t</span> p_offset; <span style="color:#75715e">/* Segment file offset */</span>
-<span style="color:#66d9ef">uint64_t</span> p_vaddr; <span style="color:#75715e">/* Segment virtual address */</span>
-<span style="color:#66d9ef">uint64_t</span> p_paddr; <span style="color:#75715e">/* Segment physical address */</span>
-<span style="color:#66d9ef">uint64_t</span> p_filesz; <span style="color:#75715e">/* Segment size in file */</span>
-<span style="color:#66d9ef">uint64_t</span> p_memsz; <span style="color:#75715e">/* Segment size in memory */</span>
-<span style="color:#66d9ef">uint64_t</span> p_align; <span style="color:#75715e">/* Segment alignment */</span>
+uint32_t p_type; <span style="color:#75715e">/* Segment type */</span>
+uint32_t p_flags; <span style="color:#75715e">/* Segment flags */</span>
+uint64_t p_offset; <span style="color:#75715e">/* Segment file offset */</span>
+uint64_t p_vaddr; <span style="color:#75715e">/* Segment virtual address */</span>
+uint64_t p_paddr; <span style="color:#75715e">/* Segment physical address */</span>
+uint64_t p_filesz; <span style="color:#75715e">/* Segment size in file */</span>
+uint64_t p_memsz; <span style="color:#75715e">/* Segment size in memory */</span>
+uint64_t p_align; <span style="color:#75715e">/* Segment alignment */</span>
 } Elf64_Phdr;
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#960050;background-color:#1e0010">$</span> readelf <span style="color:#f92672">--</span>wide <span style="color:#f92672">--</span>segments a.out
 
@@ -483,7 +488,7 @@ Segment Sections...
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
 
 

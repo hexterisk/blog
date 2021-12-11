@@ -28,7 +28,7 @@ One way we account for irregularly-sized messages is by padding, creating a plai
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.bc21949b46a7b314448099a92fed1807acac025093285f474b88259eec0c62ba.css">
+<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
 
 
 
@@ -46,9 +46,14 @@ One way we account for irregularly-sized messages is by padding, creating a plai
 <meta itemprop="description" content="Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
  Challenge 9: Implement PKCS#7 padding Link
  A block cipher transforms a fixed-sized block (usually 8 or 16 bytes) of plaintext into ciphertext. But we almost never want to transform a single block; we encrypt irregularly-sized messages.
-One way we account for irregularly-sized messages is by padding, creating a plaintext that is an even multiple of the blocksize."><meta itemprop="datePublished" content="2020-04-05T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-04-05T00:00:00+00:00" />
-<meta itemprop="wordCount" content="4797"><meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+One way we account for irregularly-sized messages is by padding, creating a plaintext that is an even multiple of the blocksize.">
+<meta itemprop="datePublished" content="2020-04-05T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-04-05T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="4797">
+<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
+
+
+
 <meta itemprop="keywords" content="Matasano,cryptography,AES,ECB,CBC,bit-flipping,xor,base64,PKCS#7,pad,unpad," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
 
@@ -163,7 +168,7 @@ Since most messages are irregularly sized and need to be padded up to the block 
 <em>Valid PKCS#7 padding.</em></p>
 <p>Therefore, a message whose length is short of the block size by x, is to be padded by the x byte itself. It allows block sizes up to 255 bytes.</p>
 <p>Since the plaintext length is short of the block size by 4 bytes, it is padded by 4 &lsquo;\x04&rsquo; bytes.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
 plaintext <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;YELLOW SUBMARINE&#34;</span>
 target_bytes <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;YELLOW SUBMARINE</span><span style="color:#ae81ff">\x04\x04\x04\x04</span><span style="color:#e6db74">&#34;</span>
 block_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
@@ -193,10 +198,10 @@ Implement CBC mode by hand by taking the ECB function you wrote earlier, making 
 <a href="https://cryptopals.com/static/challenge-data/10.txt">The file here</a> is intelligible (somewhat) when CBC decrypted against &ldquo;YELLOW SUBMARINE&rdquo; with an IV of all ASCII 0 (\x00\x00\x00 &amp;c)<br>
 Don&rsquo;t cheat.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Imports</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Imports</span>
 <span style="color:#f92672">import</span> base64
 <span style="color:#f92672">from</span> Crypto.Cipher <span style="color:#f92672">import</span> AES
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
 inf <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;10.txt&#34;</span>, <span style="color:#e6db74">&#34;r&#34;</span>)
 b64_data <span style="color:#f92672">=</span> inf<span style="color:#f92672">.</span>readlines()
 
@@ -208,18 +213,18 @@ key <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><sp
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
     padding <span style="color:#f92672">=</span> text[<span style="color:#f92672">-</span>text[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]:]
     
-    <span style="color:#75715e"># Check that all the bytes in the range indicated by the padding are equal to the padding value itself.</span>
+    <span style="color:#75715e"># Check that all the bytes in the range indicated by the padding are equal to the padding value itself.</span>
     <span style="color:#66d9ef">return</span> all(padding[b] <span style="color:#f92672">==</span> len(padding) <span style="color:#66d9ef">for</span> b <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, len(padding)))
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">PKCS7_unpad</span>(paddedtext: bytes) <span style="color:#f92672">-&gt;</span> bytes:
     <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">    Unpads the given text if it&#39;s padded according to PKCS7 norms.
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
     
-    <span style="color:#75715e"># Checks if the text is padded according to PKCS7 norms.</span>
+    <span style="color:#75715e"># Checks if the text is padded according to PKCS7 norms.</span>
     <span style="color:#66d9ef">if</span> PKCS7_padded(paddedtext):
-        <span style="color:#75715e"># The last byte is a padding byte.</span>
+        <span style="color:#75715e"># The last byte is a padding byte.</span>
         pad_Length <span style="color:#f92672">=</span> paddedtext[len(paddedtext)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
-        <span style="color:#75715e"># Returns the text uptil last &#34;pad&#34; length bytes since pad byte value is the same as number of pad bytes required.</span>
+        <span style="color:#75715e"># Returns the text uptil last &#34;pad&#34; length bytes since pad byte value is the same as number of pad bytes required.</span>
         <span style="color:#66d9ef">return</span> paddedtext[:<span style="color:#f92672">-</span>pad_Length]
     <span style="color:#66d9ef">else</span>:
         <span style="color:#66d9ef">return</span> paddedtext
@@ -265,17 +270,17 @@ key <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><sp
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">byte_string <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">.</span>join([base64<span style="color:#f92672">.</span>b64decode(line<span style="color:#f92672">.</span>strip()) <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> b64_data])
 
 text <span style="color:#f92672">=</span> PKCS7_unpad(AES_CBC_decrypt(byte_string, <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\x00</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">*</span>AES<span style="color:#f92672">.</span>block_size, key))
-print(text<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)<span style="color:#f92672">.</span>strip(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>))
-</code></pre></div><p>I&rsquo;m back and I&rsquo;m ringin' the bell </p>
-<p>A rockin' on the mike while the fly girls yell </p>
+<span style="color:#66d9ef">print</span>(text<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)<span style="color:#f92672">.</span>strip(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>))
+</code></pre></div><p>I&rsquo;m back and I&rsquo;m ringin&rsquo; the bell </p>
+<p>A rockin&rsquo; on the mike while the fly girls yell </p>
 <p>In ecstasy in the back of me </p>
-<p>Well that&rsquo;s my DJ Deshay cuttin' all them Z&rsquo;s </p>
-<p>Hittin' hard and the girlies goin' crazy </p>
+<p>Well that&rsquo;s my DJ Deshay cuttin&rsquo; all them Z&rsquo;s </p>
+<p>Hittin&rsquo; hard and the girlies goin&rsquo; crazy </p>
 <p>Vanilla&rsquo;s on the mike, man I&rsquo;m not lazy. </p>
-<p>I&rsquo;m lettin' my drug kick in </p>
+<p>I&rsquo;m lettin&rsquo; my drug kick in </p>
 <p>It controls my mouth and I begin </p>
 <p>To just let it flow, let my concepts go </p>
-<p>My posse&rsquo;s to the side yellin', Go Vanilla Go! </p>
+<p>My posse&rsquo;s to the side yellin&rsquo;, Go Vanilla Go! </p>
 <p>Smooth &lsquo;cause that&rsquo;s the way I will be </p>
 <p>And if you don&rsquo;t give a damn, then </p>
 <p>Why you starin&rsquo; at me </p>
@@ -283,8 +288,8 @@ print(text<span style="color:#f92672">.</span>decode(<span style="color:#e6db74"
 <p>There&rsquo;s no dissin&rsquo; allowed </p>
 <p>I&rsquo;m in my own phase </p>
 <p>The girlies sa y they love me and that is ok </p>
-<p>And I can dance better than any kid n' play </p>
-<p>Stage 2 &ndash; Yea the one ya' wanna listen to </p>
+<p>And I can dance better than any kid n&rsquo; play </p>
+<p>Stage 2 &ndash; Yea the one ya&rsquo; wanna listen to </p>
 <p>It&rsquo;s off my head so let the beat play through </p>
 <p>So I can funk it up and make it sound good </p>
 <p>1-2-3 Yo &ndash; Knock on some wood </p>
@@ -293,25 +298,25 @@ print(text<span style="color:#f92672">.</span>decode(<span style="color:#e6db74"
 <p>I&rsquo;m an effect and that you can bet </p>
 <p>I can take a fly girl and make her wet. </p>
 <p>I&rsquo;m like Samson &ndash; Samson to Delilah </p>
-<p>There&rsquo;s no denyin', You can try to hang </p>
-<p>But you&rsquo;ll keep tryin' to get my style </p>
+<p>There&rsquo;s no denyin&rsquo;, You can try to hang </p>
+<p>But you&rsquo;ll keep tryin&rsquo; to get my style </p>
 <p>Over and over, practice makes perfect </p>
 <p>But not if you&rsquo;re a loafer. </p>
 <p>You&rsquo;ll get nowhere, no place, no time, no girls </p>
 <p>Soon &ndash; Oh my God, homebody, you probably eat </p>
 <p>Spaghetti with a spoon! Come on and say it! </p>
-<p>VIP. Vanilla Ice yep, yep, I&rsquo;m comin' hard like a rhino </p>
+<p>VIP. Vanilla Ice yep, yep, I&rsquo;m comin&rsquo; hard like a rhino </p>
 <p>Intoxicating so you stagger like a wino </p>
-<p>So punks stop trying and girl stop cryin' </p>
-<p>Vanilla Ice is sellin' and you people are buyin' </p>
+<p>So punks stop trying and girl stop cryin&rsquo; </p>
+<p>Vanilla Ice is sellin&rsquo; and you people are buyin&rsquo; </p>
 <p>&lsquo;Cause why the freaks are jockin&rsquo; like Crazy Glue </p>
-<p>Movin' and groovin' trying to sing along </p>
-<p>All through the ghetto groovin' this here song </p>
+<p>Movin&rsquo; and groovin&rsquo; trying to sing along </p>
+<p>All through the ghetto groovin&rsquo; this here song </p>
 <p>Now you&rsquo;re amazed by the VIP posse. </p>
-<p>Steppin' so hard like a German Nazi </p>
-<p>Startled by the bases hittin' ground </p>
-<p>There&rsquo;s no trippin' on mine, I&rsquo;m just gettin' down </p>
-<p>Sparkamatic, I&rsquo;m hangin' tight like a fanatic </p>
+<p>Steppin&rsquo; so hard like a German Nazi </p>
+<p>Startled by the bases hittin&rsquo; ground </p>
+<p>There&rsquo;s no trippin&rsquo; on mine, I&rsquo;m just gettin&rsquo; down </p>
+<p>Sparkamatic, I&rsquo;m hangin&rsquo; tight like a fanatic </p>
 <p>You trapped me once and I thought that </p>
 <p>You might have it </p>
 <p>So step down and lend me your ear </p>
@@ -352,7 +357,7 @@ The function should look like:<br>
 Under the hood, have the function append 5-10 bytes (count chosen randomly) before the plaintext and 5-10 bytes after the plaintext.<br>
 Now, have the function choose to encrypt under ECB 1/2 the time, and under CBC the other half (just use random IVs each time for CBC). Use rand(2) to decide which to use. Detect the block cipher mode the function is using each time. You should end up with a piece of code that, pointed at a block box that might be encrypting ECB or CBC, tells you which one is happening.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Imports</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Imports</span>
 <span style="color:#f92672">import</span> random
 <span style="color:#f92672">import</span> os
 <span style="color:#f92672">from</span> Crypto.Cipher <span style="color:#f92672">import</span> AES
@@ -388,29 +393,29 @@ Now, have the function choose to encrypt under ECB 1/2 the time, and under CBC t
     <span style="color:#66d9ef">return</span> ciphertext
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">key <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>urandom(<span style="color:#ae81ff">16</span>)
 
-<span style="color:#75715e"># Enter a repeating text.</span>
+<span style="color:#75715e"># Enter a repeating text.</span>
 text <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;8.txt&#34;</span>)<span style="color:#f92672">.</span>read()
 
-<span style="color:#75715e"># Prepend and append random bytes to the text    </span>
+<span style="color:#75715e"># Prepend and append random bytes to the text    </span>
 plaintext <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>urandom(random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">11</span>))
 plaintext <span style="color:#f92672">+=</span> text<span style="color:#f92672">.</span>encode()
 plaintext <span style="color:#f92672">+=</span> os<span style="color:#f92672">.</span>urandom(random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">11</span>))
 
 flag <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>)
 <span style="color:#66d9ef">if</span> flag <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
-    print(<span style="color:#e6db74">&#34;Encrypting using AES ECB Encryption.&#34;</span>)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Encrypting using AES ECB Encryption.&#34;</span>)
     ciphertext <span style="color:#f92672">=</span> AES_ECB_encrypt(plaintext, key)
 <span style="color:#66d9ef">else</span>:
-    print(<span style="color:#e6db74">&#34;Encrypting using AES CBC Encryption.&#34;</span>)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Encrypting using AES CBC Encryption.&#34;</span>)
     ciphertext <span style="color:#f92672">=</span> AES_CBC_encrypt(plaintext, os<span style="color:#f92672">.</span>urandom(AES<span style="color:#f92672">.</span>block_size), key)
     
 <span style="color:#66d9ef">if</span> detect_AES_ECB(ciphertext):
-    print(<span style="color:#e6db74">&#34;Ciphertext is AES ECB encrypted.&#34;</span>)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Ciphertext is AES ECB encrypted.&#34;</span>)
 <span style="color:#66d9ef">else</span>:
-    print(<span style="color:#e6db74">&#34;Ciphertext is AES CBC encrypted.&#34;</span>)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Ciphertext is AES CBC encrypted.&#34;</span>)
 </code></pre></div><p>Encrypting using AES CBC Encryption.
 Ciphertext is AES CBC encrypted.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test(<span style="color:#66d9ef">True</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test(True)
 </code></pre></div>
 
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
@@ -441,14 +446,14 @@ Here&rsquo;s roughly how:</p>
 <li>Match the output of the one-byte-short input to one of the entries in your dictionary. You&rsquo;ve now discovered the first byte of unknown-string.</li>
 <li>Repeat for the next byte.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Imports</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Imports</span>
 <span style="color:#f92672">import</span> os
 <span style="color:#f92672">import</span> base64
 <span style="color:#f92672">import</span> random
 <span style="color:#f92672">from</span> Crypto.Cipher <span style="color:#f92672">import</span> AES
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
 b64_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Um9sbGluJyBpbiBteSA1LjAKV2l0aCBteSByYWctdG9wIGRvd24gc28gbXkgaGFpciBjYW4gYmxvdwpUaGUgZ2lybGllcyBvbiBzdGFuZGJ5IHdhdmluZyBqdXN0IHRvIHNheSBoaQpEaWQgeW91IHN0b3A/IE5vLCBJIGp1c3QgZHJvdmUgYnkK&#34;</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Generating a pseudo random key, to be run only once.</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Generating a pseudo random key, to be run only once.</span>
 random_key <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>urandom(<span style="color:#ae81ff">16</span>)
 </code></pre></div><p>The oracle as defined by the question.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">AES128</span>(text: bytes) <span style="color:#f92672">-&gt;</span> bytes:
@@ -468,14 +473,14 @@ random_key <span style="color:#f92672">=</span> os<span style="color:#f92672">.<
     
     text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;A random key long enough to decode the key size used in the encryption&#34;</span>
     
-    <span style="color:#75715e"># Checks repetition of blocks.</span>
-    <span style="color:#75715e"># Looks for increase in cipher length because the moment text length goes over blocksize, a new block is created of blocksize, padded.</span>
-    <span style="color:#75715e"># Thus we can infer block size from the increase in length observed.</span>
+    <span style="color:#75715e"># Checks repetition of blocks.</span>
+    <span style="color:#75715e"># Looks for increase in cipher length because the moment text length goes over blocksize, a new block is created of blocksize, padded.</span>
+    <span style="color:#75715e"># Thus we can infer block size from the increase in length observed.</span>
     <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, len(text)):
         plaintext <span style="color:#f92672">=</span> text[:i] <span style="color:#f92672">+</span> text[:i]
         cipher <span style="color:#f92672">=</span> AES(plaintext<span style="color:#f92672">.</span>encode())
         <span style="color:#66d9ef">if</span> cipher[:i] <span style="color:#f92672">==</span> cipher[i:<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i]:                          
-            print(<span style="color:#e6db74">&#34;Key size used for the given ciphertext is </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(i))
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Key size used for the given ciphertext is {}&#34;</span><span style="color:#f92672">.</span>format(i))
             <span style="color:#66d9ef">return</span> i
 </code></pre></div><p>The function is based on the steps provided in the question itself. We send a (blocksize - 1) length input. Since the secret string gets appended to our input, the first byte of the secret string will become the last byte of the block of our input.</p>
 <p>For example,</p>
@@ -508,23 +513,23 @@ random_key <span style="color:#f92672">=</span> os<span style="color:#f92672">.<
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
     deciphered <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;&#34;</span>
     
-    <span style="color:#75715e"># To get secret string length since 0 len input is provided, ciphertext only consists of secret string.</span>
+    <span style="color:#75715e"># To get secret string length since 0 len input is provided, ciphertext only consists of secret string.</span>
     ciphertext <span style="color:#f92672">=</span> encryptor(deciphered)
-    <span style="color:#75715e"># We run the loop upto the length of the secret string since that&#39;s what we have to discover.</span>
+    <span style="color:#75715e"># We run the loop upto the length of the secret string since that&#39;s what we have to discover.</span>
     run <span style="color:#f92672">=</span> len(ciphertext)
     
     <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, run<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
-        <span style="color:#75715e"># Template is &#39;A&#39; multiplied by number of bytes not decrytpted yet.</span>
+        <span style="color:#75715e"># Template is &#39;A&#39; multiplied by number of bytes not decrytpted yet.</span>
         template <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;A&#39;</span><span style="color:#f92672">*</span>(run <span style="color:#f92672">-</span> i)
-        <span style="color:#75715e"># Gets cipher for template</span>
+        <span style="color:#75715e"># Gets cipher for template</span>
         cipher <span style="color:#f92672">=</span> encryptor(template)
         
         <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">256</span>):
-            <span style="color:#75715e"># Adds the deciphered bytes to the template</span>
+            <span style="color:#75715e"># Adds the deciphered bytes to the template</span>
             text <span style="color:#f92672">=</span> template <span style="color:#f92672">+</span> deciphered <span style="color:#f92672">+</span> j<span style="color:#f92672">.</span>to_bytes(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;big&#34;</span>)
             c <span style="color:#f92672">=</span> encryptor(text)
-            <span style="color:#75715e"># Keysize used to refer to the block whose last character is made to be the appended string&#39;s 1st char.</span>
-            <span style="color:#75715e"># Comparison between letters appended to the last byte and the cipher of the template only.</span>
+            <span style="color:#75715e"># Keysize used to refer to the block whose last character is made to be the appended string&#39;s 1st char.</span>
+            <span style="color:#75715e"># Comparison between letters appended to the last byte and the cipher of the template only.</span>
             <span style="color:#66d9ef">if</span> c[run<span style="color:#f92672">-</span>keysize:run] <span style="color:#f92672">==</span> cipher[run<span style="color:#f92672">-</span>keysize:run]:
                 deciphered <span style="color:#f92672">+=</span> chr(j)<span style="color:#f92672">.</span>encode()
                 <span style="color:#66d9ef">break</span>
@@ -533,16 +538,16 @@ random_key <span style="color:#f92672">=</span> os<span style="color:#f92672">.<
 </code></pre></div><p>Get keysize to identify block size.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">keysize <span style="color:#f92672">=</span> AES_ECB_keysize(AES128)
 
-<span style="color:#75715e"># Decipher appended input.</span>
+<span style="color:#75715e"># Decipher appended input.</span>
 deciphered <span style="color:#f92672">=</span> break_AES_ECB(keysize, AES128)
-print(<span style="color:#e6db74">&#34;Given base64 encoded string was:</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(deciphered<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)<span style="color:#f92672">.</span>strip(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Given base64 encoded string was:</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">{}&#34;</span><span style="color:#f92672">.</span>format(deciphered<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)<span style="color:#f92672">.</span>strip(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)))
 </code></pre></div><p>Key size used for the given ciphertext is 16</p>
 <p>Given base64 encoded string was:</p>
-<p>Rollin' in my 5.0</p>
+<p>Rollin&rsquo; in my 5.0</p>
 <p>With my rag-top down so my hair can blow</p>
 <p>The girlies on standby waving just to say hi</p>
 <p>Did you stop? No, I just drove by</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test(<span style="color:#66d9ef">True</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test(True)
 </code></pre></div>
 
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
@@ -577,7 +582,7 @@ Now, two more easy functions. Generate a random AES key, then: Encrypt the encod
 Decrypt the encoded user profile and parse it.<br>
 Using only the user input to profile_for() (as an oracle to generate &ldquo;valid&rdquo; ciphertexts) and the ciphertexts themselves, make a role=admin profile</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Imports</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Imports</span>
 <span style="color:#f92672">import</span> os
 <span style="color:#f92672">from</span> Crypto.Cipher <span style="color:#f92672">import</span> AES
 </code></pre></div><p>A shot at decoding the string into the dictionary.</p>
@@ -585,13 +590,13 @@ Using only the user input to profile_for() (as an oracle to generate &ldquo;vali
 dictionary <span style="color:#f92672">=</span> {key:val <span style="color:#66d9ef">for</span> key, val <span style="color:#f92672">in</span> (element<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;=&#39;</span>) <span style="color:#66d9ef">for</span> element <span style="color:#f92672">in</span> string_set<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;&amp;&#39;</span>))}
 dictionary
 </code></pre></div><p>{&lsquo;foo&rsquo;: &lsquo;bar&rsquo;, &lsquo;baz&rsquo;: &lsquo;qux&rsquo;, &lsquo;zap&rsquo;: &lsquo;zazzle&rsquo;}</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Generating a pseudo random key, to be run only once.</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Generating a pseudo random key, to be run only once.</span>
 random_key <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>urandom(<span style="color:#ae81ff">16</span>)
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">parser</span>(user: dict, encode: bool) <span style="color:#f92672">-&gt;</span> dict:
     <span style="color:#e6db74">&#34;&#34;&#34;
 </span><span style="color:#e6db74">    Parse the given string into a dictionary of format User.
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
-    <span style="color:#66d9ef">if</span> encode <span style="color:#f92672">==</span> <span style="color:#66d9ef">True</span>:
+    <span style="color:#66d9ef">if</span> encode <span style="color:#f92672">==</span> True:
         parsed_string <span style="color:#f92672">=</span>  <span style="color:#e6db74">&#34;&amp;&#34;</span><span style="color:#f92672">.</span>join(key<span style="color:#f92672">.</span>strip(<span style="color:#e6db74">&#34;:&#34;</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;=&#34;</span><span style="color:#f92672">+</span>val <span style="color:#66d9ef">for</span> key, val <span style="color:#f92672">in</span> zip(user<span style="color:#f92672">.</span>keys(), user<span style="color:#f92672">.</span>values()))
         <span style="color:#66d9ef">return</span> parsed_string<span style="color:#f92672">.</span>encode()
     <span style="color:#66d9ef">else</span>:
@@ -602,7 +607,7 @@ random_key <span style="color:#f92672">=</span> os<span style="color:#f92672">.<
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
     val <span style="color:#f92672">=</span> val<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)
     user <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;email:&#34;</span>: val, <span style="color:#e6db74">&#34;uid:&#34;</span>: <span style="color:#e6db74">&#34;10&#34;</span>, <span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>}
-    <span style="color:#66d9ef">return</span> parser(user, <span style="color:#66d9ef">True</span>)
+    <span style="color:#66d9ef">return</span> parser(user, True)
 </code></pre></div><p>The oracle as defined by the question.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">oracle</span>(email: str) <span style="color:#f92672">-&gt;</span> bytes:
     <span style="color:#e6db74">&#34;&#34;&#34;
@@ -613,7 +618,7 @@ random_key <span style="color:#f92672">=</span> os<span style="color:#f92672">.<
 </code></pre></div><p>Test if the oracle works.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">email <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;lol@gmail.com&#34;</span>
 decoded_profile <span style="color:#f92672">=</span> PKCS7_unpad(AES_ECB_decrypt(oracle(email), random_key))
-profile <span style="color:#f92672">=</span> parser(decoded_profile<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>), <span style="color:#66d9ef">False</span>)
+profile <span style="color:#f92672">=</span> parser(decoded_profile<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>), False)
 decoded_profile<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)
 </code></pre></div><p>&lsquo;<a href="mailto:email=lol@gmail.com">email=lol@gmail.com</a>&amp;amp;amp;amp;amp;amp;amp;uid=10&amp;amp;amp;amp;amp;amp;amp;role=user\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c&rsquo;</p>
 <p>The idea here is to get the encrypted bytes of the parameter(&ldquo;admin&rdquo;) we have to write into the string, and then insert those bytes as is into a benign ciphertext.</p>
@@ -623,19 +628,19 @@ We fill garbage value uptil the starting block(since &ldquo;email=&rdquo; is at 
 We input an email such that &ldquo;&amp;role=&rdquo; are the last bytes of a block and &ldquo;user&rdquo; comes in a new block(would be the last block since &ldquo;user&rdquo; is at the end of the string). This last block is replaced by the block of cipher we generated for the parameter.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">keysize <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>
 
-<span style="color:#75715e"># Get encrypted bytes with &#34;admin&#34;.</span>
+<span style="color:#75715e"># Get encrypted bytes with &#34;admin&#34;.</span>
 email <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;f&#34;</span><span style="color:#f92672">*</span>(keysize<span style="color:#f92672">-</span>len(<span style="color:#e6db74">&#34;email=&#34;</span>)) <span style="color:#f92672">+</span> PKCS7_pad(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;admin&#34;</span>, keysize)
 cipher <span style="color:#f92672">=</span> oracle(email)
 encoded_admin_bytes <span style="color:#f92672">=</span> cipher[keysize:keysize<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>]
 
-<span style="color:#75715e"># Calculate the number of blocks taken up by the text and then generate an email that completes the block so the admin parameter can be appended in the new block.</span>
+<span style="color:#75715e"># Calculate the number of blocks taken up by the text and then generate an email that completes the block so the admin parameter can be appended in the new block.</span>
 num_blocks <span style="color:#f92672">=</span> int((len(<span style="color:#e6db74">&#34;&amp;uid=10&#34;</span>) <span style="color:#f92672">+</span> len(<span style="color:#e6db74">&#34;email=&#34;</span>) <span style="color:#f92672">+</span> len(<span style="color:#e6db74">&#34;&amp;role=&#34;</span>))<span style="color:#f92672">/</span>keysize) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
 email <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;f&#34;</span><span style="color:#f92672">*</span>(num_blocks<span style="color:#f92672">*</span>keysize <span style="color:#f92672">-</span> (len(<span style="color:#e6db74">&#34;&amp;uid=10&#34;</span>) <span style="color:#f92672">+</span> len(<span style="color:#e6db74">&#34;email=&#34;</span>) <span style="color:#f92672">+</span> len(<span style="color:#e6db74">&#34;&amp;role=&#34;</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">6</span>))<span style="color:#f92672">+</span><span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;@gmail.com&#34;</span>
 cipher <span style="color:#f92672">=</span> oracle(email)
-<span style="color:#75715e"># Add the encoded paramter bytes to the ciphertext.</span>
+<span style="color:#75715e"># Add the encoded paramter bytes to the ciphertext.</span>
 modified_cipher <span style="color:#f92672">=</span> cipher[:<span style="color:#ae81ff">48</span>] <span style="color:#f92672">+</span> encoded_admin_bytes
 
-cracked_cipher_plaintext <span style="color:#f92672">=</span> parser(PKCS7_unpad(AES_ECB_decrypt(modified_cipher, random_key))<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>), <span style="color:#66d9ef">False</span>)
+cracked_cipher_plaintext <span style="color:#f92672">=</span> parser(PKCS7_unpad(AES_ECB_decrypt(modified_cipher, random_key))<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>), False)
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test(cracked_cipher_plaintext[<span style="color:#e6db74">&#39;role&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;admin&#39;</span>)
 </code></pre></div>
 
@@ -652,15 +657,15 @@ You are now doing:<br>
 <strong>AES-128-ECB(random-prefix || attacker-controlled || target-bytes, random-key)</strong><br>
 Same goal: decrypt the target-bytes.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Imports</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Imports</span>
 <span style="color:#f92672">import</span> os
 <span style="color:#f92672">import</span> math
 <span style="color:#f92672">import</span> base64
 <span style="color:#f92672">import</span> random
 <span style="color:#f92672">from</span> Crypto.Cipher <span style="color:#f92672">import</span> AES
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
 b64_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Um9sbGluJyBpbiBteSA1LjAKV2l0aCBteSByYWctdG9wIGRvd24gc28gbXkgaGFpciBjYW4gYmxvdwpUaGUgZ2lybGllcyBvbiBzdGFuZGJ5IHdhdmluZyBqdXN0IHRvIHNheSBoaQpEaWQgeW91IHN0b3A/IE5vLCBJIGp1c3QgZHJvdmUgYnkK&#34;</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Pseudo random key and prefix string.</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Pseudo random key and prefix string.</span>
 random_key <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>urandom(<span style="color:#ae81ff">16</span>)
 random_string <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>urandom(random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">255</span>))
 </code></pre></div><p>The oracle as defined by the question. Only difference from #12 is that it prepends the text with random string of fixed length.</p>
@@ -684,21 +689,21 @@ Once we are able to reach the point where the input begins in a new block, we ca
 </span><span style="color:#e6db74">    Breaks AES ECB encryption for the encryptor function provided.
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
         
-    <span style="color:#75715e"># Find the prefix length.</span>
+    <span style="color:#75715e"># Find the prefix length.</span>
     padding <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
     random_blocks <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
     cipher_length <span style="color:#f92672">=</span> len(encryptor(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;</span>))
     prefix_length <span style="color:#f92672">=</span> len(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>commonprefix([encryptor(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;AAAA&#39;</span>), encryptor(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;</span>)]))
-    print(<span style="color:#e6db74">&#34;Prefix length: &#34;</span>, prefix_length)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Prefix length: &#34;</span>, prefix_length)
     
-    <span style="color:#75715e"># Find number of random blocks.</span>
+    <span style="color:#75715e"># Find number of random blocks.</span>
     <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(int(cipher_length<span style="color:#f92672">/</span>keysize)):
         <span style="color:#66d9ef">if</span> prefix_length <span style="color:#f92672">&lt;</span> i<span style="color:#f92672">*</span>keysize:
             random_blocks <span style="color:#f92672">=</span> i
             <span style="color:#66d9ef">break</span>
-    print(<span style="color:#e6db74">&#34;Random blocks: &#34;</span>, random_blocks)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Random blocks: &#34;</span>, random_blocks)
     
-    <span style="color:#75715e"># Find number of byte padding required.</span>
+    <span style="color:#75715e"># Find number of byte padding required.</span>
     base_cipher <span style="color:#f92672">=</span> encryptor(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;</span>)
     <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, keysize):
         new_cipher <span style="color:#f92672">=</span> encryptor(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;A&#39;</span><span style="color:#f92672">*</span>i)
@@ -707,40 +712,40 @@ Once we are able to reach the point where the input begins in a new block, we ca
             padding <span style="color:#f92672">=</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
             <span style="color:#66d9ef">break</span>
         base_cipher <span style="color:#f92672">=</span> new_cipher
-    print(<span style="color:#e6db74">&#34;Number of bytes of padding required: &#34;</span>, padding)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Number of bytes of padding required: &#34;</span>, padding)
     
-    <span style="color:#75715e"># To get added string length since 0 len input is provided, all cipher is of added string.</span>
+    <span style="color:#75715e"># To get added string length since 0 len input is provided, all cipher is of added string.</span>
     deciphered <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;&#34;</span>
     ciphertext <span style="color:#f92672">=</span> encryptor(deciphered)
-    <span style="color:#75715e"># Because of one block increase due to addition of padding.</span>
+    <span style="color:#75715e"># Because of one block increase due to addition of padding.</span>
     run <span style="color:#f92672">=</span> len(ciphertext) <span style="color:#f92672">+</span> keysize
     
-    <span style="color:#75715e"># Should start after prefix random_blocks because till then it value will be same for original cipher and templated cipehr since same prepended string will be compared.</span>
+    <span style="color:#75715e"># Should start after prefix random_blocks because till then it value will be same for original cipher and templated cipehr since same prepended string will be compared.</span>
     <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(keysize <span style="color:#f92672">*</span> random_blocks <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, run<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
         template <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;A&#39;</span><span style="color:#f92672">*</span>(run <span style="color:#f92672">-</span> i <span style="color:#f92672">+</span> padding)
         cipher <span style="color:#f92672">=</span> encryptor(template)
         <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">256</span>):
-            <span style="color:#75715e">#print(i, j)</span>
+            <span style="color:#75715e">#print(i, j)</span>
             text <span style="color:#f92672">=</span> template <span style="color:#f92672">+</span> deciphered <span style="color:#f92672">+</span> j<span style="color:#f92672">.</span>to_bytes(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;little&#34;</span>)
             c <span style="color:#f92672">=</span> encryptor(text)
-            <span style="color:#75715e"># Keysize used to refer to the block whose last character is made to be the appended string&#39;s 1st char.</span>
+            <span style="color:#75715e"># Keysize used to refer to the block whose last character is made to be the appended string&#39;s 1st char.</span>
             <span style="color:#66d9ef">if</span> c[run<span style="color:#f92672">-</span>keysize:run] <span style="color:#f92672">==</span> cipher[run<span style="color:#f92672">-</span>keysize:run]:
                 deciphered <span style="color:#f92672">+=</span> chr(j)<span style="color:#f92672">.</span>encode()
                 <span style="color:#66d9ef">break</span>
     <span style="color:#66d9ef">return</span> PKCS7_unpad(deciphered)
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">keysize <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>
 byte_text <span style="color:#f92672">=</span> break_AES_ECB_harder(keysize, AES128_harder)
-print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Deciphered string:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
-print(byte_text<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)<span style="color:#f92672">.</span>strip())
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Deciphered string:</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+<span style="color:#66d9ef">print</span>(byte_text<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)<span style="color:#f92672">.</span>strip())
 </code></pre></div><p>Prefix length:  176
 Random blocks:  12
 Number of bytes of padding required:  4
 Deciphered string:</p>
-<p>Rollin' in my 5.0</p>
+<p>Rollin&rsquo; in my 5.0</p>
 <p>With my rag-top down so my hair can blow</p>
 <p>The girlies on standby waving just to say hi</p>
 <p>Did you stop? No, I just drove by</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test(<span style="color:#66d9ef">True</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test(True)
 </code></pre></div>
 
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
@@ -761,7 +766,7 @@ The string:<br>
 If you are writing in a language with exceptions, like Python or Ruby, make your function throw an exception on bad padding.<br>
 Crypto nerds know where we&rsquo;re going with this. Bear with us.</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
 given_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ICE ICE BABY</span><span style="color:#ae81ff">\x04\x04\x04\x04</span><span style="color:#e6db74">&#34;</span>
 target_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ICE ICE BABY&#34;</span>
 </code></pre></div><p>We can use our good old PKCS7_unpad function.</p>
@@ -778,12 +783,12 @@ target_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&
 <p>Generate a random AES key.<br>
 Combine your padding code and CBC code to write two functions.<br>
 The first function should take an arbitrary input string, prepend the string:<br>
-<strong>&ldquo;comment1=cooking%20MCs;userdata=&quot;</strong><br>
+<strong>&ldquo;comment1=cooking%20MCs;userdata=&rdquo;</strong><br>
 .. and append the string:<br>
 <strong>&quot;;comment2=%20like%20a%20pound%20of%20bacon&rdquo;</strong><br>
 The function should quote out the &ldquo;;&rdquo; and &ldquo;=&rdquo; characters.<br>
 The function should then pad out the input to the 16-byte AES block length and encrypt it under the random AES key.<br>
-The second function should decrypt the string and look for the characters &ldquo;;admin=true;&rdquo; (or, equivalently, decrypt, split the string on &ldquo;;&rdquo;, convert each resulting string into 2-tuples, and look for the &ldquo;admin&rdquo; tuple).<br>
+The second function should decrypt the string and look for the characters &ldquo;;admin=true;&rdquo; (or, equivalently, decrypt, split the string on &ldquo;;&quot;, convert each resulting string into 2-tuples, and look for the &ldquo;admin&rdquo; tuple).<br>
 Return true or false based on whether the string exists.<br>
 If you&rsquo;ve written the first function properly, it should not be possible to provide user input to it that will generate the string the second function is looking for. We&rsquo;ll have to break the crypto to do that.<br>
 Instead, modify the ciphertext (without knowledge of the AES key) to accomplish this.<br>
@@ -793,13 +798,13 @@ You&rsquo;re relying on the fact that in CBC mode, a 1-bit error in a ciphertext
 <li>Completely scrambles the block the error occurs in.</li>
 <li>Produces the identical 1-bit error(/edit) in the next ciphertext block.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Imports</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Imports</span>
 <span style="color:#f92672">import</span> os
 <span style="color:#f92672">import</span> random
 <span style="color:#f92672">from</span> Crypto.Cipher <span style="color:#f92672">import</span> AES
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Given</span>
 prepend_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;comment1=cooking%20MCs;userdata=&#34;</span>
-append_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;;comment2=</span><span style="color:#e6db74">%20li</span><span style="color:#e6db74">ke</span><span style="color:#e6db74">%20a</span><span style="color:#e6db74">%20pound</span><span style="color:#e6db74">%20o</span><span style="color:#e6db74">f%20bacon&#34;</span>
+append_string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;;comment2=</span><span style="color:#e6db74">%20li</span><span style="color:#e6db74">ke%20a%20pound</span><span style="color:#e6db74">%20o</span><span style="color:#e6db74">f%20bacon&#34;</span>
 parameter <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;;admin=true;&#34;</span>
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">keysize <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>
 random_key <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>urandom(keysize)
@@ -828,9 +833,9 @@ IV <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>ur
 </span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
     decrypted_string <span style="color:#f92672">=</span> PKCS7_unpad(AES_CBC_decrypt(byte_string, IV, key))
     <span style="color:#66d9ef">if</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;;admin=true;&#34;</span> <span style="color:#f92672">in</span> decrypted_string:
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
+        <span style="color:#66d9ef">return</span> True
     <span style="color:#66d9ef">else</span>:
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
+        <span style="color:#66d9ef">return</span> False
 </code></pre></div><p>During AES CBC Mode decryption process, decryption of ith block involves xoring it with (i-1)th block.<br>
 The trick here is the fact that the change you make to the bit of (i-1)th block, is the exact same change that&rsquo;s going to be reflected in the decrypyted text of ith block. This is because both the blocks are being xored together.</p>
 <p>The thing to note here is that flipping the bit of (i-1)th block is going to completely distort the decrypted text of (i-1)th block. But this is not an issue since we are focusing on the decryption of ith block.</p>
@@ -852,21 +857,21 @@ y=f∗⊕“a”=x⊕“i”⊕“a”
 </code></pre>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">CBC_bit_flipping</span>(parameter: bytes, keysize: int, encryptor: callable) <span style="color:#f92672">-&gt;</span> bytes:    
     
-    <span style="color:#75715e"># Padding required to bridge gap between randomstringlength and block.</span>
+    <span style="color:#75715e"># Padding required to bridge gap between randomstringlength and block.</span>
     padding <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-    random_blocks <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>    <span style="color:#75715e"># Find the prefix length.</span>
+    random_blocks <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>    <span style="color:#75715e"># Find the prefix length.</span>
     cipher_length <span style="color:#f92672">=</span> len(encryptor(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;</span>, IV, random_key))
     prefix_length <span style="color:#f92672">=</span> len(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>commonprefix([encryptor(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;AAAA&#39;</span>, IV, random_key), encryptor(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;</span>, IV, random_key)]))
-    print(<span style="color:#e6db74">&#34;Prefix length: &#34;</span>, prefix_length)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Prefix length: &#34;</span>, prefix_length)
 
-    <span style="color:#75715e"># Find number of random blocks.</span>
+    <span style="color:#75715e"># Find number of random blocks.</span>
     <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(int(cipher_length<span style="color:#f92672">/</span>keysize)):
         <span style="color:#66d9ef">if</span> prefix_length <span style="color:#f92672">&lt;</span> i<span style="color:#f92672">*</span>keysize:
             random_blocks <span style="color:#f92672">=</span> i
             <span style="color:#66d9ef">break</span>
-    print(<span style="color:#e6db74">&#34;Random blocks: &#34;</span>, random_blocks)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Random blocks: &#34;</span>, random_blocks)
 
-    <span style="color:#75715e"># Find number of byte padding required.</span>
+    <span style="color:#75715e"># Find number of byte padding required.</span>
     base_cipher <span style="color:#f92672">=</span> encryptor(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;&#39;</span>, IV, random_key)
     <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, keysize):
         new_cipher <span style="color:#f92672">=</span> encryptor(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;A&#39;</span><span style="color:#f92672">*</span>i, IV, random_key)
@@ -875,9 +880,9 @@ y=f∗⊕“a”=x⊕“i”⊕“a”
             padding <span style="color:#f92672">=</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
             <span style="color:#66d9ef">break</span>
         base_cipher <span style="color:#f92672">=</span> new_cipher
-    print(<span style="color:#e6db74">&#34;Number of bytes of padding required: &#34;</span>, padding)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Number of bytes of padding required: &#34;</span>, padding)
 
-    <span style="color:#75715e"># Flip bytes for the given string.</span>
+    <span style="color:#75715e"># Flip bytes for the given string.</span>
     input_text <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;A&#39;</span><span style="color:#f92672">*</span>padding <span style="color:#f92672">+</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;heytheremama&#34;</span>
     string <span style="color:#f92672">=</span> parameter
     modified_string <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;&#34;</span>
@@ -893,8 +898,8 @@ AES_CBC_decrypt(modified_ciphertext, IV, random_key)
 </code></pre></div><p>Prefix length:  32
 Random blocks:  3
 Number of bytes of padding required:  7</p>
-<p>b&rsquo;comment1&quot;=&ldquo;cooking%20MCs&rdquo;;&ldquo;userd\t\xc2\xaf\xc3\x8c\xc2\x8a\xc3\xa6\xc3\x9e\xc2\x94\xc3\x989;\xc2\x97\xc3\xa3\xc2\xb1s#\xc2\x94;admin=true;&quot;;&ldquo;comment2&rdquo;=&quot;%20like%20a%20pound%20of%20bacon\x06\x06\x06\x06\x06\x06'</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test(decryptor(modified_ciphertext, IV, random_key) <span style="color:#f92672">==</span> <span style="color:#66d9ef">True</span>)
+<p>b&rsquo;comment1&quot;=&quot;cooking%20MCs&rdquo;;&ldquo;userd\t\xc2\xaf\xc3\x8c\xc2\x8a\xc3\xa6\xc3\x9e\xc2\x94\xc3\x989;\xc2\x97\xc3\xa3\xc2\xb1s#\xc2\x94;admin=true;&quot;;&ldquo;comment2&quot;=&rdquo;%20like%20a%20pound%20of%20bacon\x06\x06\x06\x06\x06\x06&rsquo;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test(decryptor(modified_ciphertext, IV, random_key) <span style="color:#f92672">==</span> True)
 </code></pre></div>
 
 <div style="border:1px solid #c3e6cb;padding:.75rem 3rem;border-radius:.5rem;font-weight:bold;text-align: center;background-color:#d4edda;color:#155724;border-color:#c3e6cb;">Completed</div>
@@ -1000,7 +1005,7 @@ Number of bytes of padding required:  7</p>
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.08ccaf9cef8b4e0ebd0b0158e66a7bfc0ddbb2194cdb0099e8814ddb89cc7628b27b1158846564e6e03d9ffc5f4d1bc7dfc274d359f9408d1c63d73a3f7332e9.js" integrity="sha512-CMyvnO&#43;LTg69CwFY5mp7/A3bshlM2wCZ6IFN24nMdiiyexFYhGVk5uA9n/xfTRvH38J001n5QI0cY9c6P3My6Q=="></script>
+<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
 
 
