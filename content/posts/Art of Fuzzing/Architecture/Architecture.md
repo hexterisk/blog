@@ -1,7 +1,7 @@
 ---
 author:
   name: "hexterisk"
-date: 2020-09-16
+date: 2021-01-20
 linktitle: Architecture
 type:
 - post

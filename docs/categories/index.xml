@@ -6,7 +6,7 @@
     <description>Recent content in Categories on Pwn the world.</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 21 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Sep 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hexterisk.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Design-Patterns</title>
       <link>https://hexterisk.github.io/blog/categories/design-patterns/</link>
-      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/categories/design-patterns/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>art-of-fuzzing</title>
       <link>https://hexterisk.github.io/blog/categories/art-of-fuzzing/</link>
-      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/categories/art-of-fuzzing/</guid>
       <description></description>
@@ -32,7 +32,7 @@
     <item>
       <title>ml-for-sec</title>
       <link>https://hexterisk.github.io/blog/categories/ml-for-sec/</link>
-      <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/categories/ml-for-sec/</guid>
       <description></description>
@@ -41,25 +41,16 @@
     <item>
       <title>practical-binary-analysis</title>
       <link>https://hexterisk.github.io/blog/categories/practical-binary-analysis/</link>
-      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/categories/practical-binary-analysis/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Dev-Ops</title>
-      <link>https://hexterisk.github.io/blog/categories/dev-ops/</link>
-      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/categories/dev-ops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Pentesting</title>
       <link>https://hexterisk.github.io/blog/categories/pentesting/</link>
-      <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/categories/pentesting/</guid>
       <description></description>
@@ -68,7 +59,7 @@
     <item>
       <title>advanced-binary-analysis</title>
       <link>https://hexterisk.github.io/blog/categories/advanced-binary-analysis/</link>
-      <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/categories/advanced-binary-analysis/</guid>
       <description></description>
@@ -77,7 +68,7 @@
     <item>
       <title>Cryptopals</title>
       <link>https://hexterisk.github.io/blog/categories/cryptopals/</link>
-      <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/categories/cryptopals/</guid>
       <description></description>
@@ -86,9 +77,18 @@
     <item>
       <title>basic-binary-analysis</title>
       <link>https://hexterisk.github.io/blog/categories/basic-binary-analysis/</link>
-      <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/categories/basic-binary-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dev-Ops</title>
+      <link>https://hexterisk.github.io/blog/categories/dev-ops/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/categories/dev-ops/</guid>
       <description></description>
     </item>
     

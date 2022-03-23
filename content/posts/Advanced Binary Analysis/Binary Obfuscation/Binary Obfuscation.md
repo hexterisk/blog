@@ -1,7 +1,7 @@
 ---
 author:
   name: "hexterisk"
-date: 2020-05-14
+date: 2020-07-08
 linktitle: Binary Obfuscation
 type:
 - post

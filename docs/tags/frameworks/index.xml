@@ -6,17 +6,27 @@
     <description>Recent content in frameworks on Pwn the world.</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 21 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Jul 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hexterisk.github.io/blog/tags/frameworks/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Reuse</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/10/21/reuse/</link>
-      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
+      <title>Creational Patterns</title>
+      <link>https://hexterisk.github.io/blog/posts/2021/07/02/creational-patterns/</link>
+      <pubDate>Fri, 02 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/10/21/reuse/</guid>
+      <guid>https://hexterisk.github.io/blog/posts/2021/07/02/creational-patterns/</guid>
+      <description>Creational Design Patterns reduce the complexity in creation of different objects of shared type/properties.
+These patterns simplify object creation mechanisms by separating the workings of an object&amp;rsquo;s creation, composition and representation. This in turn results in increased flexibility. Instead of hardcoding data into classes for creating objects every time, we can employ these patterns for the instantiation of an object dependent on the situation. This ensures that the set of related objects share a common ancestor for common properties.</description>
+    </item>
+    
+    <item>
+      <title>Reuse</title>
+      <link>https://hexterisk.github.io/blog/posts/2021/05/21/reuse/</link>
+      <pubDate>Fri, 21 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/posts/2021/05/21/reuse/</guid>
       <description>While designing a class, always keep the Open-Closed Principle in mind. It states that,
  software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
  This implies that an entity shall allow extensions to itself, but no modification to its source code. We are therefore allowed to extend our base class, and consequently implement re-usability.
@@ -25,10 +35,10 @@ Class Inheritance Inheritance models an Is-A relationship, where the child class
     
     <item>
       <title>Overview</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/10/14/overview/</link>
-      <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
+      <link>https://hexterisk.github.io/blog/posts/2021/04/28/overview/</link>
+      <pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/10/14/overview/</guid>
+      <guid>https://hexterisk.github.io/blog/posts/2021/04/28/overview/</guid>
       <description>An general overview of the Design Patterns.
 Classification Purpose Purpose reflects the use case of a design pattern.
 Creational Pattern concerns the process of object creation.
@@ -40,10 +50,10 @@ Scope The scope of a design patterns specifies where it is primarily applied.</d
     
     <item>
       <title>Introduction</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/10/10/introduction/</link>
-      <pubDate>Sat, 10 Oct 2020 00:00:00 +0000</pubDate>
+      <link>https://hexterisk.github.io/blog/posts/2021/04/10/introduction/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/10/10/introduction/</guid>
+      <guid>https://hexterisk.github.io/blog/posts/2021/04/10/introduction/</guid>
       <description>A design pattern is a code structure used to solve commonly occurring problems in software development. It is a generic description of different components&amp;rsquo; design, their relationships, and how they come together to solve the said problem in the specified context. It is characterized by:
  Pattern Name  To associate a certain solution to a name for ease of reference, through appropriate association.   Problem  The design problem and issues to be addressed in a specified context, to which the solution described by the design pattern is applicable.</description>
     </item>

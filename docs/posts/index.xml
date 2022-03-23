@@ -5,15 +5,413 @@
         <description>Recent content in Posts on Pwn the world.</description>
         <generator>Hugo -- gohugo.io</generator>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 21 Oct 2020 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Fri, 10 Sep 2021 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://hexterisk.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>Reuse</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/10/21/reuse/</link>
-            <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
+            <title>Structural Patterns</title>
+            <link>https://hexterisk.github.io/blog/posts/2021/09/10/structural-patterns/</link>
+            <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/10/21/reuse/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2021/09/10/structural-patterns/</guid>
+            <description>Structural Design Patterns help in composing small structures into larger structures, while ensuring that these larger structures remain flexible and efficient. These larger structures remain simplified through the realization of the relationship between it&amp;rsquo;s smaller component structures, that is, how each component inherits from each other.
+Structural Class Patterns  Composes interfaces and implementations through (multiple) inheritance. Useful to make independently developed classes work together.  Structural Object Patterns  Realizes new functionality through composition of different objects.</description>
+            <content type="html"><![CDATA[<p><strong>Structural Design Patterns</strong> help in composing small structures into larger structures, while ensuring that these larger structures remain flexible and efficient. These larger structures remain simplified through the realization of the relationship between it&rsquo;s smaller component structures, that is, how each component inherits from each other.</p>
+<h4 id="structural-class-patterns">Structural Class Patterns</h4>
+<ul>
+<li>Composes interfaces and implementations through (multiple) inheritance.</li>
+<li>Useful to make independently developed classes work together.</li>
+</ul>
+<h4 id="structural-object-patterns">Structural Object Patterns</h4>
+<ul>
+<li>Realizes new functionality through composition of different objects.</li>
+<li>Ability of objects to change composition at run-time is integral for composition of different types of objects.</li>
+</ul>
+<h2 id="adapter">Adapter</h2>
+<blockquote>
+<p>Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn&rsquo;t otherwise because of incompatible interfaces.</p>
+</blockquote>
+<p>The main goal of the <strong>Adapter</strong> pattern is to make interfaces compatible. It is implemented so that one would not be required to change the underlying behavior of any interface since the goal is to not add or modify a functionality, but rather just making them compatibility. Therefore, the Adapter pattern changes the interface, but does not change the implementation.</p>
+<p>The Adapter pattern is also known as <strong>Wrapper</strong>.</p>
+<p>Adapter patterns are of two types:</p>
+<p>1. <strong>Class Adapter Pattern</strong></p>
+<p>Class Adapter simply performs multiple inheritance over incompatible interfaces, that is, it inherits the types of interfaces which have to be made compatible from their respective classes. It then implements the logic required to achieve compatibility.</p>
+<p><img src="/Design_Patterns_Structural_Patterns/image.png" alt="">
+<em>Class Adapter Pattern Structure</em></p>
+<p>The <strong>Client</strong> talks to the <strong>Target</strong> through it&rsquo;s interface of type <code>Request()</code>, and it needs a certain type of work done which can only be done via the <strong>Adaptee</strong> class, which has an interface of type <code>SpecificRequest()</code>.</p>
+<p>The <strong>Adapter</strong> simply inherits both classes&rsquo; interface and then implements the logic to translate between both the interfaces and act as a proxy. The <strong>Client</strong> directly calls the <code>Request()</code> method in the <strong>Adapter</strong>, which then translates the data into a form acceptable by <code>SpecificRequest()</code>, and then uses the said interface originally inherited from the <strong>Adaptee</strong>.</p>
+<p>2. <strong>Object Adapter Pattern</strong></p>
+<p>Object Adapter simply performs object composition over incompatible interfaces, that is, it holds an (object) instance of the target interface, and calls the  designated method with the necessary data once the translation is done.</p>
+<p><img src="/Design_Patterns_Structural_Patterns/1_image.png" alt="">
+<em>Object Adapter Pattern Structure</em></p>
+<p>The <strong>Client</strong> talks to the <strong>Target</strong> through it&rsquo;s interface of type <code>Request()</code>, and it needs a certain type of work done which can only be done via the <strong>Adaptee</strong> class, which has an interface of type <code>SpecificRequest()</code>.</p>
+<p>The <strong>Adapter</strong> simply inherits the <strong>Target</strong>&lsquo;s <code>Request()</code> interface and accepts an (object) instance of the <strong>Adaptee</strong>. It then implements the logic to translate between both the interfaces and act as a proxy. The <strong>Client</strong> directly calls the <code>Request()</code> method in the <strong>Adapter</strong>, which then translates the data into a form acceptable by <code>SpecificRequest()</code>, and then uses the <code>SpecificRequest()</code> interface of the accepted (object) instance of <strong>Adaptee</strong> to accomplish the task.</p>
+<p><strong>Two-Way Adapters</strong> are bi-directional in nature, that is, they can be accessed via either of the incompatible interfaces to call the other interface. The <strong>Adapter</strong> class absorbs the important common methods of both systems and provides adaptations to both. In reference to the aforementioned examples, a two-way adapter can be accessed via both <code>Request()</code> and <code>SpecificRequest()</code> methods to call <code>SpecificRequest()</code> and <code>Request()</code> methods respectively.</p>
+<p><strong>Pluggable Adapter</strong> will be covered in <strong>Delegate</strong>.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=eTm3zjPz3BU">Adapter Pattern</a></p>
+<h2 id="bridge">Bridge</h2>
+<blockquote>
+<p>Decouple an abstraction from its implementation so that the two can vary independently.</p>
+</blockquote>
+<p>For a set of classes that are just combinations of different subclass properties, a concrete class is required to be created for each combination. As the number of options per property grows, the number of concrete classes to be constructed grows exponentially, and at some point it will become unmanageable.</p>
+<p>Therefore, the main goal is to structure a large class with extensive properties, or a set of related classes, into two parts:</p>
+<ol>
+<li>Abstraction</li>
+<li>Implementation</li>
+</ol>
+<p>This structure decreases the coupling between the two parts and allows greater flexibility, therefore ensuring that these can be developed and modified independently of each other. The concept of an Abstraction implementing, or holding a reference to an instance of Implementor, is called the <strong>Bridge</strong> pattern.</p>
+<p>The Bridge pattern is also known as <strong>Handle/Body</strong>.</p>
+<p>The key is to move away from class inheritance and towards object composition. </p>
+<p><img src="/Design_Patterns_Structural_Patterns/2_image.png" alt="">
+<em>Bridge Pattern Structure</em></p>
+<p>The <strong>Client</strong> accesses <strong>Abstraction</strong> through it&rsquo;s interface <code>Operation()</code>. Since the <strong>Abstraction</strong> holds an object of type <strong>Implementor</strong>, the <code>Operation()</code> interface delegates the call to the object&rsquo;s interface <code>OperationImp()</code> . The structure is defined this way to ensure that any <strong>RefinedAbstraction</strong> (concrete abstraction) can hold an instance of any <strong>ConcreteImplementor</strong> (concrete implementation). This facilitates plugging any <strong>Implementor</strong> object with any <strong>Abstraction</strong> object, especially at run-time.</p>
+<p>Each concrete object would inherit and extend the same set of methods as defined by <strong>Implementor</strong>, but it would return the data pertaining to their concrete specification in the result. Since the set of methods to be exposed by all <strong>ConcreteImplementor</strong> classes is now standardized by default, <strong>Abstraction</strong> can simply implement the same set of methods to produce <strong>RefinedAbstraction</strong> objects with their own additional specifications.</p>
+<p>In reference to the aforementioned example, say <code>Shape</code> (<strong>Abstraction</strong>) supplements four concrete classes <code>Circle</code>, <code>Triangle</code>, <code>Square</code>, <code>Rectangle</code> (<strong>RefinedAbstraction</strong>). Now, <code>Color</code> (<strong>Implementor</strong>) implements an interface <code>getColor()</code>, and is inherited to create four new concrete classes <code>Red</code>, <code>Blue</code>, <code>Green</code>, <code>Black</code> (<strong>ConcreteImplementor</strong>) which redefine the interface <code>getColor()</code> to return their respective colors. The <strong>RefinedAbstraction</strong> classes always holds an instance of <strong>ConcreteImplementor</strong>.</p>
+<p>With a direct implementation, it would take (4 x 4) 16 concrete classes (such as <code>SquareRed</code>, <code>SquareBlue</code>, <code>SquareGreen</code>, <code>SquareBlack</code>, etc.) to cover each combination of shape and color. However with Bridge pattern now, it would only take (4 + 4) 8 concrete classes defined by <code>Shape</code> and <code>Color</code> since each <code>Shape</code> object holds an instance of type <code>Color</code>, which can be swapped out with other <code>Color</code> objects. This drastically reduces the amount of work at present as well as in future since the Implementor can be extended to newer objects like <code>Green</code> and <code>Black</code>, and simply plugged in with existing <code>Shape</code> object, wherein earlier we would have to create concrete classes for all combinations of shape and colors.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=chYrJoyCrA4">Bridge Pattern</a></p>
+<h2 id="composite">Composite</h2>
+<blockquote>
+<p>Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.</p>
+</blockquote>
+<p>The <strong>Composite</strong> pattern enables uniformity among different components of a hierarchy so that the hierarchy could be used as if it were a single object. This is helpful in cases where we don&rsquo;t need to differentiate between a single object and a collection of objects. Rather, we could simply apply the same operations (functions) on the single object as well as the collection itself.</p>
+<p><img src="/Design_Patterns_Structural_Patterns/3_image.png" alt="">
+<em>Composite Pattern Structure</em></p>
+<p>The <strong>Component</strong> defines the behavior for all the components. It declares an interface which is implemented by:</p>
+<ul>
+<li><strong>Leaf</strong> (as in a tree/hierarchy): represents a single object since it has no children.</li>
+<li><strong>Composite</strong> (collection of objects): represents a tree/hierarchy since it has children.
+<ul>
+<li>It will pass any request from the client subsequently to it&rsquo;s children.</li>
+<li>It may perform additional operations, being the root, before passing the request to it&rsquo;s children.</li>
+</ul>
+</li>
+</ul>
+<p>The <strong>Client</strong> can access both the aforementioned components via the inherited <code>Operation()</code> method, without having to know if it&rsquo;s accessing a single object or a collection.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=iSG87hpAFhQ">Composite Pattern</a></p>
+<h2 id="decorator">Decorator</h2>
+<blockquote>
+<p>Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.</p>
+</blockquote>
+<p>The <strong>Decorator</strong> pattern acts as a wrapper (and therefore also known as <strong>Wrapper</strong>) over an existing class to add new functionality to an existing object of the said class. This enables us to add new features to a pre-existing class without changing it&rsquo;s structure. This pattern is especially helpful in cases where a base object&rsquo;s behavior is to be altered with a lot of different options providing minimal functionality since we can simply apply wrappers (multiple even) instead of altering the definition of the base object itself.</p>
+<p>For example, different toppings can be put on a base pizza. There can be an endless number of toppings with their own properties and costing. In such a scenario, creating classes for each topping and inheriting from the base pizza is a possible option, but it is infeasible because:</p>
+<ol>
+<li>This can lead to class explosion since number of toppings can become unmanageable.</li>
+<li>Each class would only maintain minimal data pertaining to it&rsquo;s own topping type, such as name and cost.</li>
+<li>Inheritance is static, therefore it would not be possible to alter an object&rsquo;s behavior at run-time.</li>
+</ol>
+<p><img src="/Design_Patterns_Structural_Patterns/4_image.png" alt="">
+<em>Decorator Pattern Structure</em></p>
+<p>The <strong>Component</strong> implements the <code>Operation()</code> interface which is implemented by <strong>ConcreteComponent</strong>, a base object to whose behavior can be modified. The <strong>Decorator</strong> maintains a reference to another <strong>ConcreteComponent</strong>, on which it adds additional functionality to produce <strong>ConcreteDecoratorA</strong> and <strong>ConcreteDecoratorB</strong>.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=j40kRwSm4VE">Decorator Pattern</a></p>
+<h2 id="façade">Façade</h2>
+<blockquote>
+<p>Provide a unified interface to a set of interfaces in a subsystem. Façade defines a higher-level interface that makes the subsystem easier to use.</p>
+</blockquote>
+<p>The <strong>Façade</strong> pattern is used to provide a simple interface to a complex system. A unified entry point to the whole system makes it easy for the client to make use of the system&rsquo;s functionality without looking any deeper than the interface itself. This allows for decoupling between the client and the underlying complicated network of various subsystems that work together to achieve the said functionality.</p>
+<p>The client would only have to look deeper than the interface only in the cases where they want customizability of the functionality, in which case they would have to directly access the interfaces of the necessary subsystems.</p>
+<p><img src="/Design_Patterns_Structural_Patterns/5_image.png" alt="">
+<em>Façade Pattern Structure</em></p>
+<p>The <strong>Client</strong> interacts with the <strong>Facade</strong>, which then delegates the request to the appropriate subsystem. The subsystem classes implement the functionality, while having no backward reference to the <strong>Facade</strong>.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=VrRDami28N0">Facade Pattern</a></p>
+<h2 id="flyweight">Flyweight</h2>
+<blockquote>
+<p>Use sharing to support large numbers of fine-grained objects efficiently.</p>
+</blockquote>
+<p>The <strong>Flyweight</strong> pattern introduces the concept of a single object serving in different contexts rather than creating multiple small and similar objects for each context. This is done in a way that it&rsquo;s indistinguishable from an unshared object.</p>
+<p>A flyweight only enables sharing and doesn&rsquo;t enforce it, therefore not all subclasses of a Flyweight are necessarily shared. Such flyweight objects in turn might have objects of shared flyweight type as children.</p>
+<p>To achieve this, a flyweight maintains two states:</p>
+<ol>
+<li>Intrinsic
+<ul>
+<li>Contains information independent of contexts and is shared between all contexts.</li>
+</ul>
+</li>
+<li>Extrinsic
+<ul>
+<li>Contains context specific information and is not shared between contexts.</li>
+</ul>
+</li>
+</ol>
+<p><img src="/Design_Patterns_Structural_Patterns/6_image.png" alt="">
+<em>Flyweight Pattern Structure</em></p>
+<p><strong>Flyweight</strong> objects implement an interface <code>Operation(extrinsicState)</code> for accessibility. <strong>Flyweight Factory</strong> creates and manages a pool of all <strong>Flyweight</strong> objects, and is responsible to return an existing flyweight or instantiate a new one if none exist, when the <strong>Client</strong> requests for one. As made clear by the interface&rsquo;s signature (argument list), the extrinsic state of a flyweight is stored and/or computed and passed to the flyweight by the <strong>Client</strong> when it is being invoked, via the <strong>Flyweight Factory</strong>. An important point is that the <strong>Flyweight</strong> is instantiated with extrinsic state passed in constructor, and is therefore immutable. This enables the <strong>Client</strong> to access multiple flyweight objects at the same time. </p>
+<p>A <strong>ConcreteFlyweight</strong> extends the inherited <code>Operation(extrinsicState)</code> interface along with maintaining storage <code>intrinsicState</code> for different contexts. </p>
+<p><strong>UnsharedConcreteFlyweight</strong> is an example of an unshared flyweight, and it may contain <strong>ConcreteFlyweight</strong> objects as children.</p>
+<p><img src="/Design_Patterns_Structural_Patterns/7_image.png" alt="">
+<em>Flyweight Sharing Model</em></p>
+<p>The model is depicted in the image above. <code>aClient</code> objects request for flyweight objects from the pool. This request is fulfilled by <code>aFlyweightFactory</code> which provides <code>aConcreteFlyweight</code> objects.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=0vV-R2926ss">Flyweight Pattern</a></p>
+<h2 id="proxy">Proxy</h2>
+<blockquote>
+<p>Provide a surrogate or placeholder for another object to control access to it.</p>
+</blockquote>
+<p>The <strong>Proxy</strong> pattern, or <strong>Surrogate</strong> pattern, controls the access to an object. A proxy class is created which implements the same interface as the object. All requests from the client to the object are passed via a proxy class&rsquo; object, enabling us to perform additional operations before and after the request, and before the request reaches the object, if necessary.</p>
+<p>The prime use case for the pattern is instantiation of a resource-heavy object which cannot be kept in memory all the time. We can resort to this pattern to model an on-demand behavior, that is, the object will be instantiated when the request arrives and destroyed when the request is fulfilled, saving system resources.</p>
+<p><img src="/Design_Patterns_Structural_Patterns/8_image.png" alt="">
+<em>Proxy Pattern Structure</em></p>
+<p><strong>RealSubject</strong> defines the actual object, which inherits from the <strong>Subject</strong> class that defines the common interface <code>Request()</code>. The <strong>Client</strong> requests the <strong>RealSubject</strong>. This request is routed through a placeholder object of type <strong>Proxy</strong>, which also inherits from the class <strong>Subject</strong> to ensure that it&rsquo;s interface remains the same as <strong>RealSubject</strong>. This <strong>Proxy</strong> object contains a reference to the <strong>RealSubject</strong> object, to which delegates the request.</p>
+<p>Proxy can be of different types:</p>
+<ul>
+<li>Remote Proxy
+<ul>
+<li>Encodes a request and all its associated data, and sending it to the real object which lies in a different address space.</li>
+</ul>
+</li>
+<li>Virtual Proxy
+<ul>
+<li>Caches additional information about the real object so that the delegated request can be deferred.</li>
+</ul>
+</li>
+<li>Protection Proxy
+<ul>
+<li>Performs permission checks of the client to disallow unauthorized access.</li>
+</ul>
+</li>
+</ul>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=cMmuAbnG7UU">Proxy Pattern</a></p>
+<p>Citation: <a href="https://www.journaldev.com/31902/gangs-of-four-gof-design-patterns">Gang of Four Design Patterns</a></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Behavioral Patterns</title>
+            <link>https://hexterisk.github.io/blog/posts/2021/08/16/behavioral-patterns/</link>
+            <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
+            
+            <guid>https://hexterisk.github.io/blog/posts/2021/08/16/behavioral-patterns/</guid>
+            <description>Behavioral Design Pattern are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
+Behavioral Class Patterns Inheritance is employed to distribute behavior between classes.
+Behavioral Object Patterns Composition is employed to characterize how a group of objects work with each other to perform a task that cannot be accomplished by a single object.</description>
+            <content type="html"><![CDATA[<p><strong>Behavioral Design Pattern</strong> are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.</p>
+<h4 id="behavioral-class-patterns">Behavioral Class Patterns</h4>
+<p>Inheritance is employed to distribute behavior between classes.</p>
+<h4 id="behavioral-object-patterns">Behavioral Object Patterns</h4>
+<p>Composition is employed to characterize how a group of objects work with each other to perform a task that cannot be accomplished by a single object.</p>
+<h2 id="chain-of-responsibility">Chain of Responsibility</h2>
+<blockquote>
+<p>Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it.</p>
+</blockquote>
+<p>The <strong>Chain of Responsibility</strong> pattern establishes a series of objects chained together. Each object contains a reference to the next object in the chain. Incoming requests travel down the chain, wherein each object gets a chance to process them sequentially. This is especially useful in cases where (handler) objects carry assigned priorities. And since this chain of objects can be specified dynamically, it adds flexibility in terms of add or removing handlers at run-time.</p>
+<p>Neither the client, nor the objects in the chain know what all objects are processing a request. They simply know which object to pass the request onto once they receive the request. This results in reduced coupling since none of the parties involved have an explicit knowledge of the chain.</p>
+<p><img src="/Design_Patterns_Behavioral_Patterns/image.png" alt="">
+<em>Chain of Responsibility Pattern Structure</em></p>
+<p>The <strong>Client</strong> sends a request to the <strong>Handler</strong>, which is essentially an interface <code>HandleRequest()</code> to handle requests. <strong>ConcreteHandler</strong> objects inherit and implement the same interface to receive the request. They pass the request to the successor link, only processing the requests they are responsible for before the pass.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=1z1Z79cOtCE">Chain of Responsibility Pattern</a></p>
+<h2 id="command">Command</h2>
+<blockquote>
+<p>Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.</p>
+</blockquote>
+<p>The <strong>Command</strong> pattern encapsulates the request, and it&rsquo;s related data into a standalone object. The request “object” can then be passed around as arguments to functions, queued for execution and “support undoable operations”.</p>
+<p>Undoable operations here imply reversal of operations executed on the object. This is possible because Command&rsquo;s execute method supports storing states, thereby reversing the effects of the operations executed in the Command itself.</p>
+<p>The encapsulation of the request causes decoupling of the object that invokes the operation from the one which is going to actually process it.</p>
+<p>The pattern is also known as <strong>Action</strong> and <strong>Transaction</strong>.</p>
+<p><img src="/Design_Patterns_Behavioral_Patterns/1_image.png" alt="">
+<em>Command Pattern Structure</em></p>
+<p>The <strong>Client</strong> accesses the <strong>Receiver</strong> indirectly by creating <strong>ConcreteCommand</strong>, which implements <strong>Command</strong> and inherits it&rsquo;s <code>Execute()</code> interface. This object is stored by <strong>Invoker</strong>, which is responsible for actually executing the request by calling the <code>Execute()</code> method. When commands are undoable, <strong>ConcreteCommand</strong> stores state for undoing the command prior to invoking <code>Execute()</code>.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=m9KCiLrCErs">Command Pattern</a></p>
+<h2 id="interpreter">Interpreter</h2>
+<blockquote>
+<p>Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.</p>
+</blockquote>
+<p>The <strong>Interpreter</strong> pattern allows the client to evaluate an expression in a particular language. A language&rsquo;s grammar is made of several sets of rules on how to represent and understand the statements in that particular language. It is this representation itself which forms the context in which an Interpreter operates. Therefore by this context itself, an interpreter is able to interpret the statements of a language.</p>
+<p>Each grammar rule is represented by a class.</p>
+<p><img src="/Design_Patterns_Behavioral_Patterns/2_image.png" alt="">
+<em>Interpreter Pattern Structure</em></p>
+<p>The <strong>Context</strong> contains the representational information which is available to the Interpreter, and is used to store and access the states of an Interpreter during the interpretation process. The <strong>Client</strong> invokes the interpretation operation by calling the <code>Interpret(Context)</code> method of the <strong>AbstractExpression</strong>. This <strong>AbstractExpression</strong> is essentially an abstract syntax tree made up of <strong>TerminalExpression</strong> and <strong>NonterminalExpression</strong>.</p>
+<p>To understand how an abstract syntax tree is constructed, let&rsquo;s take a set of sentences as an example. They describe a subject, an object and a verb.</p>
+<ol>
+<li>Mark kicked a ball.</li>
+<li>The dog ran to the pole.</li>
+<li>I ate a biscuit.</li>
+</ol>
+<p>When segregated, the structure of these sentences can be laid out as follows:</p>
+<ul>
+<li>Subject: Mark, Dog, I</li>
+<li>Object: Ball, Pole, Biscuit</li>
+<li>Verb: Kick, Run, Eat</li>
+</ul>
+<p> These sentences will be structured as follows:</p>
+<ol>
+<li><strong>TerminalExpression</strong>
+<ul>
+<li>Symbols that are actual components of the sentences using a language&rsquo;s grammar.</li>
+<li>Taking the language to be English in the example sentences, “Mark”, “Pole”, “Eat” and the other concretely defined words are the <strong>Terminal Symbols</strong> since they actively participate in construction of a statement in the language.</li>
+</ul>
+</li>
+<li><strong>NonterminalExpression</strong>
+<ul>
+<li>Symbols that help with the construction of a statement in a language but don&rsquo;t actively participate in it&rsquo;s construction.</li>
+<li>Also known as <strong>AlternationExpression</strong>, <strong>RepetitionExpression</strong> and <strong>SequenceExpressions</strong>.</li>
+<li>Taking the language to be English in the example sentences, “Subject”, “Object&rdquo; and “Verb” are <strong>Non-Terminal Symbols</strong>.</li>
+</ul>
+</li>
+</ol>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=6CVymSJQuJE">Interpreter Pattern</a></p>
+<h2 id="iterator">Iterator</h2>
+<blockquote>
+<p>Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.</p>
+</blockquote>
+<p>The <strong>Iterator</strong> pattern, also known as <strong>Cursor</strong>, is aimed at separating a list object from the responsibilities of access and traversal of the list. This ensures that the list object will not get overburdened with implementation of different mechanisms required for traversal. The implementation of the pattern is as follows:</p>
+<ul>
+<li>An Iterator class defines an interface to give the client access to the elements of a list without exposing it&rsquo;s internal structure. </li>
+<li>An Iterator object is instantiated to implement a traversal mechanism and keep track of the elements traversed.</li>
+</ul>
+<p>Iterators have a unicast design structure, that is, once a value is iterated over and consumed, it can never be seen again by any other consumer. This is facilitated by the fact that it tracks the elements traversed. For example, a cursor is used to fetch all rows of a table from MySQL database. Once a row is fetched, it cannot be retrieved again from this cursor. A new cursor has to be instantiated and traversed to reach that row and fetch it.</p>
+<p><img src="/Design_Patterns_Behavioral_Patterns/3_image.png" alt="">
+<em>Iterator Pattern Structure</em></p>
+<p>An <strong>Aggregate</strong> structure, an abstract class for a particular data structure like a list, defines an interface to create an object of type <strong>Iterator</strong>. This <strong>Iterator</strong> defines various traversal interfaces like <code>First()</code> and <code>Next()</code> to return the first item and the next item in the traversal progress of <strong>Aggregate</strong>. <strong>ConcreteIterator</strong> implements the <strong>Iterator</strong> interface, and <strong>ConcreteAggregate</strong> implements this <strong>Iterator</strong> creation interface to return an instance of <strong>ConcreteIterator</strong>.</p>
+<p><strong>Polymorphic Iterators</strong> support iteration of list objects regardless of the data structure. A common iteration interface is defined, from which concrete iterator subclasses can be created for different implementations. This decouples the iteration mechanism from the actual concrete aggregate data structure.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=RskNd-DfIgM">Iterator Pattern</a></p>
+<h2 id="mediator">Mediator</h2>
+<blockquote>
+<p>Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.</p>
+</blockquote>
+<p>The number of components grows with the increase in functionality of an application. Too many direct interactions between components creates unstructured and complex interdependencies. The reduces the reusability of a component since it would require communication with other components to accomplish a task. <strong>Mediator</strong> pattern brings a central point of control through which different components can interact with each other. The components communicating through the Mediator are called <strong>Colleagues</strong>.</p>
+<p><img src="/Design_Patterns_Behavioral_Patterns/5_image.png" alt="">
+<em>Mediator Pattern Structure</em></p>
+<p>The <strong>Mediator</strong> defines an interface for communication between objects of type <strong>Colleague</strong>. <strong>ConcreteMediator</strong> implements this interface for coordination between multiple <strong>ConcreteColleague</strong> instances. For example, an Air Traffic Control tower can be considered to be a mediator between different flights. It coordinates the flying schedule and routes, being the  single point of contact for all flights so that the pilots themselves do not have to communicate amongst themselves.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=WO2d88H4_10">Mediator Pattern</a></p>
+<h2 id="memento">Memento</h2>
+<blockquote>
+<p>Without violating encapsulation, capture and externalize an object&rsquo;s internal state so that the object can be restored to this state later.</p>
+</blockquote>
+<p>Encapsulation enforces all object related data (including it&rsquo;s state) to be stored within the object itself. This puts concepts like checkpoints and mechanisms like data restoration in violation of the principle since making any of the internal data of an object accessible to other objects, or storing it externally is discouraged.</p>
+<p>The <strong>Memento</strong> pattern, also known as <strong>Token</strong>, stores the internal state of an object which can then be used to restore the object to a previous (stored) state at a later time. The encapsulation upheld by ensuring that a memento object is bound to the object whose data it is storing.</p>
+<p><img src="/Design_Patterns_Behavioral_Patterns/6_image.png" alt="">
+<em>Memento Pattern Structure</em></p>
+<p>The <strong>Caretaker</strong> is responsible for instantiating a <strong>Memento</strong>, and solely manages the passing of the right Memento object to the right <strong>Originator</strong>. It never accesses the data inside the <strong>Memento</strong>. The <strong>Originator</strong> requests a Memento through the <code>CreateMemento()</code> method, in which it stores its internal state. The <strong>Memento</strong> stores the data as per the request from the <code>SetMemento(Memento)</code> method.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=_Q5rXfGuyLQ">Memento Pattern</a></p>
+<h2 id="observer">Observer</h2>
+<blockquote>
+<p>Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.</p>
+</blockquote>
+<p>A system where multiple components are cooperating to achieve a functionality may face problems in maintaining consistency between these components. One component changing it&rsquo;s state might directly affect the other components working with it, and it would throw the system out of sync if there is no mechanism for the other components to be updated of such a change.</p>
+<p>The <strong>Observer</strong> pattern, ensures consistency by establishing the relationships between multiple components in a subject and observer structure. A subject may have any number of <strong>Dependents</strong> (observers), which get notified if the subject&rsquo;s state changes. This allows the observers to synchronize with the subject&rsquo;s state. This interaction is known as <strong>Publish-Subscribe</strong>.</p>
+<p><img src="/Design_Patterns_Behavioral_Patterns/7_image.png" alt="">
+<em>Observer Pattern Structure</em></p>
+<p>The <strong>Subject</strong> provides an interface to attach and detach objects of type <strong>Observer</strong> through <code>Atttach(Observer)</code> and <code>Detach(Observer)</code> methods. <strong>ConcreteSubject</strong> implements <strong>Subject</strong> class. It stores the state which is of interest to <strong>Observer</strong> objects, and sends them a notification in the even of a state change. <strong>ConcreteObserver</strong> the <code>Update()</code> method of <strong>Observer</strong> class. Each <strong>ConcreteObserver</strong> maintains a reference to a <strong>ConcreteSubjet</strong> object and updates its state to maintain consistency with <strong>ConcreteSubject</strong>.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=KAwOtYk7QSE">Observer Pattern</a></p>
+<h2 id="state">State</h2>
+<blockquote>
+<p>Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.</p>
+</blockquote>
+<p>The State pattern maintains the state for objects whose behavior depends on that state at run-time. This state is represented by numerated constants that are used as conditionals to decide the behavior. The State pattern puts each branch of the conditional in a separate class, allowing every state of the object to be its own entity.</p>
+<p><img src="/Design_Patterns_Behavioral_Patterns/8_image.png" alt="">
+<em>State Pattern Structure</em></p>
+<p>The <strong>Context</strong> defines the interface that a client can interact with. The <strong>State</strong> defines the interface to encapsulate the behavior pertaining to different states of the <strong>Context</strong>. Each <strong>ConcreteState</strong> subclass implements the behavior of the <strong>Context</strong> for a particular state.</p>
+<p>For example, a simple socket will either be in ACCEPT state wherein it will accept connections or it will be in a REJECT state where it will reject all connections.</p>
+<p>A direct effect of implementing the State pattern is that all state-specific behavior is packaged into one object, localizing the state behavior. This makes it easier to add new states and their associated functionality. However, localizing a state&rsquo;s behavior imposes creation of a new subclass for that particular state. This increases the number of classes and makes the codebase less compact.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=G8FTDsD9L_g">State Pattern</a></p>
+<h2 id="strategy">Strategy</h2>
+<blockquote>
+<p>Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</p>
+</blockquote>
+<p>The <strong>Strategy</strong> pattern, also known as <strong>Policy</strong>, divides a single class with multiple behaviors into multiple related classes that only differ in their behavior, called <strong>strategies</strong>. A single parent class, called <strong>Context</strong>, maintains a reference to the strategies, and delegates the work to a strategy object. The client is responsible for declaring the strategy to be used, while the context simply implements a generic interface for triggering the requested strategy. This makes the context independent of strategies, allowing addition of new ones or modification of old ones without the requirement of change in implementation of the context or other strategies. However, this requires the client to be aware of different strategies.</p>
+<p><img src="/Design_Patterns_Behavioral_Patterns/10_image.png" alt="">
+<em>Strategy Pattern Structure</em></p>
+<p>The <strong>Context</strong> maintains a reference to an object of type <strong>Strategy</strong>, and implements the <code>ContextInterface()</code> interface to communicate with this reference. The Strategy object declares an interface <code>AlgorithmInterface()</code> to delegate the task to a <strong>ConcreteStrategy</strong> object which would implement a particular algorithm. Thus, the <strong>Strategy</strong> and the <strong>Context</strong> interact to implement the chose algorithm.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=rPAmCIX79uE">Strategy Pattern</a></p>
+<h2 id="template">Template</h2>
+<blockquote>
+<p>Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm&rsquo;s structure.</p>
+</blockquote>
+<p>The <strong>Template</strong> pattern defines an algorithm&rsquo;s constant parts, while keeping the variable parts abstract, allowing the subclasses to override this abstract (variable) part with concrete behavior. This prevents code duplication among classes with some common behavior. The effectiveness is inversely proportional to the number of methods required to be overridden by subclasses; the more operations that need overriding, the lesser is the generic functionality a template can offer.</p>
+<p><img src="/Design_Patterns_Behavioral_Patterns/11_image.png" alt="">
+<em>Template Pattern Structure</em></p>
+<p>The AbstractClass defines a specific behavior with abstract methods like <code>PrimitiveOperation1()</code> which can be overridden by objects of type <strong>ConcreteClass</strong> to implement these operations in it&rsquo;s own way.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=Ltk1UjFXbKU">Template Pattern</a></p>
+<h2 id="visitor">Visitor</h2>
+<blockquote>
+<p>Represent an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.</p>
+</blockquote>
+<p>The <strong>Visitor</strong> pattern facilitates creation of a single object consisting of many classes, where these classes have different interfaces whose output is solely dependent on their concrete class. The visitor (single object) can be shared amongst many classes as it would keep all related operations together, and process output based on the concrete class of the object calling it. This introduces a concept called <strong>Double Dispatch</strong>, that delegates the responsibility of choosing the right method to the object itself rather than the client.</p>
+<p><img src="/Design_Patterns_Behavioral_Patterns/12_image.png" alt="">
+<em>Visitor Pattern Structure</em></p>
+<p>The <strong>ObjectStructure</strong> provides a high-level interface to allow access to its objects of type <strong>Element</strong>. The <strong>Element</strong> declares a method <code>Accept(Visitor)</code> to reference the <strong>Visitor</strong>. Each <strong>ConcreteElement</strong> implements the inherited <code>Accept(Visitor)</code> method. The <strong>Visitor</strong> defines methods for each <strong>ConcreteElement</strong>. The choice of the method executed by the <strong>Visitor</strong> is dependent on the concrete class of the object requesting it, known through the signature of the method in the request. The <strong>ConcreteVisitor</strong> implements the operations declared by the <strong>Visitor</strong>, and provides the context for an algorithm.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=UQP5XqMqtqQ">Visitor Pattern</a></p>
+<p>Citation: <a href="https://www.journaldev.com/31902/gangs-of-four-gof-design-patterns">Gang of Four Design Patterns</a></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Creational Patterns</title>
+            <link>https://hexterisk.github.io/blog/posts/2021/07/02/creational-patterns/</link>
+            <pubDate>Fri, 02 Jul 2021 00:00:00 +0000</pubDate>
+            
+            <guid>https://hexterisk.github.io/blog/posts/2021/07/02/creational-patterns/</guid>
+            <description>Creational Design Patterns reduce the complexity in creation of different objects of shared type/properties.
+These patterns simplify object creation mechanisms by separating the workings of an object&amp;rsquo;s creation, composition and representation. This in turn results in increased flexibility. Instead of hardcoding data into classes for creating objects every time, we can employ these patterns for the instantiation of an object dependent on the situation. This ensures that the set of related objects share a common ancestor for common properties.</description>
+            <content type="html"><![CDATA[<p>Creational Design Patterns reduce the complexity in creation of different objects of shared type/properties.</p>
+<p>These patterns simplify object creation mechanisms by separating the workings of an object&rsquo;s creation, composition and representation. This in turn results in increased flexibility. Instead of hardcoding data into classes for creating objects every time, we can employ these patterns for the instantiation of an object dependent on the situation. This ensures that the set of related objects share a common ancestor for common properties.</p>
+<h2 id="factory-method">Factory Method</h2>
+<blockquote>
+<p>Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.</p>
+</blockquote>
+<p>We create a “factory” class that can use some logic to decide <em>at the moment of instantiation</em> over what data to use for creating the object. Now, since it can&rsquo;t anticipate the needs of the client, this task of instantiation is delegated to a subclass specific for the situation. This localization of knowledge helps in hiding(abstraction) of the actual implementation details as well.</p>
+<p><img src="/Design_Patterns_Creational_Patterns/image.png" alt=""></p>
+<p>Therefore, <strong>Factory Method</strong> pattern defines an interface for creation of objects, but lets a subclass suitable to the situation perform the instantiation. The suitability is defined by the logic implemented by the factory.</p>
+<p>The <strong>Creator</strong> class is the factory with the operational details, and has an interface defined called <code>FactoryMethod</code> for creating an object. A subclass <strong>ConcreteCreator</strong> is created that is localized for a specific use-case. It creates an object of <strong>ConcreteProduct</strong> class, which implements the <strong>Product</strong> class.</p>
+<p>For example, Creator class <code>AnimalFactory</code> has the task of producing different objects of Product class <code>Animal</code>. This factory could be under different environments which would cultivate different conditions, and may cater to two conditions through the following ConcreteCreator classes:</p>
+<ol>
+<li><code>RandomPopulationFactory</code> where the animals are randomly generated.</li>
+<li><code>BalancedPopulationFactory</code> where the population of different animals is kept equal respectively.</li>
+</ol>
+<p>The decision as to which factory will be employed is dependent on the environment, and is decided by the AnimalFactory, which delegates the task to the suitable subclass (RandomPopulationFactory or BalancedPopulationFactory). These subclasses contain the logic for creation of objects pertaining to their own environments and can do the needful.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=pt1IbV1aSZ4">Factory Method Pattern</a></p>
+<h2 id="abstract-factory">Abstract Factory</h2>
+<blockquote>
+<p>Provide an interface for creating families of related or dependent objects without specifying their concrete classes.</p>
+</blockquote>
+<p>An extension of the Factory Method pattern, a super-factory whose sub-factories have the capability of creating multiple products, which then enables it&rsquo;s concrete factories to produce multiple products. This is to ensure that even a single factory has the capability to produce multiple products that are related, or family of products, and this responsibility/implementation is further delegated to their concrete factories respectively.</p>
+<p><img src="/Design_Patterns_Creational_Patterns/1_image.png" alt=""></p>
+<p>The <strong>AbstractFactory</strong> pattern defines an interface to create multiple products, that is, <code>CreateProductA</code> and <code>CreateProductB</code>. It is implemented by two <strong>ConcreteFactory</strong> classes <code>ConcreteFactory1</code> and <code>ConcreteFactory2</code>. These concrete factories can instantiate objects <code>ProductA1</code>, <code>ProductB1</code> and <code>ProductA2</code>, <code>ProductB2</code>. These products implement <strong>AbstractProductA</strong> and <strong>AbstractProductB</strong> classes respectively. Since the same factory can produce A1,B1 and A2,B2 pairs, it is clear that one factory is keeping objects(products) of related types together since concretions of different products together, like A1 and B2, is not sensible. Therefore, enabling a factory to create A1 and B1 together ensures that a single factory can create products that make sense in conjunction with each other.</p>
+<p>For example, AbstractFactory class <code>UIFactory</code> has the task of producing different objects of ProductA and ProductB classes <code>Scrollbar</code> and <code>Button</code>. This factory will have ConcreteCreator1 and ConcreteCreator2 classes that can produce objects suitable as per the environment conditions, such as:</p>
+<ol>
+<li><code>WindowsFactory</code> where the factory can produce UI elements suitable for Windows platform.</li>
+<li><code>LinuxFactory</code> where the factory can produce UI elements suitable for Linux platform.</li>
+</ol>
+<p>The decision as to which factory will be employed is still dependent on the environment.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=j50FusMmUMw">Abstract Factory Pattern</a></p>
+<h2 id="builder">Builder</h2>
+<blockquote>
+<p>Separate the construction of a complex object from its representation so that the same construction process can create different representations.</p>
+</blockquote>
+<p>The class delegates the initialization process to a Builder class with the aim of initializing members of the object separate from the definition. This is done to make the initialization process flexible against the data provided.  The advantages are two fold:</p>
+<ol>
+<li>Ensures that an object is always initialized in a complete state.</li>
+<li>Makes the constructor highly readable.</li>
+</ol>
+<p><img src="/Design_Patterns_Creational_Patterns/2_image.png" alt=""></p>
+<p>The <strong>Director</strong> is the user of the <strong>Builder</strong> class. It defines an interface <code>BuildPart</code> for building an object. <strong>ConcreteBuilder</strong> implements Builder, implements the initialization logic for the object. This implementation is specific to the environment and produces an object that is complete in itself, as per the Director&rsquo;s instruction.</p>
+<p>For example, a Director class <code>TextParser</code> requires a converter. The Builder class <code>TextConverterBuilder</code> will implement different ConcreteBuilder classes for different formats, such as <code>ExcelBuilder</code> and <code>CSVBuilder</code>. Since different file formats have different requirements to be able to parse the text, each builder can implement their own object initialization logic with the parameters provided by the, which is of no concern to both <code>TextParser</code> and  <code>TextConverterBuilder</code>.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=M7Xi1yO_s8E">Builder Pattern</a></p>
+<h2 id="prototype-pattern">Prototype Pattern</h2>
+<blockquote>
+<p>Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.</p>
+</blockquote>
+<p>To avoid creation of a different instance of the same object for manipulation, the <strong>Prototype</strong> design pattern demands that the original class provide a method to get the prototype of the class. This prototype allows a new object to clone an old object, which can then be manipulated. This preserves the original object as well as the effort into creating a new object definition altogether.</p>
+<p><img src="/Design_Patterns_Creational_Patterns/3_image.png" alt=""></p>
+<p>The <strong>Prototype</strong> class provides an interface <code>Clone</code> for to clone new objects from the original one. Subclasses <strong>ConcretePrototype1</strong> and <strong>ConcretePrototype2</strong> implement the prototype to return a copy of the original object.</p>
+<p>For example, a Prototype class <code>Animal</code> provides ConcretePrototype classes <code>LionPrototype</code> and <code>BirdPrototype</code> to allow the client to modify these classes into different entities, such as the lion to sheep or bird to crocodile, to modify certain properties.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=nZ76x13Nm8Q">Prototype Pattern</a></p>
+<h2 id="singleton-pattern">Singleton Pattern</h2>
+<blockquote>
+<p>Ensure a class only has one instance, and provide a global point of access to it.</p>
+</blockquote>
+<p><strong>Singleton Pattern</strong> specifies that only a single instance of it exists (which requires absolute surety that it can serve the purpose through it) and enforces that the class have “global scope&rdquo;.</p>
+<p><img src="/Design_Patterns_Creational_Patterns/4_image.png" alt=""></p>
+<p>Global scope requires the constructor of the class to be private so that it can&rsquo;t be recreated, which means it would require a static method to instantiate it in the first place. The static method (since it&rsquo;s a class member) will have access to the constructor, defined as <code>Instance</code>., which would initialize it into the static member <code>uniqueInstance</code>.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=KUTqnWswPV4">Singleton Pattern</a></p>
+<p>Citation: <a href="https://www.journaldev.com/31902/gangs-of-four-gof-design-patterns">Gang of Four Design Patterns</a></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Reuse</title>
+            <link>https://hexterisk.github.io/blog/posts/2021/05/21/reuse/</link>
+            <pubDate>Fri, 21 May 2021 00:00:00 +0000</pubDate>
+            
+            <guid>https://hexterisk.github.io/blog/posts/2021/05/21/reuse/</guid>
             <description>While designing a class, always keep the Open-Closed Principle in mind. It states that,
  software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
  This implies that an entity shall allow extensions to itself, but no modification to its source code. We are therefore allowed to extend our base class, and consequently implement re-usability.
@@ -107,10 +505,10 @@ int main() {
         
         <item>
             <title>Overview</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/10/14/overview/</link>
-            <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2021/04/28/overview/</link>
+            <pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/10/14/overview/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2021/04/28/overview/</guid>
             <description>An general overview of the Design Patterns.
 Classification Purpose Purpose reflects the use case of a design pattern.
 Creational Pattern concerns the process of object creation.
@@ -141,10 +539,10 @@ Scope The scope of a design patterns specifies where it is primarily applied.</d
         
         <item>
             <title>Introduction</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/10/10/introduction/</link>
-            <pubDate>Sat, 10 Oct 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2021/04/10/introduction/</link>
+            <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/10/10/introduction/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2021/04/10/introduction/</guid>
             <description>A design pattern is a code structure used to solve commonly occurring problems in software development. It is a generic description of different components&amp;rsquo; design, their relationships, and how they come together to solve the said problem in the specified context. It is characterized by:
  Pattern Name  To associate a certain solution to a name for ease of reference, through appropriate association.   Problem  The design problem and issues to be addressed in a specified context, to which the solution described by the design pattern is applicable.</description>
             <content type="html"><![CDATA[<p>A design pattern is a code structure used to solve commonly occurring problems in software development. It is a generic description of different components&rsquo; design, their relationships, and how they come together to solve the said problem in the specified context. It is characterized by:</p>
@@ -275,10 +673,10 @@ Scope The scope of a design patterns specifies where it is primarily applied.</d
         
         <item>
             <title>DART &amp; SAGE</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/10/04/dart-sage/</link>
-            <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2021/03/15/dart-sage/</link>
+            <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/10/04/dart-sage/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2021/03/15/dart-sage/</guid>
             <description>DART Back in 2005, researchers at Microsoft came up with a concolic testing tool called DART(Directed Automated Random Testing). The tool can be used in the unit testing phase, as well as can be applied to large programs.
  We present a new tool, named DART, for automatically testing software that combines three main techniques: (1) automated extraction of the interface of a program with its external environment using static source-code parsing; (2) automatic generation of a test driver for this interface that performs random testing to simulate the most general environment the program can operate in; and (3) dynamic analysis of how the program behaves under random testing and automatic generation of new test inputs to direct systematically the execution along alternative program paths.</description>
             <content type="html"><![CDATA[<h2 id="dart">DART</h2>
@@ -594,10 +992,10 @@ Scope The scope of a design patterns specifies where it is primarily applied.</d
         
         <item>
             <title>Sanitation</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/09/21/sanitation/</link>
-            <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2021/02/12/sanitation/</link>
+            <pubDate>Fri, 12 Feb 2021 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/09/21/sanitation/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2021/02/12/sanitation/</guid>
             <description>Sanitation tools, or sanitizers, are a set of libraries that can directly observe and flag an incorrect behavior for a certain class of violation at runtime.
 Sanitizers are employed by instrumenting the source code. The compiled binary, therefore, essentially has certain tripwires that catch any invalid or incorrect behavior and reports it. The fact that it only brings about minimal performance overhead allows it to be coupled with fuzzing techniques, a powerful combination.</description>
             <content type="html"><![CDATA[<p>Sanitation tools, or <a href="https://github.com/google/sanitizers">sanitizers</a>, are a set of libraries that can directly observe and flag an incorrect behavior for a certain class of violation at runtime.</p>
@@ -695,10 +1093,10 @@ Sanitizers are employed by instrumenting the source code. The compiled binary, t
         
         <item>
             <title>Architecture</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/09/16/architecture/</link>
-            <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2021/01/20/architecture/</link>
+            <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/09/16/architecture/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2021/01/20/architecture/</guid>
             <description>A robust pipeline needs to be established to ensure that a fuzzer is effective and efficient. The pipeline is required to perform the following tasks:
  Generate new test cases. Ensure delivery of the test cases to, and safe execution, of the target. Record the statistics from the execution of the test cases. Reproduce the crashes. Triage the crashes.  Generic fuzzing pipeline.
 Separate modules perform different set of the aforementioned tasks.</description>
@@ -759,10 +1157,10 @@ Separate modules perform different set of the aforementioned tasks.</description
         
         <item>
             <title>Approaches</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/09/09/approaches/</link>
-            <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2021/01/01/approaches/</link>
+            <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/09/09/approaches/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2021/01/01/approaches/</guid>
             <description>Fuzzing can be segregated into different types based on the facet of the process we look at.
  Program Structure Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
 Blackbox Fuzzing This approach involves the assumption that the target is a black box since we don&amp;rsquo;t have any knowledge of the internal behavior, source code or the implementation of the target application, hence the name.</description>
@@ -844,10 +1242,10 @@ Blackbox Fuzzing This approach involves the assumption that the target is a blac
         
         <item>
             <title>Introduction</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/09/05/introduction/</link>
-            <pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/12/14/introduction/</link>
+            <pubDate>Mon, 14 Dec 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/09/05/introduction/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/12/14/introduction/</guid>
             <description>Fuzzing, or Fuzz Testing, is an automated software testing technique where a target application is placed in an execution environment. An input generation technique is employed to create unique and varying inputs(test cases) for the target. These new inputs are continuously sent to the target and the resultant behavior is observed.
 NOTE: the phrases “test cases” and “inputs” can be used interchangeably.
 Fuzzing cycle.
@@ -893,10 +1291,10 @@ Either the program will be able to handle the provided input just fine, or it wi
         
         <item>
             <title>Classification of Malware Traffic using CNNs</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/08/22/classification-of-malware-traffic-using-cnns/</link>
-            <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/11/20/classification-of-malware-traffic-using-cnns/</link>
+            <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/08/22/classification-of-malware-traffic-using-cnns/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/11/20/classification-of-malware-traffic-using-cnns/</guid>
             <description>Classification of malware traffic has been a hot topic ever since machine learning was introduced to the world of network security domain. There are a number of published researches that explore various techniques to extract features from the traffic and use it classification.
 The pre-machine learning era saw classification of traffic based on structured rule matching, DPI(Deep Packet Inspection) and Port Inspection being the most popular methods, which were typically rendered ineffective post-encryption.</description>
             <content type="html"><![CDATA[<p>Classification of malware traffic has been a hot topic ever since machine learning was introduced to the world of network security domain. There are a number of published researches that explore various techniques to extract features from the traffic and use it classification.</p>
@@ -936,81 +1334,11 @@ The pre-machine learning era saw classification of traffic based on structured r
         </item>
         
         <item>
-            <title>Classification of Malwares through Dynamic Analysis</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/08/04/classification-of-malwares-through-dynamic-analysis/</link>
-            <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
-            
-            <guid>https://hexterisk.github.io/blog/posts/2020/08/04/classification-of-malwares-through-dynamic-analysis/</guid>
-            <description>Malwares come in many forms. Sometimes it&amp;rsquo;s a standalone binary whereas sometimes it&amp;rsquo;s a legitimate software having a malware inside it. Sometimes it&amp;rsquo;s a binary with malformed metadata and packed bytes to throw off the analyst whereas sometimes it acts as a downloader/launcher for a more malicious binary. Information extracted from static analysis can therefore be deemed unreliable and not as accurate when compared with information extracted from dynamic analysis.</description>
-            <content type="html"><![CDATA[<p>Malwares come in many forms. Sometimes it&rsquo;s a standalone binary whereas sometimes it&rsquo;s a legitimate software having a malware inside it. Sometimes it&rsquo;s a binary with malformed metadata and packed bytes to throw off the analyst whereas sometimes it acts as a downloader/launcher for a more malicious binary. Information extracted from static analysis can therefore be deemed unreliable and not as accurate when compared with information extracted from dynamic analysis.</p>
-<p>Dynamic analysis involves analyzing the executable&rsquo;s behavior in a controlled environment. All the actions performed and modifications to system settings cause by the executable are recorded and analyzed afterwards. This process is usually automated using sandboxes such as Cuckoo Sandbox logging the behavior.</p>
-<p> </p>
-<h2 id="feature-extraction">Feature Extraction</h2>
-<p>The following features can be extracted from a dynamic analysis log:</p>
-<ol>
-<li>Registry Keys<br>
-Windows registry contains configuration information about the system, installed apps and mounted devices. Any modifications made to the registry can be used to understand what sort of environment the executable wants to set up for it&rsquo;s execution. Therefore, registry keys read, written, opened and deleted can be useful as a feature.</li>
-<li>Files<br>
-The logs record any changes made to the file structure of the system. Any files copied, created, written or read, and any of these operations failing can be used as a feature to judge the executable&rsquo;s characteristics. Ransomware and lockers would have high number of file system accesses.</li>
-<li>DLLs<br>
-Native exported functions used by an executable can also help form a rough idea of the task it is trying to achieve. Therefore, the DLLs loaded by the executable can be used as a feature.</li>
-<li>API Calls<br>
-APIs are sets of subroutines used by software to communicate with the hardware. API calls made by the executable would give a faint idea of the functions the executable is trying to perform. Therefore, all the unique API calls made, successful or failed can be summarized and used as a feature.</li>
-<li>IPs and DNS<br>
-Logged network traffic can be used to observe the connections and queries that the executable tried. These can then be used to fingerprint traffic flows in the pcaps.</li>
-<li>API Call Sequence<br>
-The order of API calls made by an executable is the closest one can get to it&rsquo;s behavior since an ordered call sequence can define a particular intent.</li>
-</ol>
-<p>Different sets of these features can be used to try out the performance of the models.</p>
-<p>The API Call Sequence feature can be independently used for behavior fingerprinting. The APIs can be divided into different sets to create a signature and then a language model can be used on a dataset of signatures.</p>
-<p>A POC working on malware classification using dynamic analysis is in this <a href="https://github.com/hexterisk/dynamic-malwired/">repository</a>.</p>
-]]></content>
-        </item>
-        
-        <item>
-            <title>Classification of Malwares through Static Analysis</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/07/20/classification-of-malwares-through-static-analysis/</link>
-            <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
-            
-            <guid>https://hexterisk.github.io/blog/posts/2020/07/20/classification-of-malwares-through-static-analysis/</guid>
-            <description>Static analysis is the analysis of an executable file on a structural bases without executing it in controlled environment. It is the analysis of the executable&amp;rsquo;s static attributes such as different sections and memory characteristics.
-Therefore, static analysis of a PE allows extraction of a lot of metadata that can be useful in further analysis such as names of sections, imported DLLs and strings present which gives an early idea of the functions performed by the binary in question.</description>
-            <content type="html"><![CDATA[<p>Static analysis is the analysis of an executable file on a structural bases without executing it in controlled environment. It is the analysis of the executable&rsquo;s static attributes such as different sections and memory characteristics.</p>
-<p>Therefore, static analysis of a PE allows extraction of a lot of metadata that can be useful in further analysis such as names of sections, imported DLLs and strings present which gives an early idea of the functions performed by the binary in question. Malicious binaries with unstructured and improperly formatted metadata (done to achieve sophisticated levels of obfuscation and anti-debugging/anti-reversing defenses) can raise suspicions since a benign PE generally has a well-formed and valid metadata. Therefore, static analysis has been a popular approach towards malware detection in PEs. Since execution of the binary is not required, this approach is much more lightweight and resource-conserving. This allows security teams and researchers quickly perform a preliminary analysis.</p>
-<p>The metadata extracted from the PEs to be used as features, however, is mostly unreliable because of it&rsquo;s extreme variance and invalidity.</p>
-<p> </p>
-<h2 id="feature-extraction">Feature Extraction</h2>
-<p>The following features can be extracted from a PE:</p>
-<ol>
-<li>General File Information<br>
-General information about the binary such as it&rsquo;s size and other basic information parsed from the PE header: virtual size of the binary, resources, re-locations and symbols.</li>
-<li>Header Information<br>
-We parse different headers and extract different data points relevant to the said headers. For example. we can extract timestamps and image characteristics from the COFF header, DLL characteristics an linker versions from the Optional header.</li>
-<li>Imported Functions<br>
-Parsing the IAT(Import Address Table) can tell us about the imported functions by the libraries used by the binary. These strings can be hashed and used as features. Total number of imported functions is in General File Information.</li>
-<li>Exported Functions<br>
-The functions exported by the binary can give us a vague idea if it works as a support to some other binary, and what functions it can perform. Total number of exported functions is in General File Information.Imported Functions</li>
-<li>Section Information<br>
-Properties of each section such as it&rsquo;s size, entropy and list of strings can help capture the characteristics of that section.</li>
-<li>Byte Histogram<br>
-A histogram can be generated from all the bytes of the binary and normalized to be used as a feature.</li>
-<li>Byte-Entropy Histogram<br>
-A histogram can be generated from the byte-entropy of the binary for an approximation of a byte&rsquo;s joint distribution to the entropy. It can then be normalized and used as a feature.</li>
-<li>Strings<br>
-Collection of subsequent printable bytes can be extremely unreliable since any random byte combination(of at least length 5) would qualify as a string. However, it provides distinct information in comparison to the byte histogram since strings can capture occurrences of URLs, registry keys and file names.</li>
-</ol>
-<p>These features can be used to form a general idea about the PE before executing it.</p>
-<p>Sample structure info after running a PE through a parser is shown in this <a href="https://github.com/hexterisk/static-malwired/blob/master/static_info.txt">file</a>.</p>
-<p>A POC working on malware classification using static analysis is in this <a href="https://github.com/hexterisk/static-malwired">repository</a>.</p>
-]]></content>
-        </item>
-        
-        <item>
             <title>Dynamic Taint Analysis and Pin</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/07/18/dynamic-taint-analysis-and-pin/</link>
-            <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/11/08/dynamic-taint-analysis-and-pin/</link>
+            <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/07/18/dynamic-taint-analysis-and-pin/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/11/08/dynamic-taint-analysis-and-pin/</guid>
             <description>Dynamic Taint Analysis is a technique used to discover what part of memory or register are controllable by the some data we are interested, such as the user input, at a given program state. This is done by marking the interested data. There on after, any piece of data that comes in contact with the tainted data by any means, like getting computed from the tainted data, is tainted too, thus spreading the taint throughout the execution.</description>
             <content type="html"><![CDATA[<p><strong>Dynamic Taint Analysis</strong> is a technique used to discover what part of memory or register are controllable by the some data we are interested, such as the user input, at a given program state. This is done by marking the interested data. There on after, any piece of data that comes in contact with the tainted data by any means, like getting computed from the tainted data, is tainted too, thus spreading the taint throughout the execution.</p>
 <p><img src="/Dynamic_Taint_Analysis_and_Pin/image.png" alt="">
@@ -1257,10 +1585,10 @@ VOID <span style="color:#a6e22e">Syscall_entry</span>(THREADID thread_id, CONTEX
         
         <item>
             <title>Dynamic Binary Instrumentation and Pin</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/07/10/dynamic-binary-instrumentation-and-pin/</link>
-            <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</link>
+            <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/07/10/dynamic-binary-instrumentation-and-pin/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</guid>
             <description>Dynamic Binary Instrumentation is the process of monitoring or measuring a binary&amp;rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
 We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.
  Instrumentation Code The technique requires injecting Instrumentation Code into a running binary.</description>
@@ -1682,110 +2010,11 @@ Iterations: <span style="color:#ae81ff">250</span>
         </item>
         
         <item>
-            <title>Dockerise MySQL &#43; phpMyAdmin</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/07/02/dockerise-mysql-phpmyadmin/</link>
-            <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
-            
-            <guid>https://hexterisk.github.io/blog/posts/2020/07/02/dockerise-mysql-phpmyadmin/</guid>
-            <description>A common requirement in a large number of software projects is a relational database with an easy to use management tool. Considering how often a developer needs this, setting it up everytime from scratch can be a drag. However, with the advent of containerisation, we can have a setup off the ground in a couple of minutes, whether it&amp;rsquo;s a development or a production environment.
-The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific.</description>
-            <content type="html"><![CDATA[<p>A common requirement in a large number of software projects is a relational database with an easy to use management tool. Considering how often a developer needs this, setting it up everytime from scratch can be a drag. However, with the advent of containerisation, we can have a setup off the ground in a couple of minutes, whether it&rsquo;s a development or a production environment.</p>
-<p>The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific. MariaDB is a fork of MySQL and is developed separately, and therefore contains a number of incompatibilities when compared to the standard MySQL. However, the fundamental infrastructure of the database and indexing are the same:</p>
-<ul>
-<li>Data and Table definitions are compatible.</li>
-<li>Client protocols, structures, and APIs are identical.</li>
-<li>MySQL connectors will work with MariaDB without modification.</li>
-<li>Command-line tools and commands are mostly the same.</li>
-</ul>
-<p>In fact, MariaDB developers perform a monthly merge of MariaDB&rsquo;s codebase with MySQL&rsquo;s to ensure running compatibility in future versions. Therefore there shouldn&rsquo;t be any trouble if the developer decides to switch the database in the middle of the development cycle.</p>
-<p>The major difference comes in the number of storage engines supported. MariaDB(Supported <a href="https://mariadb.com/kb/en/library/storage-engines/">storage engines</a>) provides support for more storage engines than MySQL(<a href="https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html">storage engines</a>) does. One must understand that it&rsquo;s not a matter of which one supports more engines, it&rsquo;s a matter of which one supports the engine that meets the requirements.</p>
-<p>I&rsquo;ll be using MySQL for the example. At any time, MySQL can be swapped out with MariaDB by simply replacing the container image.</p>
-<p>One thing to note is that user and password can be set up for phpMyAdmin too, but you need not use them if you are not interested in changing any default configurations(mainly authentication).</p>
-<p> </p>
-<h2 id="instant-approach">Instant Approach</h2>
-<p>The approach that leads to instant deployment of the setup is to deploy containers from the command-line itself.</p>
-<p>This is the boiler plate config. More options like mounting volumes can be used as per requirement.</p>
-<h3 id="deploy-database">Deploy Database</h3>
-<p>Run <code>docker run --name DB_CONTAINER_NAME -e MYSQL_ROOT_PASSWORD=PASSWORD -d mysql:latest</code>.</p>
-<ul>
-<li>Pass the desired name for the container to the <code>--name</code> parameter. Replace <em>DB_CONTAINER_NAME</em> with the desired name.</li>
-<li>Pass the password for the root user of the DB to the <code>-e MYSQL_ROOT_PASSWORD</code> parameter. Replace <em>PASSWORD</em> with the desired password.
-<ul>
-<li>Required by the container.</li>
-</ul>
-</li>
-<li>The <code>-d</code> parameter deploys the container in the “detached” mode, that is, in the background.</li>
-<li>The <code>mysql:latest</code> parameter ensures the container is deployed with the image of latest MySQL. Can be replace with MariaDB as per requirement.</li>
-<li>Username and password for any user(root included) cannot be the same, and neither of these can be equal to the root password.</li>
-</ul>
-<p>The container should deploy with no issues whatsoever. Run <code>docker ps</code> to verify.</p>
-<p><img src="/Dockerise_MySQL_+_phpMyAdmin/2020-07-17-200632-screenshot.png" alt="">
-<em>Sample output for database container.</em></p>
-<p>Following the screenshot, I deployed a MySQL container named <em>test_sql_container</em> with the password <em>rootpassword</em>.</p>
-<h3 id="deploy-phpmyadmin">Deploy phpMyAdmin</h3>
-<p>Run <code>docker run --name CONTAINER_NAME -d --link DB_CONTAINER_NAME:db -p PORT:80 phpmyadmin/phpmyadmin</code>.</p>
-<ul>
-<li>Pass the desired name for the container to the <code>--name</code> parameter. Replace <em>CONTAINER_NAME</em> with the desired name.</li>
-<li>Pass the name of the container deployed for DB previously to the <code>--link</code> parameter. Replace <em>DB_CONTAINER_NAME</em> like before.</li>
-<li>Pass the port to bind the container to the <code>-p</code> parameter. Replace <em>PORT</em> with the desired port number.</li>
-<li>The <code>phpmyadmin/phpmyadmin</code> is the docker image as listed on docker hub.</li>
-</ul>
-<p>The container should deploy with no issues whatsoever. Run <code>docker ps</code> to verify.</p>
-<p><img src="/Dockerise_MySQL_+_phpMyAdmin/2020-07-17-200743-screenshot.png" alt="">
-<em>Sample output for database and management tool containers.</em></p>
-<p>Following the screenshot, I deployed a phpMyAdmin container named <em>test_myadmin_container</em> linked to a database container named <em>test_sql_container</em> attached to port <em>8081</em>.</p>
-<p>Login to phpMyAdmin page on <code>localhost:PORT</code> with <code>root:PASSWORD</code>(username: root and password: PASSWORD), where <em>PORT</em> is the port phpMyAdmin is bound to in the second stage, and the <em>PASSWORD</em> is the root password set in the first stage.</p>
-<p>According to the commands I entered (following the screenshots), I can access the phpMyAdmin dashboard on <code>localhost:8081</code> and I can login using the credentials <code>root:rootpassword</code>.</p>
-<p>DISCLAIMER: These containers are ephemeral and will not save any state since no volumes have been mounted. Any changes made will be lost when the container are closed. Checkout the documentation to see <a href="https://docs.docker.com/storage/volumes/">how to mount volumes</a> if you&rsquo;re not familiar with it.</p>
-<p> </p>
-<h2 id="composed-approach">Composed Approach</h2>
-<p>This approach involves writing a docker-compose file. The content will be as follows.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#34;3.7&#34;</span>
-<span style="color:#66d9ef">services</span>:
-
-  <span style="color:#66d9ef">db-server</span>:
-    <span style="color:#66d9ef">image</span>: mysql:latest
-    <span style="color:#66d9ef">container_name</span>: test_sql_container
-    <span style="color:#66d9ef">restart</span>: always
-    <span style="color:#66d9ef">environment</span>:
-      <span style="color:#66d9ef">MYSQL_ROOT_PASSWORD</span>: secret
-    <span style="color:#66d9ef">ports</span>:
-      - <span style="color:#e6db74">&#34;3306:3306&#34;</span>
-    
-  <span style="color:#66d9ef">phpmyadmin</span>:
-    <span style="color:#66d9ef">image</span>: phpmyadmin/phpmyadmin
-    <span style="color:#66d9ef">container_name</span>: test_myadmin_container
-    <span style="color:#66d9ef">restart</span>: always
-    <span style="color:#66d9ef">environment</span>:
-      <span style="color:#66d9ef">PMA_HOST</span>: db-server
-    <span style="color:#66d9ef">links</span>:
-      - db-server
-    <span style="color:#66d9ef">ports</span>:
-      - <span style="color:#e6db74">&#34;8081:80&#34;</span>
-</code></pre></div><p>Apart from the common parameters such as the <code>image</code> and <code>container_name</code>, following things should be noticed.</p>
-<p>For the database container:</p>
-<ul>
-<li><code>MYSQL_ROOT_PASSWORD</code> parameter can not be given the value “root” for password.</li>
-<li>Username and password for any user(root included) cannot be the same, and neither of these can be equal to the root password.</li>
-</ul>
-<p>For the management panel container:</p>
-<ul>
-<li>An environment variable for <code>PMA_HOST</code> has to be set to the name of the database service(<em>db-server</em> in the file). It defines the address/host name of the database server.</li>
-<li>The database service needs to be explicitly linked to the management panel container using the parameter <code>links</code>.</li>
-</ul>
-<p>Run <code>docker-compose up -d</code> to deploy the containers based on the docker-compose file.</p>
-<p><img src="/Dockerise_MySQL_+_phpMyAdmin/2020-07-17-213248-screenshot.png" alt="">
-<em>Sample output.</em></p>
-<p>The containers have been deployed as follows. Modifications to the docker-compose file can be made as per requirement, use the sample file above to maintain consistency so that the right parameters receive the right</p>
-]]></content>
-        </item>
-        
-        <item>
             <title>Source Code Instrumentation and LLVM</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/06/27/source-code-instrumentation-and-llvm/</link>
-            <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/09/28/source-code-instrumentation-and-llvm/</link>
+            <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/06/27/source-code-instrumentation-and-llvm/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/09/28/source-code-instrumentation-and-llvm/</guid>
             <description>Source Code Instrumentation adds specific code meant for instrumentation/analysis, called Instrumentation Code, to the source files of the program under consideration. The source files are then compiled and executed. Since the instrumentation code is integrated into the binary itself, the output from the execution includes the dump of the instrumentation code which can then be used for further analysis and component testing.
  Intermediate Representations Representation of a program in a state that lies between the source code and the compiled binary(specifically, the assembly code).</description>
             <content type="html"><![CDATA[<p><strong>Source Code Instrumentation</strong> adds specific code meant for instrumentation/analysis, called <strong>Instrumentation Code</strong>, to the source files of the program under consideration. The source files are then compiled and executed. Since the instrumentation code is integrated into the binary itself, the output from the execution includes the dump of the instrumentation code which can then be used for further analysis and component testing.</p>
@@ -2327,10 +2556,10 @@ Function Name: _GLOBAL__sub_I_calc.cpp
         
         <item>
             <title>Symbolic Execution and Angr</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/06/16/symbolic-execution-and-angr/</link>
-            <pubDate>Tue, 16 Jun 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/09/04/symbolic-execution-and-angr/</link>
+            <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/06/16/symbolic-execution-and-angr/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/09/04/symbolic-execution-and-angr/</guid>
             <description>Symbolic Execution is mainly focused on converting a program made up of a concrete set of instructions into an equation-like format. This is achieved with two core components:
  Symbols Different values in a program(such as the user input) are substituted with Symbols(variables or placeholders). These symbols pertain to a domain full of values, allowing us to explore the program in a much more open form, basically “walking through the program” with a domain full of values(handled by any one of the constraint solving backends like Z3) instead of walking a fixed path due to a fixed hard-coded value/input.</description>
             <content type="html"><![CDATA[<p><strong>Symbolic Execution</strong> is mainly focused on converting a program made up of a concrete set of instructions into an equation-like format. This is achieved with two core components:</p>
@@ -2589,10 +2818,10 @@ Function Name: _GLOBAL__sub_I_calc.cpp
         
         <item>
             <title>Constraint Solvers and Z3</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/06/05/constraint-solvers-and-z3/</link>
-            <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/08/18/constraint-solvers-and-z3/</link>
+            <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/06/05/constraint-solvers-and-z3/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/08/18/constraint-solvers-and-z3/</guid>
             <description>A constraint solver must be versatile, that is, it should be able to act as an:
  Interpreter: Given the input, solve for the output of the equation. Inverter: Given the output, solve for the input of the equation. Synthesizer: Act as both Interpreter and Inverter.   Formulating Programs Assume a formula 𝑆ₚ(𝑥, 𝑦) which holds if and only if program P(x) outputs value y such that:
 Program: f(𝑥) { return 𝑥 + 𝑥 }</description>
@@ -2728,11 +2957,81 @@ Program: f(𝑥) { return 𝑥 + 𝑥 }</description>
         </item>
         
         <item>
-            <title>Serial 2</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/05/31/serial-2/</link>
-            <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
+            <title>Classification of Malwares through Dynamic Analysis</title>
+            <link>https://hexterisk.github.io/blog/posts/2020/08/06/classification-of-malwares-through-dynamic-analysis/</link>
+            <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/05/31/serial-2/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/08/06/classification-of-malwares-through-dynamic-analysis/</guid>
+            <description>Malwares come in many forms. Sometimes it&amp;rsquo;s a standalone binary whereas sometimes it&amp;rsquo;s a legitimate software having a malware inside it. Sometimes it&amp;rsquo;s a binary with malformed metadata and packed bytes to throw off the analyst whereas sometimes it acts as a downloader/launcher for a more malicious binary. Information extracted from static analysis can therefore be deemed unreliable and not as accurate when compared with information extracted from dynamic analysis.</description>
+            <content type="html"><![CDATA[<p>Malwares come in many forms. Sometimes it&rsquo;s a standalone binary whereas sometimes it&rsquo;s a legitimate software having a malware inside it. Sometimes it&rsquo;s a binary with malformed metadata and packed bytes to throw off the analyst whereas sometimes it acts as a downloader/launcher for a more malicious binary. Information extracted from static analysis can therefore be deemed unreliable and not as accurate when compared with information extracted from dynamic analysis.</p>
+<p>Dynamic analysis involves analyzing the executable&rsquo;s behavior in a controlled environment. All the actions performed and modifications to system settings cause by the executable are recorded and analyzed afterwards. This process is usually automated using sandboxes such as Cuckoo Sandbox logging the behavior.</p>
+<p> </p>
+<h2 id="feature-extraction">Feature Extraction</h2>
+<p>The following features can be extracted from a dynamic analysis log:</p>
+<ol>
+<li>Registry Keys<br>
+Windows registry contains configuration information about the system, installed apps and mounted devices. Any modifications made to the registry can be used to understand what sort of environment the executable wants to set up for it&rsquo;s execution. Therefore, registry keys read, written, opened and deleted can be useful as a feature.</li>
+<li>Files<br>
+The logs record any changes made to the file structure of the system. Any files copied, created, written or read, and any of these operations failing can be used as a feature to judge the executable&rsquo;s characteristics. Ransomware and lockers would have high number of file system accesses.</li>
+<li>DLLs<br>
+Native exported functions used by an executable can also help form a rough idea of the task it is trying to achieve. Therefore, the DLLs loaded by the executable can be used as a feature.</li>
+<li>API Calls<br>
+APIs are sets of subroutines used by software to communicate with the hardware. API calls made by the executable would give a faint idea of the functions the executable is trying to perform. Therefore, all the unique API calls made, successful or failed can be summarized and used as a feature.</li>
+<li>IPs and DNS<br>
+Logged network traffic can be used to observe the connections and queries that the executable tried. These can then be used to fingerprint traffic flows in the pcaps.</li>
+<li>API Call Sequence<br>
+The order of API calls made by an executable is the closest one can get to it&rsquo;s behavior since an ordered call sequence can define a particular intent.</li>
+</ol>
+<p>Different sets of these features can be used to try out the performance of the models.</p>
+<p>The API Call Sequence feature can be independently used for behavior fingerprinting. The APIs can be divided into different sets to create a signature and then a language model can be used on a dataset of signatures.</p>
+<p>A POC working on malware classification using dynamic analysis is in this <a href="https://github.com/hexterisk/dynamic-malwired/">repository</a>.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Classification of Malwares through Static Analysis</title>
+            <link>https://hexterisk.github.io/blog/posts/2020/08/05/classification-of-malwares-through-static-analysis/</link>
+            <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://hexterisk.github.io/blog/posts/2020/08/05/classification-of-malwares-through-static-analysis/</guid>
+            <description>Static analysis is the analysis of an executable file on a structural bases without executing it in controlled environment. It is the analysis of the executable&amp;rsquo;s static attributes such as different sections and memory characteristics.
+Therefore, static analysis of a PE allows extraction of a lot of metadata that can be useful in further analysis such as names of sections, imported DLLs and strings present which gives an early idea of the functions performed by the binary in question.</description>
+            <content type="html"><![CDATA[<p>Static analysis is the analysis of an executable file on a structural bases without executing it in controlled environment. It is the analysis of the executable&rsquo;s static attributes such as different sections and memory characteristics.</p>
+<p>Therefore, static analysis of a PE allows extraction of a lot of metadata that can be useful in further analysis such as names of sections, imported DLLs and strings present which gives an early idea of the functions performed by the binary in question. Malicious binaries with unstructured and improperly formatted metadata (done to achieve sophisticated levels of obfuscation and anti-debugging/anti-reversing defenses) can raise suspicions since a benign PE generally has a well-formed and valid metadata. Therefore, static analysis has been a popular approach towards malware detection in PEs. Since execution of the binary is not required, this approach is much more lightweight and resource-conserving. This allows security teams and researchers quickly perform a preliminary analysis.</p>
+<p>The metadata extracted from the PEs to be used as features, however, is mostly unreliable because of it&rsquo;s extreme variance and invalidity.</p>
+<p> </p>
+<h2 id="feature-extraction">Feature Extraction</h2>
+<p>The following features can be extracted from a PE:</p>
+<ol>
+<li>General File Information<br>
+General information about the binary such as it&rsquo;s size and other basic information parsed from the PE header: virtual size of the binary, resources, re-locations and symbols.</li>
+<li>Header Information<br>
+We parse different headers and extract different data points relevant to the said headers. For example. we can extract timestamps and image characteristics from the COFF header, DLL characteristics an linker versions from the Optional header.</li>
+<li>Imported Functions<br>
+Parsing the IAT(Import Address Table) can tell us about the imported functions by the libraries used by the binary. These strings can be hashed and used as features. Total number of imported functions is in General File Information.</li>
+<li>Exported Functions<br>
+The functions exported by the binary can give us a vague idea if it works as a support to some other binary, and what functions it can perform. Total number of exported functions is in General File Information.Imported Functions</li>
+<li>Section Information<br>
+Properties of each section such as it&rsquo;s size, entropy and list of strings can help capture the characteristics of that section.</li>
+<li>Byte Histogram<br>
+A histogram can be generated from all the bytes of the binary and normalized to be used as a feature.</li>
+<li>Byte-Entropy Histogram<br>
+A histogram can be generated from the byte-entropy of the binary for an approximation of a byte&rsquo;s joint distribution to the entropy. It can then be normalized and used as a feature.</li>
+<li>Strings<br>
+Collection of subsequent printable bytes can be extremely unreliable since any random byte combination(of at least length 5) would qualify as a string. However, it provides distinct information in comparison to the byte histogram since strings can capture occurrences of URLs, registry keys and file names.</li>
+</ol>
+<p>These features can be used to form a general idea about the PE before executing it.</p>
+<p>Sample structure info after running a PE through a parser is shown in this <a href="https://github.com/hexterisk/static-malwired/blob/master/static_info.txt">file</a>.</p>
+<p>A POC working on malware classification using static analysis is in this <a href="https://github.com/hexterisk/static-malwired">repository</a>.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Serial 2</title>
+            <link>https://hexterisk.github.io/blog/posts/2020/07/30/serial-2/</link>
+            <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://hexterisk.github.io/blog/posts/2020/07/30/serial-2/</guid>
             <description>Name: serial: 2 Date release: 27 Sep 2019 Author: sk4 Series: serial   Initial Discovery VMIP is the VM’s IP Address
 LHIP is the Local Host’s IP Address
 Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.
@@ -3050,10 +3349,10 @@ loop <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x4009c9</
         
         <item>
             <title>Serial 1</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/05/29/serial-1/</link>
-            <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/07/22/serial-1/</link>
+            <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/05/29/serial-1/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/07/22/serial-1/</guid>
             <description>Name: serial: 1 Date release: 20 Aug 2019 Author: sk4 Series: serial   Initial Discovery VMIP is the VM’s IP Address
 LHIP is the Local Host’s IP Address
 Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.
@@ -3208,10 +3507,10 @@ Output of netdiscover.
         
         <item>
             <title>Taint Analysis</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/05/23/taint-analysis/</link>
-            <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/07/17/taint-analysis/</link>
+            <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/05/23/taint-analysis/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/07/17/taint-analysis/</guid>
             <description>Taint Analysis is a program analysis technique that allows you to determine the influence that a selected program state has on other parts of the program state. Taint any data that a program receives from the network, track that data, and raise an alert if it affects the program counter. If an operation uses the value of some tainted object, say X, to derive a value for another, say Y, then object Y becomes tainted.</description>
             <content type="html"><![CDATA[<p><strong>Taint Analysis</strong> is a program analysis technique that allows you to determine the influence that a selected program state has on other parts of the program state. Taint any data that a program receives from the network, track that data, and raise an alert if it affects the program counter. If an operation uses the value of some tainted object, say <em>X</em>, to derive a value for another, say <em>Y</em>, then object <em>Y</em> becomes tainted. Object <em>X</em> tainted the object <em>Y</em>. Taint Analysis can be classified into two types.</p>
 <p> </p>
@@ -3283,10 +3582,10 @@ Output of netdiscover.
         
         <item>
             <title>Binary Obfuscation</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/05/14/binary-obfuscation/</link>
-            <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/07/08/binary-obfuscation/</link>
+            <pubDate>Wed, 08 Jul 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/05/14/binary-obfuscation/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/07/08/binary-obfuscation/</guid>
             <description>The main aim of Binary Obfuscation is to hinder the process of static analysis of a binary. Renaming the symbols(variables and functions) of a binary implies that the clues as to what data a variable holds or what task a function performs that could be obtained from their names, are lost. This makes it a little harder for the analysts to keep a track of all the symbols without documenting them.</description>
             <content type="html"><![CDATA[<p>The main aim of <strong>Binary Obfuscation</strong> is to hinder the process of static analysis of a binary. </p>
 <p>Renaming the <strong>symbols</strong>(variables and functions) of a binary implies that the clues as to what data a variable holds or what task a function performs that could be obtained from their names, are lost. This makes it a little harder for the analysts to keep a track of all the symbols without documenting them. </p>
@@ -3331,10 +3630,10 @@ Output of netdiscover.
         
         <item>
             <title>Binary Instrumentation</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/05/10/binary-instrumentation/</link>
-            <pubDate>Sun, 10 May 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/06/27/binary-instrumentation/</link>
+            <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/05/10/binary-instrumentation/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/06/27/binary-instrumentation/</guid>
             <description>Inserting new code at any point in an existing binary to observe or modify the binary’s behavior in some way is called instrumenting the binary. The point where you add new code is called the instrumentation point, and the added code is called instrumentation code.
 Tradeoffs of Dynamic and Static Binary Instrumentation.
  Static Binary Instrumentation Static Binary Instrumentation works by disassembling a binary and then adding instrumentation code where needed and storing the updated binary permanently on disk.</description>
@@ -3400,10 +3699,10 @@ Tradeoffs of Dynamic and Static Binary Instrumentation.
         
         <item>
             <title>Principles of Symbolic Execution</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/05/02/principles-of-symbolic-execution/</link>
-            <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/06/11/principles-of-symbolic-execution/</link>
+            <pubDate>Thu, 11 Jun 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/05/02/principles-of-symbolic-execution/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/06/11/principles-of-symbolic-execution/</guid>
             <description>Symbolic Execution, or symbex, is a software analysis technique that expresses program state in terms of logical formulas that you can automatically reason about to answer complex questions about a program’s behavior. Can automatically increase the code coverage of dynamic analyses by generating new inputs that lead to unexplored program paths. Apply it sparingly and carefully because of scalability issues.
  Symbex executes (or emulates) an application with symbolic values.  Symbolic values represent a domain covering possible concrete values, represented by symbols like φ.</description>
             <content type="html"><![CDATA[<p><strong>Symbolic Execution</strong>, or <strong>symbex</strong>, is a software analysis technique that expresses program state in terms of logical formulas that you can automatically reason about to answer complex questions about a program’s behavior. Can automatically increase the code coverage of dynamic analyses by generating new inputs that lead to unexplored program paths. Apply it sparingly and carefully because of scalability issues.</p>
@@ -3562,10 +3861,10 @@ and more.</li>
         
         <item>
             <title>Set 6</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/04/25/set-6/</link>
-            <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/06/01/set-6/</link>
+            <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/04/25/set-6/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/06/01/set-6/</guid>
             <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
  Challenge 41: Implement unpadded message recovery oracle Link
  Nate Lawson says we should stop calling it &amp;ldquo;RSA padding&amp;rdquo; and start calling it &amp;ldquo;RSA armoring&amp;rdquo;. Here&amp;rsquo;s why.
@@ -4507,10 +4806,10 @@ recovered_plaintext <span style="color:#f92672">=</span> padding_oracle_attack(c
         
         <item>
             <title>Set 5</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/04/18/set-5/</link>
-            <pubDate>Sat, 18 Apr 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/05/17/set-5/</link>
+            <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/04/18/set-5/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/05/17/set-5/</guid>
             <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
 Challenge 33: Implement Diffie-Hellman Link
  For one of the most important algorithms in cryptography this exercise couldn&amp;rsquo;t be a whole lot easier.
@@ -5475,10 +5774,10 @@ RSA_Broadcast_Attack(message<span style="color:#f92672">.</span>encode(), RSA(<s
         
         <item>
             <title>Set 4</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/04/14/set-4/</link>
-            <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/05/06/set-4/</link>
+            <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/04/14/set-4/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/05/06/set-4/</guid>
             <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
 Challenge 25: Break &amp;ldquo;random access read/write&amp;rdquo; AES CTR Link
  Back to CTR. Encrypt the recovered plaintext from this file (the ECB exercise) under CTR with a random key (for this exercise the key should be unknown to you, but hold on to it).
@@ -6271,10 +6570,10 @@ response <span style="color:#f92672">=</span> app<span style="color:#f92672">.</
         
         <item>
             <title>Set 3</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/04/09/set-3/</link>
-            <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/04/29/set-3/</link>
+            <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/04/09/set-3/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/04/29/set-3/</guid>
             <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
  Challenge 17: The CBC padding oracle Link
  This is the best-known attack on modern block-cipher cryptography.
@@ -6989,10 +7288,10 @@ deciphered_bytes <span style="color:#f92672">=</span> MT19937_CTR(cipher_bytes, 
         
         <item>
             <title>Set 2</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/04/05/set-2/</link>
-            <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/04/24/set-2/</link>
+            <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/04/05/set-2/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/04/24/set-2/</guid>
             <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
  Challenge 9: Implement PKCS#7 padding Link
  A block cipher transforms a fixed-sized block (usually 8 or 16 bytes) of plaintext into ciphertext. But we almost never want to transform a single block; we encrypt irregularly-sized messages.
@@ -7761,10 +8060,10 @@ Number of bytes of padding required:  7</p>
         
         <item>
             <title>Set 1</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/04/02/set-1/</link>
-            <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/04/20/set-1/</link>
+            <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/04/02/set-1/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/04/20/set-1/</guid>
             <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
 Challenge 1: Convert hex to base64 Link
  The string:
@@ -8310,65 +8609,11 @@ ECB ciphered text index: 132/205</p>
         </item>
         
         <item>
-            <title>Simple Code Injection Techniques for ELF</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/29/simple-code-injection-techniques-for-elf/</link>
-            <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
-            
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/29/simple-code-injection-techniques-for-elf/</guid>
-            <description>Bare-Metal Binary Modification  Modify an existing binary is by directly editing the bytes of a binary file in hexadecimal format, using a program like hexedit.  Use a disassembler to identify the code or data bytes to be changed and then use a hex editor to make the changes. Advantage: Simple and requires only basic tools. Any padding bytes, dead code (such as unused functions), or unused data, can be overwritten with something new.</description>
-            <content type="html"><![CDATA[<h2 id="bare-metal-binary-modification">Bare-Metal Binary Modification</h2>
-<ul>
-<li>Modify an existing binary is by directly editing the bytes of a binary file in hexadecimal format, using a program like <em>hexedit</em>.
-<ul>
-<li>Use a disassembler to identify the code or data bytes to be changed and then use a hex editor to make the changes.</li>
-<li>Advantage: Simple and requires only basic tools. Any padding bytes, dead code (such as unused functions), or unused data, can be overwritten with something new.</li>
-<li>Disadvantage: Only allows in-place editing. Can change code or data bytes but not add anything new. Inserting a new byte causes all the bytes after it to shift to another address, which breaks references to the shifted bytes. It’s difficult (or even impossible) to correctly identify and fix all the broken references, because the relocation information needed for this is usually discarded after the linking phase.</li>
-<li>Works for cases like replacing malware&rsquo;s anti-debugging checks with nop.</li>
-<li><strong>Off-by-one</strong> bugs typically occur in loops when the programmer uses an erroneous loop condition that causes the loop to read or write one too few or one too many bytes.</li>
-</ul>
-</li>
-</ul>
-<p> </p>
-<h2 id="modifying-shared-library-behavior-using-ld_preload">Modifying Shared Library Behavior Using LD_PRELOAD</h2>
-<ul>
-<li><strong>LD_PRELOAD</strong> is an environment variable influencing the behavior of the dynamic linker. It allows you to specify one or more libraries for the linker to load before any other library, including standard system libraries such as libc.so. If a preloaded library contains a function with the same name as a function in a library loaded later, the first function is the one that will be used at runtime. This allows you to override library functions (even standard library functions like malloc or printf) with your own versions of those functions.</li>
-<li>The <strong>dlfcn.h</strong> header is often included when writing libraries for use with LD_PRELOAD because it provides the <strong>dlsym</strong> function.</li>
-</ul>
-<p> </p>
-<h2 id="injecting-a-code-section">Injecting a Code Section</h2>
-<p><img src="/Simple_Code_Injection_Techniques_for_ELF/image.png" alt="">
-<em>Replacing .note.ABI-tag with an injected code section.</em></p>
-<p>Step ➊ is to add a new section to an ELF binary, you first inject the bytes that the section will contain by appending them to the end of the binary. Next, you create a section header ➋ and a program header ➌ for the injected section. The program header table is usually located right after the executable header ➍, thus overwrite an existing program header instead of adding an extra one to prevent shifting of all the sections and headers that come after it.</p>
-<ul>
-<li>You can always safely overwrite is the <strong>PT_NOTE header</strong>, which describes the PT_NOTE segment. The PT_NOTE segment encompasses sections that contain auxiliary information about the binary. If this information is missing, the loader simply assumes it’s a native binary.</li>
-</ul>
-<p>Step ➋ is overwriting one of the .note.* section headers to turn it into a header for the new code section (.injected). Choosing to overwrite the header for the .note.ABI-tag section, the sh_type is changed from SHT_NOTE to SHT_PROGBITS to denote that the header now describes a code section. Moreover, the sh_addr, sh_offset, and sh_size fields are changed to describe the location and size of the new .injected section instead of the now obsolete .note.ABI-tag section. Finally, the section alignment (sh_addralign) is changed to 16 bytes to ensure that the code will be properly aligned when loaded into memory, and the SHF_EXECINSTR flag is added to the sh_flags field to mark the section as executable.</p>
-<p>Step ➌ is where the PT_NOTE program header is changed by setting p_type to PT_LOAD to indicate that the header now describes a loadable segment instead of a PT_NOTE segment. This causes the loader to load the segment (which encompasses the new .injected section) into memory when the program starts.</p>
-<p>Step ➍ is redirecting the entry point (e_entry field in the ELF executable header), is made to point to an address in the new .injected section, instead of the original entry point, which is usually somewhere in .text. Done only if some code in the .injected section is to be run right at the start of the program.</p>
-<p> </p>
-<h2 id="calling-injected-code">Calling Injected Code</h2>
-<p>Injected code might be required to call at any instant during the execution of the binary. Following are the ways to call the injected code:</p>
-<h3 id="entry-point-modification">Entry Point Modification</h3>
-<p>Find entry point address via readelf and replace those bytes with the address of injected code via hex bytes editors or specific scripts.</p>
-<h3 id="hijacking-constructors-and-destructors">Hijacking Constructors and Destructors</h3>
-<p>ELF binaries compiled with gcc contain sections called .init_array and .fini_array, which contain pointers to a series of constructors and destructors, respectively. By overwriting one of these pointers, the injected code can be invoked before or after the binary’s main function, depending on which one is overwritten.</p>
-<h3 id="hijacking-got-entries">Hijacking GOT Entries</h3>
-<p>Use objdump to view the .got.plt section to find out the address stored in the GOT entry used by the PLT stub. This address is replaced by the address of the injected code. Can also be done at runtime since the .got.plt section is writable.</p>
-<h3 id="hijacking-plt-entries">Hijacking PLT Entries</h3>
-<p>Modify the PLT stub itself. Replace the indirect jmp instruction to a relative offset with a direct jmp instruction to the injected code inside the stub.</p>
-<h3 id="redirecting-direct-and-indirect-calls">Redirecting Direct and Indirect Calls</h3>
-<p>Use a disassembler to locate the calls to modify and then overwrite them, using a hex editor to replace them with calls to the injected function instead of the original.</p>
-<p>When redirecting an indirect call (as opposed to a direct one), the easiest way is to replace the indirect call with a direct one. However, this isn’t always possible since the encoding of the direct call may be longer than the encoding of the indirect call. In that case, you’ll first need to find the address of the indirectly called function that you want to replace, for instance, by using gdb to set a breakpoint on the indirect call instruction and inspecting the target address. Once you know the address of the function to replace, you can use objdump or a hex editor to search for the address in the binary’s .rodata section. If you’re lucky, this may reveal a function pointer containing the target address. You can then use a hex editor to overwrite this function pointer, setting it to the address of the injected code. If you’re unlucky, the function pointer may be computed in some way at runtime, requiring more complex hex editing to replace the computed target with the address of the injected function.</p>
-<p>Citation: <a href="https://nostarch.com/binaryanalysis">Practical Binary Analysis</a>.</p>
-]]></content>
-        </item>
-        
-        <item>
             <title>Disassembly and Binary Analysis Fundamentals</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/23/disassembly-and-binary-analysis-fundamentals/</link>
-            <pubDate>Mon, 23 Mar 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/04/02/disassembly-and-binary-analysis-fundamentals/</link>
+            <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/23/disassembly-and-binary-analysis-fundamentals/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/04/02/disassembly-and-binary-analysis-fundamentals/</guid>
             <description>Static Disassembly When people say disassembly, they usually mean static disassembly, which involves extracting the instructions from a binary without executing it.
 Linear Disassembly Disassembly desynchronization due to inline data interpreted as code. The instruction where the disassembly resynchronizes is shaded gray.
  It iterates through all code segments in a binary, decoding all bytes consecutively and parsing them into a list of instructions. Many simple disassemblers, including objdump, use this approach.</description>
@@ -8603,10 +8848,10 @@ x = x + 10 					# x ∈ [15,∞]</p>
         
         <item>
             <title>Trace Analysis</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/18/trace-analysis/</link>
-            <pubDate>Wed, 18 Mar 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/03/25/trace-analysis/</link>
+            <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/18/trace-analysis/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/03/25/trace-analysis/</guid>
             <description>System Call Trace strace can be used to investigate system call behavior. In some cases, you may want to attach strace to a running process. To do this, you need to use the -p pid option, where pid is the process ID of the process you want to attach to.
 $ strace ./ctf show_me_the_flag➊ execve(&amp;#34;./ctf&amp;#34;, [&amp;#34;./ctf&amp;#34;, &amp;#34;show_me_the_flag&amp;#34;], [/* 73 vars */]) = 0brk(NULL) = 0x1053000access(&amp;#34;/etc/ld.so.nohwcap&amp;#34;, F_OK) = -1 ENOENT (No such file or directory)mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f703477e000access(&amp;#34;/etc/ld.</description>
             <content type="html"><![CDATA[<h2 id="system-call-trace">System Call Trace</h2>
@@ -8742,10 +8987,10 @@ std<span style="color:#f92672">::</span>char_traits<span style="color:#f92672">&
         
         <item>
             <title>Stack and it&#39;s Frames</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/13/stack-and-its-frames/</link>
-            <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/03/19/stack-and-its-frames/</link>
+            <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/13/stack-and-its-frames/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/03/19/stack-and-its-frames/</guid>
             <description>Stack is a data structure, and means exactly what it&amp;rsquo;s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a LIFO(last in, first out) structure. Memory for functions, local variables, and flow control is stored in the stack.
  Stack Layout The stack grows from higher addresses to lower addresses.</description>
             <content type="html"><![CDATA[<p><strong>Stack</strong> is a data structure, and means exactly what it&rsquo;s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a <strong>LIFO</strong>(last in, first out) structure. </p>
@@ -8833,11 +9078,65 @@ std<span style="color:#f92672">::</span>char_traits<span style="color:#f92672">&
         </item>
         
         <item>
-            <title>The PE Format</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/09/the-pe-format/</link>
-            <pubDate>Mon, 09 Mar 2020 00:00:00 +0000</pubDate>
+            <title>Simple Code Injection Techniques for ELF</title>
+            <link>https://hexterisk.github.io/blog/posts/2020/03/15/simple-code-injection-techniques-for-elf/</link>
+            <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/09/the-pe-format/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/03/15/simple-code-injection-techniques-for-elf/</guid>
+            <description>Bare-Metal Binary Modification  Modify an existing binary is by directly editing the bytes of a binary file in hexadecimal format, using a program like hexedit.  Use a disassembler to identify the code or data bytes to be changed and then use a hex editor to make the changes. Advantage: Simple and requires only basic tools. Any padding bytes, dead code (such as unused functions), or unused data, can be overwritten with something new.</description>
+            <content type="html"><![CDATA[<h2 id="bare-metal-binary-modification">Bare-Metal Binary Modification</h2>
+<ul>
+<li>Modify an existing binary is by directly editing the bytes of a binary file in hexadecimal format, using a program like <em>hexedit</em>.
+<ul>
+<li>Use a disassembler to identify the code or data bytes to be changed and then use a hex editor to make the changes.</li>
+<li>Advantage: Simple and requires only basic tools. Any padding bytes, dead code (such as unused functions), or unused data, can be overwritten with something new.</li>
+<li>Disadvantage: Only allows in-place editing. Can change code or data bytes but not add anything new. Inserting a new byte causes all the bytes after it to shift to another address, which breaks references to the shifted bytes. It’s difficult (or even impossible) to correctly identify and fix all the broken references, because the relocation information needed for this is usually discarded after the linking phase.</li>
+<li>Works for cases like replacing malware&rsquo;s anti-debugging checks with nop.</li>
+<li><strong>Off-by-one</strong> bugs typically occur in loops when the programmer uses an erroneous loop condition that causes the loop to read or write one too few or one too many bytes.</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h2 id="modifying-shared-library-behavior-using-ld_preload">Modifying Shared Library Behavior Using LD_PRELOAD</h2>
+<ul>
+<li><strong>LD_PRELOAD</strong> is an environment variable influencing the behavior of the dynamic linker. It allows you to specify one or more libraries for the linker to load before any other library, including standard system libraries such as libc.so. If a preloaded library contains a function with the same name as a function in a library loaded later, the first function is the one that will be used at runtime. This allows you to override library functions (even standard library functions like malloc or printf) with your own versions of those functions.</li>
+<li>The <strong>dlfcn.h</strong> header is often included when writing libraries for use with LD_PRELOAD because it provides the <strong>dlsym</strong> function.</li>
+</ul>
+<p> </p>
+<h2 id="injecting-a-code-section">Injecting a Code Section</h2>
+<p><img src="/Simple_Code_Injection_Techniques_for_ELF/image.png" alt="">
+<em>Replacing .note.ABI-tag with an injected code section.</em></p>
+<p>Step ➊ is to add a new section to an ELF binary, you first inject the bytes that the section will contain by appending them to the end of the binary. Next, you create a section header ➋ and a program header ➌ for the injected section. The program header table is usually located right after the executable header ➍, thus overwrite an existing program header instead of adding an extra one to prevent shifting of all the sections and headers that come after it.</p>
+<ul>
+<li>You can always safely overwrite is the <strong>PT_NOTE header</strong>, which describes the PT_NOTE segment. The PT_NOTE segment encompasses sections that contain auxiliary information about the binary. If this information is missing, the loader simply assumes it’s a native binary.</li>
+</ul>
+<p>Step ➋ is overwriting one of the .note.* section headers to turn it into a header for the new code section (.injected). Choosing to overwrite the header for the .note.ABI-tag section, the sh_type is changed from SHT_NOTE to SHT_PROGBITS to denote that the header now describes a code section. Moreover, the sh_addr, sh_offset, and sh_size fields are changed to describe the location and size of the new .injected section instead of the now obsolete .note.ABI-tag section. Finally, the section alignment (sh_addralign) is changed to 16 bytes to ensure that the code will be properly aligned when loaded into memory, and the SHF_EXECINSTR flag is added to the sh_flags field to mark the section as executable.</p>
+<p>Step ➌ is where the PT_NOTE program header is changed by setting p_type to PT_LOAD to indicate that the header now describes a loadable segment instead of a PT_NOTE segment. This causes the loader to load the segment (which encompasses the new .injected section) into memory when the program starts.</p>
+<p>Step ➍ is redirecting the entry point (e_entry field in the ELF executable header), is made to point to an address in the new .injected section, instead of the original entry point, which is usually somewhere in .text. Done only if some code in the .injected section is to be run right at the start of the program.</p>
+<p> </p>
+<h2 id="calling-injected-code">Calling Injected Code</h2>
+<p>Injected code might be required to call at any instant during the execution of the binary. Following are the ways to call the injected code:</p>
+<h3 id="entry-point-modification">Entry Point Modification</h3>
+<p>Find entry point address via readelf and replace those bytes with the address of injected code via hex bytes editors or specific scripts.</p>
+<h3 id="hijacking-constructors-and-destructors">Hijacking Constructors and Destructors</h3>
+<p>ELF binaries compiled with gcc contain sections called .init_array and .fini_array, which contain pointers to a series of constructors and destructors, respectively. By overwriting one of these pointers, the injected code can be invoked before or after the binary’s main function, depending on which one is overwritten.</p>
+<h3 id="hijacking-got-entries">Hijacking GOT Entries</h3>
+<p>Use objdump to view the .got.plt section to find out the address stored in the GOT entry used by the PLT stub. This address is replaced by the address of the injected code. Can also be done at runtime since the .got.plt section is writable.</p>
+<h3 id="hijacking-plt-entries">Hijacking PLT Entries</h3>
+<p>Modify the PLT stub itself. Replace the indirect jmp instruction to a relative offset with a direct jmp instruction to the injected code inside the stub.</p>
+<h3 id="redirecting-direct-and-indirect-calls">Redirecting Direct and Indirect Calls</h3>
+<p>Use a disassembler to locate the calls to modify and then overwrite them, using a hex editor to replace them with calls to the injected function instead of the original.</p>
+<p>When redirecting an indirect call (as opposed to a direct one), the easiest way is to replace the indirect call with a direct one. However, this isn’t always possible since the encoding of the direct call may be longer than the encoding of the indirect call. In that case, you’ll first need to find the address of the indirectly called function that you want to replace, for instance, by using gdb to set a breakpoint on the indirect call instruction and inspecting the target address. Once you know the address of the function to replace, you can use objdump or a hex editor to search for the address in the binary’s .rodata section. If you’re lucky, this may reveal a function pointer containing the target address. You can then use a hex editor to overwrite this function pointer, setting it to the address of the injected code. If you’re unlucky, the function pointer may be computed in some way at runtime, requiring more complex hex editing to replace the computed target with the address of the injected function.</p>
+<p>Citation: <a href="https://nostarch.com/binaryanalysis">Practical Binary Analysis</a>.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>The PE Format</title>
+            <link>https://hexterisk.github.io/blog/posts/2020/03/12/the-pe-format/</link>
+            <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://hexterisk.github.io/blog/posts/2020/03/12/the-pe-format/</guid>
             <description>PE is a modified version of the Common Object File Format (COFF), thus also referred to as PE/COFF. The 64-bit version of PE is called PE32+. The structure is defined in WinNT.h, which is included in the Microsoft Windows Software Developer Kit.  PE32+ binary structure.
  An MS-DOS header is included for backward compatibility. Thus it can also be interpreted as an MS-DOS binary. The main function of the MS-DOS header is to describe how to load and execute an MS-DOS stub, which comes right after the MSDOS header.</description>
             <content type="html"><![CDATA[<ul>
@@ -8897,10 +9196,10 @@ std<span style="color:#f92672">::</span>char_traits<span style="color:#f92672">&
         
         <item>
             <title>The ELF Format</title>
-            <link>https://hexterisk.github.io/blog/posts/2020/03/04/the-elf-format/</link>
-            <pubDate>Wed, 04 Mar 2020 00:00:00 +0000</pubDate>
+            <link>https://hexterisk.github.io/blog/posts/2020/03/07/the-elf-format/</link>
+            <pubDate>Sat, 07 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>https://hexterisk.github.io/blog/posts/2020/03/04/the-elf-format/</guid>
+            <guid>https://hexterisk.github.io/blog/posts/2020/03/07/the-elf-format/</guid>
             <description>ELF binaries really consist of only four types of components:  Executable Header Program Headers (optional) Sections Section Headers, one per section (optional)  64-bit ELF binary structure.
  Executable Header  Every ELF file starts with an executable header, which is just a structured series of bytes telling you that it’s an ELF file and other metadata. Format of executable header: /usr/include/elf.h  typedef struct {unsigned char e_ident[16]; /* Magic number and other info */uint16_t e_type; /* Object file type */uint16_t e_machine; /* Architecture */uint32_t e_version; /* Object file version */uint64_t e_entry; /* Entry point virtual address */uint64_t e_phoff; /* Program header table file offset */uint64_t e_shoff; /* Section header table file offset */uint32_t e_flags; /* Processor-specific flags */uint16_t e_ehsize; /* ELF header size in bytes */uint16_t e_phentsize; /* Program header table entry size */uint16_t e_phnum; /* Program header table entry count */uint16_t e_shentsize; /* Section header table entry size */uint16_t e_shnum; /* Section header table entry count */uint16_t e_shstrndx; /* Section header string table index */} Elf64_Ehdr; Section Headers  The code and data in an ELF binary are logically divided into contiguous non-overlapping chunks called Sections.</description>
             <content type="html"><![CDATA[<p>ELF binaries really consist of only four types of components: </p>
@@ -9341,6 +9640,105 @@ Num:	Value 				Size 	Type 	Bind 	Vis 		Ndx 	Name
 String dump of section <span style="color:#960050;background-color:#1e0010">&#39;</span>.interp<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">:</span>
 [ <span style="color:#ae81ff">0</span>] <span style="color:#f92672">/</span>lib64<span style="color:#f92672">/</span>ld<span style="color:#f92672">-</span>linux<span style="color:#f92672">-</span>x86<span style="color:#f92672">-</span><span style="color:#ae81ff">64.</span>so<span style="color:#ae81ff">.2</span>
 </code></pre></div><p>Citation: <a href="https://nostarch.com/binaryanalysis">Practical Binary Analysis</a>.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Dockerise MySQL &#43; phpMyAdmin</title>
+            <link>https://hexterisk.github.io/blog/posts/2020/02/09/dockerise-mysql-phpmyadmin/</link>
+            <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://hexterisk.github.io/blog/posts/2020/02/09/dockerise-mysql-phpmyadmin/</guid>
+            <description>A common requirement in a large number of software projects is a relational database with an easy to use management tool. Considering how often a developer needs this, setting it up everytime from scratch can be a drag. However, with the advent of containerisation, we can have a setup off the ground in a couple of minutes, whether it&amp;rsquo;s a development or a production environment.
+The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific.</description>
+            <content type="html"><![CDATA[<p>A common requirement in a large number of software projects is a relational database with an easy to use management tool. Considering how often a developer needs this, setting it up everytime from scratch can be a drag. However, with the advent of containerisation, we can have a setup off the ground in a couple of minutes, whether it&rsquo;s a development or a production environment.</p>
+<p>The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific. MariaDB is a fork of MySQL and is developed separately, and therefore contains a number of incompatibilities when compared to the standard MySQL. However, the fundamental infrastructure of the database and indexing are the same:</p>
+<ul>
+<li>Data and Table definitions are compatible.</li>
+<li>Client protocols, structures, and APIs are identical.</li>
+<li>MySQL connectors will work with MariaDB without modification.</li>
+<li>Command-line tools and commands are mostly the same.</li>
+</ul>
+<p>In fact, MariaDB developers perform a monthly merge of MariaDB&rsquo;s codebase with MySQL&rsquo;s to ensure running compatibility in future versions. Therefore there shouldn&rsquo;t be any trouble if the developer decides to switch the database in the middle of the development cycle.</p>
+<p>The major difference comes in the number of storage engines supported. MariaDB(Supported <a href="https://mariadb.com/kb/en/library/storage-engines/">storage engines</a>) provides support for more storage engines than MySQL(<a href="https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html">storage engines</a>) does. One must understand that it&rsquo;s not a matter of which one supports more engines, it&rsquo;s a matter of which one supports the engine that meets the requirements.</p>
+<p>I&rsquo;ll be using MySQL for the example. At any time, MySQL can be swapped out with MariaDB by simply replacing the container image.</p>
+<p>One thing to note is that user and password can be set up for phpMyAdmin too, but you need not use them if you are not interested in changing any default configurations(mainly authentication).</p>
+<p> </p>
+<h2 id="instant-approach">Instant Approach</h2>
+<p>The approach that leads to instant deployment of the setup is to deploy containers from the command-line itself.</p>
+<p>This is the boiler plate config. More options like mounting volumes can be used as per requirement.</p>
+<h3 id="deploy-database">Deploy Database</h3>
+<p>Run <code>docker run --name DB_CONTAINER_NAME -e MYSQL_ROOT_PASSWORD=PASSWORD -d mysql:latest</code>.</p>
+<ul>
+<li>Pass the desired name for the container to the <code>--name</code> parameter. Replace <em>DB_CONTAINER_NAME</em> with the desired name.</li>
+<li>Pass the password for the root user of the DB to the <code>-e MYSQL_ROOT_PASSWORD</code> parameter. Replace <em>PASSWORD</em> with the desired password.
+<ul>
+<li>Required by the container.</li>
+</ul>
+</li>
+<li>The <code>-d</code> parameter deploys the container in the “detached” mode, that is, in the background.</li>
+<li>The <code>mysql:latest</code> parameter ensures the container is deployed with the image of latest MySQL. Can be replace with MariaDB as per requirement.</li>
+<li>Username and password for any user(root included) cannot be the same, and neither of these can be equal to the root password.</li>
+</ul>
+<p>The container should deploy with no issues whatsoever. Run <code>docker ps</code> to verify.</p>
+<p><img src="/Dockerise_MySQL_+_phpMyAdmin/2020-07-17-200632-screenshot.png" alt="">
+<em>Sample output for database container.</em></p>
+<p>Following the screenshot, I deployed a MySQL container named <em>test_sql_container</em> with the password <em>rootpassword</em>.</p>
+<h3 id="deploy-phpmyadmin">Deploy phpMyAdmin</h3>
+<p>Run <code>docker run --name CONTAINER_NAME -d --link DB_CONTAINER_NAME:db -p PORT:80 phpmyadmin/phpmyadmin</code>.</p>
+<ul>
+<li>Pass the desired name for the container to the <code>--name</code> parameter. Replace <em>CONTAINER_NAME</em> with the desired name.</li>
+<li>Pass the name of the container deployed for DB previously to the <code>--link</code> parameter. Replace <em>DB_CONTAINER_NAME</em> like before.</li>
+<li>Pass the port to bind the container to the <code>-p</code> parameter. Replace <em>PORT</em> with the desired port number.</li>
+<li>The <code>phpmyadmin/phpmyadmin</code> is the docker image as listed on docker hub.</li>
+</ul>
+<p>The container should deploy with no issues whatsoever. Run <code>docker ps</code> to verify.</p>
+<p><img src="/Dockerise_MySQL_+_phpMyAdmin/2020-07-17-200743-screenshot.png" alt="">
+<em>Sample output for database and management tool containers.</em></p>
+<p>Following the screenshot, I deployed a phpMyAdmin container named <em>test_myadmin_container</em> linked to a database container named <em>test_sql_container</em> attached to port <em>8081</em>.</p>
+<p>Login to phpMyAdmin page on <code>localhost:PORT</code> with <code>root:PASSWORD</code>(username: root and password: PASSWORD), where <em>PORT</em> is the port phpMyAdmin is bound to in the second stage, and the <em>PASSWORD</em> is the root password set in the first stage.</p>
+<p>According to the commands I entered (following the screenshots), I can access the phpMyAdmin dashboard on <code>localhost:8081</code> and I can login using the credentials <code>root:rootpassword</code>.</p>
+<p>DISCLAIMER: These containers are ephemeral and will not save any state since no volumes have been mounted. Any changes made will be lost when the container are closed. Checkout the documentation to see <a href="https://docs.docker.com/storage/volumes/">how to mount volumes</a> if you&rsquo;re not familiar with it.</p>
+<p> </p>
+<h2 id="composed-approach">Composed Approach</h2>
+<p>This approach involves writing a docker-compose file. The content will be as follows.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#34;3.7&#34;</span>
+<span style="color:#66d9ef">services</span>:
+
+  <span style="color:#66d9ef">db-server</span>:
+    <span style="color:#66d9ef">image</span>: mysql:latest
+    <span style="color:#66d9ef">container_name</span>: test_sql_container
+    <span style="color:#66d9ef">restart</span>: always
+    <span style="color:#66d9ef">environment</span>:
+      <span style="color:#66d9ef">MYSQL_ROOT_PASSWORD</span>: secret
+    <span style="color:#66d9ef">ports</span>:
+      - <span style="color:#e6db74">&#34;3306:3306&#34;</span>
+    
+  <span style="color:#66d9ef">phpmyadmin</span>:
+    <span style="color:#66d9ef">image</span>: phpmyadmin/phpmyadmin
+    <span style="color:#66d9ef">container_name</span>: test_myadmin_container
+    <span style="color:#66d9ef">restart</span>: always
+    <span style="color:#66d9ef">environment</span>:
+      <span style="color:#66d9ef">PMA_HOST</span>: db-server
+    <span style="color:#66d9ef">links</span>:
+      - db-server
+    <span style="color:#66d9ef">ports</span>:
+      - <span style="color:#e6db74">&#34;8081:80&#34;</span>
+</code></pre></div><p>Apart from the common parameters such as the <code>image</code> and <code>container_name</code>, following things should be noticed.</p>
+<p>For the database container:</p>
+<ul>
+<li><code>MYSQL_ROOT_PASSWORD</code> parameter can not be given the value “root” for password.</li>
+<li>Username and password for any user(root included) cannot be the same, and neither of these can be equal to the root password.</li>
+</ul>
+<p>For the management panel container:</p>
+<ul>
+<li>An environment variable for <code>PMA_HOST</code> has to be set to the name of the database service(<em>db-server</em> in the file). It defines the address/host name of the database server.</li>
+<li>The database service needs to be explicitly linked to the management panel container using the parameter <code>links</code>.</li>
+</ul>
+<p>Run <code>docker-compose up -d</code> to deploy the containers based on the docker-compose file.</p>
+<p><img src="/Dockerise_MySQL_+_phpMyAdmin/2020-07-17-213248-screenshot.png" alt="">
+<em>Sample output.</em></p>
+<p>The containers have been deployed as follows. Modifications to the docker-compose file can be made as per requirement, use the sample file above to maintain consistency so that the right parameters receive the right</p>
 ]]></content>
         </item>
         

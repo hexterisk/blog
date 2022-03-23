@@ -1,7 +1,7 @@
 ---
 author:
   name: "hexterisk"
-date: 2020-09-09
+date: 2021-01-01
 linktitle: Approaches
 type:
 - post

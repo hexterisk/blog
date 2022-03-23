@@ -1,7 +1,7 @@
 ---
 author:
   name: "hexterisk"
-date: 2020-05-23
+date: 2020-07-17
 linktitle: Taint Analysis
 type:
 - post

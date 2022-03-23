@@ -1,0 +1,415 @@
+{
+	"formatVersion": 1,
+	"appVersion": "0.48.8",
+	"files": [
+		{
+			"isClone": false,
+			"noteId": "HPvgcR7DFHH3",
+			"notePath": [
+				"HPvgcR7DFHH3"
+			],
+			"title": "Behavioral Patterns",
+			"notePosition": 60,
+			"prefix": null,
+			"isExpanded": false,
+			"type": "text",
+			"mime": "text/html",
+			"attributes": [
+				{
+					"type": "relation",
+					"name": "imageLink",
+					"value": "klji5NFAouvi",
+					"isInheritable": false,
+					"position": 2
+				},
+				{
+					"type": "relation",
+					"name": "imageLink",
+					"value": "8vZzftDncYlC",
+					"isInheritable": false,
+					"position": 3
+				},
+				{
+					"type": "relation",
+					"name": "imageLink",
+					"value": "aIwXEeHrB3bw",
+					"isInheritable": false,
+					"position": 4
+				},
+				{
+					"type": "relation",
+					"name": "imageLink",
+					"value": "oehLxopFwfT4",
+					"isInheritable": false,
+					"position": 7
+				},
+				{
+					"type": "relation",
+					"name": "imageLink",
+					"value": "NxOn541pBlhd",
+					"isInheritable": false,
+					"position": 8
+				},
+				{
+					"type": "relation",
+					"name": "imageLink",
+					"value": "GlFgNyyef3OF",
+					"isInheritable": false,
+					"position": 9
+				},
+				{
+					"type": "relation",
+					"name": "imageLink",
+					"value": "MATJ0A4kFoJ8",
+					"isInheritable": false,
+					"position": 11
+				},
+				{
+					"type": "relation",
+					"name": "imageLink",
+					"value": "2vVgRfIKMRT5",
+					"isInheritable": false,
+					"position": 12
+				},
+				{
+					"type": "relation",
+					"name": "imageLink",
+					"value": "Z6rFzJvvQ1BW",
+					"isInheritable": false,
+					"position": 14
+				},
+				{
+					"type": "relation",
+					"name": "imageLink",
+					"value": "t732V1DtZMie",
+					"isInheritable": false,
+					"position": 15
+				},
+				{
+					"type": "relation",
+					"name": "imageLink",
+					"value": "ECkPFmdTfVTR",
+					"isInheritable": false,
+					"position": 16
+				}
+			],
+			"format": "markdown",
+			"dataFileName": "Behavioral Patterns.md",
+			"dirFileName": "Behavioral Patterns",
+			"children": [
+				{
+					"isClone": false,
+					"noteId": "klji5NFAouvi",
+					"notePath": [
+						"HPvgcR7DFHH3",
+						"klji5NFAouvi"
+					],
+					"title": "image.png",
+					"notePosition": 10,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "image",
+					"mime": "image/jpg",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "originalFileName",
+							"value": "image.png",
+							"isInheritable": false,
+							"position": 1000
+						}
+					],
+					"dataFileName": "image.png"
+				},
+				{
+					"isClone": false,
+					"noteId": "8vZzftDncYlC",
+					"notePath": [
+						"HPvgcR7DFHH3",
+						"8vZzftDncYlC"
+					],
+					"title": "image.png",
+					"notePosition": 20,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "image",
+					"mime": "image/jpg",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "originalFileName",
+							"value": "image.png",
+							"isInheritable": false,
+							"position": 1000
+						}
+					],
+					"dataFileName": "1_image.png"
+				},
+				{
+					"isClone": false,
+					"noteId": "aIwXEeHrB3bw",
+					"notePath": [
+						"HPvgcR7DFHH3",
+						"aIwXEeHrB3bw"
+					],
+					"title": "image.png",
+					"notePosition": 30,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "image",
+					"mime": "image/jpg",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "originalFileName",
+							"value": "image.png",
+							"isInheritable": false,
+							"position": 1000
+						}
+					],
+					"dataFileName": "2_image.png"
+				},
+				{
+					"isClone": false,
+					"noteId": "oehLxopFwfT4",
+					"notePath": [
+						"HPvgcR7DFHH3",
+						"oehLxopFwfT4"
+					],
+					"title": "image.png",
+					"notePosition": 40,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "image",
+					"mime": "image/jpg",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "originalFileName",
+							"value": "image.png",
+							"isInheritable": false,
+							"position": 1000
+						}
+					],
+					"dataFileName": "3_image.png"
+				},
+				{
+					"isClone": false,
+					"noteId": "K7zWOtLgNHMj",
+					"notePath": [
+						"HPvgcR7DFHH3",
+						"K7zWOtLgNHMj"
+					],
+					"title": "image.png",
+					"notePosition": 50,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "image",
+					"mime": "image/jpg",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "originalFileName",
+							"value": "image.png",
+							"isInheritable": false,
+							"position": 1000
+						}
+					],
+					"dataFileName": "4_image.png"
+				},
+				{
+					"isClone": false,
+					"noteId": "NxOn541pBlhd",
+					"notePath": [
+						"HPvgcR7DFHH3",
+						"NxOn541pBlhd"
+					],
+					"title": "image.png",
+					"notePosition": 60,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "image",
+					"mime": "image/jpg",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "originalFileName",
+							"value": "image.png",
+							"isInheritable": false,
+							"position": 1000
+						}
+					],
+					"dataFileName": "5_image.png"
+				},
+				{
+					"isClone": false,
+					"noteId": "GlFgNyyef3OF",
+					"notePath": [
+						"HPvgcR7DFHH3",
+						"GlFgNyyef3OF"
+					],
+					"title": "image.png",
+					"notePosition": 70,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "image",
+					"mime": "image/jpg",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "originalFileName",
+							"value": "image.png",
+							"isInheritable": false,
+							"position": 1000
+						}
+					],
+					"dataFileName": "6_image.png"
+				},
+				{
+					"isClone": false,
+					"noteId": "MATJ0A4kFoJ8",
+					"notePath": [
+						"HPvgcR7DFHH3",
+						"MATJ0A4kFoJ8"
+					],
+					"title": "image.png",
+					"notePosition": 80,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "image",
+					"mime": "image/jpg",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "originalFileName",
+							"value": "image.png",
+							"isInheritable": false,
+							"position": 1000
+						}
+					],
+					"dataFileName": "7_image.png"
+				},
+				{
+					"isClone": false,
+					"noteId": "2vVgRfIKMRT5",
+					"notePath": [
+						"HPvgcR7DFHH3",
+						"2vVgRfIKMRT5"
+					],
+					"title": "image.png",
+					"notePosition": 90,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "image",
+					"mime": "image/jpg",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "originalFileName",
+							"value": "image.png",
+							"isInheritable": false,
+							"position": 1000
+						}
+					],
+					"dataFileName": "8_image.png"
+				},
+				{
+					"isClone": false,
+					"noteId": "0fLfDAM8anJy",
+					"notePath": [
+						"HPvgcR7DFHH3",
+						"0fLfDAM8anJy"
+					],
+					"title": "image.png",
+					"notePosition": 100,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "image",
+					"mime": "image/jpg",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "originalFileName",
+							"value": "image.png",
+							"isInheritable": false,
+							"position": 1000
+						}
+					],
+					"dataFileName": "9_image.png"
+				},
+				{
+					"isClone": false,
+					"noteId": "Z6rFzJvvQ1BW",
+					"notePath": [
+						"HPvgcR7DFHH3",
+						"Z6rFzJvvQ1BW"
+					],
+					"title": "image.png",
+					"notePosition": 110,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "image",
+					"mime": "image/jpg",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "originalFileName",
+							"value": "image.png",
+							"isInheritable": false,
+							"position": 1000
+						}
+					],
+					"dataFileName": "10_image.png"
+				},
+				{
+					"isClone": false,
+					"noteId": "t732V1DtZMie",
+					"notePath": [
+						"HPvgcR7DFHH3",
+						"t732V1DtZMie"
+					],
+					"title": "image.png",
+					"notePosition": 120,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "image",
+					"mime": "image/jpg",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "originalFileName",
+							"value": "image.png",
+							"isInheritable": false,
+							"position": 1000
+						}
+					],
+					"dataFileName": "11_image.png"
+				},
+				{
+					"isClone": false,
+					"noteId": "ECkPFmdTfVTR",
+					"notePath": [
+						"HPvgcR7DFHH3",
+						"ECkPFmdTfVTR"
+					],
+					"title": "image.png",
+					"notePosition": 130,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "image",
+					"mime": "image/jpg",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "originalFileName",
+							"value": "image.png",
+							"isInheritable": false,
+							"position": 1000
+						}
+					],
+					"dataFileName": "12_image.png"
+				}
+			]
+		}
+	]
+}

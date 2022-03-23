@@ -12,11 +12,42 @@
     
     
     <item>
-      <title>Reuse</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/10/21/reuse/</link>
-      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
+      <title>Structural Patterns</title>
+      <link>https://hexterisk.github.io/blog/posts/2021/09/10/structural-patterns/</link>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/10/21/reuse/</guid>
+      <guid>https://hexterisk.github.io/blog/posts/2021/09/10/structural-patterns/</guid>
+      <description>Structural Design Patterns help in composing small structures into larger structures, while ensuring that these larger structures remain flexible and efficient. These larger structures remain simplified through the realization of the relationship between it&amp;rsquo;s smaller component structures, that is, how each component inherits from each other.
+Structural Class Patterns  Composes interfaces and implementations through (multiple) inheritance. Useful to make independently developed classes work together.  Structural Object Patterns  Realizes new functionality through composition of different objects.</description>
+    </item>
+    
+    <item>
+      <title>Behavioral Patterns</title>
+      <link>https://hexterisk.github.io/blog/posts/2021/08/16/behavioral-patterns/</link>
+      <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/posts/2021/08/16/behavioral-patterns/</guid>
+      <description>Behavioral Design Pattern are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
+Behavioral Class Patterns Inheritance is employed to distribute behavior between classes.
+Behavioral Object Patterns Composition is employed to characterize how a group of objects work with each other to perform a task that cannot be accomplished by a single object.</description>
+    </item>
+    
+    <item>
+      <title>Creational Patterns</title>
+      <link>https://hexterisk.github.io/blog/posts/2021/07/02/creational-patterns/</link>
+      <pubDate>Fri, 02 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/posts/2021/07/02/creational-patterns/</guid>
+      <description>Creational Design Patterns reduce the complexity in creation of different objects of shared type/properties.
+These patterns simplify object creation mechanisms by separating the workings of an object&amp;rsquo;s creation, composition and representation. This in turn results in increased flexibility. Instead of hardcoding data into classes for creating objects every time, we can employ these patterns for the instantiation of an object dependent on the situation. This ensures that the set of related objects share a common ancestor for common properties.</description>
+    </item>
+    
+    <item>
+      <title>Reuse</title>
+      <link>https://hexterisk.github.io/blog/posts/2021/05/21/reuse/</link>
+      <pubDate>Fri, 21 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/posts/2021/05/21/reuse/</guid>
       <description>While designing a class, always keep the Open-Closed Principle in mind. It states that,
  software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
  This implies that an entity shall allow extensions to itself, but no modification to its source code. We are therefore allowed to extend our base class, and consequently implement re-usability.
@@ -25,10 +56,10 @@ Class Inheritance Inheritance models an Is-A relationship, where the child class
     
     <item>
       <title>Overview</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/10/14/overview/</link>
-      <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
+      <link>https://hexterisk.github.io/blog/posts/2021/04/28/overview/</link>
+      <pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/10/14/overview/</guid>
+      <guid>https://hexterisk.github.io/blog/posts/2021/04/28/overview/</guid>
       <description>An general overview of the Design Patterns.
 Classification Purpose Purpose reflects the use case of a design pattern.
 Creational Pattern concerns the process of object creation.
@@ -40,40 +71,40 @@ Scope The scope of a design patterns specifies where it is primarily applied.</d
     
     <item>
       <title>Introduction</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/10/10/introduction/</link>
-      <pubDate>Sat, 10 Oct 2020 00:00:00 +0000</pubDate>
+      <link>https://hexterisk.github.io/blog/posts/2021/04/10/introduction/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/10/10/introduction/</guid>
+      <guid>https://hexterisk.github.io/blog/posts/2021/04/10/introduction/</guid>
       <description>A design pattern is a code structure used to solve commonly occurring problems in software development. It is a generic description of different components&amp;rsquo; design, their relationships, and how they come together to solve the said problem in the specified context. It is characterized by:
  Pattern Name  To associate a certain solution to a name for ease of reference, through appropriate association.   Problem  The design problem and issues to be addressed in a specified context, to which the solution described by the design pattern is applicable.</description>
     </item>
     
     <item>
       <title>DART &amp; SAGE</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/10/04/dart-sage/</link>
-      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
+      <link>https://hexterisk.github.io/blog/posts/2021/03/15/dart-sage/</link>
+      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/10/04/dart-sage/</guid>
+      <guid>https://hexterisk.github.io/blog/posts/2021/03/15/dart-sage/</guid>
       <description>DART Back in 2005, researchers at Microsoft came up with a concolic testing tool called DART(Directed Automated Random Testing). The tool can be used in the unit testing phase, as well as can be applied to large programs.
  We present a new tool, named DART, for automatically testing software that combines three main techniques: (1) automated extraction of the interface of a program with its external environment using static source-code parsing; (2) automatic generation of a test driver for this interface that performs random testing to simulate the most general environment the program can operate in; and (3) dynamic analysis of how the program behaves under random testing and automatic generation of new test inputs to direct systematically the execution along alternative program paths.</description>
     </item>
     
     <item>
       <title>Sanitation</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/09/21/sanitation/</link>
-      <pubDate>Mon, 21 Sep 2020 00:00:00 +0000</pubDate>
+      <link>https://hexterisk.github.io/blog/posts/2021/02/12/sanitation/</link>
+      <pubDate>Fri, 12 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/09/21/sanitation/</guid>
+      <guid>https://hexterisk.github.io/blog/posts/2021/02/12/sanitation/</guid>
       <description>Sanitation tools, or sanitizers, are a set of libraries that can directly observe and flag an incorrect behavior for a certain class of violation at runtime.
 Sanitizers are employed by instrumenting the source code. The compiled binary, therefore, essentially has certain tripwires that catch any invalid or incorrect behavior and reports it. The fact that it only brings about minimal performance overhead allows it to be coupled with fuzzing techniques, a powerful combination.</description>
     </item>
     
     <item>
       <title>Architecture</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/09/16/architecture/</link>
-      <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
+      <link>https://hexterisk.github.io/blog/posts/2021/01/20/architecture/</link>
+      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/09/16/architecture/</guid>
+      <guid>https://hexterisk.github.io/blog/posts/2021/01/20/architecture/</guid>
       <description>A robust pipeline needs to be established to ensure that a fuzzer is effective and efficient. The pipeline is required to perform the following tasks:
  Generate new test cases. Ensure delivery of the test cases to, and safe execution, of the target. Record the statistics from the execution of the test cases. Reproduce the crashes. Triage the crashes.  Generic fuzzing pipeline.
 Separate modules perform different set of the aforementioned tasks.</description>
@@ -81,44 +112,13 @@ Separate modules perform different set of the aforementioned tasks.</description
     
     <item>
       <title>Approaches</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/09/09/approaches/</link>
-      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      <link>https://hexterisk.github.io/blog/posts/2021/01/01/approaches/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/09/09/approaches/</guid>
+      <guid>https://hexterisk.github.io/blog/posts/2021/01/01/approaches/</guid>
       <description>Fuzzing can be segregated into different types based on the facet of the process we look at.
  Program Structure Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
 Blackbox Fuzzing This approach involves the assumption that the target is a black box since we don&amp;rsquo;t have any knowledge of the internal behavior, source code or the implementation of the target application, hence the name.</description>
-    </item>
-    
-    <item>
-      <title>Introduction</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/09/05/introduction/</link>
-      <pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/posts/2020/09/05/introduction/</guid>
-      <description>Fuzzing, or Fuzz Testing, is an automated software testing technique where a target application is placed in an execution environment. An input generation technique is employed to create unique and varying inputs(test cases) for the target. These new inputs are continuously sent to the target and the resultant behavior is observed.
-NOTE: the phrases “test cases” and “inputs” can be used interchangeably.
-Fuzzing cycle.
-Either the program will be able to handle the provided input just fine, or it will enter an invalid state of execution(mostly a crash) and you&amp;rsquo;ll have a bug report on your hand.</description>
-    </item>
-    
-    <item>
-      <title>Classification of Malware Traffic using CNNs</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/08/22/classification-of-malware-traffic-using-cnns/</link>
-      <pubDate>Sat, 22 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/posts/2020/08/22/classification-of-malware-traffic-using-cnns/</guid>
-      <description>Classification of malware traffic has been a hot topic ever since machine learning was introduced to the world of network security domain. There are a number of published researches that explore various techniques to extract features from the traffic and use it classification.
-The pre-machine learning era saw classification of traffic based on structured rule matching, DPI(Deep Packet Inspection) and Port Inspection being the most popular methods, which were typically rendered ineffective post-encryption.</description>
-    </item>
-    
-    <item>
-      <title>Classification of Malwares through Dynamic Analysis</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/08/04/classification-of-malwares-through-dynamic-analysis/</link>
-      <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/posts/2020/08/04/classification-of-malwares-through-dynamic-analysis/</guid>
-      <description>Malwares come in many forms. Sometimes it&amp;rsquo;s a standalone binary whereas sometimes it&amp;rsquo;s a legitimate software having a malware inside it. Sometimes it&amp;rsquo;s a binary with malformed metadata and packed bytes to throw off the analyst whereas sometimes it acts as a downloader/launcher for a more malicious binary. Information extracted from static analysis can therefore be deemed unreliable and not as accurate when compared with information extracted from dynamic analysis.</description>
     </item>
     
   </channel>

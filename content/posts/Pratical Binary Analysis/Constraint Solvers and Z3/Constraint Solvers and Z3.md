@@ -1,7 +1,7 @@
 ---
 author:
   name: "hexterisk"
-date: 2020-06-05
+date: 2020-08-18
 linktitle: Constraint Solvers and Z3
 type:
 - post

@@ -1,7 +1,7 @@
 ---
 author:
   name: "hexterisk"
-date: 2020-03-13
+date: 2020-03-19
 linktitle: Stack and it's Frames
 type:
 - post

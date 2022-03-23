@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>composite on Pwn the world.</title>
+    <link>https://hexterisk.github.io/blog/tags/composite/</link>
+    <description>Recent content in composite on Pwn the world.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 10 Sep 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://hexterisk.github.io/blog/tags/composite/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Structural Patterns</title>
+      <link>https://hexterisk.github.io/blog/posts/2021/09/10/structural-patterns/</link>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/posts/2021/09/10/structural-patterns/</guid>
+      <description>Structural Design Patterns help in composing small structures into larger structures, while ensuring that these larger structures remain flexible and efficient. These larger structures remain simplified through the realization of the relationship between it&amp;rsquo;s smaller component structures, that is, how each component inherits from each other.
+Structural Class Patterns  Composes interfaces and implementations through (multiple) inheritance. Useful to make independently developed classes work together.  Structural Object Patterns  Realizes new functionality through composition of different objects.</description>
+    </item>
+    
+  </channel>
+</rss>

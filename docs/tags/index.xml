@@ -6,98 +6,98 @@
     <description>Recent content in Tags on Pwn the world.</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 21 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Sep 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hexterisk.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>adapter</title>
+      <link>https://hexterisk.github.io/blog/tags/adapter/</link>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/tags/adapter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bridge</title>
+      <link>https://hexterisk.github.io/blog/tags/bridge/</link>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/tags/bridge/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c</title>
+      <link>https://hexterisk.github.io/blog/tags/c/</link>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/tags/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>composite</title>
+      <link>https://hexterisk.github.io/blog/tags/composite/</link>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/tags/composite/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>decorator</title>
+      <link>https://hexterisk.github.io/blog/tags/decorator/</link>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/tags/decorator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>design-patterns</title>
       <link>https://hexterisk.github.io/blog/tags/design-patterns/</link>
-      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/tags/design-patterns/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>frameworks</title>
-      <link>https://hexterisk.github.io/blog/tags/frameworks/</link>
-      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
+      <title>façade</title>
+      <link>https://hexterisk.github.io/blog/tags/fa%C3%A7ade/</link>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/tags/frameworks/</guid>
+      <guid>https://hexterisk.github.io/blog/tags/fa%C3%A7ade/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>flyweight</title>
+      <link>https://hexterisk.github.io/blog/tags/flyweight/</link>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/tags/flyweight/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gangs-of-four</title>
       <link>https://hexterisk.github.io/blog/tags/gangs-of-four/</link>
-      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/tags/gangs-of-four/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>toolkits</title>
-      <link>https://hexterisk.github.io/blog/tags/toolkits/</link>
-      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
+      <title>proxy</title>
+      <link>https://hexterisk.github.io/blog/tags/proxy/</link>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/tags/toolkits/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>automated</title>
-      <link>https://hexterisk.github.io/blog/tags/automated/</link>
-      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/automated/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>dart</title>
-      <link>https://hexterisk.github.io/blog/tags/dart/</link>
-      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/dart/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>fuzzing</title>
-      <link>https://hexterisk.github.io/blog/tags/fuzzing/</link>
-      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/fuzzing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>greybox</title>
-      <link>https://hexterisk.github.io/blog/tags/greybox/</link>
-      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/greybox/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>microsoft</title>
-      <link>https://hexterisk.github.io/blog/tags/microsoft/</link>
-      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/microsoft/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sage</title>
-      <link>https://hexterisk.github.io/blog/tags/sage/</link>
-      <pubDate>Sun, 04 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/sage/</guid>
+      <guid>https://hexterisk.github.io/blog/tags/proxy/</guid>
       <description></description>
     </item>
     

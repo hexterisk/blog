@@ -6,17 +6,17 @@
     <description>Recent content in unpad on Pwn the world.</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 05 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hexterisk.github.io/blog/tags/unpad/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Set 2</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/04/05/set-2/</link>
-      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
+      <link>https://hexterisk.github.io/blog/posts/2020/04/24/set-2/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/posts/2020/04/05/set-2/</guid>
+      <guid>https://hexterisk.github.io/blog/posts/2020/04/24/set-2/</guid>
       <description>Refer to this repository for solution scripts and the IPython Notebook pertaining to the explanations here.
  Challenge 9: Implement PKCS#7 padding Link
  A block cipher transforms a fixed-sized block (usually 8 or 16 bytes) of plaintext into ciphertext. But we almost never want to transform a single block; we encrypt irregularly-sized messages.

@@ -1,7 +1,7 @@
 ---
 author:
   name: "hexterisk"
-date: 2020-03-18
+date: 2020-03-25
 linktitle: Trace Analysis
 type:
 - post
