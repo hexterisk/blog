@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>Concurrency Patterns</title>
+      <link>https://hexterisk.github.io/blog/posts/2021/10/01/concurrency-patterns/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/posts/2021/10/01/concurrency-patterns/</guid>
+      <description>Concurrency Design Patterns describes ways of dealing with concurrent executing code, be it multi-threaded or multi-processed.
+Active Object  Decouple method execution from method invocation for objects that each live in their own thread of control. The goal is to introduce concurrency, by using asynchronous method invocation and a scheduler for handling requests.
+ The Active Object pattern introduces the following components:
+ Proxy  The interface of the object to which a client connects to.</description>
+    </item>
+    
+    <item>
       <title>Structural Patterns</title>
       <link>https://hexterisk.github.io/blog/posts/2021/09/10/structural-patterns/</link>
       <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
@@ -27,7 +39,7 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/posts/2021/08/16/behavioral-patterns/</guid>
-      <description>Behavioral Design Pattern are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
+      <description>Behavioral Design Patterns are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
 Behavioral Class Patterns Inheritance is employed to distribute behavior between classes.
 Behavioral Object Patterns Composition is employed to characterize how a group of objects work with each other to perform a task that cannot be accomplished by a single object.</description>
     </item>
@@ -108,17 +120,6 @@ Sanitizers are employed by instrumenting the source code. The compiled binary, t
       <description>A robust pipeline needs to be established to ensure that a fuzzer is effective and efficient. The pipeline is required to perform the following tasks:
  Generate new test cases. Ensure delivery of the test cases to, and safe execution, of the target. Record the statistics from the execution of the test cases. Reproduce the crashes. Triage the crashes.  Generic fuzzing pipeline.
 Separate modules perform different set of the aforementioned tasks.</description>
-    </item>
-    
-    <item>
-      <title>Approaches</title>
-      <link>https://hexterisk.github.io/blog/posts/2021/01/01/approaches/</link>
-      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/posts/2021/01/01/approaches/</guid>
-      <description>Fuzzing can be segregated into different types based on the facet of the process we look at.
- Program Structure Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.
-Blackbox Fuzzing This approach involves the assumption that the target is a black box since we don&amp;rsquo;t have any knowledge of the internal behavior, source code or the implementation of the target application, hence the name.</description>
     </item>
     
   </channel>

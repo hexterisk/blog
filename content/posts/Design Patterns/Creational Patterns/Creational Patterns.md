@@ -12,7 +12,7 @@ weight: 10
 categories: ["Design-Patterns"]
 ---
 
-Creational Design Patterns reduce the complexity in creation of different objects of shared type/properties.
+**Creational Design Patterns** reduce the complexity in creation of different objects of shared type/properties.
 
 These patterns simplify object creation mechanisms by separating the workings of an object's creation, composition and representation. This in turn results in increased flexibility. Instead of hardcoding data into classes for creating objects every time, we can employ these patterns for the instantiation of an object dependent on the situation. This ensures that the set of related objects share a common ancestor for common properties.
 

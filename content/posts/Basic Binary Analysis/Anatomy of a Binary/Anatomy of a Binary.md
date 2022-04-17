@@ -24,15 +24,15 @@ categories: ["basic-binary-analysis"]
 #define MESSAGE "Hello, world!\n"
 
 int main(int argc, char *argv[]) {
-printf(FORMAT_STRING, MESSAGE);
-return 0;
+  printf(FORMAT_STRING, MESSAGE);
+  return 0;
 }
 ```
 
 ![](/Anatomy_of_a_Binary/1_image.png)
 _The C Compilation Process._
 
-### Preprocessing
+### Preprocessor
 
 *   Expands macros(_#define_) and _#include_ directives into pure C code.
 *   Every _#include_ directive, the header is copied in its entirety.
@@ -59,12 +59,12 @@ extern int ftrylockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)
 extern void funlockfile (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
 
 int main(int argc, char *argv[]) {
-printf("%s", "Hello, world!\n");
-return 0;
+  printf("%s", "Hello, world!\n");
+  return 0;
 }
 ```
 
-### Compilation
+### Compiler
 
 *   Takes the preprocessed code and translates it into assembly language.
 *   Most compilers also perform heavy optimization in this phase, typically configurable as an optimization level through command line switches such as options _\-O0_ through _\-O3_ in gcc.
@@ -79,39 +79,39 @@ return 0;
 $ gcc -S -masm=intel compilation_example.c
 $ cat compilation_example.s
 
-.file "compilation_example.c"
-.intel_syntax noprefix
-.section .rodata
+  .file "compilation_example.c"
+  .intel_syntax noprefix
+  .section .rodata
 .LC0:
-.string "Hello, world!"
-.text
-.globl main
-.type main, @function
+  .string "Hello, world!"
+  .text
+  .globl main
+  .type main, @function
 main:
 .LFB0:
-.cfi_startproc
-push rbp
-.cfi_def_cfa_offset 16
-.cfi_offset 6, -16
-mov rbp, rsp
-.cfi_def_cfa_register 6
-sub rsp, 16
-mov DWORD PTR [rbp-4], edi
-mov QWORD PTR [rbp-16], rsi
-mov edi, OFFSET FLAT:.LC0
-call puts
-mov eax, 0
-leave
-.cfi_def_cfa 7, 8
-ret
-.cfi_endproc
+  .cfi_startproc
+  push rbp
+  .cfi_def_cfa_offset 16
+  .cfi_offset 6, -16
+  mov rbp, rsp
+  .cfi_def_cfa_register 6
+  sub rsp, 16
+  mov DWORD PTR [rbp-4], edi
+  mov QWORD PTR [rbp-16], rsi
+  mov edi, OFFSET FLAT:.LC0
+  call puts
+  mov eax, 0
+  leave
+  .cfi_def_cfa 7, 8
+  ret
+  .cfi_endproc
 .LFE0:
-.size main, .-main
-.ident "GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.4) 5.4.0 20160609"
-.section .note.GNU-stack,"",@progbits
+  .size main, .-main
+  .ident "GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.4) 5.4.0 20160609"
+  .section .note.GNU-stack,"",@progbits
 ```
 
-### Assembly
+### Assembler
 
 *   Takes assembly files as input and produces **object files** (**modules**) as output.
 *   Each assembly file corresponds to one object file.
@@ -127,7 +127,7 @@ compilation_example.o: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not
 *   **Relocatable Files** can be placed at any position in the memory. It's an indication of the file being an object/module. It's important since object files are compiled independently from each other and assembler has no way to know the order to link them into. Making them relocatable allows them to be linked in any order to construct a complete executable.
 *   Object files contain **Relocation Symbols** that specify how function and variable references must be resolved. References that rely on a relocation symbol, such as an object file referencing one if its own functions/variables by absolute address, are known as **Symbolic References**.
 
-### Linking
+### Linker
 
 *   Links together all object files together to form a single coherent executable, which will be loaded at a particular memory address.
 *   Can incorporate an additional optimization pass called **link-time optimization** (**LTO**).
@@ -153,26 +153,26 @@ Hello, world!
 $ readelf --syms a.out
 
 Symbol table '.dynsym' contains 4 entries:
-Num: 	Value 				Size 	Type 	Bind 	Vis 	Ndx 	Name
-0: 		0000000000000000 	0 		NOTYPE  LOCAL 	DEFAULT UND
-1: 		0000000000000000 	0 		FUNC 	GLOBAL	DEFAULT UND 	puts@GLIBC_2.2.5 (2)
-2: 		0000000000000000 	0 		FUNC 	GLOBAL 	DEFAULT UND 	__libc_start_main@GLIBC_2.2.5 (2)
-3: 		0000000000000000 	0 		NOTYPE 	WEAK 	DEFAULT UND 	__gmon_start__
+  Num: 	Value 				Size 	Type 	Bind 	Vis 	Ndx 	Name
+  0: 		0000000000000000 	0 		NOTYPE  LOCAL 	DEFAULT UND
+  1: 		0000000000000000 	0 		FUNC 	GLOBAL	DEFAULT UND 	puts@GLIBC_2.2.5 (2)
+  2: 		0000000000000000 	0 		FUNC 	GLOBAL 	DEFAULT UND 	__libc_start_main@GLIBC_2.2.5 (2)
+  3: 		0000000000000000 	0 		NOTYPE 	WEAK 	DEFAULT UND 	__gmon_start__
 
 Symbol table '.symtab' contains 67 entries:
-Num: 	Value 				Size 	Type 	Bind 	Vis 	Ndx 	Name
-...
-56: 	0000000000601030 	0 		OBJECT 	GLOBAL 	HIDDEN 	25 		__dso_handle
-57: 	00000000004005d0 	4 		OBJECT 	GLOBAL 	DEFAULT 16 		_IO_stdin_used
-58: 	0000000000400550 	101 	FUNC 	GLOBAL 	DEFAULT 14 		__libc_csu_init
-59: 	0000000000601040 	0 		NOTYPE 	GLOBAL 	DEFAULT 26 		_end
-60: 	0000000000400430 	42 		FUNC 	GLOBAL 	DEFAULT 14 		_start
-61: 	0000000000601038 	0 		NOTYPE 	GLOBAL 	DEFAULT 26 		__bss_start
-62: 	0000000000400526 	32 		FUNC 	GLOBAL 	DEFAULT 14 		main
-63: 	0000000000000000 	0 		NOTYPE 	WEAK 	DEFAULT UND 	_Jv_RegisterClasses
-64: 	0000000000601038 	0 		OBJECT 	GLOBAL 	HIDDEN 	25 		__TMC_END__
-65: 	0000000000000000 	0 		NOTYPE 	WEAK 	DEFAULT UND 	_ITM_registerTMCloneTable
-66: 	00000000004003c8 	0 		FUNC 	GLOBAL 	DEFAULT 11 		_init
+  Num: 	Value 				Size 	Type 	Bind 	Vis 	Ndx 	Name
+  ...
+  56: 	0000000000601030 	0 		OBJECT 	GLOBAL 	HIDDEN 	25 		__dso_handle
+  57: 	00000000004005d0 	4 		OBJECT 	GLOBAL 	DEFAULT 16 		_IO_stdin_used
+  58: 	0000000000400550 	101 	FUNC 	GLOBAL 	DEFAULT 14 		__libc_csu_init
+  59: 	0000000000601040 	0 		NOTYPE 	GLOBAL 	DEFAULT 26 		_end
+  60: 	0000000000400430 	42 		FUNC 	GLOBAL 	DEFAULT 14 		_start
+  61: 	0000000000601038 	0 		NOTYPE 	GLOBAL 	DEFAULT 26 		__bss_start
+  62: 	0000000000400526 	32 		FUNC 	GLOBAL 	DEFAULT 14 		main
+  63: 	0000000000000000 	0 		NOTYPE 	WEAK 	DEFAULT UND 	_Jv_RegisterClasses
+  64: 	0000000000601038 	0 		OBJECT 	GLOBAL 	HIDDEN 	25 		__TMC_END__
+  65: 	0000000000000000 	0 		NOTYPE 	WEAK 	DEFAULT UND 	_ITM_registerTMCloneTable
+  66: 	00000000004003c8 	0 		FUNC 	GLOBAL 	DEFAULT 11 		_init
 ```
 
 *   Focusing on ‘main’, we can see it will be loaded at address ‘0x400526’ when the binary is loaded into memory and it's size is 32bytes. ‘FUNC’ shows that we are dealing with a function symbol.
@@ -191,11 +191,11 @@ a.out: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, 
 $ readelf --syms a.out
 
 Symbol table '.dynsym' contains 4 entries:
-Num:	Value 				Size 	Type 	Bind 	Vis 		Ndx 	Name
-0: 		0000000000000000 	0 		NOTYPE 	LOCAL 	DEFAULT 	UND
-1: 		0000000000000000 	0 		FUNC 	GLOBAL 	DEFAULT 	UND 	puts@GLIBC_2.2.5 (2)
-2: 		0000000000000000 	0 		FUNC 	GLOBAL 	DEFAULT 	UND 	__libc_start_main@GLIBC_2.2.5 (2)
-3: 		0000000000000000 	0 		NOTYPE 	WEAK 	DEFAULT 	UND 	__gmon_start__
+  Num:	Value 				Size 	Type 	Bind 	Vis 		Ndx 	Name
+  0: 		0000000000000000 	0 		NOTYPE 	LOCAL 	DEFAULT 	UND
+  1: 		0000000000000000 	0 		FUNC 	GLOBAL 	DEFAULT 	UND 	puts@GLIBC_2.2.5 (2)
+  2: 		0000000000000000 	0 		FUNC 	GLOBAL 	DEFAULT 	UND 	__libc_start_main@GLIBC_2.2.5 (2)
+  3: 		0000000000000000 	0 		NOTYPE 	WEAK 	DEFAULT 	UND 	__gmon_start__
 ```
 
 &nbsp;
@@ -214,7 +214,7 @@ _Loading an ELF binary on a Linux-based system._
 $ readelf -p .interp a.out
 
 String dump of section '.interp':
-[ 0] /lib64/ld-linux-x86-64.so.2
+  [0] /lib64/ld-linux-x86-64.so.2
 ```
 
 Citation: [Practical Binary Analysis](https://nostarch.com/binaryanalysis).

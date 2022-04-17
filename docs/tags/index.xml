@@ -6,98 +6,98 @@
     <description>Recent content in Tags on Pwn the world.</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 10 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hexterisk.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>adapter</title>
-      <link>https://hexterisk.github.io/blog/tags/adapter/</link>
-      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      <title>active-object</title>
+      <link>https://hexterisk.github.io/blog/tags/active-object/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/tags/adapter/</guid>
+      <guid>https://hexterisk.github.io/blog/tags/active-object/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>bridge</title>
-      <link>https://hexterisk.github.io/blog/tags/bridge/</link>
-      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      <title>balking</title>
+      <link>https://hexterisk.github.io/blog/tags/balking/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/tags/bridge/</guid>
+      <guid>https://hexterisk.github.io/blog/tags/balking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>barrier</title>
+      <link>https://hexterisk.github.io/blog/tags/barrier/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/tags/barrier/</guid>
       <description></description>
     </item>
     
     <item>
       <title>c</title>
       <link>https://hexterisk.github.io/blog/tags/c/</link>
-      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/tags/c/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>composite</title>
-      <link>https://hexterisk.github.io/blog/tags/composite/</link>
-      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      <title>concurrency</title>
+      <link>https://hexterisk.github.io/blog/tags/concurrency/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/tags/composite/</guid>
+      <guid>https://hexterisk.github.io/blog/tags/concurrency/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>decorator</title>
-      <link>https://hexterisk.github.io/blog/tags/decorator/</link>
-      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      <title>concurrency-patterns</title>
+      <link>https://hexterisk.github.io/blog/tags/concurrency-patterns/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/tags/decorator/</guid>
+      <guid>https://hexterisk.github.io/blog/tags/concurrency-patterns/</guid>
       <description></description>
     </item>
     
     <item>
       <title>design-patterns</title>
       <link>https://hexterisk.github.io/blog/tags/design-patterns/</link>
-      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/tags/design-patterns/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>façade</title>
-      <link>https://hexterisk.github.io/blog/tags/fa%C3%A7ade/</link>
-      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      <title>double-checked-locking</title>
+      <link>https://hexterisk.github.io/blog/tags/double-checked-locking/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/tags/fa%C3%A7ade/</guid>
+      <guid>https://hexterisk.github.io/blog/tags/double-checked-locking/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>flyweight</title>
-      <link>https://hexterisk.github.io/blog/tags/flyweight/</link>
-      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      <title>guarded-suspension</title>
+      <link>https://hexterisk.github.io/blog/tags/guarded-suspension/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/tags/flyweight/</guid>
+      <guid>https://hexterisk.github.io/blog/tags/guarded-suspension/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>gangs-of-four</title>
-      <link>https://hexterisk.github.io/blog/tags/gangs-of-four/</link>
-      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      <title>leader-follower</title>
+      <link>https://hexterisk.github.io/blog/tags/leader-follower/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hexterisk.github.io/blog/tags/gangs-of-four/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>proxy</title>
-      <link>https://hexterisk.github.io/blog/tags/proxy/</link>
-      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/proxy/</guid>
+      <guid>https://hexterisk.github.io/blog/tags/leader-follower/</guid>
       <description></description>
     </item>
     

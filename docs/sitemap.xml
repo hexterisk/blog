@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hexterisk.github.io/blog/posts/2021/10/01/concurrency-patterns/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hexterisk.github.io/blog/posts/2021/09/10/structural-patterns/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
   </url>
@@ -203,6 +208,91 @@
   </url>
   
   <url>
+    <loc>https://hexterisk.github.io/blog/tags/active-object/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/tags/balking/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/tags/barrier/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/tags/c/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/categories/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/tags/concurrency/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/tags/concurrency-patterns/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/categories/design-patterns/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/tags/design-patterns/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/tags/double-checked-locking/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/tags/guarded-suspension/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/tags/leader-follower/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/tags/monitor/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/posts/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/tags/reactor/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/tags/readers-writer-lock/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hexterisk.github.io/blog/tags/</loc>
+    <lastmod>2021-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hexterisk.github.io/blog/tags/adapter/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
   </url>
@@ -213,32 +303,12 @@
   </url>
   
   <url>
-    <loc>https://hexterisk.github.io/blog/tags/c/</loc>
-    <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/categories/</loc>
-    <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://hexterisk.github.io/blog/tags/composite/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://hexterisk.github.io/blog/tags/decorator/</loc>
-    <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/categories/design-patterns/</loc>
-    <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/design-patterns/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -258,22 +328,12 @@
   </url>
   
   <url>
-    <loc>https://hexterisk.github.io/blog/posts/</loc>
-    <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://hexterisk.github.io/blog/tags/proxy/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://hexterisk.github.io/blog/tags/structural-patterns/</loc>
-    <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
   </url>
   

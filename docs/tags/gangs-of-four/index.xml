@@ -27,7 +27,7 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/posts/2021/08/16/behavioral-patterns/</guid>
-      <description>Behavioral Design Pattern are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
+      <description>Behavioral Design Patterns are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
 Behavioral Class Patterns Inheritance is employed to distribute behavior between classes.
 Behavioral Object Patterns Composition is employed to characterize how a group of objects work with each other to perform a task that cannot be accomplished by a single object.</description>
     </item>

@@ -12,7 +12,7 @@ weight: 10
 categories: ["Design-Patterns"]
 ---
 
-**Behavioral Design Pattern** are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
+**Behavioral Design Patterns** are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
 
 #### Behavioral Class Patterns
 

@@ -245,12 +245,12 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
 <p>A flyweight only enables sharing and doesn&rsquo;t enforce it, therefore not all subclasses of a Flyweight are necessarily shared. Such flyweight objects in turn might have objects of shared flyweight type as children.</p>
 <p>To achieve this, a flyweight maintains two states:</p>
 <ol>
-<li>Intrinsic
+<li><strong>Intrinsic</strong>
 <ul>
 <li>Contains information independent of contexts and is shared between all contexts.</li>
 </ul>
 </li>
-<li>Extrinsic
+<li><strong>Extrinsic</strong>
 <ul>
 <li>Contains context specific information and is not shared between contexts.</li>
 </ul>
@@ -276,17 +276,17 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
 <p><strong>RealSubject</strong> defines the actual object, which inherits from the <strong>Subject</strong> class that defines the common interface <code>Request()</code>. The <strong>Client</strong> requests the <strong>RealSubject</strong>. This request is routed through a placeholder object of type <strong>Proxy</strong>, which also inherits from the class <strong>Subject</strong> to ensure that it&rsquo;s interface remains the same as <strong>RealSubject</strong>. This <strong>Proxy</strong> object contains a reference to the <strong>RealSubject</strong> object, to which delegates the request.</p>
 <p>Proxy can be of different types:</p>
 <ul>
-<li>Remote Proxy
+<li><strong>Remote Proxy</strong>
 <ul>
 <li>Encodes a request and all its associated data, and sending it to the real object which lies in a different address space.</li>
 </ul>
 </li>
-<li>Virtual Proxy
+<li><strong>Virtual Proxy</strong>
 <ul>
 <li>Caches additional information about the real object so that the delegated request can be deferred.</li>
 </ul>
 </li>
-<li>Protection Proxy
+<li><strong>Protection Proxy</strong>
 <ul>
 <li>Performs permission checks of the client to disallow unauthorized access.</li>
 </ul>
@@ -327,7 +327,7 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
                 <line x1="16" y1="2" x2="16" y2="6"></line>
                 <line x1="8" y1="2" x2="8" y2="6"></line>
                 <line x1="3" y1="10" x2="21" y2="10"></line>
-            </svg>2021-09-09 17:00 -0700</p>
+            </svg>2021-09-10 05:30 &#43;0530</p>
     </div>
 
     
@@ -348,6 +348,13 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
             </span>
             
 
+            
+            <span class="button next">
+                <a href="https://hexterisk.github.io/blog/posts/2021/10/01/concurrency-patterns/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Concurrency Patterns</span>
+                </a>
+            </span>
             
 
         </div>

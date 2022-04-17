@@ -6,10 +6,22 @@
     <description>Recent content in design-patterns on Pwn the world.</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 10 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://hexterisk.github.io/blog/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Concurrency Patterns</title>
+      <link>https://hexterisk.github.io/blog/posts/2021/10/01/concurrency-patterns/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hexterisk.github.io/blog/posts/2021/10/01/concurrency-patterns/</guid>
+      <description>Concurrency Design Patterns describes ways of dealing with concurrent executing code, be it multi-threaded or multi-processed.
+Active Object  Decouple method execution from method invocation for objects that each live in their own thread of control. The goal is to introduce concurrency, by using asynchronous method invocation and a scheduler for handling requests.
+ The Active Object pattern introduces the following components:
+ Proxy  The interface of the object to which a client connects to.</description>
+    </item>
     
     <item>
       <title>Structural Patterns</title>
@@ -27,7 +39,7 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
       <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/posts/2021/08/16/behavioral-patterns/</guid>
-      <description>Behavioral Design Pattern are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
+      <description>Behavioral Design Patterns are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
 Behavioral Class Patterns Inheritance is employed to distribute behavior between classes.
 Behavioral Object Patterns Composition is employed to characterize how a group of objects work with each other to perform a task that cannot be accomplished by a single object.</description>
     </item>

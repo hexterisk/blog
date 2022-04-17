@@ -156,9 +156,9 @@ A flyweight only enables sharing and doesn't enforce it, therefore not all subcl
 
 To achieve this, a flyweight maintains two states:
 
-1.  Intrinsic
+1.  **Intrinsic**
     *   Contains information independent of contexts and is shared between all contexts.
-2.  Extrinsic
+2.  **Extrinsic**
     *   Contains context specific information and is not shared between contexts.
 
 ![](/Design_Patterns_Structural_Patterns/6_image.png)
@@ -192,11 +192,11 @@ _Proxy Pattern Structure_
 
 Proxy can be of different types:
 
-*   Remote Proxy
+*   **Remote Proxy**
     *   Encodes a request and all its associated data, and sending it to the real object which lies in a different address space.
-*   Virtual Proxy
+*   **Virtual Proxy**
     *   Caches additional information about the real object so that the delegated request can be deferred.
-*   Protection Proxy
+*   **Protection Proxy**
     *   Performs permission checks of the client to disallow unauthorized access.
 
 Implementation Example: [Proxy Pattern](https://www.youtube.com/watch?v=cMmuAbnG7UU)
