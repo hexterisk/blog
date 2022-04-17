@@ -12,7 +12,7 @@ weight: 10
 categories: ["Design-Patterns"]
 ---
 
-**Concurrency Design Patterns** describes ways of dealing with concurrent executing code, be it multi-threaded or multi-processed.
+**Concurrency Design Patterns** describe ways of dealing with concurrent executing code, be it multi-threaded or multi-processed.
 
 ## Active Object
 

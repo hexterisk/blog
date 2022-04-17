@@ -17,7 +17,7 @@
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
       
       <guid>https://hexterisk.github.io/blog/posts/2021/10/01/concurrency-patterns/</guid>
-      <description>Concurrency Design Patterns describes ways of dealing with concurrent executing code, be it multi-threaded or multi-processed.
+      <description>Concurrency Design Patterns describe ways of dealing with concurrent executing code, be it multi-threaded or multi-processed.
 Active Object  Decouple method execution from method invocation for objects that each live in their own thread of control. The goal is to introduce concurrency, by using asynchronous method invocation and a scheduler for handling requests.
  The Active Object pattern introduces the following components:
  Proxy  The interface of the object to which a client connects to.</description>
