@@ -1,0 +1,14 @@
+<a class="logo" href="{{ if .Site.Params.Logo.LogoHomeLink }}{{ .Site.Params.Logo.LogoHomeLink | relURL }}{{else}}{{ .Site.BaseURL }}{{ end }}">
+    {{ if .Site.Params.Logo.path }}
+        <img src="{{ .Site.Params.Logo.path | relURL }}" alt="{{ .Site.Params.Logo.alt }}" />
+    {{ else }}
+        <div class="logo__content">
+            <span class="logo__mark">></span>
+            <span class="logo__text">{{ with .Site.Params.Logo.logoText }}{{ . }}{{ else }}hello{{ end }}</span>
+            <span class="logo__cursor"></span>
+        </div>
+    {{ end }}
+</a>
+<script>
+    document.documentElement.style.setProperty('--logo-cursor-color', '{{ .Site.Params.Logo.logoColor }}');
+</script>

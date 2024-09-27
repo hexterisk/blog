@@ -7,11 +7,13 @@
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="Behavioral Design Patterns are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
 Behavioral Class Patterns Inheritance is employed to distribute behavior between classes.
-Behavioral Object Patterns Composition is employed to characterize how a group of objects work with each other to perform a task that cannot be accomplished by a single object." />
+Behavioral Object Patterns Composition is employed to characterize how a group of objects work with each other to perform a task that cannot be accomplished by a single object.
+" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://hexterisk.github.io/blog/posts/2021/08/16/behavioral-patterns/" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://hexterisk.com/blog/posts/2021/08/16/behavioral-patterns/" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 
     <title>
@@ -27,38 +29,35 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+<link rel="stylesheet" href="../../../../../blog/main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://hexterisk.github.io/blog/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://hexterisk.github.io/blog/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://hexterisk.github.io/blog/favicon-16x16.png">
-    <link rel="manifest" href="https://hexterisk.github.io/blog/site.webmanifest">
-    <link rel="mask-icon" href="https://hexterisk.github.io/blog/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://hexterisk.github.io/blog/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../favicon-16x16.png">
+    <link rel="manifest" href="../../../../../site.webmanifest">
+    <link rel="mask-icon" href="../../../../../safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
-<meta itemprop="name" content="Behavioral Patterns">
-<meta itemprop="description" content="Behavioral Design Patterns are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
+
+  <meta itemprop="name" content="Behavioral Patterns">
+  <meta itemprop="description" content="Behavioral Design Patterns are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
 Behavioral Class Patterns Inheritance is employed to distribute behavior between classes.
 Behavioral Object Patterns Composition is employed to characterize how a group of objects work with each other to perform a task that cannot be accomplished by a single object.">
-<meta itemprop="datePublished" content="2021-08-16T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-08-16T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2441">
-<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
-
-
-
-<meta itemprop="keywords" content="design-patterns,gangs-of-four,behavioral-patterns,chain-of-responsibility,command,interpreter,iterator,mediator,memento,observer,state,strategy,template,visitor," /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
-
-<meta name="twitter:title" content="Behavioral Patterns"/>
-<meta name="twitter:description" content="Behavioral Design Patterns are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
+  <meta itemprop="datePublished" content="2021-08-16T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-08-16T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2441">
+  <meta itemprop="keywords" content="Design-Patterns,Gangs-of-Four,Behavioral-Patterns,Chain-of-Responsibility,Command,Interpreter,Iterator,Mediator,Memento,Observer,State,Strategy,Template,Visitor">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Behavioral Patterns">
+  <meta name="twitter:description" content="Behavioral Design Patterns are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
 Behavioral Class Patterns Inheritance is employed to distribute behavior between classes.
-Behavioral Object Patterns Composition is employed to characterize how a group of objects work with each other to perform a task that cannot be accomplished by a single object."/>
+Behavioral Object Patterns Composition is employed to characterize how a group of objects work with each other to perform a task that cannot be accomplished by a single object.">
 
 
 
@@ -81,21 +80,23 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://hexterisk.github.io/blog/" style="text-decoration: none;">
-    <div class="logo">
-        
+        <a class="logo" href="../../../../../">
+    
+        <div class="logo__content">
             <span class="logo__mark">></span>
-            <span class="logo__text">$cd ~/</span>
-            <span class="logo__cursor" style=""></span>
-        
-    </div>
+            <span class="logo__text">cd ~/</span>
+            <span class="logo__cursor"></span>
+        </div>
+    
 </a>
-
+<script>
+    document.documentElement.style.setProperty('--logo-cursor-color', '#ed5565');
+</script>
 
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://hexterisk.github.io/blog/about/">About</a></li><li><a href="https://hexterisk.github.io/blog/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://hexterisk.com/blog/about/">About</a></li><li><a href="https://hexterisk.com/blog/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -137,7 +138,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 
     <article>
         <h1 class="post-title">
-            <a href="https://hexterisk.github.io/blog/posts/2021/08/16/behavioral-patterns/">Behavioral Patterns</a>
+            <a href="https://hexterisk.com/blog/posts/2021/08/16/behavioral-patterns/">Behavioral Patterns</a>
         </h1>
 
         
@@ -154,7 +155,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 </blockquote>
 <p>The <strong>Chain of Responsibility</strong> pattern establishes a series of objects chained together. Each object contains a reference to the next object in the chain. Incoming requests travel down the chain, wherein each object gets a chance to process them sequentially. This is especially useful in cases where (handler) objects carry assigned priorities. And since this chain of objects can be specified dynamically, it adds flexibility in terms of add or removing handlers at run-time.</p>
 <p>Neither the client, nor the objects in the chain know what all objects are processing a request. They simply know which object to pass the request onto once they receive the request. This results in reduced coupling since none of the parties involved have an explicit knowledge of the chain.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Behavioral_Patterns/image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/image.png">
 <em>Chain of Responsibility Pattern Structure</em></p>
 <p>The <strong>Client</strong> sends a request to the <strong>Handler</strong>, which is essentially an interface <code>HandleRequest()</code> to handle requests. <strong>ConcreteHandler</strong> objects inherit and implement the same interface to receive the request. They pass the request to the successor link, only processing the requests they are responsible for before the pass.</p>
 <p>Implementation Example: <a href="https://www.youtube.com/watch?v=1z1Z79cOtCE">Chain of Responsibility Pattern</a></p>
@@ -166,7 +167,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 <p>Undoable operations here imply reversal of operations executed on the object. This is possible because Command&rsquo;s execute method supports storing states, thereby reversing the effects of the operations executed in the Command itself.</p>
 <p>The encapsulation of the request causes decoupling of the object that invokes the operation from the one which is going to actually process it.</p>
 <p>The pattern is also known as <strong>Action</strong> and <strong>Transaction</strong>.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Behavioral_Patterns/1_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/1_image.png">
 <em>Command Pattern Structure</em></p>
 <p>The <strong>Client</strong> accesses the <strong>Receiver</strong> indirectly by creating <strong>ConcreteCommand</strong>, which implements <strong>Command</strong> and inherits it&rsquo;s <code>Execute()</code> interface. This object is stored by <strong>Invoker</strong>, which is responsible for actually executing the request by calling the <code>Execute()</code> method. When commands are undoable, <strong>ConcreteCommand</strong> stores state for undoing the command prior to invoking <code>Execute()</code>.</p>
 <p>Implementation Example: <a href="https://www.youtube.com/watch?v=m9KCiLrCErs">Command Pattern</a></p>
@@ -176,7 +177,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 </blockquote>
 <p>The <strong>Interpreter</strong> pattern allows the client to evaluate an expression in a particular language. A language&rsquo;s grammar is made of several sets of rules on how to represent and understand the statements in that particular language. It is this representation itself which forms the context in which an Interpreter operates. Therefore by this context itself, an interpreter is able to interpret the statements of a language.</p>
 <p>Each grammar rule is represented by a class.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Behavioral_Patterns/2_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/2_image.png">
 <em>Interpreter Pattern Structure</em></p>
 <p>The <strong>Context</strong> contains the representational information which is available to the Interpreter, and is used to store and access the states of an Interpreter during the interpretation process. The <strong>Client</strong> invokes the interpretation operation by calling the <code>Interpret(Context)</code> method of the <strong>AbstractExpression</strong>. This <strong>AbstractExpression</strong> is essentially an abstract syntax tree made up of <strong>TerminalExpression</strong> and <strong>NonterminalExpression</strong>.</p>
 <p>To understand how an abstract syntax tree is constructed, let&rsquo;s take a set of sentences as an example. They describe a subject, an object and a verb.</p>
@@ -203,7 +204,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 <ul>
 <li>Symbols that help with the construction of a statement in a language but don&rsquo;t actively participate in it&rsquo;s construction.</li>
 <li>Also known as <strong>AlternationExpression</strong>, <strong>RepetitionExpression</strong> and <strong>SequenceExpressions</strong>.</li>
-<li>Taking the language to be English in the example sentences, “Subject”, “Object&rdquo; and “Verb” are <strong>Non-Terminal Symbols</strong>.</li>
+<li>Taking the language to be English in the example sentences, “Subject”, “Object&quot; and “Verb” are <strong>Non-Terminal Symbols</strong>.</li>
 </ul>
 </li>
 </ol>
@@ -218,7 +219,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 <li>An Iterator object is instantiated to implement a traversal mechanism and keep track of the elements traversed.</li>
 </ul>
 <p>Iterators have a unicast design structure, that is, once a value is iterated over and consumed, it can never be seen again by any other consumer. This is facilitated by the fact that it tracks the elements traversed. For example, a cursor is used to fetch all rows of a table from MySQL database. Once a row is fetched, it cannot be retrieved again from this cursor. A new cursor has to be instantiated and traversed to reach that row and fetch it.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Behavioral_Patterns/3_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/3_image.png">
 <em>Iterator Pattern Structure</em></p>
 <p>An <strong>Aggregate</strong> structure, an abstract class for a particular data structure like a list, defines an interface to create an object of type <strong>Iterator</strong>. This <strong>Iterator</strong> defines various traversal interfaces like <code>First()</code> and <code>Next()</code> to return the first item and the next item in the traversal progress of <strong>Aggregate</strong>. <strong>ConcreteIterator</strong> implements the <strong>Iterator</strong> interface, and <strong>ConcreteAggregate</strong> implements this <strong>Iterator</strong> creation interface to return an instance of <strong>ConcreteIterator</strong>.</p>
 <p><strong>Polymorphic Iterators</strong> support iteration of list objects regardless of the data structure. A common iteration interface is defined, from which concrete iterator subclasses can be created for different implementations. This decouples the iteration mechanism from the actual concrete aggregate data structure.</p>
@@ -228,7 +229,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 <p>Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.</p>
 </blockquote>
 <p>The number of components grows with the increase in functionality of an application. Too many direct interactions between components creates unstructured and complex interdependencies. The reduces the reusability of a component since it would require communication with other components to accomplish a task. <strong>Mediator</strong> pattern brings a central point of control through which different components can interact with each other. The components communicating through the Mediator are called <strong>Colleagues</strong>.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Behavioral_Patterns/5_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/5_image.png">
 <em>Mediator Pattern Structure</em></p>
 <p>The <strong>Mediator</strong> defines an interface for communication between objects of type <strong>Colleague</strong>. <strong>ConcreteMediator</strong> implements this interface for coordination between multiple <strong>ConcreteColleague</strong> instances. For example, an Air Traffic Control tower can be considered to be a mediator between different flights. It coordinates the flying schedule and routes, being the  single point of contact for all flights so that the pilots themselves do not have to communicate amongst themselves.</p>
 <p>Implementation Example: <a href="https://www.youtube.com/watch?v=WO2d88H4_10">Mediator Pattern</a></p>
@@ -238,7 +239,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 </blockquote>
 <p>Encapsulation enforces all object related data (including it&rsquo;s state) to be stored within the object itself. This puts concepts like checkpoints and mechanisms like data restoration in violation of the principle since making any of the internal data of an object accessible to other objects, or storing it externally is discouraged.</p>
 <p>The <strong>Memento</strong> pattern, also known as <strong>Token</strong>, stores the internal state of an object which can then be used to restore the object to a previous (stored) state at a later time. The encapsulation upheld by ensuring that a memento object is bound to the object whose data it is storing.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Behavioral_Patterns/6_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/6_image.png">
 <em>Memento Pattern Structure</em></p>
 <p>The <strong>Caretaker</strong> is responsible for instantiating a <strong>Memento</strong>, and solely manages the passing of the right Memento object to the right <strong>Originator</strong>. It never accesses the data inside the <strong>Memento</strong>. The <strong>Originator</strong> requests a Memento through the <code>CreateMemento()</code> method, in which it stores its internal state. The <strong>Memento</strong> stores the data as per the request from the <code>SetMemento(Memento)</code> method.</p>
 <p>Implementation Example: <a href="https://www.youtube.com/watch?v=_Q5rXfGuyLQ">Memento Pattern</a></p>
@@ -248,7 +249,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 </blockquote>
 <p>A system where multiple components are cooperating to achieve a functionality may face problems in maintaining consistency between these components. One component changing it&rsquo;s state might directly affect the other components working with it, and it would throw the system out of sync if there is no mechanism for the other components to be updated of such a change.</p>
 <p>The <strong>Observer</strong> pattern, ensures consistency by establishing the relationships between multiple components in a subject and observer structure. A subject may have any number of <strong>Dependents</strong> (observers), which get notified if the subject&rsquo;s state changes. This allows the observers to synchronize with the subject&rsquo;s state. This interaction is known as <strong>Publish-Subscribe</strong>.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Behavioral_Patterns/7_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/7_image.png">
 <em>Observer Pattern Structure</em></p>
 <p>The <strong>Subject</strong> provides an interface to attach and detach objects of type <strong>Observer</strong> through <code>Atttach(Observer)</code> and <code>Detach(Observer)</code> methods. <strong>ConcreteSubject</strong> implements <strong>Subject</strong> class. It stores the state which is of interest to <strong>Observer</strong> objects, and sends them a notification in the even of a state change. <strong>ConcreteObserver</strong> the <code>Update()</code> method of <strong>Observer</strong> class. Each <strong>ConcreteObserver</strong> maintains a reference to a <strong>ConcreteSubjet</strong> object and updates its state to maintain consistency with <strong>ConcreteSubject</strong>.</p>
 <p>Implementation Example: <a href="https://www.youtube.com/watch?v=KAwOtYk7QSE">Observer Pattern</a></p>
@@ -257,7 +258,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 <p>Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.</p>
 </blockquote>
 <p>The State pattern maintains the state for objects whose behavior depends on that state at run-time. This state is represented by numerated constants that are used as conditionals to decide the behavior. The State pattern puts each branch of the conditional in a separate class, allowing every state of the object to be its own entity.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Behavioral_Patterns/8_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/8_image.png">
 <em>State Pattern Structure</em></p>
 <p>The <strong>Context</strong> defines the interface that a client can interact with. The <strong>State</strong> defines the interface to encapsulate the behavior pertaining to different states of the <strong>Context</strong>. Each <strong>ConcreteState</strong> subclass implements the behavior of the <strong>Context</strong> for a particular state.</p>
 <p>For example, a simple socket will either be in ACCEPT state wherein it will accept connections or it will be in a REJECT state where it will reject all connections.</p>
@@ -268,7 +269,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 <p>Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</p>
 </blockquote>
 <p>The <strong>Strategy</strong> pattern, also known as <strong>Policy</strong>, divides a single class with multiple behaviors into multiple related classes that only differ in their behavior, called <strong>strategies</strong>. A single parent class, called <strong>Context</strong>, maintains a reference to the strategies, and delegates the work to a strategy object. The client is responsible for declaring the strategy to be used, while the context simply implements a generic interface for triggering the requested strategy. This makes the context independent of strategies, allowing addition of new ones or modification of old ones without the requirement of change in implementation of the context or other strategies. However, this requires the client to be aware of different strategies.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Behavioral_Patterns/10_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/10_image.png">
 <em>Strategy Pattern Structure</em></p>
 <p>The <strong>Context</strong> maintains a reference to an object of type <strong>Strategy</strong>, and implements the <code>ContextInterface()</code> interface to communicate with this reference. The Strategy object declares an interface <code>AlgorithmInterface()</code> to delegate the task to a <strong>ConcreteStrategy</strong> object which would implement a particular algorithm. Thus, the <strong>Strategy</strong> and the <strong>Context</strong> interact to implement the chose algorithm.</p>
 <p>Implementation Example: <a href="https://www.youtube.com/watch?v=rPAmCIX79uE">Strategy Pattern</a></p>
@@ -277,7 +278,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 <p>Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm&rsquo;s structure.</p>
 </blockquote>
 <p>The <strong>Template</strong> pattern defines an algorithm&rsquo;s constant parts, while keeping the variable parts abstract, allowing the subclasses to override this abstract (variable) part with concrete behavior. This prevents code duplication among classes with some common behavior. The effectiveness is inversely proportional to the number of methods required to be overridden by subclasses; the more operations that need overriding, the lesser is the generic functionality a template can offer.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Behavioral_Patterns/11_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/11_image.png">
 <em>Template Pattern Structure</em></p>
 <p>The AbstractClass defines a specific behavior with abstract methods like <code>PrimitiveOperation1()</code> which can be overridden by objects of type <strong>ConcreteClass</strong> to implement these operations in it&rsquo;s own way.</p>
 <p>Implementation Example: <a href="https://www.youtube.com/watch?v=Ltk1UjFXbKU">Template Pattern</a></p>
@@ -286,7 +287,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 <p>Represent an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.</p>
 </blockquote>
 <p>The <strong>Visitor</strong> pattern facilitates creation of a single object consisting of many classes, where these classes have different interfaces whose output is solely dependent on their concrete class. The visitor (single object) can be shared amongst many classes as it would keep all related operations together, and process output based on the concrete class of the object calling it. This introduces a concept called <strong>Double Dispatch</strong>, that delegates the responsibility of choosing the right method to the object itself rather than the client.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Behavioral_Patterns/12_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/12_image.png">
 <em>Visitor Pattern Structure</em></p>
 <p>The <strong>ObjectStructure</strong> provides a high-level interface to allow access to its objects of type <strong>Element</strong>. The <strong>Element</strong> declares a method <code>Accept(Visitor)</code> to reference the <strong>Visitor</strong>. Each <strong>ConcreteElement</strong> implements the inherited <code>Accept(Visitor)</code> method. The <strong>Visitor</strong> defines methods for each <strong>ConcreteElement</strong>. The choice of the method executed by the <strong>Visitor</strong> is dependent on the concrete class of the object requesting it, known through the signature of the method in the request. The <strong>ConcreteVisitor</strong> implements the operations declared by the <strong>Visitor</strong>, and provides the context for an algorithm.</p>
 <p>Implementation Example: <a href="https://www.youtube.com/watch?v=UQP5XqMqtqQ">Visitor Pattern</a></p>
@@ -304,7 +305,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
                 class="feather feather-tag meta-icon">
                 <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                 <line x1="7" y1="7" x2="7" y2="7"></line>
-            </svg><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/design-patterns">design-patterns</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/gangs-of-four">gangs-of-four</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/behavioral-patterns">behavioral-patterns</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/chain-of-responsibility">chain-of-responsibility</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/command">command</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/interpreter">interpreter</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/iterator">iterator</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/mediator">mediator</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/memento">memento</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/observer">observer</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/state">state</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/strategy">strategy</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/template">template</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/visitor">visitor</a></span>
+            </svg><span class="tag"><a href="https://hexterisk.com/blog/%20tags/design-patterns">design-patterns</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/gangs-of-four">gangs-of-four</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/behavioral-patterns">behavioral-patterns</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/chain-of-responsibility">chain-of-responsibility</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/command">command</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/interpreter">interpreter</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/iterator">iterator</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/mediator">mediator</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/memento">memento</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/observer">observer</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/state">state</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/strategy">strategy</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/template">template</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/visitor">visitor</a></span>
         </p>
 
         <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -338,7 +339,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 
             
             <span class="button previous">
-                <a href="https://hexterisk.github.io/blog/posts/2021/07/02/creational-patterns/">
+                <a href="https://hexterisk.com/blog/posts/2021/07/02/creational-patterns/">
                     <span class="button__text">Creational Patterns</span>
                     <span class="button__icon">→</span>
                 </a>
@@ -347,7 +348,7 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 
             
             <span class="button next">
-                <a href="https://hexterisk.github.io/blog/posts/2021/09/10/structural-patterns/">
+                <a href="https://hexterisk.com/blog/posts/2021/09/10/structural-patterns/">
                     <span class="button__icon">←</span>
                     <span class="button__text">Structural Patterns</span>
                 </a>
@@ -365,22 +366,24 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 
             
                 <footer class="footer">
-    
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
         </div>
     </div>
-    <div class="footer__inner">
-        <div class="footer__content" style="margin-bottom: -0.8rem;">
-            <span><a style="text-decoration: none;"> .</a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span><a style="text-decoration: none;" style="font-size: 1.4rem; margin-bottom: -1.0rem;">..:</a></span>
-        </div>
+    
+    <div class="footer__svg">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 140 140"
+            stroke="#4DB6AC"
+        >
+            <path stroke-width="122" stroke-dasharray="2,38" d="M9,70h122M70,9v122" />
+            <path stroke-width="33" stroke-linecap="round" d="M70,30h0M110,70h0M30,110v0M70,110h0M110,110h0" />
+        </svg>
     </div>
 </footer>
             
@@ -391,8 +394,16 @@ Behavioral Object Patterns Composition is employed to characterize how a group o
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
+<script type="text/javascript" src="../../../../../bundle.min.45295cbc2d5bbc09b85caead90108f31defa5c6b650a42abb2e79d59a363e5bc2f11614e43687e66e6d47563560a45c3324b75dcb9b3a724a2955a2f1ce2f114.js" integrity="sha512-RSlcvC1bvAm4XK6tkBCPMd76XGtlCkKrsuedWaNj5bwvEWFOQ2h&#43;ZubUdWNWCkXDMkt13LmzpySilVovHOLxFA=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'G-66L1D38RLD', 'auto');
+        ga('send', 'pageview');
+    </script>
 
 
     </body>

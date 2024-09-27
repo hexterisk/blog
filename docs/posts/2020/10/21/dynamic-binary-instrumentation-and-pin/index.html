@@ -5,13 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
-<meta name="description" content="Dynamic Binary Instrumentation is the process of monitoring or measuring a binary&amp;rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
+<meta name="description" content="Dynamic Binary Instrumentation is the process of monitoring or measuring a binary&rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
 We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.
- Instrumentation Code The technique requires injecting Instrumentation Code into a running binary." />
+" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://hexterisk.github.io/blog/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://hexterisk.com/blog/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 
     <title>
@@ -27,38 +28,33 @@ We will skip over Source Instrumentation since it requires source code of the ap
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+<link rel="stylesheet" href="../../../../../blog/main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://hexterisk.github.io/blog/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://hexterisk.github.io/blog/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://hexterisk.github.io/blog/favicon-16x16.png">
-    <link rel="manifest" href="https://hexterisk.github.io/blog/site.webmanifest">
-    <link rel="mask-icon" href="https://hexterisk.github.io/blog/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://hexterisk.github.io/blog/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../favicon-16x16.png">
+    <link rel="manifest" href="../../../../../site.webmanifest">
+    <link rel="mask-icon" href="../../../../../safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
-<meta itemprop="name" content="Dynamic Binary Instrumentation and Pin">
-<meta itemprop="description" content="Dynamic Binary Instrumentation is the process of monitoring or measuring a binary&rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
-We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.
- Instrumentation Code The technique requires injecting Instrumentation Code into a running binary.">
-<meta itemprop="datePublished" content="2020-10-21T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-10-21T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2548">
-<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 
-
-
-<meta itemprop="keywords" content="binary,granularity,trace,img,jit,probe,aslr,bbl,debugging," /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
-
-<meta name="twitter:title" content="Dynamic Binary Instrumentation and Pin"/>
-<meta name="twitter:description" content="Dynamic Binary Instrumentation is the process of monitoring or measuring a binary&rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
-We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.
- Instrumentation Code The technique requires injecting Instrumentation Code into a running binary."/>
+  <meta itemprop="name" content="Dynamic Binary Instrumentation and Pin">
+  <meta itemprop="description" content="Dynamic Binary Instrumentation is the process of monitoring or measuring a binary’s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
+We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.">
+  <meta itemprop="datePublished" content="2020-10-21T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2020-10-21T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2552">
+  <meta itemprop="keywords" content="Binary,Granularity,Trace,Img,Jit,Probe,Aslr,Bbl,Debugging">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Dynamic Binary Instrumentation and Pin">
+  <meta name="twitter:description" content="Dynamic Binary Instrumentation is the process of monitoring or measuring a binary’s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
+We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.">
 
 
 
@@ -81,21 +77,23 @@ We will skip over Source Instrumentation since it requires source code of the ap
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://hexterisk.github.io/blog/" style="text-decoration: none;">
-    <div class="logo">
-        
+        <a class="logo" href="../../../../../">
+    
+        <div class="logo__content">
             <span class="logo__mark">></span>
-            <span class="logo__text">$cd ~/</span>
-            <span class="logo__cursor" style=""></span>
-        
-    </div>
+            <span class="logo__text">cd ~/</span>
+            <span class="logo__cursor"></span>
+        </div>
+    
 </a>
-
+<script>
+    document.documentElement.style.setProperty('--logo-cursor-color', '#ed5565');
+</script>
 
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://hexterisk.github.io/blog/about/">About</a></li><li><a href="https://hexterisk.github.io/blog/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://hexterisk.com/blog/about/">About</a></li><li><a href="https://hexterisk.com/blog/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -137,7 +135,7 @@ We will skip over Source Instrumentation since it requires source code of the ap
 
     <article>
         <h1 class="post-title">
-            <a href="https://hexterisk.github.io/blog/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/">Dynamic Binary Instrumentation and Pin</a>
+            <a href="https://hexterisk.com/blog/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/">Dynamic Binary Instrumentation and Pin</a>
         </h1>
 
         
@@ -191,7 +189,7 @@ We will skip over Source Instrumentation since it requires source code of the ap
 <p> </p>
 <h2 id="pin">Pin</h2>
 <p>Pin is an instrumentation engine created by Intel. It comes packed with a JIT for x86 and x86_64.</p>
-<p><img src="https://hexterisk.github.io/blog/Dynamic_Binary_Instrumentation_and_Pin/image.png" alt="">
+<p><img src="../../../../../Dynamic_Binary_Instrumentation_and_Pin/image.png">
 <em>Architecture overview.</em></p>
 <p>Visit <a href="https://software.intel.com/sites/landingpage/pintool/docs/81205/Pin/html/index.html">https://software.intel.com/sites/landingpage/pintool/docs/81205/Pin/html/index.html</a> for the documentation.</p>
 <p>It allows us to build instrumentation programs, or analysis tools, known as <strong>Pintools</strong>, that register hooks on events in the program.</p>
@@ -216,7 +214,7 @@ We will skip over Source Instrumentation since it requires source code of the ap
 <li>Probes can only be placed on RTN boundaries.</li>
 </ul>
 <h3 id="injection-process">Injection Process</h3>
-<p><img src="https://hexterisk.github.io/blog/Dynamic_Binary_Instrumentation_and_Pin/2_image.png" alt="">
+<p><img src="../../../../../Dynamic_Binary_Instrumentation_and_Pin/2_image.png">
 <em>Injection process.</em></p>
 <p>Pin&rsquo;s injection procedure.</p>
 <p>Firstly, a 32 bit script (not shown in the figure) is executed with the necessary parameters (pin -t Pintool &ndash; program), which determines the correct version of Pin (pinbin) for the current platform and prepares the system for its execution (e. g. sets the necessary environment variables). The spawned pinbin process can be seen in (a) on the left. The injection process involves a fork of pinbin to a new process (1), followed by a fork of the same process (2). The second process then exits (3) and leaves the original pinbin executable with its grandchild process, effectively a daemon, to continue running. Next as seen in (b), the newly created daemon process, called <strong>injector</strong>, utilises the Unix ptrace API (4) to obtain control of its parent’s execution, pinbin (injectee) which awaits that by issuing a PTRACE_TRACEME request. The <strong>injectee</strong> then calls execve(program, argv, envp) (5) which preserves the original Process Identifier (PID) but the text, data, BSS, and stack of the calling process are overwritten by that of the program loaded. After that, the injector pauses the execution of the injectee and loads the essential Pin components (pinbin, libraries, Pintool) into the address space of the newly started program which will be instrumented (6), illustrated in (c). Before detaching and exiting (8), the injector passes the control of the instrumented program to the new copy of Pin, residing in injectee’s memory (d). After the Pintool is initialised, Pin creates the initial context and starts jitting the application at its entry point (7). By default, the parent process and its grandchild are respectively injectee and injector, however, these roles can be switched by setting the <code>-injection</code> child option when starting Pin.</p>
@@ -298,144 +296,144 @@ $(APP_CC) $(APP_CXXFLAGS_NOOPT) $(COMP_EXE) $(APP_LDFLAGS_NOOPT) $(APP_LIBS)</p>
 </ul>
 </li>
 </ul>
-<p>Visit the documentation&rsquo;s main page and see under the heading ”Pin&rsquo;s makefile Infrastructure&rdquo; for a more comprehensive guide.</p>
+<p>Visit the documentation&rsquo;s main page and see under the heading ”Pin&rsquo;s makefile Infrastructure&quot; for a more comprehensive guide.</p>
 <h3 id="debugging">Debugging</h3>
 <p>Pintools can be debugged using the <code>-pause_tool</code> switch, followed by the number of seconds to wait until the debugger is attached to its process.</p>
 <h3 id="example">Example</h3>
 <p>We&rsquo;ll create a simple C++ program to instrument. </p>
 <p>Since instruction counting is a cliché now, we&rsquo;ll do something different. Let&rsquo;s find loops and predict their number of iterations. It&rsquo;s a rudimentary approach full of loop holes, but works for naïve programs.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">// loop.cpp
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-using namespace std;
-
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">looper0</span>(<span style="color:#66d9ef">int</span> low, <span style="color:#66d9ef">int</span> high) {
-    <span style="color:#66d9ef">int</span> i, sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    <span style="color:#66d9ef">for</span>(i <span style="color:#f92672">=</span> low; i <span style="color:#f92672">&lt;</span> high; i<span style="color:#f92672">++</span>)
-        sum <span style="color:#f92672">+=</span> i;
-    <span style="color:#66d9ef">return</span> sum;
-}
-
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">looper1</span>(<span style="color:#66d9ef">int</span> low, <span style="color:#66d9ef">int</span> high) {
-    <span style="color:#66d9ef">int</span> i, sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    <span style="color:#66d9ef">for</span>(i <span style="color:#f92672">=</span> low; i <span style="color:#f92672">&lt;</span> high; i<span style="color:#f92672">++</span>)
-        sum <span style="color:#f92672">+=</span> i;
-    <span style="color:#66d9ef">return</span> sum;
-}
-
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
-{
-    <span style="color:#66d9ef">int</span> sum;
-    
-    sum <span style="color:#f92672">=</span> looper0(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">250</span>);
-    sum <span style="color:#f92672">+=</span> looper1(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">250</span>);
-    sum <span style="color:#f92672">+=</span> looper0(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">250</span>);
-    
-    std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span>sum<span style="color:#f92672">&lt;&lt;</span>endl;
-    
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><p>Compile the file by executing <code>g++ loop.cpp -o loop</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// loop.cpp
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>using namespace std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">looper0</span>(<span style="color:#66d9ef">int</span> low, <span style="color:#66d9ef">int</span> high) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> i, sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(i <span style="color:#f92672">=</span> low; i <span style="color:#f92672">&lt;</span> high; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">+=</span> i;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> sum;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">looper1</span>(<span style="color:#66d9ef">int</span> low, <span style="color:#66d9ef">int</span> high) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> i, sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(i <span style="color:#f92672">=</span> low; i <span style="color:#f92672">&lt;</span> high; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>        sum <span style="color:#f92672">+=</span> i;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> sum;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> sum;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    sum <span style="color:#f92672">=</span> <span style="color:#a6e22e">looper0</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">250</span>);
+</span></span><span style="display:flex;"><span>    sum <span style="color:#f92672">+=</span> <span style="color:#a6e22e">looper1</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">250</span>);
+</span></span><span style="display:flex;"><span>    sum <span style="color:#f92672">+=</span> <span style="color:#a6e22e">looper0</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">250</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span>sum<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Compile the file by executing <code>g++ loop.cpp -o loop</code>.</p>
 <p>All the program does is call two functions with a loop each, at different types. So based on the source code, loop inside <code>looper0</code> should run 500times while the one in <code>looper1</code> should run 250 times.</p>
 <p>Let&rsquo;s write a pintool to predict the loops.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">// loopcount.cpp
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fstream&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unordered_map&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iterator&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;pin.H&#34;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-using std<span style="color:#f92672">::</span>cerr;
-using std<span style="color:#f92672">::</span>endl;
-using std<span style="color:#f92672">::</span>ios;
-using std<span style="color:#f92672">::</span>string;
-
-<span style="color:#75715e">// Map to track loops
-</span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>unordered_map<span style="color:#f92672">&lt;</span>ADDRINT, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> u;
-
-<span style="color:#75715e">// Main Binary Image
-</span><span style="color:#75715e"></span>IMG MainBinary;
-
-<span style="color:#75715e">// Checks if the instruction comes from the binary being instrumented.
-</span><span style="color:#75715e"></span>BOOL <span style="color:#a6e22e">CheckBounds</span>(ADDRINT addr) {
-    <span style="color:#66d9ef">if</span>(addr <span style="color:#f92672">&lt;</span> IMG_HighAddress(MainBinary) <span style="color:#f92672">&amp;&amp;</span> addr <span style="color:#f92672">&gt;</span> IMG_LowAddress(MainBinary)){
-        <span style="color:#66d9ef">return</span> true;
-    }
-    <span style="color:#66d9ef">return</span> false;
-}
-
-VOID <span style="color:#a6e22e">Analyse</span>(ADDRINT addr, BOOL taken){
-    
-    <span style="color:#66d9ef">if</span>(CheckBounds(addr)) {
-
-        <span style="color:#75715e">// If the branch is not taken, then it follows the fall through, that is, reiteration.
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>taken) {
-            <span style="color:#66d9ef">if</span> (u.find(addr) <span style="color:#f92672">==</span> u.end()){
-                u.insert({addr, <span style="color:#ae81ff">1</span>});
-            }
-            <span style="color:#66d9ef">else</span>{
-                <span style="color:#f92672">++</span>u[addr];
-            }
-        }
-    }
-}
-
-VOID <span style="color:#a6e22e">Instruction</span>(INS ins, VOID<span style="color:#f92672">*</span> v)
-{	
-    <span style="color:#66d9ef">if</span>(INS_IsBranch(ins) <span style="color:#f92672">&amp;&amp;</span> INS_HasFallThrough(ins)){
-        <span style="color:#75715e">// std::cout &lt;&lt; &#34;[+] Condition Branch encountered: &#34;&lt;&lt;INS_Disassemble(ins)&lt;&lt;endl;
-</span><span style="color:#75715e"></span>        INS_InsertCall(ins, IPOINT_BEFORE, (AFUNPTR)Analyse, IARG_INST_PTR, IARG_BRANCH_TAKEN, IARG_END);
-    }
-}
-
-VOID <span style="color:#a6e22e">Image</span>(IMG img, VOID<span style="color:#f92672">*</span> v)
-{
-    <span style="color:#66d9ef">if</span>(IMG_IsMainExecutable(img)){
-        MainBinary <span style="color:#f92672">=</span> img;
-
-        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[*] Main Binary Image: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> IMG_Name(img) <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
-        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[+] Image limits 0x&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>hex <span style="color:#f92672">&lt;&lt;</span> IMG_LowAddress(img) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; - 0x&#34;</span> <span style="color:#f92672">&lt;&lt;</span> IMG_HighAddress(img) <span style="color:#f92672">&lt;&lt;</span> endl;
-    }
-    <span style="color:#66d9ef">else</span> {
-        std<span style="color:#f92672">::</span>string name <span style="color:#f92672">=</span> IMG_Name(img);
-        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[*] Image: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> name <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
-    }
-}
-
-<span style="color:#75715e">// This function is called when the application exits
-</span><span style="color:#75715e"></span>VOID <span style="color:#a6e22e">Fini</span>(INT32 code, VOID <span style="color:#f92672">*</span>v)
-{
-
-    <span style="color:#75715e">// Iterate and print keys and values of unordered_map
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span>( <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> n : u ) {
-        <span style="color:#66d9ef">if</span>(n.second <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>) {
-            printf(<span style="color:#e6db74">&#34;Loop condition encountered at: 0x%lX</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, n.first);
-            printf(<span style="color:#e6db74">&#34;Iterations: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, n.second);
-        }
-    }
-    
-    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[+] End of analysis.&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
-}
-
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> argv[])
-{
-    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[+] Initialising PIN...&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
-    PIN_InitSymbols();
-    PIN_Init(argc, argv);
-
-    IMG_AddInstrumentFunction(Image, NULL);
-    INS_AddInstrumentFunction(Instruction, NULL);
-
-    PIN_AddFiniFunction(Fini, NULL);
-    
-    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[+] Starting Instrumentation...&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
-    PIN_StartProgram();
-    
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><p>A bunch of methods and API calls need to be taken a look at.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// loopcount.cpp
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;fstream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unordered_map&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iterator&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;pin.H&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>using std<span style="color:#f92672">::</span>cerr;
+</span></span><span style="display:flex;"><span>using std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>using std<span style="color:#f92672">::</span>ios;
+</span></span><span style="display:flex;"><span>using std<span style="color:#f92672">::</span>string;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Map to track loops
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>unordered_map<span style="color:#f92672">&lt;</span>ADDRINT, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> u;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Main Binary Image
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>IMG MainBinary;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Checks if the instruction comes from the binary being instrumented.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>BOOL <span style="color:#a6e22e">CheckBounds</span>(ADDRINT addr) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(addr <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">IMG_HighAddress</span>(MainBinary) <span style="color:#f92672">&amp;&amp;</span> addr <span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">IMG_LowAddress</span>(MainBinary)){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> true;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>VOID <span style="color:#a6e22e">Analyse</span>(ADDRINT addr, BOOL taken){
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">CheckBounds</span>(addr)) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// If the branch is not taken, then it follows the fall through, that is, reiteration.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>taken) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (u.<span style="color:#a6e22e">find</span>(addr) <span style="color:#f92672">==</span> u.<span style="color:#a6e22e">end</span>()){
+</span></span><span style="display:flex;"><span>                u.<span style="color:#a6e22e">insert</span>({addr, <span style="color:#ae81ff">1</span>});
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>{
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">++</span>u[addr];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>VOID <span style="color:#a6e22e">Instruction</span>(INS ins, VOID<span style="color:#f92672">*</span> v)
+</span></span><span style="display:flex;"><span>{	
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">INS_IsBranch</span>(ins) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">INS_HasFallThrough</span>(ins)){
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// std::cout &lt;&lt; &#34;[+] Condition Branch encountered: &#34;&lt;&lt;INS_Disassemble(ins)&lt;&lt;endl;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">INS_InsertCall</span>(ins, IPOINT_BEFORE, (AFUNPTR)Analyse, IARG_INST_PTR, IARG_BRANCH_TAKEN, IARG_END);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>VOID <span style="color:#a6e22e">Image</span>(IMG img, VOID<span style="color:#f92672">*</span> v)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">IMG_IsMainExecutable</span>(img)){
+</span></span><span style="display:flex;"><span>        MainBinary <span style="color:#f92672">=</span> img;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[*] Main Binary Image: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#a6e22e">IMG_Name</span>(img) <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[+] Image limits 0x&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>hex <span style="color:#f92672">&lt;&lt;</span> <span style="color:#a6e22e">IMG_LowAddress</span>(img) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; - 0x&#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#a6e22e">IMG_HighAddress</span>(img) <span style="color:#f92672">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>string name <span style="color:#f92672">=</span> <span style="color:#a6e22e">IMG_Name</span>(img);
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[*] Image: &#34;</span> <span style="color:#f92672">&lt;&lt;</span> name <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// This function is called when the application exits
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>VOID <span style="color:#a6e22e">Fini</span>(INT32 code, VOID <span style="color:#f92672">*</span>v)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Iterate and print keys and values of unordered_map
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span>( <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> n : u ) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(n.second <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Loop condition encountered at: 0x%lX</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, n.first);
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Iterations: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, n.second);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[+] End of analysis.&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> argv[])
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[+] Initialising PIN...&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">PIN_InitSymbols</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">PIN_Init</span>(argc, argv);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">IMG_AddInstrumentFunction</span>(Image, NULL);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">INS_AddInstrumentFunction</span>(Instruction, NULL);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">PIN_AddFiniFunction</span>(Fini, NULL);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[+] Starting Instrumentation...&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">PIN_StartProgram</span>();
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>A bunch of methods and API calls need to be taken a look at.</p>
 <p>The main function, <code>main</code>, is responsible to get Pin ready and started.</p>
 <ul>
 <li><code>PIN_InitSymbols</code>:
@@ -527,31 +525,31 @@ VOID <span style="color:#a6e22e">Image</span>(IMG img, VOID<span style="color:#f
 <p>The analysis function, <code>Analyse</code>, creates a map of all functions that we can suspect of being a loop.</p>
 <p>The bound checking function, <code>CheckBounds</code>, checks if the instruction address is between the bounds of the lowest and highest address of the main binary in memory, that is, makes sure the instruction being instrumented comes from the binary itself and not from any of the other images loaded.</p>
 <p>The finalizing function, <code>Fini</code>, is called right before the binary exits. It iterates through the map and prints all the instructions&rsquo; address along with the number of times they were parsed, if they were parsed more than once. These could be loop conditionals.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">// Result of the instrumentation
-</span><span style="color:#75715e"></span>
-<span style="color:#960050;background-color:#1e0010">$</span> pin <span style="color:#f92672">-</span>t obj<span style="color:#f92672">-</span>intel64<span style="color:#f92672">/</span>loopcount.so <span style="color:#f92672">--</span> <span style="color:#f92672">~/</span>loop
-[<span style="color:#f92672">+</span>] Initialising PIN...
-[<span style="color:#f92672">+</span>] Starting Instrumentation...
-
-[<span style="color:#f92672">*</span>] Main Binary Image: <span style="color:#f92672">/</span>home<span style="color:#f92672">/</span>hexterisk<span style="color:#f92672">/</span>Work<span style="color:#f92672">/</span>pin<span style="color:#f92672">/</span>calc
-[<span style="color:#f92672">+</span>] Image limits <span style="color:#ae81ff">0x562fad148000</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">0x562fad14a1bf</span>
-[<span style="color:#f92672">*</span>] Image: <span style="color:#f92672">/</span>lib64<span style="color:#f92672">/</span>ld<span style="color:#f92672">-</span>linux<span style="color:#f92672">-</span>x86<span style="color:#f92672">-</span><span style="color:#ae81ff">64.</span>so<span style="color:#ae81ff">.2</span>
-[<span style="color:#f92672">*</span>] Image: [vdso]
-[<span style="color:#f92672">*</span>] Image: <span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>libstdc<span style="color:#f92672">++</span>.so<span style="color:#ae81ff">.6</span>
-[<span style="color:#f92672">*</span>] Image: <span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>libm.so<span style="color:#ae81ff">.6</span>
-[<span style="color:#f92672">*</span>] Image: <span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>libgcc_s.so<span style="color:#ae81ff">.1</span>
-[<span style="color:#f92672">*</span>] Image: <span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>libc.so<span style="color:#ae81ff">.6</span>
-<span style="color:#ae81ff">93375</span>
-Loop condition encountered at: <span style="color:#ae81ff">0x562FAD149186</span>
-Iterations: <span style="color:#ae81ff">500</span>
-Loop condition encountered at: <span style="color:#ae81ff">0x562FAD1491B6</span>
-Iterations: <span style="color:#ae81ff">250</span>
-[<span style="color:#f92672">+</span>] End of analysis.
-</code></pre></div><p>Since ASLR is on, the base address would be different. So we verify the offsets by looking at the disassembly.</p>
-<p><img src="https://hexterisk.github.io/blog/Dynamic_Binary_Instrumentation_and_Pin/2020-06-22-022324-screenshot.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// Result of the instrumentation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> pin <span style="color:#f92672">-</span>t obj<span style="color:#f92672">-</span>intel64<span style="color:#f92672">/</span>loopcount.so <span style="color:#f92672">--</span> <span style="color:#f92672">~/</span>loop
+</span></span><span style="display:flex;"><span>[<span style="color:#f92672">+</span>] Initialising PIN...
+</span></span><span style="display:flex;"><span>[<span style="color:#f92672">+</span>] Starting Instrumentation...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#f92672">*</span>] Main Binary Image: <span style="color:#f92672">/</span>home<span style="color:#f92672">/</span>hexterisk<span style="color:#f92672">/</span>Work<span style="color:#f92672">/</span>pin<span style="color:#f92672">/</span>calc
+</span></span><span style="display:flex;"><span>[<span style="color:#f92672">+</span>] Image limits <span style="color:#ae81ff">0x562fad148000</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">0x562fad14a1bf</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#f92672">*</span>] Image: <span style="color:#f92672">/</span>lib64<span style="color:#f92672">/</span>ld<span style="color:#f92672">-</span>linux<span style="color:#f92672">-</span>x86<span style="color:#f92672">-</span><span style="color:#ae81ff">64.</span>so<span style="color:#ae81ff">.2</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#f92672">*</span>] Image: [vdso]
+</span></span><span style="display:flex;"><span>[<span style="color:#f92672">*</span>] Image: <span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>libstdc<span style="color:#f92672">++</span>.so<span style="color:#ae81ff">.6</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#f92672">*</span>] Image: <span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>libm.so<span style="color:#ae81ff">.6</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#f92672">*</span>] Image: <span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>libgcc_s.so<span style="color:#ae81ff">.1</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#f92672">*</span>] Image: <span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span>lib<span style="color:#f92672">/</span>libc.so<span style="color:#ae81ff">.6</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">93375</span>
+</span></span><span style="display:flex;"><span>Loop condition encountered at: <span style="color:#ae81ff">0x562FAD149186</span>
+</span></span><span style="display:flex;"><span>Iterations: <span style="color:#ae81ff">500</span>
+</span></span><span style="display:flex;"><span>Loop condition encountered at: <span style="color:#ae81ff">0x562FAD1491B6</span>
+</span></span><span style="display:flex;"><span>Iterations: <span style="color:#ae81ff">250</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#f92672">+</span>] End of analysis.
+</span></span></code></pre></div><p>Since ASLR is on, the base address would be different. So we verify the offsets by looking at the disassembly.</p>
+<p><img src="../../../../../Dynamic_Binary_Instrumentation_and_Pin/2020-06-22-022324-screenshot.png">
 <em>&ldquo;looper0&rdquo; function.</em></p>
 <p>Notice the <code>jge</code> instrunction at the offset 0x1186.</p>
-<p><img src="https://hexterisk.github.io/blog/Dynamic_Binary_Instrumentation_and_Pin/2020-06-22-022329-screenshot.png" alt="">
+<p><img src="../../../../../Dynamic_Binary_Instrumentation_and_Pin/2020-06-22-022329-screenshot.png">
 <em>&ldquo;looper1&rdquo; function.</em></p>
 <p>Notice the <code>jge</code> instruction at the offset 0x11B6.</p>
 <p>The offsets are in line with the output we got on the console via our pintool.</p>
@@ -570,7 +568,7 @@ Iterations: <span style="color:#ae81ff">250</span>
                 class="feather feather-tag meta-icon">
                 <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                 <line x1="7" y1="7" x2="7" y2="7"></line>
-            </svg><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/binary">binary</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/granularity">granularity</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/trace">trace</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/img">img</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/jit">jit</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/probe">probe</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/aslr">aslr</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/bbl">bbl</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/debugging">debugging</a></span>
+            </svg><span class="tag"><a href="https://hexterisk.com/blog/%20tags/binary">binary</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/granularity">granularity</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/trace">trace</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/img">img</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/jit">jit</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/probe">probe</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/aslr">aslr</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/bbl">bbl</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/debugging">debugging</a></span>
         </p>
 
         <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -581,7 +579,7 @@ Iterations: <span style="color:#ae81ff">250</span>
                 <line x1="16" y1="13" x2="8" y2="13"></line>
                 <line x1="16" y1="17" x2="8" y2="17"></line>
                 <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>2548 Words</p>
+            </svg>2552 Words</p>
 
         <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -604,7 +602,7 @@ Iterations: <span style="color:#ae81ff">250</span>
 
             
             <span class="button previous">
-                <a href="https://hexterisk.github.io/blog/posts/2020/09/28/source-code-instrumentation-and-llvm/">
+                <a href="https://hexterisk.com/blog/posts/2020/09/28/source-code-instrumentation-and-llvm/">
                     <span class="button__text">Source Code Instrumentation and LLVM</span>
                     <span class="button__icon">→</span>
                 </a>
@@ -613,7 +611,7 @@ Iterations: <span style="color:#ae81ff">250</span>
 
             
             <span class="button next">
-                <a href="https://hexterisk.github.io/blog/posts/2020/11/08/dynamic-taint-analysis-and-pin/">
+                <a href="https://hexterisk.com/blog/posts/2020/11/08/dynamic-taint-analysis-and-pin/">
                     <span class="button__icon">←</span>
                     <span class="button__text">Dynamic Taint Analysis and Pin</span>
                 </a>
@@ -631,22 +629,24 @@ Iterations: <span style="color:#ae81ff">250</span>
 
             
                 <footer class="footer">
-    
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
         </div>
     </div>
-    <div class="footer__inner">
-        <div class="footer__content" style="margin-bottom: -0.8rem;">
-            <span><a style="text-decoration: none;"> .</a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span><a style="text-decoration: none;" style="font-size: 1.4rem; margin-bottom: -1.0rem;">..:</a></span>
-        </div>
+    
+    <div class="footer__svg">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 140 140"
+            stroke="#4DB6AC"
+        >
+            <path stroke-width="122" stroke-dasharray="2,38" d="M9,70h122M70,9v122" />
+            <path stroke-width="33" stroke-linecap="round" d="M70,30h0M110,70h0M30,110v0M70,110h0M110,110h0" />
+        </svg>
     </div>
 </footer>
             
@@ -657,8 +657,16 @@ Iterations: <span style="color:#ae81ff">250</span>
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
+<script type="text/javascript" src="../../../../../bundle.min.45295cbc2d5bbc09b85caead90108f31defa5c6b650a42abb2e79d59a363e5bc2f11614e43687e66e6d47563560a45c3324b75dcb9b3a724a2955a2f1ce2f114.js" integrity="sha512-RSlcvC1bvAm4XK6tkBCPMd76XGtlCkKrsuedWaNj5bwvEWFOQ2h&#43;ZubUdWNWCkXDMkt13LmzpySilVovHOLxFA=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'G-66L1D38RLD', 'auto');
+        ga('send', 'pageview');
+    </script>
 
 
     </body>

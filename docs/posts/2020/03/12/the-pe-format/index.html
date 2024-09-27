@@ -5,12 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
-<meta name="description" content="PE is a modified version of the Common Object File Format (COFF), thus also referred to as PE/COFF. The 64-bit version of PE is called PE32&#43;. The structure is defined in WinNT.h, which is included in the Microsoft Windows Software Developer Kit.  PE32&#43; binary structure.
- An MS-DOS header is included for backward compatibility. Thus it can also be interpreted as an MS-DOS binary. The main function of the MS-DOS header is to describe how to load and execute an MS-DOS stub, which comes right after the MSDOS header." />
+<meta name="description" content=" PE is a modified version of the Common Object File Format (COFF), thus also referred to as PE/COFF. The 64-bit version of PE is called PE32&#43;. The structure is defined in WinNT.h, which is included in the Microsoft Windows Software Developer Kit. PE32&#43; binary structure.
+An MS-DOS header is included for backward compatibility. Thus it can also be interpreted as an MS-DOS binary. The main function of the MS-DOS header is to describe how to load and execute an MS-DOS stub, which comes right after the MSDOS header. This stub is usually just a small MS-DOS program, which is run instead of the main program when the user executes a PE binary in MSDOS. The MS-DOS stub program typically prints a string like “This program cannot be run in DOS mode” and then exits. However, in principle, it can be a full-fledged MS-DOS version of the program. The MS-DOS header starts with a magic value, which consists of the ASCII characters MZ. For this reason, it’s also sometimes referred to as an MZ header. The field e_lfanew contains the file offset at which the real PE binary begins. Thus, when a PE-aware program loader opens the binary, it can read the MS-DOS header and then skip past it and the MS-DOS stub to go right to the start of the PE headers. " />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://hexterisk.github.io/blog/posts/2020/03/12/the-pe-format/" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://hexterisk.com/blog/posts/2020/03/12/the-pe-format/" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 
     <title>
@@ -26,36 +27,33 @@
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+<link rel="stylesheet" href="../../../../../blog/main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://hexterisk.github.io/blog/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://hexterisk.github.io/blog/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://hexterisk.github.io/blog/favicon-16x16.png">
-    <link rel="manifest" href="https://hexterisk.github.io/blog/site.webmanifest">
-    <link rel="mask-icon" href="https://hexterisk.github.io/blog/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://hexterisk.github.io/blog/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../favicon-16x16.png">
+    <link rel="manifest" href="../../../../../site.webmanifest">
+    <link rel="mask-icon" href="../../../../../safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
-<meta itemprop="name" content="The PE Format">
-<meta itemprop="description" content="PE is a modified version of the Common Object File Format (COFF), thus also referred to as PE/COFF. The 64-bit version of PE is called PE32&#43;. The structure is defined in WinNT.h, which is included in the Microsoft Windows Software Developer Kit.  PE32&#43; binary structure.
- An MS-DOS header is included for backward compatibility. Thus it can also be interpreted as an MS-DOS binary. The main function of the MS-DOS header is to describe how to load and execute an MS-DOS stub, which comes right after the MSDOS header.">
-<meta itemprop="datePublished" content="2020-03-12T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-12T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="703">
-<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 
-
-
-<meta itemprop="keywords" content="binary,rev,reversing,c,pe,windows," /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
-
-<meta name="twitter:title" content="The PE Format"/>
-<meta name="twitter:description" content="PE is a modified version of the Common Object File Format (COFF), thus also referred to as PE/COFF. The 64-bit version of PE is called PE32&#43;. The structure is defined in WinNT.h, which is included in the Microsoft Windows Software Developer Kit.  PE32&#43; binary structure.
- An MS-DOS header is included for backward compatibility. Thus it can also be interpreted as an MS-DOS binary. The main function of the MS-DOS header is to describe how to load and execute an MS-DOS stub, which comes right after the MSDOS header."/>
+  <meta itemprop="name" content="The PE Format">
+  <meta itemprop="description" content=" PE is a modified version of the Common Object File Format (COFF), thus also referred to as PE/COFF. The 64-bit version of PE is called PE32&#43;. The structure is defined in WinNT.h, which is included in the Microsoft Windows Software Developer Kit. PE32&#43; binary structure.
+An MS-DOS header is included for backward compatibility. Thus it can also be interpreted as an MS-DOS binary. The main function of the MS-DOS header is to describe how to load and execute an MS-DOS stub, which comes right after the MSDOS header. This stub is usually just a small MS-DOS program, which is run instead of the main program when the user executes a PE binary in MSDOS. The MS-DOS stub program typically prints a string like “This program cannot be run in DOS mode” and then exits. However, in principle, it can be a full-fledged MS-DOS version of the program. The MS-DOS header starts with a magic value, which consists of the ASCII characters MZ. For this reason, it’s also sometimes referred to as an MZ header. The field e_lfanew contains the file offset at which the real PE binary begins. Thus, when a PE-aware program loader opens the binary, it can read the MS-DOS header and then skip past it and the MS-DOS stub to go right to the start of the PE headers. ">
+  <meta itemprop="datePublished" content="2020-03-12T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2020-03-12T00:00:00+00:00">
+  <meta itemprop="wordCount" content="703">
+  <meta itemprop="keywords" content="Binary,Rev,Reversing,C,Pe,Windows">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The PE Format">
+  <meta name="twitter:description" content=" PE is a modified version of the Common Object File Format (COFF), thus also referred to as PE/COFF. The 64-bit version of PE is called PE32&#43;. The structure is defined in WinNT.h, which is included in the Microsoft Windows Software Developer Kit. PE32&#43; binary structure.
+An MS-DOS header is included for backward compatibility. Thus it can also be interpreted as an MS-DOS binary. The main function of the MS-DOS header is to describe how to load and execute an MS-DOS stub, which comes right after the MSDOS header. This stub is usually just a small MS-DOS program, which is run instead of the main program when the user executes a PE binary in MSDOS. The MS-DOS stub program typically prints a string like “This program cannot be run in DOS mode” and then exits. However, in principle, it can be a full-fledged MS-DOS version of the program. The MS-DOS header starts with a magic value, which consists of the ASCII characters MZ. For this reason, it’s also sometimes referred to as an MZ header. The field e_lfanew contains the file offset at which the real PE binary begins. Thus, when a PE-aware program loader opens the binary, it can read the MS-DOS header and then skip past it and the MS-DOS stub to go right to the start of the PE headers. ">
 
 
 
@@ -78,21 +76,23 @@
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://hexterisk.github.io/blog/" style="text-decoration: none;">
-    <div class="logo">
-        
+        <a class="logo" href="../../../../../">
+    
+        <div class="logo__content">
             <span class="logo__mark">></span>
-            <span class="logo__text">$cd ~/</span>
-            <span class="logo__cursor" style=""></span>
-        
-    </div>
+            <span class="logo__text">cd ~/</span>
+            <span class="logo__cursor"></span>
+        </div>
+    
 </a>
-
+<script>
+    document.documentElement.style.setProperty('--logo-cursor-color', '#ed5565');
+</script>
 
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://hexterisk.github.io/blog/about/">About</a></li><li><a href="https://hexterisk.github.io/blog/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://hexterisk.com/blog/about/">About</a></li><li><a href="https://hexterisk.com/blog/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -134,7 +134,7 @@
 
     <article>
         <h1 class="post-title">
-            <a href="https://hexterisk.github.io/blog/posts/2020/03/12/the-pe-format/">The PE Format</a>
+            <a href="https://hexterisk.com/blog/posts/2020/03/12/the-pe-format/">The PE Format</a>
         </h1>
 
         
@@ -145,7 +145,7 @@
 <li>The 64-bit version of PE is called <strong>PE32+.</strong></li>
 <li>The structure is defined in <strong>WinNT.h</strong>, which is included in the <strong>Microsoft Windows Software Developer Kit</strong>.</li>
 </ul>
-<p><img src="https://hexterisk.github.io/blog/The_PE_Format/image.png" alt="">
+<p><img src="../../../../../The_PE_Format/image.png">
 <em>PE32+ binary structure.</em></p>
 <ul>
 <li>An <strong>MS-DOS header</strong> is included for backward compatibility. Thus it can also be interpreted as an MS-DOS binary.</li>
@@ -205,7 +205,7 @@
                 class="feather feather-tag meta-icon">
                 <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                 <line x1="7" y1="7" x2="7" y2="7"></line>
-            </svg><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/binary">binary</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/rev">rev</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/reversing">reversing</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/c">c</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/pe">pe</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/windows">windows</a></span>
+            </svg><span class="tag"><a href="https://hexterisk.com/blog/%20tags/binary">binary</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/rev">rev</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/reversing">reversing</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/c">c</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/pe">pe</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/windows">windows</a></span>
         </p>
 
         <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -239,7 +239,7 @@
 
             
             <span class="button previous">
-                <a href="https://hexterisk.github.io/blog/posts/2020/03/07/the-elf-format/">
+                <a href="https://hexterisk.com/blog/posts/2020/03/07/the-elf-format/">
                     <span class="button__text">The ELF Format</span>
                     <span class="button__icon">→</span>
                 </a>
@@ -248,7 +248,7 @@
 
             
             <span class="button next">
-                <a href="https://hexterisk.github.io/blog/posts/2020/03/15/simple-code-injection-techniques-for-elf/">
+                <a href="https://hexterisk.com/blog/posts/2020/03/15/simple-code-injection-techniques-for-elf/">
                     <span class="button__icon">←</span>
                     <span class="button__text">Simple Code Injection Techniques for ELF</span>
                 </a>
@@ -266,22 +266,24 @@
 
             
                 <footer class="footer">
-    
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
         </div>
     </div>
-    <div class="footer__inner">
-        <div class="footer__content" style="margin-bottom: -0.8rem;">
-            <span><a style="text-decoration: none;"> .</a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span><a style="text-decoration: none;" style="font-size: 1.4rem; margin-bottom: -1.0rem;">..:</a></span>
-        </div>
+    
+    <div class="footer__svg">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 140 140"
+            stroke="#4DB6AC"
+        >
+            <path stroke-width="122" stroke-dasharray="2,38" d="M9,70h122M70,9v122" />
+            <path stroke-width="33" stroke-linecap="round" d="M70,30h0M110,70h0M30,110v0M70,110h0M110,110h0" />
+        </svg>
     </div>
 </footer>
             
@@ -292,8 +294,16 @@
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
+<script type="text/javascript" src="../../../../../bundle.min.45295cbc2d5bbc09b85caead90108f31defa5c6b650a42abb2e79d59a363e5bc2f11614e43687e66e6d47563560a45c3324b75dcb9b3a724a2955a2f1ce2f114.js" integrity="sha512-RSlcvC1bvAm4XK6tkBCPMd76XGtlCkKrsuedWaNj5bwvEWFOQ2h&#43;ZubUdWNWCkXDMkt13LmzpySilVovHOLxFA=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'G-66L1D38RLD', 'auto');
+        ga('send', 'pageview');
+    </script>
 
 
     </body>

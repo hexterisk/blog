@@ -1,45 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>testing on Pwn the world.</title>
-    <link>https://hexterisk.github.io/blog/tags/testing/</link>
-    <description>Recent content in testing on Pwn the world.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <title>Testing on Pwn the world.</title>
+    <link>https://hexterisk.com/blog/tags/testing/</link>
+    <description>Recent content in Testing on Pwn the world.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>hexterisk@gmail.com (Bhanupratap Singh)</managingEditor>
+    <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Thu, 30 Jul 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://hexterisk.github.io/blog/tags/testing/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://hexterisk.com/blog/tags/testing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Serial 2</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/07/30/serial-2/</link>
-      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/posts/2020/07/30/serial-2/</guid>
-      <description>Name: serial: 2 Date release: 27 Sep 2019 Author: sk4 Series: serial   Initial Discovery VMIP is the VM’s IP Address
-LHIP is the Local Host’s IP Address
-Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.
-IP Discovery Run sudo netdiscover.
-It detects online hosts by sending ARP requests.
-Output of netdiscover.
-192.168.1.10 happens to be the IP of the VM.</description>
+      <link>https://hexterisk.com/blog/posts/2020/07/30/serial-2/</link>
+      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/posts/2020/07/30/serial-2/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;: &lt;a href=&#34;https://stackedit.io/%5Bhttps://www.vulnhub.com/entry/serial-2,373/%5D(https://www.vulnhub.com/entry/serial-2,373/)&#34;&gt;serial: 2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Date release&lt;/strong&gt;: 27 Sep 2019&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Author&lt;/strong&gt;: &lt;a href=&#34;https://www.vulnhub.com/author/sk4,633/&#34;&gt;sk4&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Series&lt;/strong&gt;: &lt;a href=&#34;https://www.vulnhub.com/series/serial,231/&#34;&gt;serial&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;initial-discovery&#34;&gt;Initial Discovery&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;VMIP&lt;/code&gt; is the VM’s IP Address&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;LHIP&lt;/code&gt; is the Local Host’s IP Address&lt;/p&gt;&#xA;&lt;p&gt;Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.&lt;/p&gt;&#xA;&lt;h3 id=&#34;ip-discovery&#34;&gt;IP Discovery&lt;/h3&gt;&#xA;&lt;p&gt;Run &lt;code&gt;sudo netdiscover&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;It detects online hosts by sending ARP requests.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Serial 1</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/07/22/serial-1/</link>
-      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/posts/2020/07/22/serial-1/</guid>
-      <description>Name: serial: 1 Date release: 20 Aug 2019 Author: sk4 Series: serial   Initial Discovery VMIP is the VM’s IP Address
-LHIP is the Local Host’s IP Address
-Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.
-IP Discovery Run sudo netdiscover.
-It detects online hosts by sending ARP requests.
-Output of netdiscover.
-192.168.1.8 happens to be the IP of the VM.</description>
+      <link>https://hexterisk.com/blog/posts/2020/07/22/serial-1/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/posts/2020/07/22/serial-1/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;: &lt;a href=&#34;https://www.vulnhub.com/entry/serial-1,349/&#34;&gt;serial: 1&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Date release&lt;/strong&gt;: 20 Aug 2019&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Author&lt;/strong&gt;: &lt;a href=&#34;https://www.vulnhub.com/author/sk4,633/&#34;&gt;sk4&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Series&lt;/strong&gt;: &lt;a href=&#34;https://www.vulnhub.com/series/serial,231/&#34;&gt;serial&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;initial-discovery&#34;&gt;Initial Discovery&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;VMIP&lt;/code&gt; is the VM’s IP Address&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;LHIP&lt;/code&gt; is the Local Host’s IP Address&lt;/p&gt;&#xA;&lt;p&gt;Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.&lt;/p&gt;&#xA;&lt;h3 id=&#34;ip-discovery&#34;&gt;IP Discovery&lt;/h3&gt;&#xA;&lt;p&gt;Run &lt;code&gt;sudo netdiscover&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;It detects online hosts by sending ARP requests.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

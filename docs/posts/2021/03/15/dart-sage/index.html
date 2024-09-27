@@ -6,11 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="DART Back in 2005, researchers at Microsoft came up with a concolic testing tool called DART(Directed Automated Random Testing). The tool can be used in the unit testing phase, as well as can be applied to large programs.
- We present a new tool, named DART, for automatically testing software that combines three main techniques: (1) automated extraction of the interface of a program with its external environment using static source-code parsing; (2) automatic generation of a test driver for this interface that performs random testing to simulate the most general environment the program can operate in; and (3) dynamic analysis of how the program behaves under random testing and automatic generation of new test inputs to direct systematically the execution along alternative program paths." />
+We present a new tool, named DART, for automatically testing software that combines three main techniques: (1) automated extraction of the interface of a program with its external environment using static source-code parsing; (2) automatic generation of a test driver for this interface that performs random testing to simulate the most general environment the program can operate in; and (3) dynamic analysis of how the program behaves under random testing and automatic generation of new test inputs to direct systematically the execution along alternative program paths.
+" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://hexterisk.github.io/blog/posts/2021/03/15/dart-sage/" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://hexterisk.com/blog/posts/2021/03/15/dart-sage/" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 
     <title>
@@ -26,36 +28,33 @@
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+<link rel="stylesheet" href="../../../../../blog/main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://hexterisk.github.io/blog/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://hexterisk.github.io/blog/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://hexterisk.github.io/blog/favicon-16x16.png">
-    <link rel="manifest" href="https://hexterisk.github.io/blog/site.webmanifest">
-    <link rel="mask-icon" href="https://hexterisk.github.io/blog/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://hexterisk.github.io/blog/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../favicon-16x16.png">
+    <link rel="manifest" href="../../../../../site.webmanifest">
+    <link rel="mask-icon" href="../../../../../safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
-<meta itemprop="name" content="DART &amp; SAGE">
-<meta itemprop="description" content="DART Back in 2005, researchers at Microsoft came up with a concolic testing tool called DART(Directed Automated Random Testing). The tool can be used in the unit testing phase, as well as can be applied to large programs.
- We present a new tool, named DART, for automatically testing software that combines three main techniques: (1) automated extraction of the interface of a program with its external environment using static source-code parsing; (2) automatic generation of a test driver for this interface that performs random testing to simulate the most general environment the program can operate in; and (3) dynamic analysis of how the program behaves under random testing and automatic generation of new test inputs to direct systematically the execution along alternative program paths.">
-<meta itemprop="datePublished" content="2021-03-15T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-03-15T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2525">
-<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 
-
-
-<meta itemprop="keywords" content="fuzzing,microsoft,whitebox,greybox,sage,dart,automated,symbolic," /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
-
-<meta name="twitter:title" content="DART &amp; SAGE"/>
-<meta name="twitter:description" content="DART Back in 2005, researchers at Microsoft came up with a concolic testing tool called DART(Directed Automated Random Testing). The tool can be used in the unit testing phase, as well as can be applied to large programs.
- We present a new tool, named DART, for automatically testing software that combines three main techniques: (1) automated extraction of the interface of a program with its external environment using static source-code parsing; (2) automatic generation of a test driver for this interface that performs random testing to simulate the most general environment the program can operate in; and (3) dynamic analysis of how the program behaves under random testing and automatic generation of new test inputs to direct systematically the execution along alternative program paths."/>
+  <meta itemprop="name" content="DART & SAGE">
+  <meta itemprop="description" content="DART Back in 2005, researchers at Microsoft came up with a concolic testing tool called DART(Directed Automated Random Testing). The tool can be used in the unit testing phase, as well as can be applied to large programs.
+We present a new tool, named DART, for automatically testing software that combines three main techniques: (1) automated extraction of the interface of a program with its external environment using static source-code parsing; (2) automatic generation of a test driver for this interface that performs random testing to simulate the most general environment the program can operate in; and (3) dynamic analysis of how the program behaves under random testing and automatic generation of new test inputs to direct systematically the execution along alternative program paths.">
+  <meta itemprop="datePublished" content="2021-03-15T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-03-15T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2525">
+  <meta itemprop="keywords" content="Fuzzing,Microsoft,Whitebox,Greybox,Sage,Dart,Automated,Symbolic">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DART & SAGE">
+  <meta name="twitter:description" content="DART Back in 2005, researchers at Microsoft came up with a concolic testing tool called DART(Directed Automated Random Testing). The tool can be used in the unit testing phase, as well as can be applied to large programs.
+We present a new tool, named DART, for automatically testing software that combines three main techniques: (1) automated extraction of the interface of a program with its external environment using static source-code parsing; (2) automatic generation of a test driver for this interface that performs random testing to simulate the most general environment the program can operate in; and (3) dynamic analysis of how the program behaves under random testing and automatic generation of new test inputs to direct systematically the execution along alternative program paths.">
 
 
 
@@ -78,21 +77,23 @@
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://hexterisk.github.io/blog/" style="text-decoration: none;">
-    <div class="logo">
-        
+        <a class="logo" href="../../../../../">
+    
+        <div class="logo__content">
             <span class="logo__mark">></span>
-            <span class="logo__text">$cd ~/</span>
-            <span class="logo__cursor" style=""></span>
-        
-    </div>
+            <span class="logo__text">cd ~/</span>
+            <span class="logo__cursor"></span>
+        </div>
+    
 </a>
-
+<script>
+    document.documentElement.style.setProperty('--logo-cursor-color', '#ed5565');
+</script>
 
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://hexterisk.github.io/blog/about/">About</a></li><li><a href="https://hexterisk.github.io/blog/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://hexterisk.com/blog/about/">About</a></li><li><a href="https://hexterisk.com/blog/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -134,7 +135,7 @@
 
     <article>
         <h1 class="post-title">
-            <a href="https://hexterisk.github.io/blog/posts/2021/03/15/dart-sage/">DART &amp; SAGE</a>
+            <a href="https://hexterisk.com/blog/posts/2021/03/15/dart-sage/">DART &amp; SAGE</a>
         </h1>
 
         
@@ -147,17 +148,17 @@
 </blockquote>
 <p>Breaking down the three techniques mentioned:</p>
 <p>For given functions <em>f</em> and <em>h</em>,</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">f</span> (<span style="color:#66d9ef">int</span> x) { 
-	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> x;
-}
-
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">h</span> (<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y) {
-	<span style="color:#66d9ef">if</span> (x <span style="color:#f92672">!=</span> y)
-		<span style="color:#66d9ef">if</span> (f(x) <span style="color:#f92672">==</span> x <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>) <span style="color:#960050;background-color:#1e0010">➊</span>
-			abort(); <span style="color:#75715e">/* error */</span>
-	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">f</span> (<span style="color:#66d9ef">int</span> x) { 
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> x;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">h</span> (<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (x <span style="color:#f92672">!=</span> y)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">f</span>(x) <span style="color:#f92672">==</span> x <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>) <span style="color:#960050;background-color:#1e0010">➊</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">abort</span>(); <span style="color:#75715e">/* error */</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol>
 <li>Automated interface extraction:
 <ul>
 <li>The static source code is parsed to find the program&rsquo;s interfaces.
@@ -186,7 +187,7 @@
 </li>
 </ol>
 <p>Therefore, DART eliminates the requirement of writing a test driver and a corresponding harness for testing of the given program. It detects the output during all test cases and checks for standard errors such as violations and crashes.</p>
-<p><img src="https://hexterisk.github.io/blog/DART_&amp;_SAGE/image.png" alt="">
+<p><img src="../../../../../DART_&_SAGE/image.png">
 <em>DART overview.</em></p>
 <h3 id="execution-model">Execution Model</h3>
 <p>DART executes a program <em>P</em> both concretely and symbolically, in parallel. The concrete execution is given concrete values as input, decided by the symbolic execution, which allows it to collect various path constraints that are solved to generate inputs for the next test case. </p>
@@ -211,65 +212,65 @@
 <h3 id="symbolic-evaluation-model">Symbolic Evaluation Model</h3>
 <p>DART maintains a symbolic memory map <em>S</em> that maps memory address to symbolic expressions. During the execution process, DART constantly evaluates the path constraints encountered to generate new input vector for the subsequent executions. Only linear path constraints are supported. Any non-linear constraint is ignored and concrete values are used instead of symbolic values.</p>
 <p>During the initiation of execution of <em>P</em>, <em>S</em> records the mapping of random values to input parameters. The following algorithms takes an expression <em>e</em> in a context <em>M</em> with already available expression set <em>S</em> and is evaluated as follows:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">evaluate_symbolic (e, M, S)<span style="color:#f92672">:</span>
-	
-	<span style="color:#75715e">// Switch case to match expression.
-</span><span style="color:#75715e"></span>	match e:
-		
-		<span style="color:#75715e">// Case is only a symbolic variable.
-</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">case</span> m:
-			
-			<span style="color:#75715e">// Directly assign it to the symbolic expression set.
-</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span> m <span style="color:#960050;background-color:#1e0010">∈</span> domain S then <span style="color:#66d9ef">return</span> S(m)
-			
-			<span style="color:#75715e">// Return the updated memory.
-</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> M(m)
-		
-		<span style="color:#75715e">// Case is any arithmetic operation (multiplication in this case).
-</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">case</span> <span style="color:#960050;background-color:#1e0010">∗</span>(e<span style="color:#960050;background-color:#1e0010">&#39;</span>, e<span style="color:#960050;background-color:#1e0010">&#39;&#39;</span>)<span style="color:#f92672">:</span>
-			
-			<span style="color:#75715e">// Evaluate the symbolic expressions individually first.
-</span><span style="color:#75715e"></span>			let f<span style="color:#960050;background-color:#1e0010">’</span> <span style="color:#f92672">=</span> evaluate_symbolic(e<span style="color:#960050;background-color:#1e0010">&#39;</span>, M, S);
-			let f<span style="color:#960050;background-color:#1e0010">”</span> <span style="color:#f92672">=</span> evaluate_symbolic(e<span style="color:#960050;background-color:#1e0010">&#39;&#39;</span>, M, S);
-			
-			<span style="color:#75715e">// If none of the evaluated results are constants, then the constraint becomes non-linear.
-</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span> not one of f<span style="color:#960050;background-color:#1e0010">&#39;</span> or f<span style="color:#960050;background-color:#1e0010">&#39;&#39;</span> is a constant c then
-				
-				<span style="color:#75715e">// Since DART doesn&#39;t work with non-linear constraints, unset linearity flag.
-</span><span style="color:#75715e"></span>				<span style="color:#960050;background-color:#1e0010">➋</span> all_linear <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-				<span style="color:#75715e">// Simply performs concrete evaluation and update the memory, it doesn&#39;t store the constraint.
-</span><span style="color:#75715e"></span>				<span style="color:#66d9ef">return</span> evaluate_concrete(e, M)
-			
-			<span style="color:#75715e">// No expression to evaluate so simply performs concrete evaluation.
-</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span> both f<span style="color:#960050;background-color:#1e0010">&#39;</span> and f<span style="color:#960050;background-color:#1e0010">&#39;&#39;</span> are constants then
-				<span style="color:#66d9ef">return</span> evaluate_concrete(e, M)
-			
-			<span style="color:#75715e">// If either one is a constant, it&#39;ll evaluate the expression and return.
-</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span> f<span style="color:#960050;background-color:#1e0010">&#39;</span> is a constant c then
-				<span style="color:#66d9ef">return</span> <span style="color:#960050;background-color:#1e0010">∗</span>(f<span style="color:#960050;background-color:#1e0010">&#39;</span> , c)
-			<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> <span style="color:#960050;background-color:#1e0010">∗</span>(c, f<span style="color:#960050;background-color:#1e0010">\&#39;\&#39;</span>)
-		
-		<span style="color:#75715e">// Case is pointer dereference.
-</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">case</span> <span style="color:#960050;background-color:#1e0010">∗</span>e<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">:</span>
-			
-			<span style="color:#75715e">// Symbolically evaluate the expression at the address first.
-</span><span style="color:#75715e"></span>			let f<span style="color:#960050;background-color:#1e0010">’</span><span style="color:#f92672">=</span> evaluate_symbolic(e<span style="color:#960050;background-color:#1e0010">&#39;</span> ,M, S);
-			
-			<span style="color:#75715e">// If the result is constant
-</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span> f<span style="color:#960050;background-color:#1e0010">&#39;</span> is a constant c then
-			
-				<span style="color:#75715e">// The expression it is pointing to belongs to the set of expressions, return itself.
-</span><span style="color:#75715e"></span>				<span style="color:#66d9ef">if</span> <span style="color:#960050;background-color:#1e0010">∗</span>c <span style="color:#960050;background-color:#1e0010">∈</span> domain S then <span style="color:#66d9ef">return</span> S <span style="color:#960050;background-color:#1e0010">∗</span> c
-				
-				<span style="color:#75715e">// Return pointer to the memory location.
-</span><span style="color:#75715e"></span>				<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> M(<span style="color:#960050;background-color:#1e0010">∗</span>c)
-			
-			<span style="color:#75715e">// If it cannot determine either of the aforementioned cases, set all memory locations are not definitely known.
-</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">else</span> <span style="color:#960050;background-color:#1e0010">➌</span> all_locs_definite <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-			
-				<span style="color:#75715e">// Simply performs concrete evaluation and update the memory.
-</span><span style="color:#75715e"></span>				<span style="color:#66d9ef">return</span> evaluate concrete(e, M)
-</code></pre></div><p>It&rsquo;s possible for DART to not know all the memory locations definitely (➌) because it doesn&rsquo;t always evaluate all the symbolic expressions (➋).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a6e22e">evaluate_symbolic</span> (e, M, S)<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Switch case to match expression.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	match e:
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Case is only a symbolic variable.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">case</span> m:
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// Directly assign it to the symbolic expression set.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span> m <span style="color:#960050;background-color:#1e0010">∈</span> domain S then <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">S</span>(m)
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// Return the updated memory.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">M</span>(m)
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Case is any arithmetic operation (multiplication in this case).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">case</span> <span style="color:#960050;background-color:#1e0010">∗</span>(e<span style="color:#960050;background-color:#1e0010">&#39;</span>, e<span style="color:#960050;background-color:#1e0010">&#39;&#39;</span>)<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// Evaluate the symbolic expressions individually first.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			let f<span style="color:#960050;background-color:#1e0010">’</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">evaluate_symbolic</span>(e<span style="color:#960050;background-color:#1e0010">&#39;</span>, M, S);
+</span></span><span style="display:flex;"><span>			let f<span style="color:#960050;background-color:#1e0010">”</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">evaluate_symbolic</span>(e<span style="color:#960050;background-color:#1e0010">&#39;&#39;</span>, M, S);
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// If none of the evaluated results are constants, then the constraint becomes non-linear.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span> not one of f<span style="color:#960050;background-color:#1e0010">&#39;</span> or f<span style="color:#960050;background-color:#1e0010">&#39;&#39;</span> is a constant c then
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">// Since DART doesn&#39;t work with non-linear constraints, unset linearity flag.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				<span style="color:#960050;background-color:#1e0010">➋</span> all_linear <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">// Simply performs concrete evaluation and update the memory, it doesn&#39;t store the constraint.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">evaluate_concrete</span>(e, M)
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// No expression to evaluate so simply performs concrete evaluation.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span> both f<span style="color:#960050;background-color:#1e0010">&#39;</span> and f<span style="color:#960050;background-color:#1e0010">&#39;&#39;</span> are constants then
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">evaluate_concrete</span>(e, M)
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// If either one is a constant, it&#39;ll evaluate the expression and return.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span> f<span style="color:#960050;background-color:#1e0010">&#39;</span> is a constant c then
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">return</span> <span style="color:#960050;background-color:#1e0010">∗</span>(f<span style="color:#960050;background-color:#1e0010">&#39;</span> , c)
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> <span style="color:#960050;background-color:#1e0010">∗</span>(c, f<span style="color:#960050;background-color:#1e0010">\&#39;\&#39;</span>)
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Case is pointer dereference.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">case</span> <span style="color:#960050;background-color:#1e0010">∗</span>e<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// Symbolically evaluate the expression at the address first.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			let f<span style="color:#960050;background-color:#1e0010">’</span><span style="color:#f92672">=</span> <span style="color:#a6e22e">evaluate_symbolic</span>(e<span style="color:#960050;background-color:#1e0010">&#39;</span> ,M, S);
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// If the result is constant
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span> f<span style="color:#960050;background-color:#1e0010">&#39;</span> is a constant c then
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">// The expression it is pointing to belongs to the set of expressions, return itself.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				<span style="color:#66d9ef">if</span> <span style="color:#960050;background-color:#1e0010">∗</span>c <span style="color:#960050;background-color:#1e0010">∈</span> domain S then <span style="color:#66d9ef">return</span> S <span style="color:#960050;background-color:#1e0010">∗</span> c
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">// Return pointer to the memory location.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">M</span>(<span style="color:#960050;background-color:#1e0010">∗</span>c)
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// If it cannot determine either of the aforementioned cases, set all memory locations are not definitely known.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">else</span> <span style="color:#960050;background-color:#1e0010">➌</span> all_locs_definite <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">// Simply performs concrete evaluation and update the memory.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				<span style="color:#66d9ef">return</span> evaluate <span style="color:#a6e22e">concrete</span>(e, M)
+</span></span></code></pre></div><p>It&rsquo;s possible for DART to not know all the memory locations definitely (➌) because it doesn&rsquo;t always evaluate all the symbolic expressions (➋).</p>
 <h3 id="test-driver">Test Driver</h3>
 <p>The primary task of the test driver is to combine random testing with directed search. Any exception encountered during this process indicates a bug.</p>
 <p>Two completeness flags work in conjunction to indicate cases when symbolic execution is not performed:</p>
@@ -277,36 +278,36 @@
 <li><strong>all_linear</strong>: set to 0 when symbolic expression becomes non-linear (➋).</li>
 <li><strong>all_locs_definite</strong>: set to 0 when value of a symbolic variable is unknown (➌).</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">run <span style="color:#a6e22e">DART</span> () <span style="color:#f92672">=</span>
-
-	<span style="color:#75715e">// Initialise all flags to 1.
-</span><span style="color:#75715e"></span>	all linear, all locs definite, forcing ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>
-	
-	<span style="color:#75715e">// Random testing loop.
-</span><span style="color:#75715e"></span>	repeat
-	
-		<span style="color:#75715e">// Initialise stack to empty, input vector to empty and set directed search to true.
-</span><span style="color:#75715e"></span>		stack <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;&gt;</span>; I <span style="color:#f92672">=</span> [] ; directed <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-		
-		<span style="color:#75715e">// Perform directed search.
-</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">while</span> (directed) <span style="color:#66d9ef">do</span>
-		
-			<span style="color:#75715e">// Run instrumented program.
-</span><span style="color:#75715e"></span>			try (directed, stack, I) <span style="color:#f92672">=</span>
-				instrumented program(stack, I)
-				
-			<span style="color:#75715e">// Any exception encoutered implies a bug has been found.
-</span><span style="color:#75715e"></span>			catch any exception <span style="color:#960050;background-color:#1e0010">→</span>
-				<span style="color:#66d9ef">if</span> (forcing ok)
-					print <span style="color:#960050;background-color:#1e0010">“</span>Bug found<span style="color:#960050;background-color:#1e0010">”</span>
-					exit()
-				
-				<span style="color:#75715e">// Forces exit in the next iteration if a bug has been found.
-</span><span style="color:#75715e"></span>				<span style="color:#66d9ef">else</span> forcing ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-		
-	<span style="color:#75715e">// Exit testing if any completeness flags is set to 0.
-</span><span style="color:#75715e"></span>	until all_linear <span style="color:#960050;background-color:#1e0010">∧</span> all_locs_definite
-</code></pre></div><p>Once the directed search ends, and if the completeness flags still hold true(both set to 1), then the outer loop exits. DART has then said to have explored all feasible program paths. However, any one of the completeness flags set to 0 during the testing process indicates a bad situation. And if any one of them get&rsquo;s turned off during execution, the random testing process will continue till manually stopped.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>run <span style="color:#a6e22e">DART</span> () <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Initialise all flags to 1.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	all linear, all locs definite, forcing ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Random testing loop.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	repeat
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Initialise stack to empty, input vector to empty and set directed search to true.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		stack <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;&gt;</span>; I <span style="color:#f92672">=</span> [] ; directed <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Perform directed search.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">while</span> (directed) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// Run instrumented program.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#a6e22e">try</span> (directed, stack, I) <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>				instrumented <span style="color:#a6e22e">program</span>(stack, I)
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// Any exception encoutered implies a bug has been found.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			catch any exception <span style="color:#960050;background-color:#1e0010">→</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span> (forcing ok)
+</span></span><span style="display:flex;"><span>					print <span style="color:#960050;background-color:#1e0010">“</span>Bug found<span style="color:#960050;background-color:#1e0010">”</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#a6e22e">exit</span>()
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">// Forces exit in the next iteration if a bug has been found.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				<span style="color:#66d9ef">else</span> forcing ok <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Exit testing if any completeness flags is set to 0.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	until all_linear <span style="color:#960050;background-color:#1e0010">∧</span> all_locs_definite
+</span></span></code></pre></div><p>Once the directed search ends, and if the completeness flags still hold true(both set to 1), then the outer loop exits. DART has then said to have explored all feasible program paths. However, any one of the completeness flags set to 0 during the testing process indicates a bad situation. And if any one of them get&rsquo;s turned off during execution, the random testing process will continue till manually stopped.</p>
 <p>Each run of the instrumented program is executed with the results of the conditional statements in the previous execution (except the first run, it is with random values). And for each conditional statement, we note:</p>
 <ol>
 <li><strong>branch</strong> value: set to 1 when the <code>then</code> branch is taken, 0 otherwise.</li>
@@ -315,117 +316,117 @@
 <p>This information associated with each conditional statement of the last execution path is stored in the <em>stack</em>.</p>
 <p>Therefore, <em>for i ∈ 0 ≤ i ≤ |stack|</em>, <em>stack[i] = (stack[i].branch, stack[i].done)</em> is the record corresponding to the (i + 1_) conditional statement.</p>
 <p>The program is instrumented as follows:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">instrumented <span style="color:#a6e22e">program</span>(stack, I) <span style="color:#f92672">=</span>
-
-	<span style="color:#75715e">// Random initialization of uninitialized input parameters in M0.
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span> each input x with I[x] undefined <span style="color:#66d9ef">do</span>
-			I[x] <span style="color:#f92672">=</span> random()
-	
-	<span style="color:#75715e">//Initialize memory M from M0 and I.
-</span><span style="color:#75715e"></span>
-	<span style="color:#75715e">// Set up symbolic memory and prepare execution.
-</span><span style="color:#75715e"></span>	S <span style="color:#f92672">=</span> [m <span style="color:#960050;background-color:#1e0010">→</span> m <span style="color:#f92672">|</span> m <span style="color:#960050;background-color:#1e0010">∈</span> M0].
-	
-	<span style="color:#75715e">// Initial program counter in P.
-</span><span style="color:#75715e"></span>	l <span style="color:#f92672">=</span> l0
-		
-	<span style="color:#75715e">// Number of conditionals executed.
-</span><span style="color:#75715e"></span>	k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> 
-	
-	<span style="color:#75715e">// Now invoke P intertwined with symbolic calculations.
-</span><span style="color:#75715e"></span>	s <span style="color:#f92672">=</span> statement_at(l, M)
-	
-	<span style="color:#75715e">// Loop till an abort or a halt is encountered.
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">while</span> (s <span style="color:#960050;background-color:#1e0010">∈</span> { <span style="color:#f92672">/</span> abort, halt}) <span style="color:#66d9ef">do</span>
-	
-		<span style="color:#75715e">// Match the case of a program statement.
-</span><span style="color:#75715e"></span>		match (s)
-		
-			<span style="color:#75715e">// Assignment statement.
-</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">case</span> (m <span style="color:#960050;background-color:#1e0010">←</span> e)<span style="color:#f92672">:</span>
-			
-				<span style="color:#75715e">// Memory location for m is updated.
-</span><span style="color:#75715e"></span>				S <span style="color:#f92672">=</span> S <span style="color:#f92672">+</span> [m <span style="color:#960050;background-color:#1e0010">→</span> evaluate_symbolic(e, M, S)]
-				
-				<span style="color:#75715e">// Evaluates expression e concretely.
-</span><span style="color:#75715e"></span>				v <span style="color:#f92672">=</span> evaluate_concrete(e, M)
-				
-				<span style="color:#75715e">// Update the memory location as well.
-</span><span style="color:#75715e"></span>				M <span style="color:#f92672">=</span> M <span style="color:#f92672">+</span> [m <span style="color:#960050;background-color:#1e0010">→</span> v]
-				
-				<span style="color:#75715e">// Increment the program counter after executing current statement.
-</span><span style="color:#75715e"></span>				l <span style="color:#f92672">=</span> l0 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
-			
-			<span style="color:#75715e">// Conditional statement.
-</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">case</span> (<span style="color:#66d9ef">if</span> (e) then <span style="color:#66d9ef">goto</span> l<span style="color:#960050;background-color:#1e0010">&#39;</span>)<span style="color:#f92672">:</span>
-			
-				<span style="color:#75715e">// Evalaute e concretely.
-</span><span style="color:#75715e"></span>				b <span style="color:#f92672">=</span> evaluate_concrete(e, M)
-				
-				<span style="color:#75715e">// Evaluate e symbolically.
-</span><span style="color:#75715e"></span>				c <span style="color:#f92672">=</span> evaluate_symbolic(e, M, S)
-				
-				
-				<span style="color:#75715e">// Already have a path constraint.
-</span><span style="color:#75715e"></span>				<span style="color:#66d9ef">if</span> b then
-				
-					<span style="color:#75715e">// c has been added to the path constraint via bitwise AND.
-</span><span style="color:#75715e"></span>					path_constraint <span style="color:#f92672">=</span> path_constraint <span style="color:#f92672">^</span> <span style="color:#f92672">&lt;</span>c<span style="color:#f92672">&gt;</span>
-					
-					<span style="color:#75715e">// Push the current state to stack.
-</span><span style="color:#75715e"></span>					stack <span style="color:#f92672">=</span> compare_and_update_stack(<span style="color:#ae81ff">1</span>, k,stack)
-					
-					<span style="color:#75715e">// Jump to label.
-</span><span style="color:#75715e"></span>					l <span style="color:#f92672">=</span> l<span style="color:#960050;background-color:#1e0010">&#39;</span>
-				
-				<span style="color:#66d9ef">else</span>
-					<span style="color:#75715e">// c&#39;s negation has been added to the path constraint via bitwise AND.
-</span><span style="color:#75715e"></span>					path constraint <span style="color:#f92672">=</span> path_constraint <span style="color:#f92672">^</span> <span style="color:#f92672">&lt;-</span>(c)<span style="color:#f92672">&gt;</span>
-					
-					<span style="color:#75715e">// Push the current state to stack.
-</span><span style="color:#75715e"></span>					stack <span style="color:#f92672">=</span> compare_and_update_stack(<span style="color:#ae81ff">0</span>, k,stack)
-					
-					<span style="color:#75715e">// Increment the program counter after executing current statement.
-</span><span style="color:#75715e"></span>					l <span style="color:#f92672">=</span> l0 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
-					
-				<span style="color:#75715e">// Keep track of conditionals.
-</span><span style="color:#75715e"></span>				k <span style="color:#f92672">=</span> k <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
-				
-		s <span style="color:#f92672">=</span> statement_at(l, M)
-	
-	<span style="color:#75715e">// If an abort is encountered in the execution, raise exception.
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> (s <span style="color:#f92672">==</span> abort) then
-		raise an exception
-		
-	<span style="color:#75715e">// If a halt is encountered, it&#39;ll solve path constraints.
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">else</span>
-		<span style="color:#66d9ef">return</span> solve_path_constraint(k, path_constraint, stack)			
-</code></pre></div><p><code>compare_and_update_stack(branch, k, stack)</code> is just a generic stack operation function used to check whether the current execution path matches the one predicted at the end of the previous execution and represented in <em>stack</em> passed between runs. If the prediction fails, <strong>forcing_ok</strong> flag is set to 0 and the instrumentation is restarted with a fresh random input vector.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>instrumented <span style="color:#a6e22e">program</span>(stack, I) <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Random initialization of uninitialized input parameters in M0.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span> each input x with I[x] undefined <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>			I[x] <span style="color:#f92672">=</span> <span style="color:#a6e22e">random</span>()
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//Initialize memory M from M0 and I.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Set up symbolic memory and prepare execution.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	S <span style="color:#f92672">=</span> [m <span style="color:#960050;background-color:#1e0010">→</span> m <span style="color:#f92672">|</span> m <span style="color:#960050;background-color:#1e0010">∈</span> M0].
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Initial program counter in P.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	l <span style="color:#f92672">=</span> l0
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Number of conditionals executed.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> 
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Now invoke P intertwined with symbolic calculations.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	s <span style="color:#f92672">=</span> <span style="color:#a6e22e">statement_at</span>(l, M)
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Loop till an abort or a halt is encountered.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">while</span> (s <span style="color:#960050;background-color:#1e0010">∈</span> { <span style="color:#f92672">/</span> abort, halt}) <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Match the case of a program statement.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">match</span> (s)
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// Assignment statement.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">case</span> (m <span style="color:#960050;background-color:#1e0010">←</span> e)<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">// Memory location for m is updated.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				S <span style="color:#f92672">=</span> S <span style="color:#f92672">+</span> [m <span style="color:#960050;background-color:#1e0010">→</span> <span style="color:#a6e22e">evaluate_symbolic</span>(e, M, S)]
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">// Evaluates expression e concretely.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				v <span style="color:#f92672">=</span> <span style="color:#a6e22e">evaluate_concrete</span>(e, M)
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">// Update the memory location as well.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				M <span style="color:#f92672">=</span> M <span style="color:#f92672">+</span> [m <span style="color:#960050;background-color:#1e0010">→</span> v]
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">// Increment the program counter after executing current statement.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				l <span style="color:#f92672">=</span> l0 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// Conditional statement.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">case</span> (<span style="color:#66d9ef">if</span> (e) then <span style="color:#66d9ef">goto</span> l<span style="color:#960050;background-color:#1e0010">&#39;</span>)<span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">// Evalaute e concretely.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				b <span style="color:#f92672">=</span> <span style="color:#a6e22e">evaluate_concrete</span>(e, M)
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">// Evaluate e symbolically.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				c <span style="color:#f92672">=</span> <span style="color:#a6e22e">evaluate_symbolic</span>(e, M, S)
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">// Already have a path constraint.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				<span style="color:#66d9ef">if</span> b then
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>					<span style="color:#75715e">// c has been added to the path constraint via bitwise AND.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>					path_constraint <span style="color:#f92672">=</span> path_constraint <span style="color:#f92672">^</span> <span style="color:#f92672">&lt;</span>c<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>					
+</span></span><span style="display:flex;"><span>					<span style="color:#75715e">// Push the current state to stack.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>					stack <span style="color:#f92672">=</span> <span style="color:#a6e22e">compare_and_update_stack</span>(<span style="color:#ae81ff">1</span>, k,stack)
+</span></span><span style="display:flex;"><span>					
+</span></span><span style="display:flex;"><span>					<span style="color:#75715e">// Jump to label.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>					l <span style="color:#f92672">=</span> l<span style="color:#960050;background-color:#1e0010">&#39;</span>
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>					<span style="color:#75715e">// c&#39;s negation has been added to the path constraint via bitwise AND.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>					path constraint <span style="color:#f92672">=</span> path_constraint <span style="color:#f92672">^</span> <span style="color:#f92672">&lt;-</span>(c)<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>					
+</span></span><span style="display:flex;"><span>					<span style="color:#75715e">// Push the current state to stack.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>					stack <span style="color:#f92672">=</span> <span style="color:#a6e22e">compare_and_update_stack</span>(<span style="color:#ae81ff">0</span>, k,stack)
+</span></span><span style="display:flex;"><span>					
+</span></span><span style="display:flex;"><span>					<span style="color:#75715e">// Increment the program counter after executing current statement.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>					l <span style="color:#f92672">=</span> l0 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>					
+</span></span><span style="display:flex;"><span>				<span style="color:#75715e">// Keep track of conditionals.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>				k <span style="color:#f92672">=</span> k <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>				
+</span></span><span style="display:flex;"><span>		s <span style="color:#f92672">=</span> <span style="color:#a6e22e">statement_at</span>(l, M)
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// If an abort is encountered in the execution, raise exception.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> (s <span style="color:#f92672">==</span> abort) then
+</span></span><span style="display:flex;"><span>		raise an exception
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// If a halt is encountered, it&#39;ll solve path constraints.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">solve_path_constraint</span>(k, path_constraint, stack)			
+</span></span></code></pre></div><p><code>compare_and_update_stack(branch, k, stack)</code> is just a generic stack operation function used to check whether the current execution path matches the one predicted at the end of the previous execution and represented in <em>stack</em> passed between runs. If the prediction fails, <strong>forcing_ok</strong> flag is set to 0 and the instrumentation is restarted with a fresh random input vector.</p>
 <p><code>statement_at(l, M)</code> fetches the next instruction to be executed in the context of <em>M</em>.</p>
 <p>Any third party constraint solver can be employed for the task. An abstraction of the working of a suitable constraint solver is as follows:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">solve_path_constraint(ktry, path_constraint, stack) <span style="color:#f92672">=</span>
-
-	<span style="color:#75715e">// Take latest path constraint from the stack.
-</span><span style="color:#75715e"></span>	let j be the smallest number such that
-		<span style="color:#66d9ef">for</span> all h with <span style="color:#960050;background-color:#1e0010">−</span><span style="color:#ae81ff">1</span> <span style="color:#960050;background-color:#1e0010">≤</span> j<span style="color:#f92672">&lt;</span>h<span style="color:#f92672">&lt;</span>ktry, stack[h].done <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-		
-	<span style="color:#75715e">// If none is found, directed search is finished.
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> j <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">−</span><span style="color:#ae81ff">1</span> then
-		<span style="color:#66d9ef">return</span> (<span style="color:#ae81ff">0</span>, , )
-	<span style="color:#66d9ef">else</span>
-	
-		<span style="color:#75715e">// Negate the path constraint found at the top of the stack.
-</span><span style="color:#75715e"></span>		path_constraint[j] <span style="color:#f92672">=</span> neg(path_constraint[j])
-		
-		<span style="color:#75715e">// Add it to the branch.
-</span><span style="color:#75715e"></span>		stack[j].branch<span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">¬</span>stack[j].branch
-		
-		<span style="color:#75715e">// Call that branch to explore it.
-</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> (path constraint[<span style="color:#ae81ff">0</span>,... ,j] has a solution I) then
-			<span style="color:#66d9ef">return</span> (<span style="color:#ae81ff">1</span>,stack[<span style="color:#ae81ff">0.</span>.j], I
-		<span style="color:#66d9ef">else</span>
-			solve_path_constraint(j, path_constraint, stack)
-</code></pre></div><p> </p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a6e22e">solve_path_constraint</span>(ktry, path_constraint, stack) <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Take latest path constraint from the stack.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	let j be the smallest number such that
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">for</span> all h with <span style="color:#960050;background-color:#1e0010">−</span><span style="color:#ae81ff">1</span> <span style="color:#960050;background-color:#1e0010">≤</span> j<span style="color:#f92672">&lt;</span>h<span style="color:#f92672">&lt;</span>ktry, stack[h].done <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// If none is found, directed search is finished.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> j <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">−</span><span style="color:#ae81ff">1</span> then
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> (<span style="color:#ae81ff">0</span>, , )
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Negate the path constraint found at the top of the stack.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		path_constraint[j] <span style="color:#f92672">=</span> <span style="color:#a6e22e">neg</span>(path_constraint[j])
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Add it to the branch.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		stack[j].branch<span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">¬</span>stack[j].branch
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Call that branch to explore it.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> (path constraint[<span style="color:#ae81ff">0</span>,... ,j] has a solution I) then
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> (<span style="color:#ae81ff">1</span>,stack[<span style="color:#ae81ff">0.</span>.j], I
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">solve_path_constraint</span>(j, path_constraint, stack)
+</span></span></code></pre></div><p> </p>
 <h2 id="sage">SAGE</h2>
 <p>Following the success of DART, a new framework known as <strong>SAGE</strong>(<strong>Scalable, Automated, Guided Execution</strong>) was born in 2008 that employs DART in the background, to perform fuzzing on large applications (mainly file-reading applications) by using symbolic execution of the target programs at the x86 binary level. It&rsquo;s an extremely versatile tool since it is machine-code based, hence can run binaries programmed using various programming languages.</p>
 <blockquote>
@@ -444,7 +445,7 @@
 <li><strong>CoverageCollector</strong>:  computes the statistics on basic blocks which were executed during the run by going through the recorded execution.</li>
 <li><strong>SymbolicExecution</strong>: replays the recorded execution to collect input related constraints and generate new inputs using a constraint solver.</li>
 </ol>
-<p><img src="https://hexterisk.github.io/blog/DART_&amp;_SAGE/slide16-l.jpg" alt="">
+<p><img src="../../../../../DART_&_SAGE/slide16-l.jpg">
 <em>Tasks running in order.</em></p>
 <p>These tasks are optimized to handle large execution traces with features like constraint caching, common subexpression elimination and prevention of endless loop expansions.</p>
 <p>Citation: <a href="http://www.cs.toronto.edu/~geri/doc/GeriGrolingerCSC2125Report.pdf">DART</a>, <a href="http://osl.cs.illinois.edu/docs/pldi05/dart.pdf">DART: Directed Automated Random Testing</a>, <a href="https://www.cse.iitd.ac.in/~siy117527/sil765/readings/fuzzing%20testing.pdf">From Blackbox Fuzzing to Whitebox Fuzzing towards Verification</a>, <a href="https://patricegodefroid.github.io/public_psfiles/ndss2008.pdf">Automated Whitebox Fuzz Testing</a>, <a href="https://pdfs.semanticscholar.org/67ca/f3b9d76a8bf9e2c5420344640763626f7af1.pdf">Automated Whitebox Fuzz Testing PPT</a>.</p>
@@ -461,7 +462,7 @@
                 class="feather feather-tag meta-icon">
                 <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                 <line x1="7" y1="7" x2="7" y2="7"></line>
-            </svg><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/fuzzing">fuzzing</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/microsoft">microsoft</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/whitebox">whitebox</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/greybox">greybox</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/sage">sage</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/dart">dart</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/automated">automated</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/symbolic">symbolic</a></span>
+            </svg><span class="tag"><a href="https://hexterisk.com/blog/%20tags/fuzzing">fuzzing</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/microsoft">microsoft</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/whitebox">whitebox</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/greybox">greybox</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/sage">sage</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/dart">dart</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/automated">automated</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/symbolic">symbolic</a></span>
         </p>
 
         <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -495,7 +496,7 @@
 
             
             <span class="button previous">
-                <a href="https://hexterisk.github.io/blog/posts/2021/02/12/sanitation/">
+                <a href="https://hexterisk.com/blog/posts/2021/02/12/sanitation/">
                     <span class="button__text">Sanitation</span>
                     <span class="button__icon">→</span>
                 </a>
@@ -504,7 +505,7 @@
 
             
             <span class="button next">
-                <a href="https://hexterisk.github.io/blog/posts/2021/04/10/introduction/">
+                <a href="https://hexterisk.com/blog/posts/2021/04/10/introduction/">
                     <span class="button__icon">←</span>
                     <span class="button__text">Introduction</span>
                 </a>
@@ -522,22 +523,24 @@
 
             
                 <footer class="footer">
-    
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
         </div>
     </div>
-    <div class="footer__inner">
-        <div class="footer__content" style="margin-bottom: -0.8rem;">
-            <span><a style="text-decoration: none;"> .</a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span><a style="text-decoration: none;" style="font-size: 1.4rem; margin-bottom: -1.0rem;">..:</a></span>
-        </div>
+    
+    <div class="footer__svg">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 140 140"
+            stroke="#4DB6AC"
+        >
+            <path stroke-width="122" stroke-dasharray="2,38" d="M9,70h122M70,9v122" />
+            <path stroke-width="33" stroke-linecap="round" d="M70,30h0M110,70h0M30,110v0M70,110h0M110,110h0" />
+        </svg>
     </div>
 </footer>
             
@@ -548,8 +551,16 @@
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
+<script type="text/javascript" src="../../../../../bundle.min.45295cbc2d5bbc09b85caead90108f31defa5c6b650a42abb2e79d59a363e5bc2f11614e43687e66e6d47563560a45c3324b75dcb9b3a724a2955a2f1ce2f114.js" integrity="sha512-RSlcvC1bvAm4XK6tkBCPMd76XGtlCkKrsuedWaNj5bwvEWFOQ2h&#43;ZubUdWNWCkXDMkt13LmzpySilVovHOLxFA=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'G-66L1D38RLD', 'auto');
+        ga('send', 'pageview');
+    </script>
 
 
     </body>

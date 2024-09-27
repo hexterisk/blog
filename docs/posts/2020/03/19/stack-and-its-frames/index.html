@@ -5,12 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
-<meta name="description" content="Stack is a data structure, and means exactly what it&amp;rsquo;s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a LIFO(last in, first out) structure. Memory for functions, local variables, and flow control is stored in the stack.
- Stack Layout The stack grows from higher addresses to lower addresses." />
+<meta name="description" content="Stack is a data structure, and means exactly what it&rsquo;s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a LIFO(last in, first out) structure. Memory for functions, local variables, and flow control is stored in the stack.
+Stack Layout The stack grows from higher addresses to lower addresses. This behavior can be categorized as growing downwards or allocation in a top-down manner. Therefore, top of the stack is actually the lower-most address being used by the stack at that moment.
+" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://hexterisk.github.io/blog/posts/2020/03/19/stack-and-its-frames/" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://hexterisk.com/blog/posts/2020/03/19/stack-and-its-frames/" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 
     <title>
@@ -26,36 +28,33 @@
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+<link rel="stylesheet" href="../../../../../blog/main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://hexterisk.github.io/blog/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://hexterisk.github.io/blog/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://hexterisk.github.io/blog/favicon-16x16.png">
-    <link rel="manifest" href="https://hexterisk.github.io/blog/site.webmanifest">
-    <link rel="mask-icon" href="https://hexterisk.github.io/blog/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://hexterisk.github.io/blog/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../favicon-16x16.png">
+    <link rel="manifest" href="../../../../../site.webmanifest">
+    <link rel="mask-icon" href="../../../../../safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
-<meta itemprop="name" content="Stack and it&#39;s Frames">
-<meta itemprop="description" content="Stack is a data structure, and means exactly what it&rsquo;s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a LIFO(last in, first out) structure. Memory for functions, local variables, and flow control is stored in the stack.
- Stack Layout The stack grows from higher addresses to lower addresses.">
-<meta itemprop="datePublished" content="2020-03-19T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-03-19T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1164">
-<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 
-
-
-<meta itemprop="keywords" content="binary,symbols,execution,path,constraints,expression," /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
-
-<meta name="twitter:title" content="Stack and it&#39;s Frames"/>
-<meta name="twitter:description" content="Stack is a data structure, and means exactly what it&rsquo;s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a LIFO(last in, first out) structure. Memory for functions, local variables, and flow control is stored in the stack.
- Stack Layout The stack grows from higher addresses to lower addresses."/>
+  <meta itemprop="name" content="Stack and it&#39;s Frames">
+  <meta itemprop="description" content="Stack is a data structure, and means exactly what it’s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a LIFO(last in, first out) structure. Memory for functions, local variables, and flow control is stored in the stack.
+Stack Layout The stack grows from higher addresses to lower addresses. This behavior can be categorized as growing downwards or allocation in a top-down manner. Therefore, top of the stack is actually the lower-most address being used by the stack at that moment.">
+  <meta itemprop="datePublished" content="2020-03-19T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2020-03-19T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1164">
+  <meta itemprop="keywords" content="Binary,Symbols,Execution,Path,Constraints,Expression">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Stack and it&#39;s Frames">
+  <meta name="twitter:description" content="Stack is a data structure, and means exactly what it’s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a LIFO(last in, first out) structure. Memory for functions, local variables, and flow control is stored in the stack.
+Stack Layout The stack grows from higher addresses to lower addresses. This behavior can be categorized as growing downwards or allocation in a top-down manner. Therefore, top of the stack is actually the lower-most address being used by the stack at that moment.">
 
 
 
@@ -78,21 +77,23 @@
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://hexterisk.github.io/blog/" style="text-decoration: none;">
-    <div class="logo">
-        
+        <a class="logo" href="../../../../../">
+    
+        <div class="logo__content">
             <span class="logo__mark">></span>
-            <span class="logo__text">$cd ~/</span>
-            <span class="logo__cursor" style=""></span>
-        
-    </div>
+            <span class="logo__text">cd ~/</span>
+            <span class="logo__cursor"></span>
+        </div>
+    
 </a>
-
+<script>
+    document.documentElement.style.setProperty('--logo-cursor-color', '#ed5565');
+</script>
 
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://hexterisk.github.io/blog/about/">About</a></li><li><a href="https://hexterisk.github.io/blog/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://hexterisk.com/blog/about/">About</a></li><li><a href="https://hexterisk.com/blog/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -134,7 +135,7 @@
 
     <article>
         <h1 class="post-title">
-            <a href="https://hexterisk.github.io/blog/posts/2020/03/19/stack-and-its-frames/">Stack and it&rsquo;s Frames</a>
+            <a href="https://hexterisk.com/blog/posts/2020/03/19/stack-and-its-frames/">Stack and it&rsquo;s Frames</a>
         </h1>
 
         
@@ -145,10 +146,10 @@
 <p> </p>
 <h2 id="stack-layout">Stack Layout</h2>
 <p>The stack grows from higher addresses to lower addresses. This behavior can be categorized as <em>growing downwards</em> or <em>allocation in a top-down manner</em>. Therefore, top of the stack is actually the lower-most address being used by the stack at that moment.</p>
-<p><img src="https://hexterisk.github.io/blog/Stack_and_it's_Frames/1Yz9K.gif" alt="">
+<p><img src="../../../../../Stack_and_it's_Frames/1Yz9K.gif">
 <em>Stack growing downwards.</em></p>
 <p>Each time a function call is performed, a new <strong>Stack Frame</strong> is generated. A function maintains its own stack frame until it returns, at which time the caller’s stack frame is restored and execution is transferred back to the calling function.</p>
-<p><img src="https://hexterisk.github.io/blog/Stack_and_it's_Frames/image.png" alt="&ldquo;stack&rdquo;">
+<p><img alt="&ldquo;stack&rdquo;" src="../../../../../Stack_and_it's_Frames/image.png">
 <em>Stack Layout (Reversed top-bottom for easy explanation).</em></p>
 <p>Calling conventions require parameters to be passed on the stack on x86. On x64, most calling conventions pass parameters through registers. For example, on Windows x64, there is only one calling convention and the fi rst four parameters are passed through  On Linux, the fi rst six parameters are passed on .</p>
 <h3 id="function-calls">Function Calls</h3>
@@ -158,33 +159,33 @@
 <h4 id="calling-conventions-for-x86">Calling Conventions for x86:</h4>
 <p>The x86 architecture requires all function arguments to be pushed on the stack before the function is called.</p>
 <p>Function Prologue:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nasm" data-lang="nasm">    <span style="color:#a6e22e">push</span>  ebp         <span style="color:#75715e">; Save the stack-frame base pointer (of the calling function).</span>
-    <span style="color:#a6e22e">mov</span>   ebp, esp    <span style="color:#75715e">; Set the stack-frame base pointer to the current location on the stack.</span>
-    <span style="color:#a6e22e">sub</span>   esp, N      <span style="color:#75715e">; Grow the stack by N bytes to reserve space for local variables.</span>
-</code></pre></div><p>Function Epilogue:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nasm" data-lang="nasm">    <span style="color:#a6e22e">mov</span>   esp, ebp    <span style="color:#75715e">; Put the stack pointer back where it was when this function was called.</span>
-    <span style="color:#a6e22e">pop</span>   ebp         <span style="color:#75715e">; Restore the calling function&#39;s stack frame.</span>
-    <span style="color:#a6e22e">ret</span>               <span style="color:#75715e">; Return to the calling function.</span>
-</code></pre></div><p> The <code>leave</code> instruction can be used in place of the first two instructions because it sets <code>ESP</code> to equal <code>EBP</code> and pops <code>EBP</code> off the stack.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nasm" data-lang="nasm"><span style="display:flex;"><span>    <span style="color:#a6e22e">push</span>  ebp         <span style="color:#75715e">; Save the stack-frame base pointer (of the calling function).</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">mov</span>   ebp, esp    <span style="color:#75715e">; Set the stack-frame base pointer to the current location on the stack.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sub</span>   esp, N      <span style="color:#75715e">; Grow the stack by N bytes to reserve space for local variables.</span>
+</span></span></code></pre></div><p>Function Epilogue:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nasm" data-lang="nasm"><span style="display:flex;"><span>    <span style="color:#a6e22e">mov</span>   esp, ebp    <span style="color:#75715e">; Put the stack pointer back where it was when this function was called.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">pop</span>   ebp         <span style="color:#75715e">; Restore the calling function&#39;s stack frame.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ret</span>               <span style="color:#75715e">; Return to the calling function.</span>
+</span></span></code></pre></div><p> The <code>leave</code> instruction can be used in place of the first two instructions because it sets <code>ESP</code> to equal <code>EBP</code> and pops <code>EBP</code> off the stack.</p>
 <h4 id="calling-conventions-for-x64">Calling Conventions for x64:</h4>
 <p>The x64 architecture requires the first six function arguments to be set in registers in the following order: <code>RDI</code>, <code>RSI</code>, <code>RDX</code>, <code>RCX</code>, <code>R8</code>, and <code>R9</code>; the remaining are pushed on the stack from right to left.</p>
 <p>Disclaimer: Windows requires the first four function arguments to be set in registers in the following order: <code>RCX</code>, <code>RDX</code>, <code>R8</code>, and <code>R9</code>; the remaining are pushed on the stack from right to left.</p>
 <p>Function Prologue:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nasm" data-lang="nasm">    <span style="color:#a6e22e">mov</span>    [rsp <span style="color:#f92672">+</span> <span style="color:#ae81ff">8</span>], rcx    <span style="color:#75715e">; Saves argument register in home-location.</span>
-    <span style="color:#a6e22e">push</span>   r15               <span style="color:#75715e">; Saves the volatile register r15.</span>
-    <span style="color:#a6e22e">push</span>   r14               <span style="color:#75715e">; Saves the volatile register r14.</span>
-    <span style="color:#a6e22e">push</span>   r13               <span style="color:#75715e">; Saves the volatile register r13.</span>
-    <span style="color:#a6e22e">sub</span>    rsp, N            <span style="color:#75715e">; Grow the stack by N bytes to reserve space for local variables.</span>
-    <span style="color:#a6e22e">lea</span>    r13, <span style="color:#ae81ff">128</span>[rsp]     <span style="color:#75715e">; Establish a frame pointer to point 128 bytes into the allocated space.</span>
-</code></pre></div><p>Function Epilogue:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nasm" data-lang="nasm">    <span style="color:#a6e22e">lea</span>   rsp, <span style="color:#f92672">-</span><span style="color:#ae81ff">128</span>[r13]    <span style="color:#75715e">; Frame pointer&#39;s value is restored if it was used in the function.</span>
-        <span style="color:#75715e">; epilogue proper starts here</span>
-    <span style="color:#a6e22e">add</span>   rsp, N            <span style="color:#75715e">; Destroy the stack frame by pointing the stack pointer before the frame.</span>
-    <span style="color:#a6e22e">pop</span>   r13               <span style="color:#75715e">; Restore the volatile register r13.</span>
-    <span style="color:#a6e22e">pop</span>   r14               <span style="color:#75715e">; Restore the volatile register r14.</span>
-    <span style="color:#a6e22e">pop</span>   r15               <span style="color:#75715e">; Restore the volatile register r15.</span>
-    <span style="color:#a6e22e">ret</span>                     <span style="color:#75715e">; Return to the calling function.</span>
-</code></pre></div><p>Disclaimer:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nasm" data-lang="nasm"><span style="display:flex;"><span>    <span style="color:#a6e22e">mov</span>    [rsp <span style="color:#f92672">+</span> <span style="color:#ae81ff">8</span>], rcx    <span style="color:#75715e">; Saves argument register in home-location.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">push</span>   r15               <span style="color:#75715e">; Saves the volatile register r15.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">push</span>   r14               <span style="color:#75715e">; Saves the volatile register r14.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">push</span>   r13               <span style="color:#75715e">; Saves the volatile register r13.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">sub</span>    rsp, N            <span style="color:#75715e">; Grow the stack by N bytes to reserve space for local variables.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lea</span>    r13, <span style="color:#ae81ff">128</span>[rsp]     <span style="color:#75715e">; Establish a frame pointer to point 128 bytes into the allocated space.</span>
+</span></span></code></pre></div><p>Function Epilogue:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nasm" data-lang="nasm"><span style="display:flex;"><span>    <span style="color:#a6e22e">lea</span>   rsp, <span style="color:#f92672">-</span><span style="color:#ae81ff">128</span>[r13]    <span style="color:#75715e">; Frame pointer&#39;s value is restored if it was used in the function.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">; epilogue proper starts here</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">add</span>   rsp, N            <span style="color:#75715e">; Destroy the stack frame by pointing the stack pointer before the frame.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">pop</span>   r13               <span style="color:#75715e">; Restore the volatile register r13.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">pop</span>   r14               <span style="color:#75715e">; Restore the volatile register r14.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">pop</span>   r15               <span style="color:#75715e">; Restore the volatile register r15.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ret</span>                     <span style="color:#75715e">; Return to the calling function.</span>
+</span></span></code></pre></div><p>Disclaimer:</p>
 <p>The only differences between the architectures x86 and x64 we are concerned with at the moment are:</p>
 <ul>
 <li>Calling conventions (discussed above)</li>
@@ -205,7 +206,7 @@
 </ol>
 <p> </p>
 <h2 id="stack-and-frame-analysis">Stack and Frame Analysis</h2>
-<p><img src="https://hexterisk.github.io/blog/Stack_and_it's_Frames/1_image.png" alt="">
+<p><img src="../../../../../Stack_and_it's_Frames/1_image.png">
 <em>Individual stack frame (notice how addresses go from higher to lower from bottom to top).</em></p>
 <ul>
 <li><code>ESP</code> would point to the top of the stack, which is the memory address <code>0x12F02C</code>.
@@ -234,7 +235,7 @@
                 class="feather feather-tag meta-icon">
                 <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                 <line x1="7" y1="7" x2="7" y2="7"></line>
-            </svg><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/binary">binary</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/symbols">symbols</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/execution">execution</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/path">path</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/constraints">constraints</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/expression">expression</a></span>
+            </svg><span class="tag"><a href="https://hexterisk.com/blog/%20tags/binary">binary</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/symbols">symbols</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/execution">execution</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/path">path</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/constraints">constraints</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/expression">expression</a></span>
         </p>
 
         <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -268,7 +269,7 @@
 
             
             <span class="button previous">
-                <a href="https://hexterisk.github.io/blog/posts/2020/03/15/simple-code-injection-techniques-for-elf/">
+                <a href="https://hexterisk.com/blog/posts/2020/03/15/simple-code-injection-techniques-for-elf/">
                     <span class="button__text">Simple Code Injection Techniques for ELF</span>
                     <span class="button__icon">→</span>
                 </a>
@@ -277,7 +278,7 @@
 
             
             <span class="button next">
-                <a href="https://hexterisk.github.io/blog/posts/2020/03/25/trace-analysis/">
+                <a href="https://hexterisk.com/blog/posts/2020/03/25/trace-analysis/">
                     <span class="button__icon">←</span>
                     <span class="button__text">Trace Analysis</span>
                 </a>
@@ -295,22 +296,24 @@
 
             
                 <footer class="footer">
-    
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
         </div>
     </div>
-    <div class="footer__inner">
-        <div class="footer__content" style="margin-bottom: -0.8rem;">
-            <span><a style="text-decoration: none;"> .</a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span><a style="text-decoration: none;" style="font-size: 1.4rem; margin-bottom: -1.0rem;">..:</a></span>
-        </div>
+    
+    <div class="footer__svg">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 140 140"
+            stroke="#4DB6AC"
+        >
+            <path stroke-width="122" stroke-dasharray="2,38" d="M9,70h122M70,9v122" />
+            <path stroke-width="33" stroke-linecap="round" d="M70,30h0M110,70h0M30,110v0M70,110h0M110,110h0" />
+        </svg>
     </div>
 </footer>
             
@@ -321,8 +324,16 @@
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
+<script type="text/javascript" src="../../../../../bundle.min.45295cbc2d5bbc09b85caead90108f31defa5c6b650a42abb2e79d59a363e5bc2f11614e43687e66e6d47563560a45c3324b75dcb9b3a724a2955a2f1ce2f114.js" integrity="sha512-RSlcvC1bvAm4XK6tkBCPMd76XGtlCkKrsuedWaNj5bwvEWFOQ2h&#43;ZubUdWNWCkXDMkt13LmzpySilVovHOLxFA=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'G-66L1D38RLD', 'auto');
+        ga('send', 'pageview');
+    </script>
 
 
     </body>

@@ -1,1175 +1,707 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>https://hexterisk.github.io/blog/posts/2021/10/01/concurrency-patterns/</loc>
+    <loc>https://hexterisk.com/blog/posts/2021/10/01/concurrency-patterns/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2021/09/10/structural-patterns/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2021/09/10/structural-patterns/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2021/08/16/behavioral-patterns/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2021/08/16/behavioral-patterns/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2021/07/02/creational-patterns/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2021/07/02/creational-patterns/</loc>
     <lastmod>2021-07-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2021/05/21/reuse/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2021/05/21/reuse/</loc>
     <lastmod>2021-05-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2021/04/28/overview/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2021/04/28/overview/</loc>
     <lastmod>2021-04-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2021/04/10/introduction/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2021/04/10/introduction/</loc>
     <lastmod>2021-04-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2021/03/15/dart-sage/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2021/03/15/dart-sage/</loc>
     <lastmod>2021-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2021/02/12/sanitation/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2021/02/12/sanitation/</loc>
     <lastmod>2021-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2021/01/20/architecture/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2021/01/20/architecture/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2021/01/01/approaches/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2021/01/01/approaches/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/12/14/introduction/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/12/14/introduction/</loc>
     <lastmod>2020-12-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/11/20/classification-of-malware-traffic-using-cnns/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/11/20/classification-of-malware-traffic-using-cnns/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/11/08/dynamic-taint-analysis-and-pin/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/11/08/dynamic-taint-analysis-and-pin/</loc>
     <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</loc>
     <lastmod>2020-10-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/09/28/source-code-instrumentation-and-llvm/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/09/28/source-code-instrumentation-and-llvm/</loc>
     <lastmod>2020-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/09/04/symbolic-execution-and-angr/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/09/04/symbolic-execution-and-angr/</loc>
     <lastmod>2020-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/08/18/constraint-solvers-and-z3/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/08/18/constraint-solvers-and-z3/</loc>
     <lastmod>2020-08-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/08/06/classification-of-malwares-through-dynamic-analysis/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/08/06/classification-of-malwares-through-dynamic-analysis/</loc>
     <lastmod>2020-08-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/08/05/classification-of-malwares-through-static-analysis/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/08/05/classification-of-malwares-through-static-analysis/</loc>
     <lastmod>2020-08-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/07/30/serial-2/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/07/30/serial-2/</loc>
     <lastmod>2020-07-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/07/22/serial-1/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/07/22/serial-1/</loc>
     <lastmod>2020-07-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/07/17/taint-analysis/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/07/17/taint-analysis/</loc>
     <lastmod>2020-07-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/07/08/binary-obfuscation/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/07/08/binary-obfuscation/</loc>
     <lastmod>2020-07-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/06/27/binary-instrumentation/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/06/27/binary-instrumentation/</loc>
     <lastmod>2020-06-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/06/11/principles-of-symbolic-execution/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/06/11/principles-of-symbolic-execution/</loc>
     <lastmod>2020-06-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/06/01/set-6/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/06/01/set-6/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/05/17/set-5/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/05/17/set-5/</loc>
     <lastmod>2020-05-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/05/06/set-4/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/05/06/set-4/</loc>
     <lastmod>2020-05-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/04/29/set-3/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/04/29/set-3/</loc>
     <lastmod>2020-04-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/04/24/set-2/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/04/24/set-2/</loc>
     <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/04/20/set-1/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/04/20/set-1/</loc>
     <lastmod>2020-04-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/04/02/disassembly-and-binary-analysis-fundamentals/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/04/02/disassembly-and-binary-analysis-fundamentals/</loc>
     <lastmod>2020-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/03/25/trace-analysis/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/03/25/trace-analysis/</loc>
     <lastmod>2020-03-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/03/19/stack-and-its-frames/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/03/19/stack-and-its-frames/</loc>
     <lastmod>2020-03-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/03/15/simple-code-injection-techniques-for-elf/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/03/15/simple-code-injection-techniques-for-elf/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/03/12/the-pe-format/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/03/12/the-pe-format/</loc>
     <lastmod>2020-03-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/03/07/the-elf-format/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/03/07/the-elf-format/</loc>
     <lastmod>2020-03-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/02/28/anatomy-of-a-binary/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/02/28/anatomy-of-a-binary/</loc>
     <lastmod>2020-02-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/02/09/dockerise-mysql-phpmyadmin/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/02/09/dockerise-mysql--phpmyadmin/</loc>
     <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/2020/01/22/authenticated-mongodb-container/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/2020/01/22/authenticated-mongodb-container/</loc>
     <lastmod>2020-01-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/active-object/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/active-object/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/balking/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/balking/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/barrier/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/barrier/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/c/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/categories/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/categories/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/concurrency/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/concurrency/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/concurrency-patterns/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/concurrency-patterns/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/design-patterns/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/categories/design-patterns/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/categories/design-patterns/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/design-patterns/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/double-checked-locking/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/double-checked-locking/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/guarded-suspension/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/guarded-suspension/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/leader-follower/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/leader-follower/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/monitor/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/monitor/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/posts/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/posts/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/reactor/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/reactor/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/readers-writer-lock/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/readers-writer-lock/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/</loc>
     <lastmod>2021-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/adapter/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/adapter/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/bridge/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/bridge/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/composite/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/composite/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/decorator/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/decorator/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/fa%C3%A7ade/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/fa%C3%A7ade/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/flyweight/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/flyweight/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/gangs-of-four/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/gangs-of-four/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/proxy/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/proxy/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/structural-patterns/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/structural-patterns/</loc>
     <lastmod>2021-09-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/behavioral-patterns/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/behavioral-patterns/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/chain-of-responsibility/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/chain-of-responsibility/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/command/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/command/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/interpreter/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/interpreter/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/iterator/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/iterator/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/mediator/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/mediator/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/memento/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/memento/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/observer/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/observer/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/state/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/state/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/strategy/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/strategy/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/template/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/template/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/visitor/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/visitor/</loc>
     <lastmod>2021-08-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/builder/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/builder/</loc>
     <lastmod>2021-07-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/creational-patterns/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/creational-patterns/</loc>
     <lastmod>2021-07-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/factory/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/factory/</loc>
     <lastmod>2021-07-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/frameworks/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/frameworks/</loc>
     <lastmod>2021-07-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/prototype/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/prototype/</loc>
     <lastmod>2021-07-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/singleton/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/singleton/</loc>
     <lastmod>2021-07-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/toolkits/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/toolkits/</loc>
     <lastmod>2021-07-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/about/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/about/</loc>
     <lastmod>2021-04-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/</loc>
-    <lastmod>2021-04-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/categories/art-of-fuzzing/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/categories/art-of-fuzzing/</loc>
     <lastmod>2021-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/automated/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/automated/</loc>
     <lastmod>2021-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/dart/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/dart/</loc>
     <lastmod>2021-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/fuzzing/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/fuzzing/</loc>
     <lastmod>2021-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/greybox/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/greybox/</loc>
     <lastmod>2021-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/microsoft/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/microsoft/</loc>
     <lastmod>2021-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/sage/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/sage/</loc>
     <lastmod>2021-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/symbol/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/symbolic/</loc>
     <lastmod>2021-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/symbolic/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/whitebox/</loc>
     <lastmod>2021-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/whitebox/</loc>
-    <lastmod>2021-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/address-sanitizer/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/address-sanitizer/</loc>
     <lastmod>2021-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/asan/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/asan/</loc>
     <lastmod>2021-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/memory-sanitizer/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/memory-sanitizer/</loc>
     <lastmod>2021-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/msan/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/msan/</loc>
     <lastmod>2021-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/sanitizer/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/sanitizer/</loc>
     <lastmod>2021-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/thread-sanitizer/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/thread-sanitizer/</loc>
     <lastmod>2021-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/tsan/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/tsan/</loc>
     <lastmod>2021-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/ubsan/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/ubsan/</loc>
     <lastmod>2021-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/undefined-behavior/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/undefined-behavior-sanitizer/</loc>
     <lastmod>2021-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/undefined-behavior-sanitizer/</loc>
-    <lastmod>2021-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/bug-report/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/bug-report/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/coverage-guided/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/coverage-guided/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/harness/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/harness/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/minimizer/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/minimizer/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/mutator/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/mutator/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/reproducer/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/reproducer/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/triage/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/triage/</loc>
     <lastmod>2021-01-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/blackbox/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/blackbox/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/dumb-fuzzer/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/dumb-fuzzer/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/smart-fuzzer/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/smart-fuzzer/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/bugs/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/bugs/</loc>
     <lastmod>2020-12-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/deadlock/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/deadlock/</loc>
     <lastmod>2020-12-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/fuzz-testing/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/fuzz-testing/</loc>
     <lastmod>2020-12-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/violation/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/undefined-behavior/</loc>
     <lastmod>2020-12-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/cnn/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/violation/</loc>
+    <lastmod>2020-12-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/cnn/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/flow/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/flow/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/mac/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/machine-learning/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/machine-learning/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/malwares/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/malwares/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/categories/ml-for-sec/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/categories/ml-for-sec/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/network/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/network/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/traffic/</loc>
     <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/traffic/</loc>
-    <lastmod>2020-11-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/binary/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/binary/</loc>
     <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/dbi/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/dbi/</loc>
     <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/dynamic/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/dynamic/</loc>
     <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/pin/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/pin/</loc>
     <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/categories/practical-binary-analysis/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/categories/practical-binary-analysis/</loc>
     <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/syscall/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/syscall/</loc>
     <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/taint/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/taint/</loc>
     <lastmod>2020-11-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/aslr/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/aslr/</loc>
     <lastmod>2020-10-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/bbl/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/bbl/</loc>
     <lastmod>2020-10-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/debugging/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/debugging/</loc>
     <lastmod>2020-10-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/granularity/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/granularity/</loc>
     <lastmod>2020-10-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/img/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/img/</loc>
     <lastmod>2020-10-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/jit/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/jit/</loc>
     <lastmod>2020-10-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/probe/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/probe/</loc>
     <lastmod>2020-10-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/trace/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/trace/</loc>
     <lastmod>2020-10-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/instrument/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/instrument/</loc>
     <lastmod>2020-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/ir/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/ir/</loc>
     <lastmod>2020-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/linear/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/linear/</loc>
     <lastmod>2020-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/llvm/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/llvm/</loc>
     <lastmod>2020-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/source/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/source/</loc>
     <lastmod>2020-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/stack/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/stack/</loc>
     <lastmod>2020-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/three-address-code/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/three-address-code/</loc>
     <lastmod>2020-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/tuple/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/tuple/</loc>
     <lastmod>2020-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/constraints/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/constraints/</loc>
     <lastmod>2020-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/execution/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/execution/</loc>
     <lastmod>2020-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/expression/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/expression/</loc>
     <lastmod>2020-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/path/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/path/</loc>
     <lastmod>2020-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/symbols/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/symbols/</loc>
     <lastmod>2020-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/api-calls/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/api-calls/</loc>
     <lastmod>2020-08-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/files/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/files/</loc>
     <lastmod>2020-08-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/pe/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/pe/</loc>
     <lastmod>2020-08-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/registry/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/registry/</loc>
     <lastmod>2020-08-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/signature/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/signature/</loc>
     <lastmod>2020-08-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/windows/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/windows/</loc>
     <lastmod>2020-08-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/headers/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/headers/</loc>
     <lastmod>2020-08-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/images/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/images/</loc>
     <lastmod>2020-08-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/sections/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/sections/</loc>
     <lastmod>2020-08-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/penetration/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/penetration/</loc>
     <lastmod>2020-07-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/categories/pentesting/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/pentesting/</loc>
     <lastmod>2020-07-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/pentesting/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/categories/pentesting/</loc>
     <lastmod>2020-07-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/serial2/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/serial2/</loc>
     <lastmod>2020-07-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/testing/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/testing/</loc>
     <lastmod>2020-07-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/vulnhub/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/vulnhub/</loc>
     <lastmod>2020-07-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/serial1/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/serial1/</loc>
     <lastmod>2020-07-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/vim/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/vim/</loc>
     <lastmod>2020-07-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/categories/advanced-binary-analysis/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/categories/advanced-binary-analysis/</loc>
     <lastmod>2020-07-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/dfa/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/c/</loc>
     <lastmod>2020-07-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/dta/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/dfa/</loc>
     <lastmod>2020-07-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/rev/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/dta/</loc>
     <lastmod>2020-07-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/reversing/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/rev/</loc>
     <lastmod>2020-07-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/sink/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/reversing/</loc>
     <lastmod>2020-07-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/obfuscation/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/sink/</loc>
+    <lastmod>2020-07-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/obfuscation/</loc>
     <lastmod>2020-07-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/instrumentation/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/instrumentation/</loc>
     <lastmod>2020-06-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/bleichenbacher/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/bleichenbacher/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/cryptography/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/cryptography/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/categories/cryptopals/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/categories/cryptopals/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/dsa/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/dsa/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/e3/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/e3/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/matasano/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/matasano/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/nonce/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/nonce/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/oracle/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/oracle/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/pkcs#1/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/pkcs%231/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/pkcs1.5/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/pkcs1.5/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/rsa/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/rsa/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/xor/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/xor/</loc>
     <lastmod>2020-06-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/broadcast/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/broadcast/</loc>
     <lastmod>2020-05-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/dhke/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/dhke/</loc>
     <lastmod>2020-05-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/diffie-hellman/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/diffie-hellman/</loc>
     <lastmod>2020-05-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/mitm/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/mitm/</loc>
     <lastmod>2020-05-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/parameter/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/parameter/</loc>
     <lastmod>2020-05-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/srp/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/srp/</loc>
     <lastmod>2020-05-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/aes/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/aes/</loc>
     <lastmod>2020-05-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/bit-flipping/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/bit-flipping/</loc>
     <lastmod>2020-05-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/cbc/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/cbc/</loc>
     <lastmod>2020-05-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/ctr/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/ctr/</loc>
     <lastmod>2020-05-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/iv/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/iv/</loc>
     <lastmod>2020-05-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/pad/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/mac/</loc>
     <lastmod>2020-05-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/sha-1/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/pad/</loc>
     <lastmod>2020-05-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/ecb/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/sha-1/</loc>
+    <lastmod>2020-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/ecb/</loc>
     <lastmod>2020-04-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/mersenne/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/mersenne/</loc>
     <lastmod>2020-04-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/mt19937/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/mt19937/</loc>
     <lastmod>2020-04-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/prng/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/prng/</loc>
     <lastmod>2020-04-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/seed/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/seed/</loc>
     <lastmod>2020-04-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/base64/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/base64/</loc>
     <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/pkcs#7/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/pkcs%237/</loc>
     <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/unpad/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/unpad/</loc>
     <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/categories/basic-binary-analysis/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/categories/basic-binary-analysis/</loc>
     <lastmod>2020-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/control-flow/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/control-flow/</loc>
     <lastmod>2020-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/disassembly/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/disassembly/</loc>
     <lastmod>2020-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/fuzzer/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/fuzzer/</loc>
     <lastmod>2020-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/code/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/symbol/</loc>
+    <lastmod>2020-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/code/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/elf/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/elf/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/hijack/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/hijack/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/injection/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/injection/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/objdump/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/objdump/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/readelf/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/readelf/</loc>
     <lastmod>2020-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/container/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/container/</loc>
     <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/categories/dev-ops/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/categories/dev-ops/</loc>
     <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/docker/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/docker/</loc>
     <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/docker-compose/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/docker-compose/</loc>
     <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/mysql/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/mysql/</loc>
     <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/phpmyadmin/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/phpmyadmin/</loc>
     <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/database/</loc>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/database/</loc>
+    <lastmod>2020-01-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hexterisk.com/blog/tags/mongo/</loc>
     <lastmod>2020-01-22T00:00:00+00:00</lastmod>
   </url>
-  
-  <url>
-    <loc>https://hexterisk.github.io/blog/tags/mongo/</loc>
-    <lastmod>2020-01-22T00:00:00+00:00</lastmod>
-  </url>
-  
 </urlset>

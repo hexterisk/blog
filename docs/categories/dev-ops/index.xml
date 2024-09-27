@@ -2,36 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dev-Ops on Pwn the world.</title>
-    <link>https://hexterisk.github.io/blog/categories/dev-ops/</link>
+    <link>https://hexterisk.com/blog/categories/dev-ops/</link>
     <description>Recent content in Dev-Ops on Pwn the world.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>hexterisk@gmail.com (Bhanupratap Singh)</managingEditor>
+    <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sun, 09 Feb 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://hexterisk.github.io/blog/categories/dev-ops/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://hexterisk.com/blog/categories/dev-ops/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dockerise MySQL &#43; phpMyAdmin</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/02/09/dockerise-mysql-phpmyadmin/</link>
-      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/posts/2020/02/09/dockerise-mysql-phpmyadmin/</guid>
-      <description>A common requirement in a large number of software projects is a relational database with an easy to use management tool. Considering how often a developer needs this, setting it up everytime from scratch can be a drag. However, with the advent of containerisation, we can have a setup off the ground in a couple of minutes, whether it&amp;rsquo;s a development or a production environment.
-The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific.</description>
+      <link>https://hexterisk.com/blog/posts/2020/02/09/dockerise-mysql--phpmyadmin/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/posts/2020/02/09/dockerise-mysql--phpmyadmin/</guid>
+      <description>&lt;p&gt;A common requirement in a large number of software projects is a relational database with an easy to use management tool. Considering how often a developer needs this, setting it up everytime from scratch can be a drag. However, with the advent of containerisation, we can have a setup off the ground in a couple of minutes, whether it&amp;rsquo;s a development or a production environment.&lt;/p&gt;&#xA;&lt;p&gt;The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific. MariaDB is a fork of MySQL and is developed separately, and therefore contains a number of incompatibilities when compared to the standard MySQL. However, the fundamental infrastructure of the database and indexing are the same:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Authenticated MongoDB Container</title>
-      <link>https://hexterisk.github.io/blog/posts/2020/01/22/authenticated-mongodb-container/</link>
-      <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/posts/2020/01/22/authenticated-mongodb-container/</guid>
-      <description>Unsecured mongodb servers have been prime targets for hacks aimed at exaction of ransom in exchange of data. Therefore, authenticated mongo database server is now more of a necessity to ensure security of your database.
-There are two ways to setup an authenticated mongo server container.
- Manually Setup the container Pulling the mongo docker image from dockerhub as it doesn&amp;rsquo;t exist on server/local machine.
-Create a directory for the database to be stored in on the server/local machine.</description>
+      <link>https://hexterisk.com/blog/posts/2020/01/22/authenticated-mongodb-container/</link>
+      <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/posts/2020/01/22/authenticated-mongodb-container/</guid>
+      <description>&lt;p&gt;Unsecured mongodb servers have been prime targets for hacks aimed at exaction of ransom in exchange of data. Therefore, authenticated mongo database server is now more of a necessity to ensure security of your database.&lt;/p&gt;&#xA;&lt;p&gt;There are two ways to setup an authenticated mongo server container.&lt;/p&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;manually&#34;&gt;Manually&lt;/h2&gt;&#xA;&lt;h3 id=&#34;setup-the-container&#34;&gt;Setup the container&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../../Authenticated_Mongodb/1_image.png&#34;&gt;&#xA;&lt;em&gt;Pulling the mongo docker image from dockerhub as it doesn&amp;rsquo;t exist on server/local machine.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

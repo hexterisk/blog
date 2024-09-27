@@ -14,7 +14,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter UI', -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",  Helvetica, Arial, sans-serif;
+  font-family: $font-family;
   font-display: auto;
   font-size: 1rem;
   line-height: 1.54;
@@ -140,7 +140,7 @@ figure {
 }
 
 code {
-  font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+  font-family: $font-family;
   font-display: auto;
   font-feature-settings: normal;
   background: $light-background-secondary;
@@ -150,7 +150,7 @@ code {
   font-size: .95rem;
 
   .dark-theme & {
-    background: $dark-background-secondary;
+    background: $dark-background;
   }
 }
 
@@ -191,7 +191,7 @@ blockquote {
 
   &:before {
     content: '”';
-    font-family: Georgia, serif;
+    font-family: $font-family;
     font-display: auto;
     font-size: 3.875rem;
     position: absolute;

@@ -6,13 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="While designing a class, always keep the Open-Closed Principle in mind. It states that,
- software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
- This implies that an entity shall allow extensions to itself, but no modification to its source code. We are therefore allowed to extend our base class, and consequently implement re-usability.
-Class Inheritance Inheritance models an Is-A relationship, where the child class inherits properties from the parent class, making the child class a specialized version of the parent class." />
+software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+This implies that an entity shall allow extensions to itself, but no modification to its source code. We are therefore allowed to extend our base class, and consequently implement re-usability.
+Class Inheritance Inheritance models an Is-A relationship, where the child class inherits properties from the parent class, making the child class a specialized version of the parent class.
+" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://hexterisk.github.io/blog/posts/2021/05/21/reuse/" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://hexterisk.com/blog/posts/2021/05/21/reuse/" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 
     <title>
@@ -28,40 +30,37 @@ Class Inheritance Inheritance models an Is-A relationship, where the child class
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+<link rel="stylesheet" href="../../../../../blog/main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://hexterisk.github.io/blog/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://hexterisk.github.io/blog/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://hexterisk.github.io/blog/favicon-16x16.png">
-    <link rel="manifest" href="https://hexterisk.github.io/blog/site.webmanifest">
-    <link rel="mask-icon" href="https://hexterisk.github.io/blog/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://hexterisk.github.io/blog/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../favicon-16x16.png">
+    <link rel="manifest" href="../../../../../site.webmanifest">
+    <link rel="mask-icon" href="../../../../../safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
-<meta itemprop="name" content="Reuse">
-<meta itemprop="description" content="While designing a class, always keep the Open-Closed Principle in mind. It states that,
- software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
- This implies that an entity shall allow extensions to itself, but no modification to its source code. We are therefore allowed to extend our base class, and consequently implement re-usability.
+
+  <meta itemprop="name" content="Reuse">
+  <meta itemprop="description" content="While designing a class, always keep the Open-Closed Principle in mind. It states that,
+software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+This implies that an entity shall allow extensions to itself, but no modification to its source code. We are therefore allowed to extend our base class, and consequently implement re-usability.
 Class Inheritance Inheritance models an Is-A relationship, where the child class inherits properties from the parent class, making the child class a specialized version of the parent class.">
-<meta itemprop="datePublished" content="2021-05-21T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-05-21T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1572">
-<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
-
-
-
-<meta itemprop="keywords" content="design-patterns,gangs-of-four,frameworks,toolkits," /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
-
-<meta name="twitter:title" content="Reuse"/>
-<meta name="twitter:description" content="While designing a class, always keep the Open-Closed Principle in mind. It states that,
- software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
- This implies that an entity shall allow extensions to itself, but no modification to its source code. We are therefore allowed to extend our base class, and consequently implement re-usability.
-Class Inheritance Inheritance models an Is-A relationship, where the child class inherits properties from the parent class, making the child class a specialized version of the parent class."/>
+  <meta itemprop="datePublished" content="2021-05-21T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-05-21T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1572">
+  <meta itemprop="keywords" content="Design-Patterns,Gangs-of-Four,Frameworks,Toolkits">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Reuse">
+  <meta name="twitter:description" content="While designing a class, always keep the Open-Closed Principle in mind. It states that,
+software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+This implies that an entity shall allow extensions to itself, but no modification to its source code. We are therefore allowed to extend our base class, and consequently implement re-usability.
+Class Inheritance Inheritance models an Is-A relationship, where the child class inherits properties from the parent class, making the child class a specialized version of the parent class.">
 
 
 
@@ -84,21 +83,23 @@ Class Inheritance Inheritance models an Is-A relationship, where the child class
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://hexterisk.github.io/blog/" style="text-decoration: none;">
-    <div class="logo">
-        
+        <a class="logo" href="../../../../../">
+    
+        <div class="logo__content">
             <span class="logo__mark">></span>
-            <span class="logo__text">$cd ~/</span>
-            <span class="logo__cursor" style=""></span>
-        
-    </div>
+            <span class="logo__text">cd ~/</span>
+            <span class="logo__cursor"></span>
+        </div>
+    
 </a>
-
+<script>
+    document.documentElement.style.setProperty('--logo-cursor-color', '#ed5565');
+</script>
 
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://hexterisk.github.io/blog/about/">About</a></li><li><a href="https://hexterisk.github.io/blog/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://hexterisk.com/blog/about/">About</a></li><li><a href="https://hexterisk.com/blog/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -140,7 +141,7 @@ Class Inheritance Inheritance models an Is-A relationship, where the child class
 
     <article>
         <h1 class="post-title">
-            <a href="https://hexterisk.github.io/blog/posts/2021/05/21/reuse/">Reuse</a>
+            <a href="https://hexterisk.com/blog/posts/2021/05/21/reuse/">Reuse</a>
         </h1>
 
         
@@ -155,7 +156,7 @@ Class Inheritance Inheritance models an Is-A relationship, where the child class
 <p><strong>Inheritance</strong> models an <code>Is-A</code> relationship, where the child class inherits properties from the parent class, making the child class a specialized version of the parent class.</p>
 <p>New functionality is achieved by constructing a child class (child class) that extends the functionality of the parent class. This is achieved through class inheritance, which implies that all the original attributes and methods will be inherited by the new child class. This reuse technique is therefore called <strong>White-Box Reuse</strong> since all internal details of the parent class are visible to the child class.</p>
 <p>Inheritance reused needs to be implemented carefully, otherwise we can run into <strong>Class Explosion</strong> (a design anti-pattern) where the number of classes grows exponentially to the point where it becomes unmanageable. For example, for every employee type, the original class is extended such as one for freelancing payroll and one for salaried. This will get extended to multiple departments in different branches at different locations, leading to an exponentially large number of classes.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Reuse/image.png" alt=""></p>
+<p><img src="../../../../../Design_Patterns_Reuse/image.png"></p>
 <p>Inheritance reuse implementation for employees leads to class explosion.</p>
 <p>Class inheritance is statically defined, and makes it easy to modify functionality through redefinition of the attributes and methods of classes, or overriding methods in sub-classes. However, this implies that implementations cannot be modified at run-time.</p>
 <p>If the parent class has some data attributes well defined, and doesn&rsquo;t extend much functionality, the implementation of the child class becomes tightly bound with its parent class, so much so that any change in the parent class&rsquo; implementation would change the child class too. If such an implementation dependency arises, the parent class should be rewritten since this dependency causes a loss in flexibility and subsequently, re-usability.</p>
@@ -169,13 +170,13 @@ Class Inheritance Inheritance models an Is-A relationship, where the child class
 <h2 id="association">Association</h2>
 <p><strong>Association</strong> is the relationship established between classes through their objects. Complex types can be constructed through a combination of different objects.</p>
 <p>For example, an employee of a bank can be working in any of it&rsquo;s departments. A Branch&rsquo;s information tells us which Department the Employee is “associated” with.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Reuse/1_image.png" alt=""></p>
+<p><img src="../../../../../Design_Patterns_Reuse/1_image.png"></p>
 <p>An Employee (object) is associated with a Department (object) in a Branch (object).</p>
 <h3 id="aggregation">Aggregation</h3>
 <p>Restricted form of Association.</p>
 <p><strong>Aggregation</strong> models a <code>Has-A</code> relationship, where a cluster of objects are to be treated as a single unit. The relationship is unidirectional as one object is responsible for others, and a vice-versa relationship is not possible. However, objects on both the sides of the relationship can exist individually and one object&rsquo;s lifetime has no bearing on the other objects in the relationship. Therefore, Aggregation is said to be a weak type of Association.</p>
 <p>For example, a department would be a container for all the various branches it exists in, while maintaining all the employees that work in the said department.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Reuse/2_image.png" alt=""></p>
+<p><img src="../../../../../Design_Patterns_Reuse/2_image.png"></p>
 <p>Description of the relationship between different aspects of a bank&rsquo;s branch.</p>
 <p>If a department is said to close, a branch housing more than one department would still be functional and will continue to exist. Moreover, since the employees are ultimately employed by the bank (only “associated” to a department), they may still be retained and transferred to other departments.</p>
 <p>Thus, all objects under the parent container would still exist even if the parent container&rsquo;s life cycle ends. </p>
@@ -185,7 +186,7 @@ Class Inheritance Inheritance models an Is-A relationship, where the child class
 <p>Restricted form of Aggregation.</p>
 <p><strong>Composition</strong> models a <code>Part-Of</code> relationship. For example, a class composite can contain an object of another class component implying that a composite “has a” component. Object composition is dynamically defined at run-time through objects acquiring references to other objects, and therefore their interfaces shall be well defined to facilitate the intercommunication between objects. This reuse technique is therefore called <strong>Black-Box Reuse</strong> since no internal details of the parent object are visible to the child object. </p>
 <p>Composition enables the reuse of the implementation of components through composite classes without any inheritance. Continuing with the previous example, the branch class is a class composite with an interface for the department and the address. These two attributes have a separate class of their own, making them class components. Their objects are initialized and then composed with a branch object.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Reuse/3_image.png" alt=""></p>
+<p><img src="../../../../../Design_Patterns_Reuse/3_image.png"></p>
 <p>New functionality is achieved by making one object responsible for managing another object&rsquo;s life-cycle. This directly implies the destruction of all child objects of a parent object when it is itself destroyed. If the bank itself is said to close, then all departments would cease to exist, and so would all the branches. Moreover, the employees too would be terminated. Therefore, Composition is said to be a strong type of Association.</p>
 <p>Now, object composition re-usability doesn&rsquo;t break encapsulation since objects are only accessible through interfaces, and are replaceable among the same type. Moreover, since an object&rsquo;s implementation is defined in terms of it&rsquo;s interfaces, implementation dependencies are minimum.</p>
 <blockquote>
@@ -197,15 +198,15 @@ Class Inheritance Inheritance models an Is-A relationship, where the child class
 <p><strong>Delegation Pattern</strong> models a <code>Is-A-Role-Played-By</code> relationship, where two objects service a request together - one receives the request and forwards it to the other for processing. This implies that an object of the secondary class which contains the logic for completing a task, is used as a class member for the primary class that receives the request.</p>
 <p>For example,</p>
 <pre><code>class First {
-    public:
-        void print() { cout &lt;&lt; &quot;The Delegate&quot;; }
+	public:
+    	void print() { cout &lt;&lt; &quot;The Delegate&quot;; }
 };
 
 class Second {
     First ob;
 	
-    public:
-        void print() { ob.print(); }
+	public:
+    	void print() { ob.print(); }
 };
 
 int main() {
@@ -221,7 +222,7 @@ int main() {
 <h3 id="templates-in-c">Templates in C++</h3>
 <p><strong>Templates</strong> ensures compatibility of a code module with different data types through a <strong>Template Signature</strong>, that is, passing a data type as a parameter to the code.</p>
 <p>Templates behave like macros. They are expanded at compile-time where the compiler performs type checking and matching before appropriately replacing the code at the call point.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Reuse/templates-cpp.jpg" alt="templates-cpp"></p>
+<p><img alt="templates-cpp" src="../../../../../Design_Patterns_Reuse/templates-cpp.jpg"></p>
 <p>Template expansion at compile-time.</p>
 <h2 id="structures">Structures</h2>
 <h3 id="run-time">Run Time</h3>
@@ -243,7 +244,7 @@ int main() {
                 class="feather feather-tag meta-icon">
                 <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                 <line x1="7" y1="7" x2="7" y2="7"></line>
-            </svg><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/design-patterns">design-patterns</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/gangs-of-four">gangs-of-four</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/frameworks">frameworks</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/toolkits">toolkits</a></span>
+            </svg><span class="tag"><a href="https://hexterisk.com/blog/%20tags/design-patterns">design-patterns</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/gangs-of-four">gangs-of-four</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/frameworks">frameworks</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/toolkits">toolkits</a></span>
         </p>
 
         <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -277,7 +278,7 @@ int main() {
 
             
             <span class="button previous">
-                <a href="https://hexterisk.github.io/blog/posts/2021/04/28/overview/">
+                <a href="https://hexterisk.com/blog/posts/2021/04/28/overview/">
                     <span class="button__text">Overview</span>
                     <span class="button__icon">→</span>
                 </a>
@@ -286,7 +287,7 @@ int main() {
 
             
             <span class="button next">
-                <a href="https://hexterisk.github.io/blog/posts/2021/07/02/creational-patterns/">
+                <a href="https://hexterisk.com/blog/posts/2021/07/02/creational-patterns/">
                     <span class="button__icon">←</span>
                     <span class="button__text">Creational Patterns</span>
                 </a>
@@ -304,22 +305,24 @@ int main() {
 
             
                 <footer class="footer">
-    
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
         </div>
     </div>
-    <div class="footer__inner">
-        <div class="footer__content" style="margin-bottom: -0.8rem;">
-            <span><a style="text-decoration: none;"> .</a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span><a style="text-decoration: none;" style="font-size: 1.4rem; margin-bottom: -1.0rem;">..:</a></span>
-        </div>
+    
+    <div class="footer__svg">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 140 140"
+            stroke="#4DB6AC"
+        >
+            <path stroke-width="122" stroke-dasharray="2,38" d="M9,70h122M70,9v122" />
+            <path stroke-width="33" stroke-linecap="round" d="M70,30h0M110,70h0M30,110v0M70,110h0M110,110h0" />
+        </svg>
     </div>
 </footer>
             
@@ -330,8 +333,16 @@ int main() {
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
+<script type="text/javascript" src="../../../../../bundle.min.45295cbc2d5bbc09b85caead90108f31defa5c6b650a42abb2e79d59a363e5bc2f11614e43687e66e6d47563560a45c3324b75dcb9b3a724a2955a2f1ce2f114.js" integrity="sha512-RSlcvC1bvAm4XK6tkBCPMd76XGtlCkKrsuedWaNj5bwvEWFOQ2h&#43;ZubUdWNWCkXDMkt13LmzpySilVovHOLxFA=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'G-66L1D38RLD', 'auto');
+        ga('send', 'pageview');
+    </script>
 
 
     </body>

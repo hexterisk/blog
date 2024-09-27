@@ -5,12 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
-<meta name="description" content="Structural Design Patterns help in composing small structures into larger structures, while ensuring that these larger structures remain flexible and efficient. These larger structures remain simplified through the realization of the relationship between it&amp;rsquo;s smaller component structures, that is, how each component inherits from each other.
-Structural Class Patterns  Composes interfaces and implementations through (multiple) inheritance. Useful to make independently developed classes work together.  Structural Object Patterns  Realizes new functionality through composition of different objects." />
+<meta name="description" content="Structural Design Patterns help in composing small structures into larger structures, while ensuring that these larger structures remain flexible and efficient. These larger structures remain simplified through the realization of the relationship between it&rsquo;s smaller component structures, that is, how each component inherits from each other.
+Structural Class Patterns Composes interfaces and implementations through (multiple) inheritance. Useful to make independently developed classes work together. Structural Object Patterns Realizes new functionality through composition of different objects. Ability of objects to change composition at run-time is integral for composition of different types of objects. Adapter Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn&rsquo;t otherwise because of incompatible interfaces.
+" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://hexterisk.github.io/blog/posts/2021/09/10/structural-patterns/" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://hexterisk.com/blog/posts/2021/09/10/structural-patterns/" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 
     <title>
@@ -26,36 +28,33 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+<link rel="stylesheet" href="../../../../../blog/main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://hexterisk.github.io/blog/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://hexterisk.github.io/blog/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://hexterisk.github.io/blog/favicon-16x16.png">
-    <link rel="manifest" href="https://hexterisk.github.io/blog/site.webmanifest">
-    <link rel="mask-icon" href="https://hexterisk.github.io/blog/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://hexterisk.github.io/blog/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../favicon-16x16.png">
+    <link rel="manifest" href="../../../../../site.webmanifest">
+    <link rel="mask-icon" href="../../../../../safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
-<meta itemprop="name" content="Structural Patterns">
-<meta itemprop="description" content="Structural Design Patterns help in composing small structures into larger structures, while ensuring that these larger structures remain flexible and efficient. These larger structures remain simplified through the realization of the relationship between it&rsquo;s smaller component structures, that is, how each component inherits from each other.
-Structural Class Patterns  Composes interfaces and implementations through (multiple) inheritance. Useful to make independently developed classes work together.  Structural Object Patterns  Realizes new functionality through composition of different objects.">
-<meta itemprop="datePublished" content="2021-09-10T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-09-10T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2170">
-<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 
-
-
-<meta itemprop="keywords" content="design-patterns,gangs-of-four,structural-patterns,adapter,bridge,composite,decorator,façade,flyweight,proxy," /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
-
-<meta name="twitter:title" content="Structural Patterns"/>
-<meta name="twitter:description" content="Structural Design Patterns help in composing small structures into larger structures, while ensuring that these larger structures remain flexible and efficient. These larger structures remain simplified through the realization of the relationship between it&rsquo;s smaller component structures, that is, how each component inherits from each other.
-Structural Class Patterns  Composes interfaces and implementations through (multiple) inheritance. Useful to make independently developed classes work together.  Structural Object Patterns  Realizes new functionality through composition of different objects."/>
+  <meta itemprop="name" content="Structural Patterns">
+  <meta itemprop="description" content="Structural Design Patterns help in composing small structures into larger structures, while ensuring that these larger structures remain flexible and efficient. These larger structures remain simplified through the realization of the relationship between it’s smaller component structures, that is, how each component inherits from each other.
+Structural Class Patterns Composes interfaces and implementations through (multiple) inheritance. Useful to make independently developed classes work together. Structural Object Patterns Realizes new functionality through composition of different objects. Ability of objects to change composition at run-time is integral for composition of different types of objects. Adapter Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn’t otherwise because of incompatible interfaces.">
+  <meta itemprop="datePublished" content="2021-09-10T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-09-10T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2170">
+  <meta itemprop="keywords" content="Design-Patterns,Gangs-of-Four,Structural-Patterns,Adapter,Bridge,Composite,Decorator,Façade,Flyweight,Proxy">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Structural Patterns">
+  <meta name="twitter:description" content="Structural Design Patterns help in composing small structures into larger structures, while ensuring that these larger structures remain flexible and efficient. These larger structures remain simplified through the realization of the relationship between it’s smaller component structures, that is, how each component inherits from each other.
+Structural Class Patterns Composes interfaces and implementations through (multiple) inheritance. Useful to make independently developed classes work together. Structural Object Patterns Realizes new functionality through composition of different objects. Ability of objects to change composition at run-time is integral for composition of different types of objects. Adapter Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn’t otherwise because of incompatible interfaces.">
 
 
 
@@ -78,21 +77,23 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://hexterisk.github.io/blog/" style="text-decoration: none;">
-    <div class="logo">
-        
+        <a class="logo" href="../../../../../">
+    
+        <div class="logo__content">
             <span class="logo__mark">></span>
-            <span class="logo__text">$cd ~/</span>
-            <span class="logo__cursor" style=""></span>
-        
-    </div>
+            <span class="logo__text">cd ~/</span>
+            <span class="logo__cursor"></span>
+        </div>
+    
 </a>
-
+<script>
+    document.documentElement.style.setProperty('--logo-cursor-color', '#ed5565');
+</script>
 
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://hexterisk.github.io/blog/about/">About</a></li><li><a href="https://hexterisk.github.io/blog/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://hexterisk.com/blog/about/">About</a></li><li><a href="https://hexterisk.com/blog/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -134,7 +135,7 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
 
     <article>
         <h1 class="post-title">
-            <a href="https://hexterisk.github.io/blog/posts/2021/09/10/structural-patterns/">Structural Patterns</a>
+            <a href="https://hexterisk.com/blog/posts/2021/09/10/structural-patterns/">Structural Patterns</a>
         </h1>
 
         
@@ -160,16 +161,16 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
 <p>Adapter patterns are of two types:</p>
 <p>1. <strong>Class Adapter Pattern</strong></p>
 <p>Class Adapter simply performs multiple inheritance over incompatible interfaces, that is, it inherits the types of interfaces which have to be made compatible from their respective classes. It then implements the logic required to achieve compatibility.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Structural_Patterns/image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Structural_Patterns/image.png">
 <em>Class Adapter Pattern Structure</em></p>
 <p>The <strong>Client</strong> talks to the <strong>Target</strong> through it&rsquo;s interface of type <code>Request()</code>, and it needs a certain type of work done which can only be done via the <strong>Adaptee</strong> class, which has an interface of type <code>SpecificRequest()</code>.</p>
 <p>The <strong>Adapter</strong> simply inherits both classes&rsquo; interface and then implements the logic to translate between both the interfaces and act as a proxy. The <strong>Client</strong> directly calls the <code>Request()</code> method in the <strong>Adapter</strong>, which then translates the data into a form acceptable by <code>SpecificRequest()</code>, and then uses the said interface originally inherited from the <strong>Adaptee</strong>.</p>
 <p>2. <strong>Object Adapter Pattern</strong></p>
 <p>Object Adapter simply performs object composition over incompatible interfaces, that is, it holds an (object) instance of the target interface, and calls the  designated method with the necessary data once the translation is done.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Structural_Patterns/1_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Structural_Patterns/1_image.png">
 <em>Object Adapter Pattern Structure</em></p>
 <p>The <strong>Client</strong> talks to the <strong>Target</strong> through it&rsquo;s interface of type <code>Request()</code>, and it needs a certain type of work done which can only be done via the <strong>Adaptee</strong> class, which has an interface of type <code>SpecificRequest()</code>.</p>
-<p>The <strong>Adapter</strong> simply inherits the <strong>Target</strong>&lsquo;s <code>Request()</code> interface and accepts an (object) instance of the <strong>Adaptee</strong>. It then implements the logic to translate between both the interfaces and act as a proxy. The <strong>Client</strong> directly calls the <code>Request()</code> method in the <strong>Adapter</strong>, which then translates the data into a form acceptable by <code>SpecificRequest()</code>, and then uses the <code>SpecificRequest()</code> interface of the accepted (object) instance of <strong>Adaptee</strong> to accomplish the task.</p>
+<p>The <strong>Adapter</strong> simply inherits the <strong>Target</strong>&rsquo;s <code>Request()</code> interface and accepts an (object) instance of the <strong>Adaptee</strong>. It then implements the logic to translate between both the interfaces and act as a proxy. The <strong>Client</strong> directly calls the <code>Request()</code> method in the <strong>Adapter</strong>, which then translates the data into a form acceptable by <code>SpecificRequest()</code>, and then uses the <code>SpecificRequest()</code> interface of the accepted (object) instance of <strong>Adaptee</strong> to accomplish the task.</p>
 <p><strong>Two-Way Adapters</strong> are bi-directional in nature, that is, they can be accessed via either of the incompatible interfaces to call the other interface. The <strong>Adapter</strong> class absorbs the important common methods of both systems and provides adaptations to both. In reference to the aforementioned examples, a two-way adapter can be accessed via both <code>Request()</code> and <code>SpecificRequest()</code> methods to call <code>SpecificRequest()</code> and <code>Request()</code> methods respectively.</p>
 <p><strong>Pluggable Adapter</strong> will be covered in <strong>Delegate</strong>.</p>
 <p>Implementation Example: <a href="https://www.youtube.com/watch?v=eTm3zjPz3BU">Adapter Pattern</a></p>
@@ -186,7 +187,7 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
 <p>This structure decreases the coupling between the two parts and allows greater flexibility, therefore ensuring that these can be developed and modified independently of each other. The concept of an Abstraction implementing, or holding a reference to an instance of Implementor, is called the <strong>Bridge</strong> pattern.</p>
 <p>The Bridge pattern is also known as <strong>Handle/Body</strong>.</p>
 <p>The key is to move away from class inheritance and towards object composition. </p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Structural_Patterns/2_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Structural_Patterns/2_image.png">
 <em>Bridge Pattern Structure</em></p>
 <p>The <strong>Client</strong> accesses <strong>Abstraction</strong> through it&rsquo;s interface <code>Operation()</code>. Since the <strong>Abstraction</strong> holds an object of type <strong>Implementor</strong>, the <code>Operation()</code> interface delegates the call to the object&rsquo;s interface <code>OperationImp()</code> . The structure is defined this way to ensure that any <strong>RefinedAbstraction</strong> (concrete abstraction) can hold an instance of any <strong>ConcreteImplementor</strong> (concrete implementation). This facilitates plugging any <strong>Implementor</strong> object with any <strong>Abstraction</strong> object, especially at run-time.</p>
 <p>Each concrete object would inherit and extend the same set of methods as defined by <strong>Implementor</strong>, but it would return the data pertaining to their concrete specification in the result. Since the set of methods to be exposed by all <strong>ConcreteImplementor</strong> classes is now standardized by default, <strong>Abstraction</strong> can simply implement the same set of methods to produce <strong>RefinedAbstraction</strong> objects with their own additional specifications.</p>
@@ -198,7 +199,7 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
 <p>Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.</p>
 </blockquote>
 <p>The <strong>Composite</strong> pattern enables uniformity among different components of a hierarchy so that the hierarchy could be used as if it were a single object. This is helpful in cases where we don&rsquo;t need to differentiate between a single object and a collection of objects. Rather, we could simply apply the same operations (functions) on the single object as well as the collection itself.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Structural_Patterns/3_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Structural_Patterns/3_image.png">
 <em>Composite Pattern Structure</em></p>
 <p>The <strong>Component</strong> defines the behavior for all the components. It declares an interface which is implemented by:</p>
 <ul>
@@ -223,7 +224,7 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
 <li>Each class would only maintain minimal data pertaining to it&rsquo;s own topping type, such as name and cost.</li>
 <li>Inheritance is static, therefore it would not be possible to alter an object&rsquo;s behavior at run-time.</li>
 </ol>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Structural_Patterns/4_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Structural_Patterns/4_image.png">
 <em>Decorator Pattern Structure</em></p>
 <p>The <strong>Component</strong> implements the <code>Operation()</code> interface which is implemented by <strong>ConcreteComponent</strong>, a base object to whose behavior can be modified. The <strong>Decorator</strong> maintains a reference to another <strong>ConcreteComponent</strong>, on which it adds additional functionality to produce <strong>ConcreteDecoratorA</strong> and <strong>ConcreteDecoratorB</strong>.</p>
 <p>Implementation Example: <a href="https://www.youtube.com/watch?v=j40kRwSm4VE">Decorator Pattern</a></p>
@@ -233,7 +234,7 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
 </blockquote>
 <p>The <strong>Façade</strong> pattern is used to provide a simple interface to a complex system. A unified entry point to the whole system makes it easy for the client to make use of the system&rsquo;s functionality without looking any deeper than the interface itself. This allows for decoupling between the client and the underlying complicated network of various subsystems that work together to achieve the said functionality.</p>
 <p>The client would only have to look deeper than the interface only in the cases where they want customizability of the functionality, in which case they would have to directly access the interfaces of the necessary subsystems.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Structural_Patterns/5_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Structural_Patterns/5_image.png">
 <em>Façade Pattern Structure</em></p>
 <p>The <strong>Client</strong> interacts with the <strong>Facade</strong>, which then delegates the request to the appropriate subsystem. The subsystem classes implement the functionality, while having no backward reference to the <strong>Facade</strong>.</p>
 <p>Implementation Example: <a href="https://www.youtube.com/watch?v=VrRDami28N0">Facade Pattern</a></p>
@@ -256,12 +257,12 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
 </ul>
 </li>
 </ol>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Structural_Patterns/6_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Structural_Patterns/6_image.png">
 <em>Flyweight Pattern Structure</em></p>
 <p><strong>Flyweight</strong> objects implement an interface <code>Operation(extrinsicState)</code> for accessibility. <strong>Flyweight Factory</strong> creates and manages a pool of all <strong>Flyweight</strong> objects, and is responsible to return an existing flyweight or instantiate a new one if none exist, when the <strong>Client</strong> requests for one. As made clear by the interface&rsquo;s signature (argument list), the extrinsic state of a flyweight is stored and/or computed and passed to the flyweight by the <strong>Client</strong> when it is being invoked, via the <strong>Flyweight Factory</strong>. An important point is that the <strong>Flyweight</strong> is instantiated with extrinsic state passed in constructor, and is therefore immutable. This enables the <strong>Client</strong> to access multiple flyweight objects at the same time. </p>
 <p>A <strong>ConcreteFlyweight</strong> extends the inherited <code>Operation(extrinsicState)</code> interface along with maintaining storage <code>intrinsicState</code> for different contexts. </p>
 <p><strong>UnsharedConcreteFlyweight</strong> is an example of an unshared flyweight, and it may contain <strong>ConcreteFlyweight</strong> objects as children.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Structural_Patterns/7_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Structural_Patterns/7_image.png">
 <em>Flyweight Sharing Model</em></p>
 <p>The model is depicted in the image above. <code>aClient</code> objects request for flyweight objects from the pool. This request is fulfilled by <code>aFlyweightFactory</code> which provides <code>aConcreteFlyweight</code> objects.</p>
 <p>Implementation Example: <a href="https://www.youtube.com/watch?v=0vV-R2926ss">Flyweight Pattern</a></p>
@@ -271,7 +272,7 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
 </blockquote>
 <p>The <strong>Proxy</strong> pattern, or <strong>Surrogate</strong> pattern, controls the access to an object. A proxy class is created which implements the same interface as the object. All requests from the client to the object are passed via a proxy class&rsquo; object, enabling us to perform additional operations before and after the request, and before the request reaches the object, if necessary.</p>
 <p>The prime use case for the pattern is instantiation of a resource-heavy object which cannot be kept in memory all the time. We can resort to this pattern to model an on-demand behavior, that is, the object will be instantiated when the request arrives and destroyed when the request is fulfilled, saving system resources.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Structural_Patterns/8_image.png" alt="">
+<p><img src="../../../../../Design_Patterns_Structural_Patterns/8_image.png">
 <em>Proxy Pattern Structure</em></p>
 <p><strong>RealSubject</strong> defines the actual object, which inherits from the <strong>Subject</strong> class that defines the common interface <code>Request()</code>. The <strong>Client</strong> requests the <strong>RealSubject</strong>. This request is routed through a placeholder object of type <strong>Proxy</strong>, which also inherits from the class <strong>Subject</strong> to ensure that it&rsquo;s interface remains the same as <strong>RealSubject</strong>. This <strong>Proxy</strong> object contains a reference to the <strong>RealSubject</strong> object, to which delegates the request.</p>
 <p>Proxy can be of different types:</p>
@@ -307,7 +308,7 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
                 class="feather feather-tag meta-icon">
                 <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                 <line x1="7" y1="7" x2="7" y2="7"></line>
-            </svg><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/design-patterns">design-patterns</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/gangs-of-four">gangs-of-four</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/structural-patterns">structural-patterns</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/adapter">adapter</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/bridge">bridge</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/composite">composite</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/decorator">decorator</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/fa%C3%A7ade">façade</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/flyweight">flyweight</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/proxy">proxy</a></span>
+            </svg><span class="tag"><a href="https://hexterisk.com/blog/%20tags/design-patterns">design-patterns</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/gangs-of-four">gangs-of-four</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/structural-patterns">structural-patterns</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/adapter">adapter</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/bridge">bridge</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/composite">composite</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/decorator">decorator</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/fa%C3%A7ade">façade</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/flyweight">flyweight</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/proxy">proxy</a></span>
         </p>
 
         <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -341,7 +342,7 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
 
             
             <span class="button previous">
-                <a href="https://hexterisk.github.io/blog/posts/2021/08/16/behavioral-patterns/">
+                <a href="https://hexterisk.com/blog/posts/2021/08/16/behavioral-patterns/">
                     <span class="button__text">Behavioral Patterns</span>
                     <span class="button__icon">→</span>
                 </a>
@@ -350,7 +351,7 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
 
             
             <span class="button next">
-                <a href="https://hexterisk.github.io/blog/posts/2021/10/01/concurrency-patterns/">
+                <a href="https://hexterisk.com/blog/posts/2021/10/01/concurrency-patterns/">
                     <span class="button__icon">←</span>
                     <span class="button__text">Concurrency Patterns</span>
                 </a>
@@ -368,22 +369,24 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
 
             
                 <footer class="footer">
-    
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
         </div>
     </div>
-    <div class="footer__inner">
-        <div class="footer__content" style="margin-bottom: -0.8rem;">
-            <span><a style="text-decoration: none;"> .</a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span><a style="text-decoration: none;" style="font-size: 1.4rem; margin-bottom: -1.0rem;">..:</a></span>
-        </div>
+    
+    <div class="footer__svg">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 140 140"
+            stroke="#4DB6AC"
+        >
+            <path stroke-width="122" stroke-dasharray="2,38" d="M9,70h122M70,9v122" />
+            <path stroke-width="33" stroke-linecap="round" d="M70,30h0M110,70h0M30,110v0M70,110h0M110,110h0" />
+        </svg>
     </div>
 </footer>
             
@@ -394,8 +397,16 @@ Structural Class Patterns  Composes interfaces and implementations through (mult
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
+<script type="text/javascript" src="../../../../../bundle.min.45295cbc2d5bbc09b85caead90108f31defa5c6b650a42abb2e79d59a363e5bc2f11614e43687e66e6d47563560a45c3324b75dcb9b3a724a2955a2f1ce2f114.js" integrity="sha512-RSlcvC1bvAm4XK6tkBCPMd76XGtlCkKrsuedWaNj5bwvEWFOQ2h&#43;ZubUdWNWCkXDMkt13LmzpySilVovHOLxFA=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'G-66L1D38RLD', 'auto');
+        ga('send', 'pageview');
+    </script>
 
 
     </body>

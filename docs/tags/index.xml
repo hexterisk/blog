@@ -2,104 +2,84 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Pwn the world.</title>
-    <link>https://hexterisk.github.io/blog/tags/</link>
+    <link>https://hexterisk.com/blog/tags/</link>
     <description>Recent content in Tags on Pwn the world.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>hexterisk@gmail.com (Bhanupratap Singh)</managingEditor>
+    <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://hexterisk.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://hexterisk.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>active-object</title>
-      <link>https://hexterisk.github.io/blog/tags/active-object/</link>
-      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/active-object/</guid>
+      <title>Active-Object</title>
+      <link>https://hexterisk.com/blog/tags/active-object/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/tags/active-object/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>balking</title>
-      <link>https://hexterisk.github.io/blog/tags/balking/</link>
-      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/balking/</guid>
+      <title>Balking</title>
+      <link>https://hexterisk.com/blog/tags/balking/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/tags/balking/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>barrier</title>
-      <link>https://hexterisk.github.io/blog/tags/barrier/</link>
-      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/barrier/</guid>
+      <title>Barrier</title>
+      <link>https://hexterisk.com/blog/tags/barrier/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/tags/barrier/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>c</title>
-      <link>https://hexterisk.github.io/blog/tags/c/</link>
-      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/c/</guid>
+      <title>Concurrency</title>
+      <link>https://hexterisk.com/blog/tags/concurrency/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/tags/concurrency/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>concurrency</title>
-      <link>https://hexterisk.github.io/blog/tags/concurrency/</link>
-      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/concurrency/</guid>
+      <title>Concurrency-Patterns</title>
+      <link>https://hexterisk.com/blog/tags/concurrency-patterns/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/tags/concurrency-patterns/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>concurrency-patterns</title>
-      <link>https://hexterisk.github.io/blog/tags/concurrency-patterns/</link>
-      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/concurrency-patterns/</guid>
+      <title>Design-Patterns</title>
+      <link>https://hexterisk.com/blog/tags/design-patterns/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/tags/design-patterns/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>design-patterns</title>
-      <link>https://hexterisk.github.io/blog/tags/design-patterns/</link>
-      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/design-patterns/</guid>
+      <title>Double-Checked-Locking</title>
+      <link>https://hexterisk.com/blog/tags/double-checked-locking/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/tags/double-checked-locking/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>double-checked-locking</title>
-      <link>https://hexterisk.github.io/blog/tags/double-checked-locking/</link>
-      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/double-checked-locking/</guid>
+      <title>Guarded-Suspension</title>
+      <link>https://hexterisk.com/blog/tags/guarded-suspension/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/tags/guarded-suspension/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>guarded-suspension</title>
-      <link>https://hexterisk.github.io/blog/tags/guarded-suspension/</link>
-      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/guarded-suspension/</guid>
+      <title>Leader-Follower</title>
+      <link>https://hexterisk.com/blog/tags/leader-follower/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/tags/leader-follower/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>leader-follower</title>
-      <link>https://hexterisk.github.io/blog/tags/leader-follower/</link>
-      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/tags/leader-follower/</guid>
+      <title>Monitor</title>
+      <link>https://hexterisk.com/blog/tags/monitor/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/tags/monitor/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

@@ -2,95 +2,77 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Pwn the world.</title>
-    <link>https://hexterisk.github.io/blog/categories/</link>
+    <link>https://hexterisk.com/blog/categories/</link>
     <description>Recent content in Categories on Pwn the world.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>hexterisk@gmail.com (Bhanupratap Singh)</managingEditor>
+    <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://hexterisk.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://hexterisk.com/blog/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Design-Patterns</title>
-      <link>https://hexterisk.github.io/blog/categories/design-patterns/</link>
-      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/categories/design-patterns/</guid>
+      <link>https://hexterisk.com/blog/categories/design-patterns/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/categories/design-patterns/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>art-of-fuzzing</title>
-      <link>https://hexterisk.github.io/blog/categories/art-of-fuzzing/</link>
-      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/categories/art-of-fuzzing/</guid>
+      <title>Art-of-Fuzzing</title>
+      <link>https://hexterisk.com/blog/categories/art-of-fuzzing/</link>
+      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/categories/art-of-fuzzing/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>ml-for-sec</title>
-      <link>https://hexterisk.github.io/blog/categories/ml-for-sec/</link>
-      <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/categories/ml-for-sec/</guid>
+      <title>Ml-for-Sec</title>
+      <link>https://hexterisk.com/blog/categories/ml-for-sec/</link>
+      <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/categories/ml-for-sec/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>practical-binary-analysis</title>
-      <link>https://hexterisk.github.io/blog/categories/practical-binary-analysis/</link>
-      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/categories/practical-binary-analysis/</guid>
+      <title>Practical-Binary-Analysis</title>
+      <link>https://hexterisk.com/blog/categories/practical-binary-analysis/</link>
+      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/categories/practical-binary-analysis/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Pentesting</title>
-      <link>https://hexterisk.github.io/blog/categories/pentesting/</link>
-      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/categories/pentesting/</guid>
+      <link>https://hexterisk.com/blog/categories/pentesting/</link>
+      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/categories/pentesting/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>advanced-binary-analysis</title>
-      <link>https://hexterisk.github.io/blog/categories/advanced-binary-analysis/</link>
-      <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/categories/advanced-binary-analysis/</guid>
+      <title>Advanced-Binary-Analysis</title>
+      <link>https://hexterisk.com/blog/categories/advanced-binary-analysis/</link>
+      <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/categories/advanced-binary-analysis/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Cryptopals</title>
-      <link>https://hexterisk.github.io/blog/categories/cryptopals/</link>
-      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/categories/cryptopals/</guid>
+      <link>https://hexterisk.com/blog/categories/cryptopals/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/categories/cryptopals/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>basic-binary-analysis</title>
-      <link>https://hexterisk.github.io/blog/categories/basic-binary-analysis/</link>
-      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/categories/basic-binary-analysis/</guid>
+      <title>Basic-Binary-Analysis</title>
+      <link>https://hexterisk.com/blog/categories/basic-binary-analysis/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/categories/basic-binary-analysis/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Dev-Ops</title>
-      <link>https://hexterisk.github.io/blog/categories/dev-ops/</link>
-      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/categories/dev-ops/</guid>
+      <link>https://hexterisk.com/blog/categories/dev-ops/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/categories/dev-ops/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

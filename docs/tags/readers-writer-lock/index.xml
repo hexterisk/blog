@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>readers-writer-lock on Pwn the world.</title>
-    <link>https://hexterisk.github.io/blog/tags/readers-writer-lock/</link>
-    <description>Recent content in readers-writer-lock on Pwn the world.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <title>Readers-Writer-Lock on Pwn the world.</title>
+    <link>https://hexterisk.com/blog/tags/readers-writer-lock/</link>
+    <description>Recent content in Readers-Writer-Lock on Pwn the world.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>hexterisk@gmail.com (Bhanupratap Singh)</managingEditor>
+    <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://hexterisk.github.io/blog/tags/readers-writer-lock/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://hexterisk.com/blog/tags/readers-writer-lock/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Concurrency Patterns</title>
-      <link>https://hexterisk.github.io/blog/posts/2021/10/01/concurrency-patterns/</link>
-      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/posts/2021/10/01/concurrency-patterns/</guid>
-      <description>Concurrency Design Patterns describe ways of dealing with concurrent executing code, be it multi-threaded or multi-processed.
-Active Object  Decouple method execution from method invocation for objects that each live in their own thread of control. The goal is to introduce concurrency, by using asynchronous method invocation and a scheduler for handling requests.
- The Active Object pattern introduces the following components:
- Proxy  The interface of the object to which a client connects to.</description>
+      <link>https://hexterisk.com/blog/posts/2021/10/01/concurrency-patterns/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/posts/2021/10/01/concurrency-patterns/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Concurrency Design Patterns&lt;/strong&gt; describe ways of dealing with concurrent executing code, be it multi-threaded or multi-processed.&lt;/p&gt;&#xA;&lt;h2 id=&#34;active-object&#34;&gt;Active Object&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Decouple method execution from method invocation for objects that each live in their own thread of control. The goal is to introduce concurrency, by using asynchronous method invocation and a scheduler for handling requests.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The &lt;strong&gt;Active Object&lt;/strong&gt; pattern introduces the following components:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Proxy&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The interface of the object to which a client connects to.&lt;/li&gt;&#xA;&lt;li&gt;Resides in the client thread.&lt;/li&gt;&#xA;&lt;li&gt;Automatically converts an invoked method to a method request.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt; &lt;strong&gt;Servant&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Defines the behavior and state of the active object.&lt;/li&gt;&#xA;&lt;li&gt;Provides implementation of the active object.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Activation/Dispatch Queue&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Maintains a buffer of pending requests created by Proxy.&lt;/li&gt;&#xA;&lt;li&gt;Keeps track of which requests can execute.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Scheduler&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Decides which request should be executed next.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Result Handle&lt;/strong&gt; or &lt;strong&gt;Callback&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Allows Proxy to get the result post execution.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../../Design_Patterns_Concurrency_Patterns/1_image.png&#34;&gt;&#xA;&lt;strong&gt;Active Object Structure&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

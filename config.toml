@@ -1,4 +1,4 @@
-baseURL = "https://hexterisk.github.io/blog"
+baseURL = "https://hexterisk.com/blog"
 title   = "Pwn the world."
 
 DefaultContentLanguage = "en"
@@ -24,6 +24,7 @@ buildDrafts  = false
 buildFuture  = false
 buildExpored = false
 canonifyURLs = true
+relativeURLs = true
 
 enableRobotsTXT = true
 enableGitInfo   = false
@@ -38,9 +39,6 @@ disableHugoGeneratorInject = false
   posts = "/posts/:year/:month/:day/:title/"
   #posts = "/posts/:series/:title/"
 
-[author]
-  name = "Bhanupratap Singh"
-
 [blackfriday]
   hrefTargetBlank = true
 
@@ -49,6 +47,11 @@ disableHugoGeneratorInject = false
   category = "categories"
 
 [params]
+  
+  [params.author]
+    name = "Bhanupratap Singh"
+    email = "hexterisk@gmail.com"
+
   dateform        = "Jan 2, 2006"
   dateformShort   = "Jan 2"
   dateformNum     = "2006-01-02"
@@ -89,10 +92,9 @@ disableHugoGeneratorInject = false
     theme = "#252627"
 
   [params.logo]
-    logoText     = "$cd ~/"
-    logoHomeLink = "/"
-    # Set to a valid CSS color to change the cursor in the logo.
-    # logoColor    = "#67a2c9"
+    LogoHomeLink = "/"
+    logoText = "cd ~/"
+    logoColor = "#ed5565"
 
   # Social icons
   [[params.social]]
@@ -108,7 +110,7 @@ disableHugoGeneratorInject = false
     url  = "https://www.linkedin.com/in/bhanupratap-singh/"
 
 [languages]
-  [languages.en]
+  [languages.en.params]
     subtitle  = "A noob's attempt at blogging."
     weight    = 1
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
@@ -122,3 +124,7 @@ disableHugoGeneratorInject = false
     identifier = "posts"
     name       = "Posts"
     url        = "posts/"
+
+[services]
+  [services.googleAnalytics]
+    ID = "G-66L1D38RLD"

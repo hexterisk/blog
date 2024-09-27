@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>harness on Pwn the world.</title>
-    <link>https://hexterisk.github.io/blog/tags/harness/</link>
-    <description>Recent content in harness on Pwn the world.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <title>Harness on Pwn the world.</title>
+    <link>https://hexterisk.com/blog/tags/harness/</link>
+    <description>Recent content in Harness on Pwn the world.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>hexterisk@gmail.com (Bhanupratap Singh)</managingEditor>
+    <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://hexterisk.github.io/blog/tags/harness/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://hexterisk.com/blog/tags/harness/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Architecture</title>
-      <link>https://hexterisk.github.io/blog/posts/2021/01/20/architecture/</link>
-      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hexterisk.github.io/blog/posts/2021/01/20/architecture/</guid>
-      <description>A robust pipeline needs to be established to ensure that a fuzzer is effective and efficient. The pipeline is required to perform the following tasks:
- Generate new test cases. Ensure delivery of the test cases to, and safe execution, of the target. Record the statistics from the execution of the test cases. Reproduce the crashes. Triage the crashes.  Generic fuzzing pipeline.
-Separate modules perform different set of the aforementioned tasks.</description>
+      <link>https://hexterisk.com/blog/posts/2021/01/20/architecture/</link>
+      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>https://hexterisk.com/blog/posts/2021/01/20/architecture/</guid>
+      <description>&lt;p&gt;A robust pipeline needs to be established to ensure that a fuzzer is effective and efficient. The pipeline is required to perform the following tasks:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Generate new test cases.&lt;/li&gt;&#xA;&lt;li&gt;Ensure delivery of the test cases to, and safe execution, of the target.&lt;/li&gt;&#xA;&lt;li&gt;Record the statistics from the execution of the test cases.&lt;/li&gt;&#xA;&lt;li&gt;Reproduce the crashes.&lt;/li&gt;&#xA;&lt;li&gt;Triage the crashes.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../../Fuzzing_Architecture/chart.jpg&#34;&gt;&#xA;&lt;em&gt;Generic fuzzing pipeline.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Separate modules perform different set of the aforementioned tasks. The underlying code in these modules is aligned with the principles of code resusability and modularity. This way, different modules can be swapped as per requirement of the program being fuzzed.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

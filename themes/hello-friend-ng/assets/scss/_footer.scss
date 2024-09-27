@@ -2,6 +2,9 @@
   padding: 40px 20px;
   flex-grow: 0;
   color: $light-color-secondary;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__inner {
     display: flex;
@@ -10,7 +13,6 @@
     margin: 0 auto;
     width: 760px;
     max-width: 100%;
-
     @media #{$media-size-tablet} {
       flex-direction: column;
     }
@@ -22,7 +24,6 @@
     align-items: center;
     font-size: 1rem;
     color: $light-color-secondary;
-
     @media #{$media-size-tablet} {
       flex-direction: column;
       margin-top: 10px;
@@ -31,7 +32,6 @@
     & > *:not(:last-child) {
       border-right: 1px solid;
       padding: 0 15px;
-
       @media #{$media-size-tablet} {
         border: none;
       }
@@ -39,6 +39,17 @@
 
     & > *:last-child {
       padding: 0 15px;
+    }
+  }
+
+  &__svg {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+
+    svg {
+      width: 30px;
+      height: 30px;
     }
   }
 }

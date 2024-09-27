@@ -6,11 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="Creational Design Patterns reduce the complexity in creation of different objects of shared type/properties.
-These patterns simplify object creation mechanisms by separating the workings of an object&amp;rsquo;s creation, composition and representation. This in turn results in increased flexibility. Instead of hardcoding data into classes for creating objects every time, we can employ these patterns for the instantiation of an object dependent on the situation. This ensures that the set of related objects share a common ancestor for common properties." />
+These patterns simplify object creation mechanisms by separating the workings of an object&rsquo;s creation, composition and representation. This in turn results in increased flexibility. Instead of hardcoding data into classes for creating objects every time, we can employ these patterns for the instantiation of an object dependent on the situation. This ensures that the set of related objects share a common ancestor for common properties.
+" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://hexterisk.github.io/blog/posts/2021/07/02/creational-patterns/" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://hexterisk.com/blog/posts/2021/07/02/creational-patterns/" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 
     <title>
@@ -26,36 +28,33 @@ These patterns simplify object creation mechanisms by separating the workings of
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+<link rel="stylesheet" href="../../../../../blog/main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://hexterisk.github.io/blog/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://hexterisk.github.io/blog/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://hexterisk.github.io/blog/favicon-16x16.png">
-    <link rel="manifest" href="https://hexterisk.github.io/blog/site.webmanifest">
-    <link rel="mask-icon" href="https://hexterisk.github.io/blog/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://hexterisk.github.io/blog/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../favicon-16x16.png">
+    <link rel="manifest" href="../../../../../site.webmanifest">
+    <link rel="mask-icon" href="../../../../../safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
-<meta itemprop="name" content="Creational Patterns">
-<meta itemprop="description" content="Creational Design Patterns reduce the complexity in creation of different objects of shared type/properties.
-These patterns simplify object creation mechanisms by separating the workings of an object&rsquo;s creation, composition and representation. This in turn results in increased flexibility. Instead of hardcoding data into classes for creating objects every time, we can employ these patterns for the instantiation of an object dependent on the situation. This ensures that the set of related objects share a common ancestor for common properties.">
-<meta itemprop="datePublished" content="2021-07-02T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-07-02T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1099">
-<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 
-
-
-<meta itemprop="keywords" content="design-patterns,gangs-of-four,frameworks,toolkits,creational-patterns,builder,prototype,factory,singleton," /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
-
-<meta name="twitter:title" content="Creational Patterns"/>
-<meta name="twitter:description" content="Creational Design Patterns reduce the complexity in creation of different objects of shared type/properties.
-These patterns simplify object creation mechanisms by separating the workings of an object&rsquo;s creation, composition and representation. This in turn results in increased flexibility. Instead of hardcoding data into classes for creating objects every time, we can employ these patterns for the instantiation of an object dependent on the situation. This ensures that the set of related objects share a common ancestor for common properties."/>
+  <meta itemprop="name" content="Creational Patterns">
+  <meta itemprop="description" content="Creational Design Patterns reduce the complexity in creation of different objects of shared type/properties.
+These patterns simplify object creation mechanisms by separating the workings of an object’s creation, composition and representation. This in turn results in increased flexibility. Instead of hardcoding data into classes for creating objects every time, we can employ these patterns for the instantiation of an object dependent on the situation. This ensures that the set of related objects share a common ancestor for common properties.">
+  <meta itemprop="datePublished" content="2021-07-02T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-07-02T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1099">
+  <meta itemprop="keywords" content="Design-Patterns,Gangs-of-Four,Frameworks,Toolkits,Creational-Patterns,Builder,Prototype,Factory,Singleton">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Creational Patterns">
+  <meta name="twitter:description" content="Creational Design Patterns reduce the complexity in creation of different objects of shared type/properties.
+These patterns simplify object creation mechanisms by separating the workings of an object’s creation, composition and representation. This in turn results in increased flexibility. Instead of hardcoding data into classes for creating objects every time, we can employ these patterns for the instantiation of an object dependent on the situation. This ensures that the set of related objects share a common ancestor for common properties.">
 
 
 
@@ -78,21 +77,23 @@ These patterns simplify object creation mechanisms by separating the workings of
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://hexterisk.github.io/blog/" style="text-decoration: none;">
-    <div class="logo">
-        
+        <a class="logo" href="../../../../../">
+    
+        <div class="logo__content">
             <span class="logo__mark">></span>
-            <span class="logo__text">$cd ~/</span>
-            <span class="logo__cursor" style=""></span>
-        
-    </div>
+            <span class="logo__text">cd ~/</span>
+            <span class="logo__cursor"></span>
+        </div>
+    
 </a>
-
+<script>
+    document.documentElement.style.setProperty('--logo-cursor-color', '#ed5565');
+</script>
 
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://hexterisk.github.io/blog/about/">About</a></li><li><a href="https://hexterisk.github.io/blog/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://hexterisk.com/blog/about/">About</a></li><li><a href="https://hexterisk.com/blog/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -134,7 +135,7 @@ These patterns simplify object creation mechanisms by separating the workings of
 
     <article>
         <h1 class="post-title">
-            <a href="https://hexterisk.github.io/blog/posts/2021/07/02/creational-patterns/">Creational Patterns</a>
+            <a href="https://hexterisk.com/blog/posts/2021/07/02/creational-patterns/">Creational Patterns</a>
         </h1>
 
         
@@ -147,7 +148,7 @@ These patterns simplify object creation mechanisms by separating the workings of
 <p>Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.</p>
 </blockquote>
 <p>We create a “factory” class that can use some logic to decide <em>at the moment of instantiation</em> over what data to use for creating the object. Now, since it can&rsquo;t anticipate the needs of the client, this task of instantiation is delegated to a subclass specific for the situation. This localization of knowledge helps in hiding(abstraction) of the actual implementation details as well.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Creational_Patterns/image.png" alt=""></p>
+<p><img src="../../../../../Design_Patterns_Creational_Patterns/image.png"></p>
 <p>Therefore, <strong>Factory Method</strong> pattern defines an interface for creation of objects, but lets a subclass suitable to the situation perform the instantiation. The suitability is defined by the logic implemented by the factory.</p>
 <p>The <strong>Creator</strong> class is the factory with the operational details, and has an interface defined called <code>FactoryMethod</code> for creating an object. A subclass <strong>ConcreteCreator</strong> is created that is localized for a specific use-case. It creates an object of <strong>ConcreteProduct</strong> class, which implements the <strong>Product</strong> class.</p>
 <p>For example, Creator class <code>AnimalFactory</code> has the task of producing different objects of Product class <code>Animal</code>. This factory could be under different environments which would cultivate different conditions, and may cater to two conditions through the following ConcreteCreator classes:</p>
@@ -162,7 +163,7 @@ These patterns simplify object creation mechanisms by separating the workings of
 <p>Provide an interface for creating families of related or dependent objects without specifying their concrete classes.</p>
 </blockquote>
 <p>An extension of the Factory Method pattern, a super-factory whose sub-factories have the capability of creating multiple products, which then enables it&rsquo;s concrete factories to produce multiple products. This is to ensure that even a single factory has the capability to produce multiple products that are related, or family of products, and this responsibility/implementation is further delegated to their concrete factories respectively.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Creational_Patterns/1_image.png" alt=""></p>
+<p><img src="../../../../../Design_Patterns_Creational_Patterns/1_image.png"></p>
 <p>The <strong>AbstractFactory</strong> pattern defines an interface to create multiple products, that is, <code>CreateProductA</code> and <code>CreateProductB</code>. It is implemented by two <strong>ConcreteFactory</strong> classes <code>ConcreteFactory1</code> and <code>ConcreteFactory2</code>. These concrete factories can instantiate objects <code>ProductA1</code>, <code>ProductB1</code> and <code>ProductA2</code>, <code>ProductB2</code>. These products implement <strong>AbstractProductA</strong> and <strong>AbstractProductB</strong> classes respectively. Since the same factory can produce A1,B1 and A2,B2 pairs, it is clear that one factory is keeping objects(products) of related types together since concretions of different products together, like A1 and B2, is not sensible. Therefore, enabling a factory to create A1 and B1 together ensures that a single factory can create products that make sense in conjunction with each other.</p>
 <p>For example, AbstractFactory class <code>UIFactory</code> has the task of producing different objects of ProductA and ProductB classes <code>Scrollbar</code> and <code>Button</code>. This factory will have ConcreteCreator1 and ConcreteCreator2 classes that can produce objects suitable as per the environment conditions, such as:</p>
 <ol>
@@ -180,7 +181,7 @@ These patterns simplify object creation mechanisms by separating the workings of
 <li>Ensures that an object is always initialized in a complete state.</li>
 <li>Makes the constructor highly readable.</li>
 </ol>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Creational_Patterns/2_image.png" alt=""></p>
+<p><img src="../../../../../Design_Patterns_Creational_Patterns/2_image.png"></p>
 <p>The <strong>Director</strong> is the user of the <strong>Builder</strong> class. It defines an interface <code>BuildPart</code> for building an object. <strong>ConcreteBuilder</strong> implements Builder, implements the initialization logic for the object. This implementation is specific to the environment and produces an object that is complete in itself, as per the Director&rsquo;s instruction.</p>
 <p>For example, a Director class <code>TextParser</code> requires a converter. The Builder class <code>TextConverterBuilder</code> will implement different ConcreteBuilder classes for different formats, such as <code>ExcelBuilder</code> and <code>CSVBuilder</code>. Since different file formats have different requirements to be able to parse the text, each builder can implement their own object initialization logic with the parameters provided by the, which is of no concern to both <code>TextParser</code> and  <code>TextConverterBuilder</code>.</p>
 <p>Implementation Example: <a href="https://www.youtube.com/watch?v=M7Xi1yO_s8E">Builder Pattern</a></p>
@@ -189,7 +190,7 @@ These patterns simplify object creation mechanisms by separating the workings of
 <p>Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.</p>
 </blockquote>
 <p>To avoid creation of a different instance of the same object for manipulation, the <strong>Prototype</strong> design pattern demands that the original class provide a method to get the prototype of the class. This prototype allows a new object to clone an old object, which can then be manipulated. This preserves the original object as well as the effort into creating a new object definition altogether.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Creational_Patterns/3_image.png" alt=""></p>
+<p><img src="../../../../../Design_Patterns_Creational_Patterns/3_image.png"></p>
 <p>The <strong>Prototype</strong> class provides an interface <code>Clone</code> for to clone new objects from the original one. Subclasses <strong>ConcretePrototype1</strong> and <strong>ConcretePrototype2</strong> implement the prototype to return a copy of the original object.</p>
 <p>For example, a Prototype class <code>Animal</code> provides ConcretePrototype classes <code>LionPrototype</code> and <code>BirdPrototype</code> to allow the client to modify these classes into different entities, such as the lion to sheep or bird to crocodile, to modify certain properties.</p>
 <p>Implementation Example: <a href="https://www.youtube.com/watch?v=nZ76x13Nm8Q">Prototype Pattern</a></p>
@@ -197,8 +198,8 @@ These patterns simplify object creation mechanisms by separating the workings of
 <blockquote>
 <p>Ensure a class only has one instance, and provide a global point of access to it.</p>
 </blockquote>
-<p><strong>Singleton Pattern</strong> specifies that only a single instance of it exists (which requires absolute surety that it can serve the purpose through it) and enforces that the class have “global scope&rdquo;.</p>
-<p><img src="https://hexterisk.github.io/blog/Design_Patterns_Creational_Patterns/4_image.png" alt=""></p>
+<p><strong>Singleton Pattern</strong> specifies that only a single instance of it exists (which requires absolute surety that it can serve the purpose through it) and enforces that the class have “global scope&quot;.</p>
+<p><img src="../../../../../Design_Patterns_Creational_Patterns/4_image.png"></p>
 <p>Global scope requires the constructor of the class to be private so that it can&rsquo;t be recreated, which means it would require a static method to instantiate it in the first place. The static method (since it&rsquo;s a class member) will have access to the constructor, defined as <code>Instance</code>., which would initialize it into the static member <code>uniqueInstance</code>.</p>
 <p>Implementation Example: <a href="https://www.youtube.com/watch?v=KUTqnWswPV4">Singleton Pattern</a></p>
 <p>Citation: <a href="https://www.journaldev.com/31902/gangs-of-four-gof-design-patterns">Gang of Four Design Patterns</a></p>
@@ -215,7 +216,7 @@ These patterns simplify object creation mechanisms by separating the workings of
                 class="feather feather-tag meta-icon">
                 <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                 <line x1="7" y1="7" x2="7" y2="7"></line>
-            </svg><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/design-patterns">design-patterns</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/gangs-of-four">gangs-of-four</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/frameworks">frameworks</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/toolkits">toolkits</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/creational-patterns">creational-patterns</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/builder">builder</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/prototype">prototype</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/factory">factory</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/singleton">singleton</a></span>
+            </svg><span class="tag"><a href="https://hexterisk.com/blog/%20tags/design-patterns">design-patterns</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/gangs-of-four">gangs-of-four</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/frameworks">frameworks</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/toolkits">toolkits</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/creational-patterns">creational-patterns</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/builder">builder</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/prototype">prototype</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/factory">factory</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/singleton">singleton</a></span>
         </p>
 
         <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -249,7 +250,7 @@ These patterns simplify object creation mechanisms by separating the workings of
 
             
             <span class="button previous">
-                <a href="https://hexterisk.github.io/blog/posts/2021/05/21/reuse/">
+                <a href="https://hexterisk.com/blog/posts/2021/05/21/reuse/">
                     <span class="button__text">Reuse</span>
                     <span class="button__icon">→</span>
                 </a>
@@ -258,7 +259,7 @@ These patterns simplify object creation mechanisms by separating the workings of
 
             
             <span class="button next">
-                <a href="https://hexterisk.github.io/blog/posts/2021/08/16/behavioral-patterns/">
+                <a href="https://hexterisk.com/blog/posts/2021/08/16/behavioral-patterns/">
                     <span class="button__icon">←</span>
                     <span class="button__text">Behavioral Patterns</span>
                 </a>
@@ -276,22 +277,24 @@ These patterns simplify object creation mechanisms by separating the workings of
 
             
                 <footer class="footer">
-    
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
         </div>
     </div>
-    <div class="footer__inner">
-        <div class="footer__content" style="margin-bottom: -0.8rem;">
-            <span><a style="text-decoration: none;"> .</a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span><a style="text-decoration: none;" style="font-size: 1.4rem; margin-bottom: -1.0rem;">..:</a></span>
-        </div>
+    
+    <div class="footer__svg">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 140 140"
+            stroke="#4DB6AC"
+        >
+            <path stroke-width="122" stroke-dasharray="2,38" d="M9,70h122M70,9v122" />
+            <path stroke-width="33" stroke-linecap="round" d="M70,30h0M110,70h0M30,110v0M70,110h0M110,110h0" />
+        </svg>
     </div>
 </footer>
             
@@ -302,8 +305,16 @@ These patterns simplify object creation mechanisms by separating the workings of
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
+<script type="text/javascript" src="../../../../../bundle.min.45295cbc2d5bbc09b85caead90108f31defa5c6b650a42abb2e79d59a363e5bc2f11614e43687e66e6d47563560a45c3324b75dcb9b3a724a2955a2f1ce2f114.js" integrity="sha512-RSlcvC1bvAm4XK6tkBCPMd76XGtlCkKrsuedWaNj5bwvEWFOQ2h&#43;ZubUdWNWCkXDMkt13LmzpySilVovHOLxFA=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'G-66L1D38RLD', 'auto');
+        ga('send', 'pageview');
+    </script>
 
 
     </body>

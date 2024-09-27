@@ -6,11 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="Symbolic Execution is mainly focused on converting a program made up of a concrete set of instructions into an equation-like format. This is achieved with two core components:
- Symbols Different values in a program(such as the user input) are substituted with Symbols(variables or placeholders). These symbols pertain to a domain full of values, allowing us to explore the program in a much more open form, basically “walking through the program” with a domain full of values(handled by any one of the constraint solving backends like Z3) instead of walking a fixed path due to a fixed hard-coded value/input." />
+Symbols Different values in a program(such as the user input) are substituted with Symbols(variables or placeholders). These symbols pertain to a domain full of values, allowing us to explore the program in a much more open form, basically “walking through the program” with a domain full of values(handled by any one of the constraint solving backends like Z3) instead of walking a fixed path due to a fixed hard-coded value/input.
+" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://hexterisk.github.io/blog/posts/2020/09/04/symbolic-execution-and-angr/" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://hexterisk.com/blog/posts/2020/09/04/symbolic-execution-and-angr/" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 
     <title>
@@ -26,36 +28,33 @@
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+<link rel="stylesheet" href="../../../../../blog/main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://hexterisk.github.io/blog/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://hexterisk.github.io/blog/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://hexterisk.github.io/blog/favicon-16x16.png">
-    <link rel="manifest" href="https://hexterisk.github.io/blog/site.webmanifest">
-    <link rel="mask-icon" href="https://hexterisk.github.io/blog/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://hexterisk.github.io/blog/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../favicon-16x16.png">
+    <link rel="manifest" href="../../../../../site.webmanifest">
+    <link rel="mask-icon" href="../../../../../safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
-<meta itemprop="name" content="Symbolic Execution and Angr">
-<meta itemprop="description" content="Symbolic Execution is mainly focused on converting a program made up of a concrete set of instructions into an equation-like format. This is achieved with two core components:
- Symbols Different values in a program(such as the user input) are substituted with Symbols(variables or placeholders). These symbols pertain to a domain full of values, allowing us to explore the program in a much more open form, basically “walking through the program” with a domain full of values(handled by any one of the constraint solving backends like Z3) instead of walking a fixed path due to a fixed hard-coded value/input.">
-<meta itemprop="datePublished" content="2020-09-04T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-09-04T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="3378">
-<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
 
-
-
-<meta itemprop="keywords" content="binary,symbols,execution,path,constraints,expression," /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
-
-<meta name="twitter:title" content="Symbolic Execution and Angr"/>
-<meta name="twitter:description" content="Symbolic Execution is mainly focused on converting a program made up of a concrete set of instructions into an equation-like format. This is achieved with two core components:
- Symbols Different values in a program(such as the user input) are substituted with Symbols(variables or placeholders). These symbols pertain to a domain full of values, allowing us to explore the program in a much more open form, basically “walking through the program” with a domain full of values(handled by any one of the constraint solving backends like Z3) instead of walking a fixed path due to a fixed hard-coded value/input."/>
+  <meta itemprop="name" content="Symbolic Execution and Angr">
+  <meta itemprop="description" content="Symbolic Execution is mainly focused on converting a program made up of a concrete set of instructions into an equation-like format. This is achieved with two core components:
+Symbols Different values in a program(such as the user input) are substituted with Symbols(variables or placeholders). These symbols pertain to a domain full of values, allowing us to explore the program in a much more open form, basically “walking through the program” with a domain full of values(handled by any one of the constraint solving backends like Z3) instead of walking a fixed path due to a fixed hard-coded value/input.">
+  <meta itemprop="datePublished" content="2020-09-04T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2020-09-04T00:00:00+00:00">
+  <meta itemprop="wordCount" content="3378">
+  <meta itemprop="keywords" content="Binary,Symbols,Execution,Path,Constraints,Expression">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Symbolic Execution and Angr">
+  <meta name="twitter:description" content="Symbolic Execution is mainly focused on converting a program made up of a concrete set of instructions into an equation-like format. This is achieved with two core components:
+Symbols Different values in a program(such as the user input) are substituted with Symbols(variables or placeholders). These symbols pertain to a domain full of values, allowing us to explore the program in a much more open form, basically “walking through the program” with a domain full of values(handled by any one of the constraint solving backends like Z3) instead of walking a fixed path due to a fixed hard-coded value/input.">
 
 
 
@@ -78,21 +77,23 @@
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://hexterisk.github.io/blog/" style="text-decoration: none;">
-    <div class="logo">
-        
+        <a class="logo" href="../../../../../">
+    
+        <div class="logo__content">
             <span class="logo__mark">></span>
-            <span class="logo__text">$cd ~/</span>
-            <span class="logo__cursor" style=""></span>
-        
-    </div>
+            <span class="logo__text">cd ~/</span>
+            <span class="logo__cursor"></span>
+        </div>
+    
 </a>
-
+<script>
+    document.documentElement.style.setProperty('--logo-cursor-color', '#ed5565');
+</script>
 
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://hexterisk.github.io/blog/about/">About</a></li><li><a href="https://hexterisk.github.io/blog/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://hexterisk.com/blog/about/">About</a></li><li><a href="https://hexterisk.com/blog/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -134,7 +135,7 @@
 
     <article>
         <h1 class="post-title">
-            <a href="https://hexterisk.github.io/blog/posts/2020/09/04/symbolic-execution-and-angr/">Symbolic Execution and Angr</a>
+            <a href="https://hexterisk.com/blog/posts/2020/09/04/symbolic-execution-and-angr/">Symbolic Execution and Angr</a>
         </h1>
 
         
@@ -161,7 +162,7 @@
 <h2 id="x64-cmu-bomb-lab">x64 CMU Bomb Lab</h2>
 <p>There are a bunch of different <em>phases</em>(read: levels) that we&rsquo;ll have to solve.</p>
 <p>The binary looks as follows:</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-04-051114_1920x1080_scrot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/2020-06-04-051114_1920x1080_scrot.png">
 <em>Disassembly of the important part of the &ldquo;main&rdquo; function (a handy reference for addresses).</em></p>
 <p>It tells us: </p>
 <ul>
@@ -169,7 +170,7 @@
 <li>A value is returned from the function <code>read_line</code>. Going by the calling convention of x86_64, a function returns a value using the <code>RAX</code> register. Thus the <code>input</code> variable gets the value returned from the function.</li>
 <li>Going by the calling convention of x86_64, a function&rsquo;s first argument is passed via the <code>RDI</code> register. Thus, the value returned from the <code>read_line</code> function is passed onto the next phase function every time.</li>
 </ul>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/1_2020-06-06-003407_1920x1080_scrot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/1_2020-06-06-003407_1920x1080_scrot.png">
 <em>Disassembly of the &ldquo;read_line&rdquo; function.</em></p>
 <p>Taking a look at the <code>read_line</code> function&rsquo;s ending code blocks, it can be seen that a particular comparison with <code>78</code> (decimal value) gives rise to branches - one with an error (saying that the input is too long), while the other one returns. It can be easily deduced that the user input seems to be limited to 78 characters, and it is the value which is returned.</p>
 <p>We&rsquo;ll take two approaches for each phase:</p>
@@ -179,10 +180,10 @@
 <p>This approach is a more targeted approach based on our knowledge of the inside workings of the function. The main focus here is to find out how the user input and the values to be compared are provided to the function, and then applying a tailored method to exact this comparison value.</p>
 <h3 id="phase-1">Phase 1</h3>
 <p>Function: <code>phase_1</code></p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-04-144000_1920x1080_scrot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/2020-06-04-144000_1920x1080_scrot.png">
 <em>Disassembly of the &ldquo;phase_1&rdquo; function.</em></p>
 <p>From the disassembly, we can see that following the calling convention goes, an address is being moved into the <code>ESI</code> register. </p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/1_2020-06-04-152129_1920x1080_scrot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/1_2020-06-04-152129_1920x1080_scrot.png">
 <em>Disassembly of the &ldquo;strings_not_equal&rdquo; function.</em></p>
 <p>A few observations follow:</p>
 <ul>
@@ -203,7 +204,7 @@
 <p>Read this <a href="https://hexterisk.github.io/bomblab-Angr/Phase%201%20x86_64.html">page</a> implemented in this <a href="https://github.com/hexterisk/bomblab-Angr/blob/master/Phase%201%20x86_64.ipynb">IPython Notebook</a> for a step-by-step explanation on the approaches taken to solve this phase.</p>
 <h3 id="phase-2">Phase 2</h3>
 <p>Function: <code>phase_2</code></p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/1_2020-06-04-153538_1920x1080_scrot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/1_2020-06-04-153538_1920x1080_scrot.png">
 <em>Disassembly of the &ldquo;phase_2&rdquo; function.</em></p>
 <p>A few observations follow:</p>
 <ul>
@@ -220,16 +221,16 @@
 </li>
 </ul>
 <p>Although Angr works out well despite us explicitly asking it to take care of it, it might become necessary for us to explicitly take care of it. All we need to do is add a constraint on the symbolic value should such a case arise. This is done by simply adding the constraint on that symbolic value via the state solver.</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-04-152741_1920x1080_scrot.png" alt="&ldquo;read_six_numbers&rdquo;">
+<p><img alt="&ldquo;read_six_numbers&rdquo;" src="../../../../../Symbolic_Execution_and_Angr/2020-06-04-152741_1920x1080_scrot.png">
 <em>Disassembly of the read_six_numbers function.</em></p>
 <p>Simply maps the string passed as an argument to the function via <code>RDI</code> (user input) to a format string passed via <code>ESI</code> to <code>sscanf</code>. </p>
 <p>Basically reads six numbers from the user input, since after return, <code>EAX</code> would contain number of successful inputs scanned(return value of <code>sscanf</code>) and it is supposed to be greater than 5, referring to the end of the first block.</p>
 <p>Since <code>sscanf</code> is being used and inputs are being mapped in memory, it confirms our suspicion that the number array remains on the stack.</p>
 <p>Let&rsquo;s check the stack using a debugger to verify.</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-04-154454_1920x1080_scrot.png" alt="&ldquo;before&rdquo;">
+<p><img alt="&ldquo;before&rdquo;" src="../../../../../Symbolic_Execution_and_Angr/2020-06-04-154454_1920x1080_scrot.png">
 <em>Before read_six_numbers is called.</em></p>
 <p>We can see that an argument of <code>1 1 1 1 1 1</code> is provided to the function.</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-04-154504_1920x1080_scrot.png" alt="&ldquo;after&rdquo;">
+<p><img alt="&ldquo;after&rdquo;" src="../../../../../Symbolic_Execution_and_Angr/2020-06-04-154504_1920x1080_scrot.png">
 <em>After read_six_numbers is called.</em></p>
 <p>We can see that the input we gave is immediately pushed on the stack by the function call. Note the seemingly weird format of the number. We would need to keep this in mind while deciphering the values when we dump them.</p>
 <p>Therefore,</p>
@@ -241,7 +242,7 @@
 <p>Read this <a href="https://hexterisk.github.io/bomblab-Angr/Phase%202%20x86_64.html">page</a> implemented in this <a href="https://github.com/hexterisk/bomblab-Angr/blob/master/Phase%202%20x86_64.ipynb">IPython Notebook</a> for a step-by-step explanation on the approaches taken to solve this phase.</p>
 <h3 id="phase-3">Phase 3</h3>
 <p>Function: <code>phase_3</code></p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-04-171912_1920x1080_scrot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/2020-06-04-171912_1920x1080_scrot.png">
 <em>Disassembly of the &ldquo;phase_3&rdquo; function.</em></p>
 <p>A few observations follow:</p>
 <ul>
@@ -255,10 +256,10 @@
 <li>Going through the assembly, it becomes clear that it&rsquo;s a pair-set value, that is, the second value will be accepted based on what the first value is.</li>
 </ul>
 <p>So we once again verify the stack structure and see if our previous approach would work.</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-04-172422_1920x1080_scrot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/2020-06-04-172422_1920x1080_scrot.png">
 <em>Before &ldquo;sscanf&rdquo; function is called.</em></p>
 <p>We can see that an argument of <code>1 1</code> is provided to the function.</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/1_2020-06-04-172430_1920x1080_scrot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/1_2020-06-04-172430_1920x1080_scrot.png">
 <em>After &ldquo;sscanf&rdquo; function is called.</em></p>
 <p>The top of the stack is a null value while our input is right below it. Therefore, a kind of a stack setup is required before we can proceed.</p>
 <p>Therefore,</p>
@@ -270,7 +271,7 @@
 <p>Read this <a href="https://hexterisk.github.io/bomblab-Angr/Phase%203%20x86_64.html">page</a> implemented in this <a href="https://github.com/hexterisk/bomblab-Angr/blob/master/Phase%203%20x86_64.ipynb">IPython Notebook</a> for a step-by-step explanation on the approaches taken to solve this phase.</p>
 <h3 id="phase-4">Phase 4</h3>
 <p>Function: <code>phase_4</code></p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-06-003920_1920x1080_scrot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/2020-06-06-003920_1920x1080_scrot.png">
 <em>Disassembly of the &ldquo;phase_4&rdquo; function.</em></p>
 <p>A few observations follow:</p>
 <ul>
@@ -279,7 +280,7 @@
 <li>Right after the code block where this function was executed, we can see our other argument being comapred against <code>0x0</code>. Since our main focus would be on this function, we can explicitly put the second input as <code>0x0</code> when we put in the flag, and not bother about it at the moment.</li>
 </ul>
 <p>All we need is that function to return a <code>0x0</code>.</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-06-004556_1920x1080_scrot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/2020-06-06-004556_1920x1080_scrot.png">
 <em>Disassembly of the &ldquo;func4&rdquo; function.</em></p>
 <p>From the first look, this function comes out to be recursive in nature. Now, that might not have been that big of a problem if we had not been using a tool to solve the intricacies presented by this problem. You see, a recursive function might cause an automated tool(working with no concrete values, only symbolic ones) to get stuck in it&rsquo;s own loop, causing a path explosion. </p>
 <p>Since checks are in place to prevent the tool from going down a rabbit hole, therefore instead of tinkering with the recursion depths here, let&rsquo;s just focus a little bit deeper onto the function. We can see that going along with the single middle block will do the trick.</p>
@@ -297,7 +298,7 @@
 <p>Read this <a href="https://hexterisk.github.io/bomblab-Angr/Phase%204%20x86_64.html">page</a> implemented in this <a href="https://github.com/hexterisk/bomblab-Angr/blob/master/Phase%204%20x86_64.ipynb">IPython Notebook</a> for a step-by-step explanation on the approaches taken to solve this phase.</p>
 <h3 id="phase-5">Phase 5</h3>
 <p>Function: <code>phase_5</code></p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-08-092622_1920x1080_scrot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/2020-06-08-092622_1920x1080_scrot.png">
 <em>Disassembly of the &ldquo;phase_5&rdquo; function.</em></p>
 <p>A few observations follow:</p>
 <ul>
@@ -313,7 +314,7 @@
 </ul>
 <p>Seems pretty straightforward.</p>
 <p>But what about the input? A string input needs to be placed somewhere in the memory. Since there seem to be no push operations, we need to find the address where the input is being stored at. We&rsquo;ll look it up in a debugger.</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/1_image.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/1_image.png">
 <em>Beginning of &ldquo;phase_5&rdquo; function.</em></p>
 <p>Therefore,</p>
 <ul>
@@ -329,26 +330,26 @@
 <p>Read this <a href="https://hexterisk.github.io/bomblab-Angr/Phase%205%20x86_64.html">page</a> implemented in this <a href="https://github.com/hexterisk/bomblab-Angr/blob/master/Phase%205%20x86_64.ipynb">IPython Notebook</a> for a step-by-step explanation on the approaches taken to solve this phase.</p>
 <h3 id="phase-6">Phase 6</h3>
 <p>Function: <code>phase_6</code></p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-14-052441_1920x1080_scrot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/2020-06-14-052441_1920x1080_scrot.png">
 <em>Disassembly of the &ldquo;phase_6&rdquo; function.</em></p>
 <p>From a perspective where we just worry about setting up the input, this function essentially seems no different than <code>phase_2</code>.</p>
 <p>There seem to be two sets of loops, prominent blue and red arrows indicating their flow. One modifies the input (the one with the blue arrow) and the other one verifies it (the one with the red arrow).</p>
 <p>A function, namely <code>read_six_numbers</code>, is called in the first block, which maps our input onto the stack.</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/3_image.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/3_image.png">
 <em>Stack after the &ldquo;read_six_numbers&rdquo; function is called.</em></p>
 <p>An added point of interest is the state of registers. R13 gets the stack address (where the input we provided is at the top) and then is iterated through all the values on top of the stack (our input) in the block right after the first, where it is essentially made sure that each number is less than or equal to 6. This could be added as a constraint (not a necessity though).</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/4_image.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/4_image.png">
 <em>Registers after the &ldquo;read_six_numbers&rdquo; function is called.</em></p>
 <p>We could simply apply the same approach as we did in <code>phase_2</code> (by pushing values to stack and popping in the end, minding the formatting), with a slight change: reversing the manipulation did by the first loop denoted by the blue arrow in the picture showing the disassembly of the <code>phase_6</code> function.</p>
 <p>This is because the instructions perform some form of manipulation (observed by the fact that the Angr gave an answer that wasn&rsquo;t right on popping, although it fit the conditions, verified by running in a debugger), that rearrange our input using their addresses. It&rsquo;s more than believable since a further look at the disassembly showed a linked list being initialized with the values given as input, and it becomes the subject of the manipulations in the loops shown by the red arrow in the picture showing the disassembly of the <code>phase_6</code> function.</p>
-<p>Since we got the modified input (from the “not so wrong&rdquo; output), we could simply reverse that transformation to get the original input.</p>
+<p>Since we got the modified input (from the “not so wrong&quot; output), we could simply reverse that transformation to get the original input.</p>
 <p>The instruction to be focused on is <code>000000000040115B                 mov     ecx, 7</code></p>
 <p>Therefore, we could just subtract the values we get from Angr to get the original input to bypass the stage.</p>
 <h3 id="alternative-approach">Alternative Approach</h3>
 <p>Instead of pushing the values onto the stack, we&rsquo;ll find out the address where the values are put and store them right there, just to see if we can make it work.</p>
 <p>We&rsquo;ll start from the beginning of the function, and add a hook to the read_six_numbers function so as to make it return without doing anything, while we explicitly store the symbolic values in the memory.</p>
 <p>To find out the address where we need to put the values, let&rsquo;s open the binary in the debugger.</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-16-033553-screenshot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/2020-06-16-033553-screenshot.png">
 <em>Arguments to the &ldquo;sscanf&rdquo; function.</em></p>
 <p>We can clearly see the addresses to which the values are to be stored. Thus, we save the values right on these addresses to form a sequence, as expected by the binary.</p>
 <p>Read this <a href="https://hexterisk.github.io/bomblab-Angr/Phase%206%20x86_64.html">page</a> implemented in this <a href="https://github.com/hexterisk/bomblab-Angr/blob/master/Phase%206%20x86_64.ipynb">IPython Notebook</a> for a step-by-step explanation on the approaches taken to solve this phase.</p>
@@ -356,23 +357,23 @@
 <p>Function: <code>secret_phase</code></p>
 <h5 id="discovering-the-secret-phase">Discovering the Secret Phase</h5>
 <p>Let&rsquo;s start bu discovering the <code>secret_phase</code> function.</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/1_2020-06-16-045900-screenshot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/1_2020-06-16-045900-screenshot.png">
 <em>Cross references chart.</em></p>
 <p>From the _xrefs char_t, we can see that only one function invokes the <code>secret_phase</code> function.</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-16-050208-screenshot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/2020-06-16-050208-screenshot.png">
 <em>Disassembly of the &ldquo;phase_defused&rdquo; function.</em></p>
 <p>The phase_defused function simply checks a couple of conditions based on which, it invokes the secret phase.</p>
 <p>The middle blocks are responsible to check if our input are worthy of unlocking this secret phase. It takes on the input from one of the phases and verifies it to decide whether to unlock the secret phase. The point of interest here is that the address being used here(<code>0x603870</code>), in the call to <code>sscanf</code> to source values for the variables, is hard-coded and is not of the buffer that stores the address. A search for cross references to it yield nothing. So to find out that phase, we use the debugger and monitor any changes made to this address (using hardware watchpoints).</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-16-051601-screenshot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/2020-06-16-051601-screenshot.png">
 <em>Hardware watchpoint triggered.</em></p>
 <p>The hardware watchpoint is triggered right when the input is given for the <code>phase_4</code> function. Therefore, the input for this phase needs to be modified so as to unlock the secret phase.</p>
 <p>Now we know how to unlock it, we&rsquo;ll just pass a symbolic value to Angr hoping that it&rsquo;ll be able to give us the string input which will be the key.</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-16-053413-screenshot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/2020-06-16-053413-screenshot.png">
 <em>Call to &ldquo;sscanf&rdquo; function.</em></p>
 <p>We can just slide in the symbolic value at the address where the string will be dereferenced(<code>0x7fffffffdf10</code>) and then let Angr do it&rsquo;s magic over the bunch of instructions that carry out the comparison.</p>
 <p>After we get the key to the phase, we can move on to solving it.</p>
 <h5 id="solving-the-secret-phase">Solving the Secret Phase</h5>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-16-042658-screenshot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/2020-06-16-042658-screenshot.png">
 <em>Disassembly of the &ldquo;secret_phase&rdquo; function.</em></p>
 <p>A few observations follow:</p>
 <ul>
@@ -381,7 +382,7 @@
 </ul>
 <p>It&rsquo;s pretty simple and straightforward, especially compared to what we have done in all the previous phases.</p>
 <p>Checking out the <code>fun7</code> function, it seems to be entangled in some sort of a recursive conditional parsing based on the user input.</p>
-<p><img src="https://hexterisk.github.io/blog/Symbolic_Execution_and_Angr/2020-06-16-043140-screenshot.png" alt="">
+<p><img src="../../../../../Symbolic_Execution_and_Angr/2020-06-16-043140-screenshot.png">
 <em>Disassembly of the &ldquo;fun7&rdquo; function.</em></p>
 <p>We&rsquo;ll leave it up to Angr to bypass the mess and just give us the answer.</p>
 <p>Therefore,</p>
@@ -404,7 +405,7 @@
                 class="feather feather-tag meta-icon">
                 <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                 <line x1="7" y1="7" x2="7" y2="7"></line>
-            </svg><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/binary">binary</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/symbols">symbols</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/execution">execution</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/path">path</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/constraints">constraints</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/expression">expression</a></span>
+            </svg><span class="tag"><a href="https://hexterisk.com/blog/%20tags/binary">binary</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/symbols">symbols</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/execution">execution</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/path">path</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/constraints">constraints</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/expression">expression</a></span>
         </p>
 
         <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -438,7 +439,7 @@
 
             
             <span class="button previous">
-                <a href="https://hexterisk.github.io/blog/posts/2020/08/18/constraint-solvers-and-z3/">
+                <a href="https://hexterisk.com/blog/posts/2020/08/18/constraint-solvers-and-z3/">
                     <span class="button__text">Constraint Solvers and Z3</span>
                     <span class="button__icon">→</span>
                 </a>
@@ -447,7 +448,7 @@
 
             
             <span class="button next">
-                <a href="https://hexterisk.github.io/blog/posts/2020/09/28/source-code-instrumentation-and-llvm/">
+                <a href="https://hexterisk.com/blog/posts/2020/09/28/source-code-instrumentation-and-llvm/">
                     <span class="button__icon">←</span>
                     <span class="button__text">Source Code Instrumentation and LLVM</span>
                 </a>
@@ -465,22 +466,24 @@
 
             
                 <footer class="footer">
-    
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
         </div>
     </div>
-    <div class="footer__inner">
-        <div class="footer__content" style="margin-bottom: -0.8rem;">
-            <span><a style="text-decoration: none;"> .</a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span><a style="text-decoration: none;" style="font-size: 1.4rem; margin-bottom: -1.0rem;">..:</a></span>
-        </div>
+    
+    <div class="footer__svg">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 140 140"
+            stroke="#4DB6AC"
+        >
+            <path stroke-width="122" stroke-dasharray="2,38" d="M9,70h122M70,9v122" />
+            <path stroke-width="33" stroke-linecap="round" d="M70,30h0M110,70h0M30,110v0M70,110h0M110,110h0" />
+        </svg>
     </div>
 </footer>
             
@@ -491,8 +494,16 @@
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
+<script type="text/javascript" src="../../../../../bundle.min.45295cbc2d5bbc09b85caead90108f31defa5c6b650a42abb2e79d59a363e5bc2f11614e43687e66e6d47563560a45c3324b75dcb9b3a724a2955a2f1ce2f114.js" integrity="sha512-RSlcvC1bvAm4XK6tkBCPMd76XGtlCkKrsuedWaNj5bwvEWFOQ2h&#43;ZubUdWNWCkXDMkt13LmzpySilVovHOLxFA=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'G-66L1D38RLD', 'auto');
+        ga('send', 'pageview');
+    </script>
 
 
     </body>

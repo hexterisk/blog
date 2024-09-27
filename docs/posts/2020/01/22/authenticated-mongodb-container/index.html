@@ -7,12 +7,13 @@
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="Unsecured mongodb servers have been prime targets for hacks aimed at exaction of ransom in exchange of data. Therefore, authenticated mongo database server is now more of a necessity to ensure security of your database.
 There are two ways to setup an authenticated mongo server container.
- Manually Setup the container Pulling the mongo docker image from dockerhub as it doesn&amp;rsquo;t exist on server/local machine.
-Create a directory for the database to be stored in on the server/local machine." />
+Manually Setup the container Pulling the mongo docker image from dockerhub as it doesn&rsquo;t exist on server/local machine.
+" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://hexterisk.github.io/blog/posts/2020/01/22/authenticated-mongodb-container/" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://hexterisk.com/blog/posts/2020/01/22/authenticated-mongodb-container/" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 
     <title>
@@ -28,40 +29,35 @@ Create a directory for the database to be stored in on the server/local machine.
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+<link rel="stylesheet" href="../../../../../blog/main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://hexterisk.github.io/blog/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://hexterisk.github.io/blog/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://hexterisk.github.io/blog/favicon-16x16.png">
-    <link rel="manifest" href="https://hexterisk.github.io/blog/site.webmanifest">
-    <link rel="mask-icon" href="https://hexterisk.github.io/blog/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://hexterisk.github.io/blog/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../favicon-16x16.png">
+    <link rel="manifest" href="../../../../../site.webmanifest">
+    <link rel="mask-icon" href="../../../../../safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
-<meta itemprop="name" content="Authenticated MongoDB Container">
-<meta itemprop="description" content="Unsecured mongodb servers have been prime targets for hacks aimed at exaction of ransom in exchange of data. Therefore, authenticated mongo database server is now more of a necessity to ensure security of your database.
+
+  <meta itemprop="name" content="Authenticated MongoDB Container">
+  <meta itemprop="description" content="Unsecured mongodb servers have been prime targets for hacks aimed at exaction of ransom in exchange of data. Therefore, authenticated mongo database server is now more of a necessity to ensure security of your database.
 There are two ways to setup an authenticated mongo server container.
- Manually Setup the container Pulling the mongo docker image from dockerhub as it doesn&rsquo;t exist on server/local machine.
-Create a directory for the database to be stored in on the server/local machine.">
-<meta itemprop="datePublished" content="2020-01-22T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-01-22T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="686">
-<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
-
-
-
-<meta itemprop="keywords" content="mongo,database,docker,container,docker-compose," /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
-
-<meta name="twitter:title" content="Authenticated MongoDB Container"/>
-<meta name="twitter:description" content="Unsecured mongodb servers have been prime targets for hacks aimed at exaction of ransom in exchange of data. Therefore, authenticated mongo database server is now more of a necessity to ensure security of your database.
+Manually Setup the container Pulling the mongo docker image from dockerhub as it doesn’t exist on server/local machine.">
+  <meta itemprop="datePublished" content="2020-01-22T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2020-01-22T00:00:00+00:00">
+  <meta itemprop="wordCount" content="686">
+  <meta itemprop="keywords" content="Mongo,Database,Docker,Container,Docker-Compose">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Authenticated MongoDB Container">
+  <meta name="twitter:description" content="Unsecured mongodb servers have been prime targets for hacks aimed at exaction of ransom in exchange of data. Therefore, authenticated mongo database server is now more of a necessity to ensure security of your database.
 There are two ways to setup an authenticated mongo server container.
- Manually Setup the container Pulling the mongo docker image from dockerhub as it doesn&rsquo;t exist on server/local machine.
-Create a directory for the database to be stored in on the server/local machine."/>
+Manually Setup the container Pulling the mongo docker image from dockerhub as it doesn’t exist on server/local machine.">
 
 
 
@@ -84,21 +80,23 @@ Create a directory for the database to be stored in on the server/local machine.
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://hexterisk.github.io/blog/" style="text-decoration: none;">
-    <div class="logo">
-        
+        <a class="logo" href="../../../../../">
+    
+        <div class="logo__content">
             <span class="logo__mark">></span>
-            <span class="logo__text">$cd ~/</span>
-            <span class="logo__cursor" style=""></span>
-        
-    </div>
+            <span class="logo__text">cd ~/</span>
+            <span class="logo__cursor"></span>
+        </div>
+    
 </a>
-
+<script>
+    document.documentElement.style.setProperty('--logo-cursor-color', '#ed5565');
+</script>
 
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://hexterisk.github.io/blog/about/">About</a></li><li><a href="https://hexterisk.github.io/blog/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://hexterisk.com/blog/about/">About</a></li><li><a href="https://hexterisk.com/blog/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -140,7 +138,7 @@ Create a directory for the database to be stored in on the server/local machine.
 
     <article>
         <h1 class="post-title">
-            <a href="https://hexterisk.github.io/blog/posts/2020/01/22/authenticated-mongodb-container/">Authenticated MongoDB Container</a>
+            <a href="https://hexterisk.com/blog/posts/2020/01/22/authenticated-mongodb-container/">Authenticated MongoDB Container</a>
         </h1>
 
         
@@ -151,7 +149,7 @@ Create a directory for the database to be stored in on the server/local machine.
 <p> </p>
 <h2 id="manually">Manually</h2>
 <h3 id="setup-the-container">Setup the container</h3>
-<p><img src="https://hexterisk.github.io/blog/Authenticated_Mongodb/1_image.png" alt="">
+<p><img src="../../../../../Authenticated_Mongodb/1_image.png">
 <em>Pulling the mongo docker image from dockerhub as it doesn&rsquo;t exist on server/local machine.</em></p>
 <p>Create a directory for the database to be stored in on the server/local machine.</p>
 <p><code>mkdir ~/db</code></p>
@@ -161,24 +159,24 @@ Create a directory for the database to be stored in on the server/local machine.
 <li>Maps the container&rsquo;s 27017 port (where the mongo server is running) to the server/local machine&rsquo;s <em>CUSTOM_PORT</em>.</li>
 <li>Maps the <em><strong>/data/db</strong></em> directory inside the container to server/local machine&rsquo;s <em><strong>~/db</strong></em> directory.</li>
 </ul>
-<p><img src="https://hexterisk.github.io/blog/Authenticated_Mongodb/2_image.png" alt="">
+<p><img src="../../../../../Authenticated_Mongodb/2_image.png">
 <em>The container we just initialised.</em></p>
 <h3 id="creating-admin-user">Creating admin user</h3>
 <p>Spawn a mongo shell through a shell inside the container and create the user manually.</p>
 <p><code>docker exec -it CONTAINER_NAME/CONTAINER_ID bash</code></p>
-<p><img src="https://hexterisk.github.io/blog/Authenticated_Mongodb/3_image.png" alt="">
+<p><img src="../../../../../Authenticated_Mongodb/3_image.png">
 <em>Spawning mongo shell.</em></p>
-<p><img src="https://hexterisk.github.io/blog/Authenticated_Mongodb/7_image.png" alt="">
+<p><img src="../../../../../Authenticated_Mongodb/7_image.png">
 <em>Creating user through mongo shell.</em></p>
 <p>Restart the container with <em><strong>auth</strong></em> flag this time.</p>
 <p><code>docker stop CONTAINER_NAME/CONTAINER_ID</code></p>
-<p><img src="https://hexterisk.github.io/blog/Authenticated_Mongodb/11_image.png" alt="">
+<p><img src="../../../../../Authenticated_Mongodb/11_image.png">
 <em>Stopping the container using container ID.</em></p>
 <p>This error implies that the port specified is already locked by another process (the initial container in this case).</p>
-<p><img src="https://hexterisk.github.io/blog/Authenticated_Mongodb/8_image.png" alt="">
+<p><img src="../../../../../Authenticated_Mongodb/8_image.png">
 <em>Port pre-occupied by the initial container.</em></p>
 <p><code>docker run -d -p CUSTOM_PORT:27017 -v ~/db:/data/db mongo mongod --auth</code></p>
-<p><img src="https://hexterisk.github.io/blog/Authenticated_Mongodb/10_image.png" alt="">
+<p><img src="../../../../../Authenticated_Mongodb/10_image.png">
 <em>Restarting the container with the <em>auth</em> flag.</em></p>
 <p>⇨  <strong>New users can be created in the same way.</strong></p>
 <p> </p>
@@ -194,31 +192,31 @@ Create a directory for the database to be stored in on the server/local machine.
 └── data-volume/
 </code></pre>
 <p>An example <code>docker-compose.yml</code> file is shown. It can be tailored according to requirement.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">version</span>: <span style="color:#e6db74">&#34;3.6&#34;</span>
-services:
-	mongo:
-		<span style="color:#66d9ef">image</span>: mongo
-		<span style="color:#66d9ef">container_name</span>: mongo_database
-	ports:
-		- <span style="color:#e6db74">&#34;1337:27017&#34;</span>
-	volumes:
-		- ./db/data-volume:/data/db
-		- <span style="color:#e6db74">&#34;$PWD/mongo-entrypoint/:/docker-entrypoint-initdb.d/&#34;</span>
-	<span style="color:#66d9ef">command</span>: mongod
-	environment:
-  		- MONGO_INITDB_ROOT_USERNAME_FILE=/run/secrets/mongo_admin_user
-  		- MONGO_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo_admin_password
-	secrets:
-  		- mongo_admin_password
-  		- mongo_admin_user
-volumes:
-	data-volume:
-secrets:
-	mongo_admin_user:
-      		<span style="color:#66d9ef">file</span>: ./secrets/mongo_admin_user
-	mongo_admin_password:
-      		<span style="color:#66d9ef">file</span>: ./secrets/mongo_admin_password
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.6&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">mongo</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">image</span>: <span style="color:#ae81ff">mongo</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">mongo_database</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>		- <span style="color:#e6db74">&#34;1337:27017&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>		- <span style="color:#ae81ff">./db/data-volume:/data/db</span>
+</span></span><span style="display:flex;"><span>		- <span style="color:#e6db74">&#34;$PWD/mongo-entrypoint/:/docker-entrypoint-initdb.d/&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">command</span>: <span style="color:#ae81ff">mongod</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>  		- <span style="color:#ae81ff">MONGO_INITDB_ROOT_USERNAME_FILE=/run/secrets/mongo_admin_user</span>
+</span></span><span style="display:flex;"><span>  		- <span style="color:#ae81ff">MONGO_INITDB_ROOT_PASSWORD_FILE=/run/secrets/mongo_admin_password</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">secrets</span>:
+</span></span><span style="display:flex;"><span>  		- <span style="color:#ae81ff">mongo_admin_password</span>
+</span></span><span style="display:flex;"><span>  		- <span style="color:#ae81ff">mongo_admin_user</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">data-volume</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">secrets</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">mongo_admin_user</span>:
+</span></span><span style="display:flex;"><span>      		<span style="color:#f92672">file</span>: <span style="color:#ae81ff">./secrets/mongo_admin_user</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">mongo_admin_password</span>:
+</span></span><span style="display:flex;"><span>      		<span style="color:#f92672">file</span>: <span style="color:#ae81ff">./secrets/mongo_admin_password</span>
+</span></span></code></pre></div><ul>
 <li>Volumes:
 <ul>
 <li>A <em><strong>data-volume</strong></em> directory is created on the server/local machine which maps <em><strong>/data/db</strong></em> directory inside the container.</li>
@@ -244,29 +242,29 @@ secrets:
 </li>
 </ul>
 <p>⇨  An exapmle <code>init.sh</code> file is shown to setup new users:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env bash
-</span><span style="color:#75715e"></span>echo <span style="color:#e6db74">&#34;Creating mongo users...&#34;</span>
-mongo --authenticationDatabase admin --host localhost -u hexterisk -p strongPassword tac --eval <span style="color:#e6db74">&#34;db.createUser({user: &#39;normal&#39;, pwd: &#39;normal&#39;, roles: [{role: &#39;readWrite&#39;, db: &#39;tac&#39;}]});&#34;</span>
-mongo --authenticationDatabase admin --host localhost -u hexterisk -p strongPassword admin --eval <span style="color:#e6db74">&#34;db.createUser({user: &#39;admin&#39;, pwd: &#39;pass&#39;, roles: [{role: &#39;userAdminAnyDatabase&#39;, db: &#39;admin&#39;}]});&#34;</span>
-echo <span style="color:#e6db74">&#34;Mongo users created.&#34;</span>
-</code></pre></div><p><code>docker-compose up</code></p>
-<p><img src="https://hexterisk.github.io/blog/Authenticated_Mongodb/15_image.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>echo <span style="color:#e6db74">&#34;Creating mongo users...&#34;</span>
+</span></span><span style="display:flex;"><span>mongo --authenticationDatabase admin --host localhost -u hexterisk -p strongPassword tac --eval <span style="color:#e6db74">&#34;db.createUser({user: &#39;normal&#39;, pwd: &#39;normal&#39;, roles: [{role: &#39;readWrite&#39;, db: &#39;tac&#39;}]});&#34;</span>
+</span></span><span style="display:flex;"><span>mongo --authenticationDatabase admin --host localhost -u hexterisk -p strongPassword admin --eval <span style="color:#e6db74">&#34;db.createUser({user: &#39;admin&#39;, pwd: &#39;pass&#39;, roles: [{role: &#39;userAdminAnyDatabase&#39;, db: &#39;admin&#39;}]});&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Mongo users created.&#34;</span>
+</span></span></code></pre></div><p><code>docker-compose up</code></p>
+<p><img src="../../../../../Authenticated_Mongodb/15_image.png">
 <em>Executing the above command gives a lot of output. Similar output will be present at the part where new users are being setup.</em></p>
 <p> </p>
 <h2 id="connecting-to-the-mongo-container">Connecting to the Mongo container</h2>
 <p>MongoDB server can now be connected as long as the IP address is known for the container.</p>
 <p>Container&rsquo;s IP Address can be found out by:</p>
 <p><code>docker inspect --format '{{ .NetworkSettings.IPAddress }}' CONTAINER_NAME/CONTAINER_ID</code></p>
-<p><img src="https://hexterisk.github.io/blog/Authenticated_Mongodb/13_image.png" alt="">
+<p><img src="../../../../../Authenticated_Mongodb/13_image.png">
 <em>Output gives the container&rsquo;s IPAddress.</em></p>
 <p>If the output is empty, simply run:</p>
 <p><code>docker inspect CONTAINER_NAME/CONTAINER___ID</code></p>
-<p><img src="https://hexterisk.github.io/blog/Authenticated_Mongodb/14_image.png" alt="">
+<p><img src="../../../../../Authenticated_Mongodb/14_image.png">
 <em>The last part of the command&rsquo;s output.</em></p>
 <p>and search for the <em>IPAddress</em> field in the output.</p>
 <p>Then simply connect to the instance by passing the username, password, IPAddress and database as parameters:</p>
 <p><code>mongo -u USERNAME -p PASSWORD IPAddress/DATABASE_NAME</code></p>
-<p><img src="https://hexterisk.github.io/blog/Authenticated_Mongodb/12_image.png" alt="">
+<p><img src="../../../../../Authenticated_Mongodb/12_image.png">
 <em>Connect to the container.</em></p>
 
         </div>
@@ -281,7 +279,7 @@ echo <span style="color:#e6db74">&#34;Mongo users created.&#34;</span>
                 class="feather feather-tag meta-icon">
                 <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                 <line x1="7" y1="7" x2="7" y2="7"></line>
-            </svg><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/mongo">mongo</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/database">database</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/docker">docker</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/container">container</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/docker-compose">docker-compose</a></span>
+            </svg><span class="tag"><a href="https://hexterisk.com/blog/%20tags/mongo">mongo</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/database">database</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/docker">docker</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/container">container</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/docker-compose">docker-compose</a></span>
         </p>
 
         <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -317,7 +315,7 @@ echo <span style="color:#e6db74">&#34;Mongo users created.&#34;</span>
 
             
             <span class="button next">
-                <a href="https://hexterisk.github.io/blog/posts/2020/02/09/dockerise-mysql-phpmyadmin/">
+                <a href="https://hexterisk.com/blog/posts/2020/02/09/dockerise-mysql--phpmyadmin/">
                     <span class="button__icon">←</span>
                     <span class="button__text">Dockerise MySQL &#43; phpMyAdmin</span>
                 </a>
@@ -335,22 +333,24 @@ echo <span style="color:#e6db74">&#34;Mongo users created.&#34;</span>
 
             
                 <footer class="footer">
-    
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
         </div>
     </div>
-    <div class="footer__inner">
-        <div class="footer__content" style="margin-bottom: -0.8rem;">
-            <span><a style="text-decoration: none;"> .</a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span><a style="text-decoration: none;" style="font-size: 1.4rem; margin-bottom: -1.0rem;">..:</a></span>
-        </div>
+    
+    <div class="footer__svg">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 140 140"
+            stroke="#4DB6AC"
+        >
+            <path stroke-width="122" stroke-dasharray="2,38" d="M9,70h122M70,9v122" />
+            <path stroke-width="33" stroke-linecap="round" d="M70,30h0M110,70h0M30,110v0M70,110h0M110,110h0" />
+        </svg>
     </div>
 </footer>
             
@@ -361,8 +361,16 @@ echo <span style="color:#e6db74">&#34;Mongo users created.&#34;</span>
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
+<script type="text/javascript" src="../../../../../bundle.min.45295cbc2d5bbc09b85caead90108f31defa5c6b650a42abb2e79d59a363e5bc2f11614e43687e66e6d47563560a45c3324b75dcb9b3a724a2955a2f1ce2f114.js" integrity="sha512-RSlcvC1bvAm4XK6tkBCPMd76XGtlCkKrsuedWaNj5bwvEWFOQ2h&#43;ZubUdWNWCkXDMkt13LmzpySilVovHOLxFA=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'G-66L1D38RLD', 'auto');
+        ga('send', 'pageview');
+    </script>
 
 
     </body>

@@ -7,11 +7,12 @@
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="Static Disassembly When people say disassembly, they usually mean static disassembly, which involves extracting the instructions from a binary without executing it.
 Linear Disassembly Disassembly desynchronization due to inline data interpreted as code. The instruction where the disassembly resynchronizes is shaded gray.
- It iterates through all code segments in a binary, decoding all bytes consecutively and parsing them into a list of instructions. Many simple disassemblers, including objdump, use this approach." />
+It iterates through all code segments in a binary, decoding all bytes consecutively and parsing them into a list of instructions. Many simple disassemblers, including objdump, use this approach. The risk is that not all bytes may be instructions. Some compilers like Visual Studio intersperse data such as jump tables with the code, without leaving any clues as to where exactly that data is. If disassemblers accidentally parse this inline data as code, they may encounter invalid opcodes. Even worse, the data bytes may coincidentally correspond to valid opcodes, leading the disassembler to output bogus instructions. This is especially likely on dense ISAs like x86, where most byte values represent a valid opcode. On ISAs with variable-length opcodes such as x86, inline data may even cause the disassembler to become desynchronized with respect to the true instruction stream. Though the disassembler will typically self-resynchronize, desynchronization can cause the first few real instructions following inline data to be missed. Recursive Disassembly Sensitive to control flow, it starts from known entry points into the binary (such as the main entry point and exported function symbols) and from there recursively follows control flow (such as jumps and calls) to discover code. This allows recursive disassembly to work around data bytes in all but a handful of corner cases. To maximize code coverage, recursive disassemblers typically assume that the bytes directly after a call instruction must also be disassembled since they are the most likely target of an eventual ret. Additionally, disassemblers assume that both edges of a conditional jump target valid instructions. Both of these assumptions may be violated in rare cases, such as in deliberately obfuscated binaries. The downside of this approach is that not all control flow is so easy to follow. For instance, it’s often difficult, if not impossible, to statically figure out the possible targets of indirect jumps or calls. As a result, the disassembler may miss blocks of code, or even entire functions, targeted by indirect jumps or calls, unless it uses special heuristics to resolve the control flow. For example, jump tables make recursive disassembly more difficult because they use indirect control flow. " />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
-<meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://hexterisk.github.io/blog/posts/2020/04/02/disassembly-and-binary-analysis-fundamentals/" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://hexterisk.com/blog/posts/2020/04/02/disassembly-and-binary-analysis-fundamentals/" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 
     <title>
@@ -27,38 +28,35 @@ Linear Disassembly Disassembly desynchronization due to inline data interpreted 
 
 
 
-<link rel="stylesheet" href="https://hexterisk.github.io/blog/main.min.c8585fd607292199b471f54e83f63f2c9c8b59a00490e9de2e0259cf4b706c23.css">
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+<link rel="stylesheet" href="../../../../../blog/main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
 
 
 
 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://hexterisk.github.io/blog/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://hexterisk.github.io/blog/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://hexterisk.github.io/blog/favicon-16x16.png">
-    <link rel="manifest" href="https://hexterisk.github.io/blog/site.webmanifest">
-    <link rel="mask-icon" href="https://hexterisk.github.io/blog/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://hexterisk.github.io/blog/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../favicon-16x16.png">
+    <link rel="manifest" href="../../../../../site.webmanifest">
+    <link rel="mask-icon" href="../../../../../safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
-<meta itemprop="name" content="Disassembly and Binary Analysis Fundamentals">
-<meta itemprop="description" content="Static Disassembly When people say disassembly, they usually mean static disassembly, which involves extracting the instructions from a binary without executing it.
+
+  <meta itemprop="name" content="Disassembly and Binary Analysis Fundamentals">
+  <meta itemprop="description" content="Static Disassembly When people say disassembly, they usually mean static disassembly, which involves extracting the instructions from a binary without executing it.
 Linear Disassembly Disassembly desynchronization due to inline data interpreted as code. The instruction where the disassembly resynchronizes is shaded gray.
- It iterates through all code segments in a binary, decoding all bytes consecutively and parsing them into a list of instructions. Many simple disassemblers, including objdump, use this approach.">
-<meta itemprop="datePublished" content="2020-04-02T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-04-02T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="3921">
-<meta itemprop="image" content="https://hexterisk.github.io/blog"/>
-
-
-
-<meta itemprop="keywords" content="binary,rev,reversing,c,disassembly,fuzzer,symbol,control flow," /><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://hexterisk.github.io/blog"/>
-
-<meta name="twitter:title" content="Disassembly and Binary Analysis Fundamentals"/>
-<meta name="twitter:description" content="Static Disassembly When people say disassembly, they usually mean static disassembly, which involves extracting the instructions from a binary without executing it.
+It iterates through all code segments in a binary, decoding all bytes consecutively and parsing them into a list of instructions. Many simple disassemblers, including objdump, use this approach. The risk is that not all bytes may be instructions. Some compilers like Visual Studio intersperse data such as jump tables with the code, without leaving any clues as to where exactly that data is. If disassemblers accidentally parse this inline data as code, they may encounter invalid opcodes. Even worse, the data bytes may coincidentally correspond to valid opcodes, leading the disassembler to output bogus instructions. This is especially likely on dense ISAs like x86, where most byte values represent a valid opcode. On ISAs with variable-length opcodes such as x86, inline data may even cause the disassembler to become desynchronized with respect to the true instruction stream. Though the disassembler will typically self-resynchronize, desynchronization can cause the first few real instructions following inline data to be missed. Recursive Disassembly Sensitive to control flow, it starts from known entry points into the binary (such as the main entry point and exported function symbols) and from there recursively follows control flow (such as jumps and calls) to discover code. This allows recursive disassembly to work around data bytes in all but a handful of corner cases. To maximize code coverage, recursive disassemblers typically assume that the bytes directly after a call instruction must also be disassembled since they are the most likely target of an eventual ret. Additionally, disassemblers assume that both edges of a conditional jump target valid instructions. Both of these assumptions may be violated in rare cases, such as in deliberately obfuscated binaries. The downside of this approach is that not all control flow is so easy to follow. For instance, it’s often difficult, if not impossible, to statically figure out the possible targets of indirect jumps or calls. As a result, the disassembler may miss blocks of code, or even entire functions, targeted by indirect jumps or calls, unless it uses special heuristics to resolve the control flow. For example, jump tables make recursive disassembly more difficult because they use indirect control flow. ">
+  <meta itemprop="datePublished" content="2020-04-02T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2020-04-02T00:00:00+00:00">
+  <meta itemprop="wordCount" content="3921">
+  <meta itemprop="keywords" content="Binary,Rev,Reversing,C,Disassembly,Fuzzer,Symbol,Control Flow">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Disassembly and Binary Analysis Fundamentals">
+  <meta name="twitter:description" content="Static Disassembly When people say disassembly, they usually mean static disassembly, which involves extracting the instructions from a binary without executing it.
 Linear Disassembly Disassembly desynchronization due to inline data interpreted as code. The instruction where the disassembly resynchronizes is shaded gray.
- It iterates through all code segments in a binary, decoding all bytes consecutively and parsing them into a list of instructions. Many simple disassemblers, including objdump, use this approach."/>
+It iterates through all code segments in a binary, decoding all bytes consecutively and parsing them into a list of instructions. Many simple disassemblers, including objdump, use this approach. The risk is that not all bytes may be instructions. Some compilers like Visual Studio intersperse data such as jump tables with the code, without leaving any clues as to where exactly that data is. If disassemblers accidentally parse this inline data as code, they may encounter invalid opcodes. Even worse, the data bytes may coincidentally correspond to valid opcodes, leading the disassembler to output bogus instructions. This is especially likely on dense ISAs like x86, where most byte values represent a valid opcode. On ISAs with variable-length opcodes such as x86, inline data may even cause the disassembler to become desynchronized with respect to the true instruction stream. Though the disassembler will typically self-resynchronize, desynchronization can cause the first few real instructions following inline data to be missed. Recursive Disassembly Sensitive to control flow, it starts from known entry points into the binary (such as the main entry point and exported function symbols) and from there recursively follows control flow (such as jumps and calls) to discover code. This allows recursive disassembly to work around data bytes in all but a handful of corner cases. To maximize code coverage, recursive disassemblers typically assume that the bytes directly after a call instruction must also be disassembled since they are the most likely target of an eventual ret. Additionally, disassemblers assume that both edges of a conditional jump target valid instructions. Both of these assumptions may be violated in rare cases, such as in deliberately obfuscated binaries. The downside of this approach is that not all control flow is so easy to follow. For instance, it’s often difficult, if not impossible, to statically figure out the possible targets of indirect jumps or calls. As a result, the disassembler may miss blocks of code, or even entire functions, targeted by indirect jumps or calls, unless it uses special heuristics to resolve the control flow. For example, jump tables make recursive disassembly more difficult because they use indirect control flow. ">
 
 
 
@@ -81,21 +79,23 @@ Linear Disassembly Disassembly desynchronization due to inline data interpreted 
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://hexterisk.github.io/blog/" style="text-decoration: none;">
-    <div class="logo">
-        
+        <a class="logo" href="../../../../../">
+    
+        <div class="logo__content">
             <span class="logo__mark">></span>
-            <span class="logo__text">$cd ~/</span>
-            <span class="logo__cursor" style=""></span>
-        
-    </div>
+            <span class="logo__text">cd ~/</span>
+            <span class="logo__cursor"></span>
+        </div>
+    
 </a>
-
+<script>
+    document.documentElement.style.setProperty('--logo-cursor-color', '#ed5565');
+</script>
 
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://hexterisk.github.io/blog/about/">About</a></li><li><a href="https://hexterisk.github.io/blog/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://hexterisk.com/blog/about/">About</a></li><li><a href="https://hexterisk.com/blog/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -137,7 +137,7 @@ Linear Disassembly Disassembly desynchronization due to inline data interpreted 
 
     <article>
         <h1 class="post-title">
-            <a href="https://hexterisk.github.io/blog/posts/2020/04/02/disassembly-and-binary-analysis-fundamentals/">Disassembly and Binary Analysis Fundamentals</a>
+            <a href="https://hexterisk.com/blog/posts/2020/04/02/disassembly-and-binary-analysis-fundamentals/">Disassembly and Binary Analysis Fundamentals</a>
         </h1>
 
         
@@ -146,7 +146,7 @@ Linear Disassembly Disassembly desynchronization due to inline data interpreted 
             <h2 id="static-disassembly">Static Disassembly</h2>
 <p>When people say disassembly, they usually mean static disassembly, which involves extracting the instructions from a binary without executing it.</p>
 <h3 id="linear-disassembly">Linear Disassembly</h3>
-<p><img src="https://hexterisk.github.io/blog/Disassembly_and_Binary_Analysis_Fundamentals/image.png" alt="">
+<p><img src="../../../../../Disassembly_and_Binary_Analysis_Fundamentals/image.png">
 <em>Disassembly desynchronization due to inline data interpreted as code. The instruction where the disassembly resynchronizes is shaded gray.</em></p>
 <ul>
 <li>It iterates through all code segments in a binary, decoding all bytes consecutively and parsing them into a list of instructions. Many simple disassemblers, including objdump, use this approach.</li>
@@ -216,7 +216,7 @@ Linear Disassembly Disassembly desynchronization due to inline data interpreted 
 </li>
 </ul>
 <h3 id="control-flow-graphs">Control Flow Graphs</h3>
-<p><img src="https://hexterisk.github.io/blog/Disassembly_and_Binary_Analysis_Fundamentals/1_image.png" alt="">
+<p><img src="../../../../../Disassembly_and_Binary_Analysis_Fundamentals/1_image.png">
 <em>CFG as seen in IDA Pro.</em></p>
 <ul>
 <li><strong>Control Flow Graphs</strong> (<strong>CFGs</strong>) offer a convenient graphical representation of the code structure, which makes it easy to understand a function’s structure.</li>
@@ -224,7 +224,7 @@ Linear Disassembly Disassembly desynchronization due to inline data interpreted 
 <li>Disassemblers often omit indirect edges from the CFG because it’s difficult to resolve the potential targets of such edges statically. Disassemblers also sometimes define a global CFG rather than per-function CFGs. Such a global CFG is called an <strong>interprocedural CFG</strong> (<strong>ICFG</strong>) since it’s essentially the union of all per-function CFGs (<strong>procedure</strong> is another word for function). ICFGs avoid the need for error-prone function detection but don’t offer the compartmentalization benefits that per-function CFGs have.</li>
 </ul>
 <h3 id="call-graphs">Call Graphs</h3>
-<p><img src="https://hexterisk.github.io/blog/Disassembly_and_Binary_Analysis_Fundamentals/2_image.png" alt="">
+<p><img src="../../../../../Disassembly_and_Binary_Analysis_Fundamentals/2_image.png">
 <em>CFGs and connections between functions (left) and the corresponding call graph (right).</em></p>
 <ul>
 <li>Call graphs show you which functions may call each other. They show the relationship between call sites and functions.</li>
@@ -251,21 +251,21 @@ Linear Disassembly Disassembly desynchronization due to inline data interpreted 
 <li>The trade-off of translating a complex instruction set like x86 into a simple language like REIL, VEX, or LLVM IR is that IR languages are far less concise. That’s an inherent result of expressing complex operations, including all side effects, with a limited number of simple instructions. This is generally not an issue for automated analyses, but it does tend to make intermediate representations hard to read for humans.</li>
 <li>Translation of the x86-64 instruction add rax,rdx into VEX IR:</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#960050;background-color:#1e0010">➊</span> IRSB {
-<span style="color:#960050;background-color:#1e0010">➋</span> t0:Ity_I64 t1:Ity_I64 t2:Ity_I64 t3:Ity_I64
-<span style="color:#960050;background-color:#1e0010">➌</span> <span style="color:#ae81ff">00</span> <span style="color:#f92672">|</span> <span style="color:#f92672">------</span> IMark(<span style="color:#ae81ff">0x40339f</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>) <span style="color:#f92672">------</span>
-<span style="color:#960050;background-color:#1e0010">➍</span> <span style="color:#ae81ff">01</span> <span style="color:#f92672">|</span> t2 <span style="color:#f92672">=</span> GET:I64(rax)
-<span style="color:#ae81ff">02</span> <span style="color:#f92672">|</span> t1 <span style="color:#f92672">=</span> GET:I64(rdx)
-<span style="color:#960050;background-color:#1e0010">➎</span> <span style="color:#ae81ff">03</span> <span style="color:#f92672">|</span> t0 <span style="color:#f92672">=</span> Add64(t2,t1)
-<span style="color:#960050;background-color:#1e0010">➏</span> <span style="color:#ae81ff">04</span> <span style="color:#f92672">|</span> PUT(cc_op) <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x0000000000000004</span>
-<span style="color:#ae81ff">05</span> <span style="color:#f92672">|</span> PUT(cc_dep1) <span style="color:#f92672">=</span> t2
-<span style="color:#ae81ff">06</span> <span style="color:#f92672">|</span> PUT(cc_dep2) <span style="color:#f92672">=</span> t1
-<span style="color:#960050;background-color:#1e0010">➐</span> <span style="color:#ae81ff">07</span> <span style="color:#f92672">|</span> PUT(rax) <span style="color:#f92672">=</span> t0
-<span style="color:#960050;background-color:#1e0010">➑</span> <span style="color:#ae81ff">08</span> <span style="color:#f92672">|</span> PUT(pc) <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x00000000004033a2</span>
-<span style="color:#ae81ff">09</span> <span style="color:#f92672">|</span> t3 <span style="color:#f92672">=</span> GET:I64(pc)
-<span style="color:#960050;background-color:#1e0010">➒</span> NEXT: PUT(rip) <span style="color:#f92672">=</span> t3; Ijk_Boring
-}
-</code></pre></div><p>As you can see, the single add instruction results in 10 VEX instructions, plus some metadata. First, there’s some metadata that says this is an <strong>IR super block</strong> (<strong>IRSB</strong>) ➊ corresponding to one machine instruction. The IRSB contains four temporary values labeled t0–t3, all of type <strong>Ity_I64</strong> (64-bit integer) ➋. Then there’s an <strong>IMark</strong> ➌, which is metadata stating the machine instruction’s address and length, among other things. Next come the actual IR instructions modeling the add. First, there are two GET instructions that fetch 64-bit values from rax and rdx into temporary stores t2 and t1, respectively ➍. Note that, here, rax and rdx are just symbolic names for the parts of VEX’s state used to model these registers—the VEX instructions don’t fetch from the real rax or rdx registers but rather from VEX’s mirror state of those registers. To perform the actual addition, the IR uses VEX’s Add64 instruction, adding the two 64-bit integers t2 and t1 and storing the result in t0 ➎. After the addition, there are some PUT instructions that model the add instruction’s side effects, such as updating the x86 status flags ➏. Then, another PUT stores the result of the addition into VEX’s state representing rax ➐. Finally, the VEX IR models updating the program counter to the next instruction ➑. The <strong>Ijk_Boring</strong> (<strong>Jump Kind Boring</strong>) ➒ is a control-flow hint that says the add instruction doesn’t affect the control flow in any interesting way; since the add isn’t a branch of any kind, control just “falls through” to the next instruction in memory. In contrast, branch instructions can be marked with hints like <strong>Ijk_Call</strong> or <strong>Ijk_Ret</strong> to inform the analysis that a call or return is taking place, for example.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">➊</span> IRSB {
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">➋</span> t0:Ity_I64 t1:Ity_I64 t2:Ity_I64 t3:Ity_I64
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">➌</span> <span style="color:#ae81ff">00</span> <span style="color:#f92672">|</span> <span style="color:#f92672">------</span> <span style="color:#a6e22e">IMark</span>(<span style="color:#ae81ff">0x40339f</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>) <span style="color:#f92672">------</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">➍</span> <span style="color:#ae81ff">01</span> <span style="color:#f92672">|</span> t2 <span style="color:#f92672">=</span> GET:<span style="color:#a6e22e">I64</span>(rax)
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">02</span> <span style="color:#f92672">|</span> t1 <span style="color:#f92672">=</span> GET:<span style="color:#a6e22e">I64</span>(rdx)
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">➎</span> <span style="color:#ae81ff">03</span> <span style="color:#f92672">|</span> t0 <span style="color:#f92672">=</span> <span style="color:#a6e22e">Add64</span>(t2,t1)
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">➏</span> <span style="color:#ae81ff">04</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">PUT</span>(cc_op) <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x0000000000000004</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">05</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">PUT</span>(cc_dep1) <span style="color:#f92672">=</span> t2
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">06</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">PUT</span>(cc_dep2) <span style="color:#f92672">=</span> t1
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">➐</span> <span style="color:#ae81ff">07</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">PUT</span>(rax) <span style="color:#f92672">=</span> t0
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">➑</span> <span style="color:#ae81ff">08</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">PUT</span>(pc) <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x00000000004033a2</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">09</span> <span style="color:#f92672">|</span> t3 <span style="color:#f92672">=</span> GET:<span style="color:#a6e22e">I64</span>(pc)
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">➒</span> NEXT: <span style="color:#a6e22e">PUT</span>(rip) <span style="color:#f92672">=</span> t3; Ijk_Boring
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>As you can see, the single add instruction results in 10 VEX instructions, plus some metadata. First, there’s some metadata that says this is an <strong>IR super block</strong> (<strong>IRSB</strong>) ➊ corresponding to one machine instruction. The IRSB contains four temporary values labeled t0–t3, all of type <strong>Ity_I64</strong> (64-bit integer) ➋. Then there’s an <strong>IMark</strong> ➌, which is metadata stating the machine instruction’s address and length, among other things. Next come the actual IR instructions modeling the add. First, there are two GET instructions that fetch 64-bit values from rax and rdx into temporary stores t2 and t1, respectively ➍. Note that, here, rax and rdx are just symbolic names for the parts of VEX’s state used to model these registers—the VEX instructions don’t fetch from the real rax or rdx registers but rather from VEX’s mirror state of those registers. To perform the actual addition, the IR uses VEX’s Add64 instruction, adding the two 64-bit integers t2 and t1 and storing the result in t0 ➎. After the addition, there are some PUT instructions that model the add instruction’s side effects, such as updating the x86 status flags ➏. Then, another PUT stores the result of the addition into VEX’s state representing rax ➐. Finally, the VEX IR models updating the program counter to the next instruction ➑. The <strong>Ijk_Boring</strong> (<strong>Jump Kind Boring</strong>) ➒ is a control-flow hint that says the add instruction doesn’t affect the control flow in any interesting way; since the add isn’t a branch of any kind, control just “falls through” to the next instruction in memory. In contrast, branch instructions can be marked with hints like <strong>Ijk_Call</strong> or <strong>Ijk_Ret</strong> to inform the analysis that a call or return is taking place, for example.</p>
 <p> </p>
 <h2 id="fundamental-analysis-methods">Fundamental Analysis Methods</h2>
 <p>A few standard analysis that are widely applicable and aren’t stand-alone binary analysis techniques, but can be used as ingredients of more advanced binary analysis.</p>
@@ -304,7 +304,7 @@ x = x + 10 					# x ∈ [15,∞]</p>
 <li>The accuracy of a context-sensitive analysis is bounded by the accuracy of the call graph. The context of the analysis is the state accrued while traversing the call graph.</li>
 <li>The context is usually limited as large contexts make flow-sensitive analysis computationally expensive. For instance, the analysis may only compute results for contexts of five (or any number of) consecutive functions instead of complete paths of indefinite length.</li>
 </ul>
-<p><img src="https://hexterisk.github.io/blog/Disassembly_and_Binary_Analysis_Fundamentals/3_image.png" alt="">
+<p><img src="../../../../../Disassembly_and_Binary_Analysis_Fundamentals/3_image.png">
 <em>Context-sensitive versus context-insensitive indirect call analysis.</em></p>
 <p>A context-insensitive indirect call analysis concludes that the indirect call in channel_handler could target any function pointer in either the channel_pre table (passed in from channel_prepare_select) or the channel_post table (passed in from channel_after_select). Effectively, it concludes that the set of possible targets is the union of all the possible sets in any path through the program ➊. In contrast, the context-sensitive analysis determines a different target set for each possible context of preceding calls. If channel_handler was invoked by channel_prepare_select, then the only valid targets are those in the channel_pre table that it passes to channel_handler ➋. On the other hand, if channel_handler was called from channel_after_select, then only the targets in channel_post are possible ➌. Context length is 1.</p>
 <ul>
@@ -313,7 +313,7 @@ x = x + 10 					# x ∈ [15,∞]</p>
 <h3 id="control-flow-analysis">Control-Flow Analysis</h3>
 <p>A binary analysis that looks at control-flow properties.</p>
 <h4 id="loop-detection">Loop Detection</h4>
-<p><img src="https://hexterisk.github.io/blog/Disassembly_and_Binary_Analysis_Fundamentals/4_image.png" alt="">
+<p><img src="../../../../../Disassembly_and_Binary_Analysis_Fundamentals/4_image.png">
 <em>A CFG and the corresponding dominance tree.</em></p>
 <ul>
 <li>Loops are an interesting target for optimization.</li>
@@ -334,7 +334,7 @@ x = x + 10 					# x ∈ [15,∞]</p>
 <li>A data definition can <em><strong>reach</strong></em> a point in the program implies that a value assigned to a variable (or, at a lower level, a register or memory location) can reach that point without the value being overwritten by another assignment in the meantime.</li>
 <li>Reaching definitions analysis is usually applied at the CFG level, though it can also be used interprocedurally. </li>
 </ul>
-<p><img src="https://hexterisk.github.io/blog/Disassembly_and_Binary_Analysis_Fundamentals/5_image.png" alt="">
+<p><img src="../../../../../Disassembly_and_Binary_Analysis_Fundamentals/5_image.png">
 <em>Gen and kill sets for a basic block.</em></p>
 <ul>
 <li>The analysis starts by considering for each individual basic block which definitions the block generates and which it kills. This is usually expressed by computing a gen and kill set for each basic block. After computing each basic block’s gen and kill sets, you have a local solution that tells you which data definitions each basic block generates and kills. You can compute a global solution that tells you which definitions (from anywhere in the CFG) can reach the start of a basic block and which can still be alive after the basic block. </li>
@@ -342,7 +342,7 @@ x = x + 10 					# x ∈ [15,∞]</p>
 <li>Since there’s a mutual dependency between the definitions of the in and out sets: in is defined in terms of out, and vice versa, it’s not enough for a reaching definitions analysis to compute the in and out sets for each basic block just once. Instead, the analysis must be iterative: in each iteration, it computes the sets for every basic block, and it continues iterating until there are no more changes in the sets. Once all of the in and out sets have reached a stable state, the analysis is complete.</li>
 </ul>
 <h4 id="use-def-chains">Use-Def Chains</h4>
-<p><img src="https://hexterisk.github.io/blog/Disassembly_and_Binary_Analysis_Fundamentals/6_image.png" alt="">
+<p><img src="../../../../../Disassembly_and_Binary_Analysis_Fundamentals/6_image.png">
 <em>Use-def chains.</em></p>
 <ul>
 <li>Tell you at each point in the program where a variable is used, where that variable may have been defined.</li>
@@ -382,7 +382,7 @@ x = x + 10 					# x ∈ [15,∞]</p>
                 class="feather feather-tag meta-icon">
                 <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                 <line x1="7" y1="7" x2="7" y2="7"></line>
-            </svg><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/binary">binary</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/rev">rev</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/reversing">reversing</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/c">c</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/disassembly">disassembly</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/fuzzer">fuzzer</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/symbol">symbol</a></span><span class="tag"><a href="https://hexterisk.github.io/blog/%20tags/control-flow">control flow</a></span>
+            </svg><span class="tag"><a href="https://hexterisk.com/blog/%20tags/binary">binary</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/rev">rev</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/reversing">reversing</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/c">c</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/disassembly">disassembly</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/fuzzer">fuzzer</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/symbol">symbol</a></span><span class="tag"><a href="https://hexterisk.com/blog/%20tags/control-flow">control flow</a></span>
         </p>
 
         <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -416,7 +416,7 @@ x = x + 10 					# x ∈ [15,∞]</p>
 
             
             <span class="button previous">
-                <a href="https://hexterisk.github.io/blog/posts/2020/03/25/trace-analysis/">
+                <a href="https://hexterisk.com/blog/posts/2020/03/25/trace-analysis/">
                     <span class="button__text">Trace Analysis</span>
                     <span class="button__icon">→</span>
                 </a>
@@ -425,7 +425,7 @@ x = x + 10 					# x ∈ [15,∞]</p>
 
             
             <span class="button next">
-                <a href="https://hexterisk.github.io/blog/posts/2020/04/20/set-1/">
+                <a href="https://hexterisk.com/blog/posts/2020/04/20/set-1/">
                     <span class="button__icon">←</span>
                     <span class="button__text">Set 1</span>
                 </a>
@@ -443,22 +443,24 @@ x = x + 10 					# x ∈ [15,∞]</p>
 
             
                 <footer class="footer">
-    
     <div class="footer__inner">
         <div class="footer__content">
             <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
             <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
         </div>
     </div>
-    <div class="footer__inner">
-        <div class="footer__content" style="margin-bottom: -0.8rem;">
-            <span><a style="text-decoration: none;"> .</a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span><a style="text-decoration: none;" style="font-size: 1.4rem; margin-bottom: -1.0rem;">..:</a></span>
-        </div>
+    
+    <div class="footer__svg">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 140 140"
+            stroke="#4DB6AC"
+        >
+            <path stroke-width="122" stroke-dasharray="2,38" d="M9,70h122M70,9v122" />
+            <path stroke-width="33" stroke-linecap="round" d="M70,30h0M110,70h0M30,110v0M70,110h0M110,110h0" />
+        </svg>
     </div>
 </footer>
             
@@ -469,8 +471,16 @@ x = x + 10 					# x ∈ [15,∞]</p>
 
 
 
-<script type="text/javascript" src="https://hexterisk.github.io/blog/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
 
+<script type="text/javascript" src="../../../../../bundle.min.45295cbc2d5bbc09b85caead90108f31defa5c6b650a42abb2e79d59a363e5bc2f11614e43687e66e6d47563560a45c3324b75dcb9b3a724a2955a2f1ce2f114.js" integrity="sha512-RSlcvC1bvAm4XK6tkBCPMd76XGtlCkKrsuedWaNj5bwvEWFOQ2h&#43;ZubUdWNWCkXDMkt13LmzpySilVovHOLxFA=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'G-66L1D38RLD', 'auto');
+        ga('send', 'pageview');
+    </script>
 
 
     </body>
