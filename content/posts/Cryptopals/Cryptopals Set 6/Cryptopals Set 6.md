@@ -7,7 +7,7 @@ type:
 - post
 - posts
 title: Set 6
-tags: ["Matasano", "cryptography", "DSA", "RSA", "Bleichenbacher", "nonce", "xor", "e=3", "PKCS#1", "oracle", "PKCS1.5"]
+tags: ["Matasano", "cryptography", "DSA", "RSA", "Bleichenbacher", "nonce", "xor", "e=3", "PKCS1", "oracle", "PKCS1.5"]
 weight: 10
 categories: ["Cryptopals"]
 ---

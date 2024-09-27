@@ -7,7 +7,7 @@ type:
 - post
 - posts
 title: Set 2
-tags: ["Matasano", "cryptography", "AES", "ECB", "CBC", "bit-flipping", "xor", "base64", "PKCS#7", "pad", "unpad"]
+tags: ["Matasano", "cryptography", "AES", "ECB", "CBC", "bit-flipping", "xor", "base64", "PKCS7", "pad", "unpad"]
 weight: 10
 categories: ["Cryptopals"]
 ---
