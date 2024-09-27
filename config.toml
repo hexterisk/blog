@@ -1,4 +1,4 @@
-baseURL = "https://hexterisk.com/blog"
+baseURL = "https://blogs.hexterisk.com"
 title   = "Pwn the world."
 
 DefaultContentLanguage = "en"

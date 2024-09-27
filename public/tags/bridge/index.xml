@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bridge on Pwn the world.</title>
-    <link>https://hexterisk.com/blog/tags/bridge/</link>
+    <link>https://blogs.hexterisk.com/tags/bridge/</link>
     <description>Recent content in Bridge on Pwn the world.</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Fri, 10 Sep 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://hexterisk.com/blog/tags/bridge/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blogs.hexterisk.com/tags/bridge/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Structural Patterns</title>
-      <link>https://hexterisk.com/blog/posts/2021/09/10/structural-patterns/</link>
+      <link>https://blogs.hexterisk.com/posts/2021/09/10/structural-patterns/</link>
       <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>https://hexterisk.com/blog/posts/2021/09/10/structural-patterns/</guid>
+      <guid>https://blogs.hexterisk.com/posts/2021/09/10/structural-patterns/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Structural Design Patterns&lt;/strong&gt; help in composing small structures into larger structures, while ensuring that these larger structures remain flexible and efficient. These larger structures remain simplified through the realization of the relationship between it&amp;rsquo;s smaller component structures, that is, how each component inherits from each other.&lt;/p&gt;&#xA;&lt;h4 id=&#34;structural-class-patterns&#34;&gt;Structural Class Patterns&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Composes interfaces and implementations through (multiple) inheritance.&lt;/li&gt;&#xA;&lt;li&gt;Useful to make independently developed classes work together.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;structural-object-patterns&#34;&gt;Structural Object Patterns&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Realizes new functionality through composition of different objects.&lt;/li&gt;&#xA;&lt;li&gt;Ability of objects to change composition at run-time is integral for composition of different types of objects.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;adapter&#34;&gt;Adapter&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn&amp;rsquo;t otherwise because of incompatible interfaces.&lt;/p&gt;</description>
     </item>
   </channel>

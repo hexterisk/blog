@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deadlock on Pwn the world.</title>
-    <link>https://hexterisk.com/blog/tags/deadlock/</link>
+    <link>https://blogs.hexterisk.com/tags/deadlock/</link>
     <description>Recent content in Deadlock on Pwn the world.</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 14 Dec 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://hexterisk.com/blog/tags/deadlock/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blogs.hexterisk.com/tags/deadlock/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Introduction</title>
-      <link>https://hexterisk.com/blog/posts/2020/12/14/introduction/</link>
+      <link>https://blogs.hexterisk.com/posts/2020/12/14/introduction/</link>
       <pubDate>Mon, 14 Dec 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>https://hexterisk.com/blog/posts/2020/12/14/introduction/</guid>
+      <guid>https://blogs.hexterisk.com/posts/2020/12/14/introduction/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Fuzzing&lt;/strong&gt;, or &lt;strong&gt;Fuzz Testing&lt;/strong&gt;, is an automated software testing technique where a target application is placed in an execution environment. An input generation technique is employed to create unique and varying inputs(test cases) for the target. These new inputs are continuously sent to the target and the resultant behavior is observed.&lt;/p&gt;&#xA;&lt;p&gt;NOTE: the phrases “test cases” and “inputs” can be used interchangeably.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../../Fuzzing_Introduction/a.png&#34;&gt;&#xA;&lt;em&gt;Fuzzing cycle.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Either the program will be able to handle the provided input just fine, or it will enter an invalid state of execution(mostly a crash) and you&amp;rsquo;ll have a bug report on your hand. It&amp;rsquo;s a continuous, cyclic process.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Binary on Pwn the world.</title>
-    <link>https://hexterisk.com/blog/tags/binary/</link>
+    <link>https://blogs.hexterisk.com/tags/binary/</link>
     <description>Recent content in Binary on Pwn the world.</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,75 +10,75 @@
     <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sun, 08 Nov 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://hexterisk.com/blog/tags/binary/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blogs.hexterisk.com/tags/binary/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dynamic Taint Analysis and Pin</title>
-      <link>https://hexterisk.com/blog/posts/2020/11/08/dynamic-taint-analysis-and-pin/</link>
+      <link>https://blogs.hexterisk.com/posts/2020/11/08/dynamic-taint-analysis-and-pin/</link>
       <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>https://hexterisk.com/blog/posts/2020/11/08/dynamic-taint-analysis-and-pin/</guid>
+      <guid>https://blogs.hexterisk.com/posts/2020/11/08/dynamic-taint-analysis-and-pin/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Dynamic Taint Analysis&lt;/strong&gt; is a technique used to discover what part of memory or register are controllable by the some data we are interested, such as the user input, at a given program state. This is done by marking the interested data. There on after, any piece of data that comes in contact with the tainted data by any means, like getting computed from the tainted data, is tainted too, thus spreading the taint throughout the execution.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Dynamic Binary Instrumentation and Pin</title>
-      <link>https://hexterisk.com/blog/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</link>
+      <link>https://blogs.hexterisk.com/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</link>
       <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>https://hexterisk.com/blog/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</guid>
+      <guid>https://blogs.hexterisk.com/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Dynamic Binary Instrumentation&lt;/strong&gt; is the process of monitoring or measuring a binary&amp;rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.&lt;/p&gt;&#xA;&lt;p&gt;We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.&lt;/p&gt;&#xA;&lt;p&gt; &lt;/p&gt;</description>
     </item>
     <item>
       <title>Source Code Instrumentation and LLVM</title>
-      <link>https://hexterisk.com/blog/posts/2020/09/28/source-code-instrumentation-and-llvm/</link>
+      <link>https://blogs.hexterisk.com/posts/2020/09/28/source-code-instrumentation-and-llvm/</link>
       <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>https://hexterisk.com/blog/posts/2020/09/28/source-code-instrumentation-and-llvm/</guid>
+      <guid>https://blogs.hexterisk.com/posts/2020/09/28/source-code-instrumentation-and-llvm/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Source Code Instrumentation&lt;/strong&gt; adds specific code meant for instrumentation/analysis, called &lt;strong&gt;Instrumentation Code&lt;/strong&gt;, to the source files of the program under consideration. The source files are then compiled and executed. Since the instrumentation code is integrated into the binary itself, the output from the execution includes the dump of the instrumentation code which can then be used for further analysis and component testing.&lt;/p&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;intermediate-representations&#34;&gt;Intermediate Representations&lt;/h2&gt;&#xA;&lt;p&gt;Representation of a program in a state that lies between the source code and the compiled binary(specifically, the assembly code). Compilers have a stage of intermediate code generation, where they natively generate IR of the source code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Symbolic Execution and Angr</title>
-      <link>https://hexterisk.com/blog/posts/2020/09/04/symbolic-execution-and-angr/</link>
+      <link>https://blogs.hexterisk.com/posts/2020/09/04/symbolic-execution-and-angr/</link>
       <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>https://hexterisk.com/blog/posts/2020/09/04/symbolic-execution-and-angr/</guid>
+      <guid>https://blogs.hexterisk.com/posts/2020/09/04/symbolic-execution-and-angr/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Symbolic Execution&lt;/strong&gt; is mainly focused on converting a program made up of a concrete set of instructions into an equation-like format. This is achieved with two core components:&lt;/p&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;symbols&#34;&gt;Symbols&lt;/h2&gt;&#xA;&lt;p&gt;Different values in a program(such as the user input) are substituted with &lt;strong&gt;Symbols&lt;/strong&gt;(variables or placeholders). These symbols pertain to a domain full of values, allowing us to explore the program in a much more open form, basically “walking through the program” with a domain full of values(handled by any one of the constraint solving backends like Z3) instead of walking a fixed path due to a fixed hard-coded value/input.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Constraint Solvers and Z3</title>
-      <link>https://hexterisk.com/blog/posts/2020/08/18/constraint-solvers-and-z3/</link>
+      <link>https://blogs.hexterisk.com/posts/2020/08/18/constraint-solvers-and-z3/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>https://hexterisk.com/blog/posts/2020/08/18/constraint-solvers-and-z3/</guid>
+      <guid>https://blogs.hexterisk.com/posts/2020/08/18/constraint-solvers-and-z3/</guid>
       <description>&lt;p&gt;A constraint solver must be versatile, that is, it should be able to act as an:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Interpreter&lt;/strong&gt;: Given the input, solve for the output of the equation.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Inverter&lt;/strong&gt;: Given the output, solve for the input of the equation.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Synthesizer&lt;/strong&gt;: Act as both Interpreter and Inverter.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;formulating-programs&#34;&gt;Formulating Programs&lt;/h2&gt;&#xA;&lt;p&gt;Assume a formula &lt;em&gt;𝑆ₚ(𝑥, 𝑦)&lt;/em&gt; which holds if and only if program &lt;em&gt;P(x)&lt;/em&gt; outputs value &lt;em&gt;y&lt;/em&gt; such that:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Serial 2</title>
-      <link>https://hexterisk.com/blog/posts/2020/07/30/serial-2/</link>
+      <link>https://blogs.hexterisk.com/posts/2020/07/30/serial-2/</link>
       <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>https://hexterisk.com/blog/posts/2020/07/30/serial-2/</guid>
+      <guid>https://blogs.hexterisk.com/posts/2020/07/30/serial-2/</guid>
       <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;: &lt;a href=&#34;https://stackedit.io/%5Bhttps://www.vulnhub.com/entry/serial-2,373/%5D(https://www.vulnhub.com/entry/serial-2,373/)&#34;&gt;serial: 2&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Date release&lt;/strong&gt;: 27 Sep 2019&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Author&lt;/strong&gt;: &lt;a href=&#34;https://www.vulnhub.com/author/sk4,633/&#34;&gt;sk4&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Series&lt;/strong&gt;: &lt;a href=&#34;https://www.vulnhub.com/series/serial,231/&#34;&gt;serial&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;initial-discovery&#34;&gt;Initial Discovery&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;VMIP&lt;/code&gt; is the VM’s IP Address&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;LHIP&lt;/code&gt; is the Local Host’s IP Address&lt;/p&gt;&#xA;&lt;p&gt;Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.&lt;/p&gt;&#xA;&lt;h3 id=&#34;ip-discovery&#34;&gt;IP Discovery&lt;/h3&gt;&#xA;&lt;p&gt;Run &lt;code&gt;sudo netdiscover&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;It detects online hosts by sending ARP requests.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Taint Analysis</title>
-      <link>https://hexterisk.com/blog/posts/2020/07/17/taint-analysis/</link>
+      <link>https://blogs.hexterisk.com/posts/2020/07/17/taint-analysis/</link>
       <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>https://hexterisk.com/blog/posts/2020/07/17/taint-analysis/</guid>
+      <guid>https://blogs.hexterisk.com/posts/2020/07/17/taint-analysis/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Taint Analysis&lt;/strong&gt; is a program analysis technique that allows you to determine the influence that a selected program state has on other parts of the program state. Taint any data that a program receives from the network, track that data, and raise an alert if it affects the program counter. If an operation uses the value of some tainted object, say &lt;em&gt;X&lt;/em&gt;, to derive a value for another, say &lt;em&gt;Y&lt;/em&gt;, then object &lt;em&gt;Y&lt;/em&gt; becomes tainted. Object &lt;em&gt;X&lt;/em&gt; tainted the object &lt;em&gt;Y&lt;/em&gt;. Taint Analysis can be classified into two types.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Binary Obfuscation</title>
-      <link>https://hexterisk.com/blog/posts/2020/07/08/binary-obfuscation/</link>
+      <link>https://blogs.hexterisk.com/posts/2020/07/08/binary-obfuscation/</link>
       <pubDate>Wed, 08 Jul 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>https://hexterisk.com/blog/posts/2020/07/08/binary-obfuscation/</guid>
+      <guid>https://blogs.hexterisk.com/posts/2020/07/08/binary-obfuscation/</guid>
       <description>&lt;p&gt;The main aim of &lt;strong&gt;Binary Obfuscation&lt;/strong&gt; is to hinder the process of static analysis of a binary. &lt;/p&gt;&#xA;&lt;p&gt;Renaming the &lt;strong&gt;symbols&lt;/strong&gt;(variables and functions) of a binary implies that the clues as to what data a variable holds or what task a function performs that could be obtained from their names, are lost. This makes it a little harder for the analysts to keep a track of all the symbols without documenting them. &lt;/p&gt;</description>
     </item>
     <item>
       <title>Binary Instrumentation</title>
-      <link>https://hexterisk.com/blog/posts/2020/06/27/binary-instrumentation/</link>
+      <link>https://blogs.hexterisk.com/posts/2020/06/27/binary-instrumentation/</link>
       <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>https://hexterisk.com/blog/posts/2020/06/27/binary-instrumentation/</guid>
+      <guid>https://blogs.hexterisk.com/posts/2020/06/27/binary-instrumentation/</guid>
       <description>&lt;p&gt;Inserting new code at any point in an existing binary to observe or modify the binary’s behavior in some way is called &lt;strong&gt;instrumenting&lt;/strong&gt; the binary. The point where you add new code is called the &lt;strong&gt;instrumentation point&lt;/strong&gt;, and the added code is called &lt;strong&gt;instrumentation code&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../../Binary_Instrumentation/3_image.png&#34;&gt;&#xA;&lt;em&gt;Tradeoffs of Dynamic and Static Binary Instrumentation.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;static-binary-instrumentation&#34;&gt;Static Binary Instrumentation&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Static Binary Instrumentation&lt;/strong&gt; works by disassembling a binary and then adding instrumentation code where needed and storing the updated binary permanently on disk.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Principles of Symbolic Execution</title>
-      <link>https://hexterisk.com/blog/posts/2020/06/11/principles-of-symbolic-execution/</link>
+      <link>https://blogs.hexterisk.com/posts/2020/06/11/principles-of-symbolic-execution/</link>
       <pubDate>Thu, 11 Jun 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>https://hexterisk.com/blog/posts/2020/06/11/principles-of-symbolic-execution/</guid>
+      <guid>https://blogs.hexterisk.com/posts/2020/06/11/principles-of-symbolic-execution/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Symbolic Execution&lt;/strong&gt;, or &lt;strong&gt;symbex&lt;/strong&gt;, is a software analysis technique that expresses program state in terms of logical formulas that you can automatically reason about to answer complex questions about a program’s behavior. Can automatically increase the code coverage of dynamic analyses by generating new inputs that lead to unexplored program paths. Apply it sparingly and carefully because of scalability issues.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Symbex executes (or emulates) an application with &lt;strong&gt;symbolic values.&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Symbolic values&lt;/strong&gt; represent a domain covering possible concrete values, represented by symbols like &lt;em&gt;φ&lt;/em&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Symbolic variables&lt;/strong&gt; are just memory addresses that will hold symbolic values.&lt;/li&gt;&#xA;&lt;li&gt;Symbolic execution computes logical formulas over these symbols. These formulas represent the operations performed on the symbols during execution and describe limits for the range of values the symbols can represent.&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Many symbex engines maintain the symbols and formulas as metadata in addition to concrete values rather than replacing the concrete values.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;The collection of symbolic values and formulas that a symbex engine maintains is called the &lt;strong&gt;Symbolic State&lt;/strong&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Symbex engine computes two different kinds of formulas over these symbolic values: a set of &lt;strong&gt;symbolic expressions&lt;/strong&gt; and a &lt;strong&gt;path constraint.&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt; &lt;/p&gt;</description>
     </item>
   </channel>

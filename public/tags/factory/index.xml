@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Factory on Pwn the world.</title>
-    <link>https://hexterisk.com/blog/tags/factory/</link>
+    <link>https://blogs.hexterisk.com/tags/factory/</link>
     <description>Recent content in Factory on Pwn the world.</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Fri, 02 Jul 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://hexterisk.com/blog/tags/factory/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blogs.hexterisk.com/tags/factory/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creational Patterns</title>
-      <link>https://hexterisk.com/blog/posts/2021/07/02/creational-patterns/</link>
+      <link>https://blogs.hexterisk.com/posts/2021/07/02/creational-patterns/</link>
       <pubDate>Fri, 02 Jul 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>https://hexterisk.com/blog/posts/2021/07/02/creational-patterns/</guid>
+      <guid>https://blogs.hexterisk.com/posts/2021/07/02/creational-patterns/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Creational Design Patterns&lt;/strong&gt; reduce the complexity in creation of different objects of shared type/properties.&lt;/p&gt;&#xA;&lt;p&gt;These patterns simplify object creation mechanisms by separating the workings of an object&amp;rsquo;s creation, composition and representation. This in turn results in increased flexibility. Instead of hardcoding data into classes for creating objects every time, we can employ these patterns for the instantiation of an object dependent on the situation. This ensures that the set of related objects share a common ancestor for common properties.&lt;/p&gt;</description>
     </item>
   </channel>

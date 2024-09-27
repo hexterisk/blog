@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>E=3 on Pwn the world.</title>
-    <link>https://hexterisk.com/blog/tags/e3/</link>
+    <link>https://blogs.hexterisk.com/tags/e3/</link>
     <description>Recent content in E=3 on Pwn the world.</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 01 Jun 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://hexterisk.com/blog/tags/e3/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blogs.hexterisk.com/tags/e3/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Set 6</title>
-      <link>https://hexterisk.com/blog/posts/2020/06/01/set-6/</link>
+      <link>https://blogs.hexterisk.com/posts/2020/06/01/set-6/</link>
       <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>https://hexterisk.com/blog/posts/2020/06/01/set-6/</guid>
+      <guid>https://blogs.hexterisk.com/posts/2020/06/01/set-6/</guid>
       <description>&lt;p&gt;Refer to this &lt;a href=&#34;https://github.com/hexterisk/cryptopals-solutions&#34;&gt;repository&lt;/a&gt; for solution scripts and the IPython Notebook pertaining to the explanations here.&lt;/p&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h3 id=&#34;challenge-41-implement-unpadded-message-recovery-oracle&#34;&gt;Challenge 41: Implement unpadded message recovery oracle&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cryptopals.com/sets/6/challenges/41&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Nate Lawson says we should stop calling it &amp;ldquo;RSA padding&amp;rdquo; and start calling it &amp;ldquo;RSA armoring&amp;rdquo;. Here&amp;rsquo;s why.&lt;br&gt;&#xA;Imagine a web application, again with the Javascript encryption, taking RSA-encrypted messages which (again: Javascript) aren&amp;rsquo;t padded before encryption at all.&lt;br&gt;&#xA;You can submit an arbitrary RSA blob and the server will return plaintext. But you can&amp;rsquo;t submit the same message twice: let&amp;rsquo;s say the server keeps hashes of previous messages for some liveness interval, and that the message has an embedded timestamp: ** {&lt;br&gt;&#xA;time: 1356304276,&lt;br&gt;&#xA;social: &amp;lsquo;555-55-5555&amp;rsquo;,&lt;br&gt;&#xA;}&lt;br&gt;&#xA;You&amp;rsquo;d like to capture other people&amp;rsquo;s messages and use the server to decrypt them. But when you try, the server takes the hash of the ciphertext and uses it to reject the request. Any bit you flip in the ciphertext irrevocably scrambles the decryption.&lt;br&gt;&#xA;This turns out to be trivially breakable:&lt;/p&gt;</description>
     </item>
   </channel>
