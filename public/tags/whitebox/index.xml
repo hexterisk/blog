@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Whitebox on Pwn the world.</title>
-    <link>http://localhost:1313/tags/whitebox/</link>
+    <link>https://blog.hexterisk.com/tags/whitebox/</link>
     <description>Recent content in Whitebox on Pwn the world.</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,19 +10,19 @@
     <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Mon, 15 Mar 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/whitebox/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.hexterisk.com/tags/whitebox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DART &amp; SAGE</title>
-      <link>http://localhost:1313/posts/2021/03/15/dart-sage/</link>
+      <link>https://blog.hexterisk.com/posts/2021/03/15/dart-sage/</link>
       <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/posts/2021/03/15/dart-sage/</guid>
+      <guid>https://blog.hexterisk.com/posts/2021/03/15/dart-sage/</guid>
       <description>&lt;h2 id=&#34;dart&#34;&gt;DART&lt;/h2&gt;&#xA;&lt;p&gt;Back in 2005, researchers at Microsoft came up with a concolic testing tool called &lt;strong&gt;DART&lt;/strong&gt;(&lt;strong&gt;Directed Automated Random Testing&lt;/strong&gt;). The tool can be used in the unit testing phase, as well as can be applied to large programs.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;We present a new tool, named DART, for automatically testing software that combines three main techniques: (1) automated extraction of the interface of a program with its external environment using static source-code parsing; (2) automatic generation of a test driver for this interface that performs random testing to simulate the most general environment the program can operate in; and (3) dynamic analysis of how the program behaves under random testing and automatic generation of new test inputs to direct systematically the execution along alternative program paths.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Approaches</title>
-      <link>http://localhost:1313/posts/2021/01/01/approaches/</link>
+      <link>https://blog.hexterisk.com/posts/2021/01/01/approaches/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/posts/2021/01/01/approaches/</guid>
+      <guid>https://blog.hexterisk.com/posts/2021/01/01/approaches/</guid>
       <description>&lt;p&gt;Fuzzing can be segregated into different types based on the facet of the process we look at.&lt;/p&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;program-structure&#34;&gt;Program Structure&lt;/h2&gt;&#xA;&lt;p&gt;Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.&lt;/p&gt;&#xA;&lt;h3 id=&#34;blackbox-fuzzing&#34;&gt;Blackbox Fuzzing&lt;/h3&gt;&#xA;&lt;p&gt;This approach involves the assumption that the target is a black box since we don&amp;rsquo;t have any knowledge of the internal behavior, source code or the implementation of the target application, hence the name.&lt;/p&gt;</description>
     </item>
   </channel>

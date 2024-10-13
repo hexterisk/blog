@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Objdump on Pwn the world.</title>
-    <link>http://localhost:1313/tags/objdump/</link>
+    <link>https://blog.hexterisk.com/tags/objdump/</link>
     <description>Recent content in Objdump on Pwn the world.</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/objdump/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.hexterisk.com/tags/objdump/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Simple Code Injection Techniques for ELF</title>
-      <link>http://localhost:1313/posts/2020/03/15/simple-code-injection-techniques-for-elf/</link>
+      <link>https://blog.hexterisk.com/posts/2020/03/15/simple-code-injection-techniques-for-elf/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/posts/2020/03/15/simple-code-injection-techniques-for-elf/</guid>
+      <guid>https://blog.hexterisk.com/posts/2020/03/15/simple-code-injection-techniques-for-elf/</guid>
       <description>&lt;h2 id=&#34;bare-metal-binary-modification&#34;&gt;Bare-Metal Binary Modification&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Modify an existing binary is by directly editing the bytes of a binary file in hexadecimal format, using a program like &lt;em&gt;hexedit&lt;/em&gt;.&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Use a disassembler to identify the code or data bytes to be changed and then use a hex editor to make the changes.&lt;/li&gt;&#xA;&lt;li&gt;Advantage: Simple and requires only basic tools. Any padding bytes, dead code (such as unused functions), or unused data, can be overwritten with something new.&lt;/li&gt;&#xA;&lt;li&gt;Disadvantage: Only allows in-place editing. Can change code or data bytes but not add anything new. Inserting a new byte causes all the bytes after it to shift to another address, which breaks references to the shifted bytes. It’s difficult (or even impossible) to correctly identify and fix all the broken references, because the relocation information needed for this is usually discarded after the linking phase.&lt;/li&gt;&#xA;&lt;li&gt;Works for cases like replacing malware&amp;rsquo;s anti-debugging checks with nop.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Off-by-one&lt;/strong&gt; bugs typically occur in loops when the programmer uses an erroneous loop condition that causes the loop to read or write one too few or one too many bytes.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt; &lt;/p&gt;</description>
     </item>
   </channel>

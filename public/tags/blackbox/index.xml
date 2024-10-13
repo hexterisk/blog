@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blackbox on Pwn the world.</title>
-    <link>http://localhost:1313/tags/blackbox/</link>
+    <link>https://blog.hexterisk.com/tags/blackbox/</link>
     <description>Recent content in Blackbox on Pwn the world.</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,12 +10,12 @@
     <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/blackbox/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.hexterisk.com/tags/blackbox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Approaches</title>
-      <link>http://localhost:1313/posts/2021/01/01/approaches/</link>
+      <link>https://blog.hexterisk.com/posts/2021/01/01/approaches/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/posts/2021/01/01/approaches/</guid>
+      <guid>https://blog.hexterisk.com/posts/2021/01/01/approaches/</guid>
       <description>&lt;p&gt;Fuzzing can be segregated into different types based on the facet of the process we look at.&lt;/p&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;program-structure&#34;&gt;Program Structure&lt;/h2&gt;&#xA;&lt;p&gt;Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.&lt;/p&gt;&#xA;&lt;h3 id=&#34;blackbox-fuzzing&#34;&gt;Blackbox Fuzzing&lt;/h3&gt;&#xA;&lt;p&gt;This approach involves the assumption that the target is a black box since we don&amp;rsquo;t have any knowledge of the internal behavior, source code or the implementation of the target application, hence the name.&lt;/p&gt;</description>
     </item>
   </channel>

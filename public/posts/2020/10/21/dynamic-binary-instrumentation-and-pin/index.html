@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <head>
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="map[name:hexterisk]">
 <meta name="description" content="Dynamic Binary Instrumentation is the process of monitoring or measuring a binary&rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
 We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.
+Instrumentation Code The technique requires injecting Instrumentation Code into a running binary. DBI Frameworks introduce a layer between the OS and the application, making this injected code completely transparent to the application we inject it in. We simply add hooks to parts of interest. These hooks intercept the instruction execution and transfers control to the instrumentation code, thus we can observe and modify the instructions of the program being instrumented, as it executes.
 " />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="http://localhost:1313/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/" />
+<link rel="canonical" href="https://blog.hexterisk.com/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/" />
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 
@@ -46,7 +47,8 @@ We will skip over Source Instrumentation since it requires source code of the ap
 
   <meta itemprop="name" content="Dynamic Binary Instrumentation and Pin">
   <meta itemprop="description" content="Dynamic Binary Instrumentation is the process of monitoring or measuring a binary’s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
-We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.">
+We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.
+Instrumentation Code The technique requires injecting Instrumentation Code into a running binary. DBI Frameworks introduce a layer between the OS and the application, making this injected code completely transparent to the application we inject it in. We simply add hooks to parts of interest. These hooks intercept the instruction execution and transfers control to the instrumentation code, thus we can observe and modify the instructions of the program being instrumented, as it executes.">
   <meta itemprop="datePublished" content="2020-10-21T00:00:00+00:00">
   <meta itemprop="dateModified" content="2020-10-21T00:00:00+00:00">
   <meta itemprop="wordCount" content="2552">
@@ -54,7 +56,8 @@ We will skip over Source Instrumentation since it requires source code of the ap
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Dynamic Binary Instrumentation and Pin">
   <meta name="twitter:description" content="Dynamic Binary Instrumentation is the process of monitoring or measuring a binary’s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.
-We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.">
+We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.
+Instrumentation Code The technique requires injecting Instrumentation Code into a running binary. DBI Frameworks introduce a layer between the OS and the application, making this injected code completely transparent to the application we inject it in. We simply add hooks to parts of interest. These hooks intercept the instruction execution and transfers control to the instrumentation code, thus we can observe and modify the instructions of the program being instrumented, as it executes.">
 
 
 
@@ -93,7 +96,7 @@ We will skip over Source Instrumentation since it requires source code of the ap
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="http://localhost:1313/about/">About</a></li><li><a href="http://localhost:1313/posts/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="https://blog.hexterisk.com/about/">About</a></li><li><a href="https://blog.hexterisk.com/posts/">Posts</a></li>
     </ul>
 </nav>
 
@@ -135,7 +138,7 @@ We will skip over Source Instrumentation since it requires source code of the ap
 
     <article>
         <h1 class="post-title">
-            <a href="http://localhost:1313/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/">Dynamic Binary Instrumentation and Pin</a>
+            <a href="https://blog.hexterisk.com/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/">Dynamic Binary Instrumentation and Pin</a>
         </h1>
 
         
@@ -568,7 +571,7 @@ $(APP_CC) $(APP_CXXFLAGS_NOOPT) $(COMP_EXE) $(APP_LDFLAGS_NOOPT) $(APP_LIBS)</p>
                 class="feather feather-tag meta-icon">
                 <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                 <line x1="7" y1="7" x2="7" y2="7"></line>
-            </svg><span class="tag"><a href="http://localhost:1313/%20tags/binary">binary</a></span><span class="tag"><a href="http://localhost:1313/%20tags/granularity">granularity</a></span><span class="tag"><a href="http://localhost:1313/%20tags/trace">trace</a></span><span class="tag"><a href="http://localhost:1313/%20tags/img">img</a></span><span class="tag"><a href="http://localhost:1313/%20tags/jit">jit</a></span><span class="tag"><a href="http://localhost:1313/%20tags/probe">probe</a></span><span class="tag"><a href="http://localhost:1313/%20tags/aslr">aslr</a></span><span class="tag"><a href="http://localhost:1313/%20tags/bbl">bbl</a></span><span class="tag"><a href="http://localhost:1313/%20tags/debugging">debugging</a></span>
+            </svg><span class="tag"><a href="https://blog.hexterisk.com/%20tags/binary">binary</a></span><span class="tag"><a href="https://blog.hexterisk.com/%20tags/granularity">granularity</a></span><span class="tag"><a href="https://blog.hexterisk.com/%20tags/trace">trace</a></span><span class="tag"><a href="https://blog.hexterisk.com/%20tags/img">img</a></span><span class="tag"><a href="https://blog.hexterisk.com/%20tags/jit">jit</a></span><span class="tag"><a href="https://blog.hexterisk.com/%20tags/probe">probe</a></span><span class="tag"><a href="https://blog.hexterisk.com/%20tags/aslr">aslr</a></span><span class="tag"><a href="https://blog.hexterisk.com/%20tags/bbl">bbl</a></span><span class="tag"><a href="https://blog.hexterisk.com/%20tags/debugging">debugging</a></span>
         </p>
 
         <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -602,7 +605,7 @@ $(APP_CC) $(APP_CXXFLAGS_NOOPT) $(COMP_EXE) $(APP_LDFLAGS_NOOPT) $(APP_LIBS)</p>
 
             
             <span class="button previous">
-                <a href="http://localhost:1313/posts/2020/09/28/source-code-instrumentation-and-llvm/">
+                <a href="https://blog.hexterisk.com/posts/2020/09/28/source-code-instrumentation-and-llvm/">
                     <span class="button__text">Source Code Instrumentation and LLVM</span>
                     <span class="button__icon">→</span>
                 </a>
@@ -611,7 +614,7 @@ $(APP_CC) $(APP_CXXFLAGS_NOOPT) $(COMP_EXE) $(APP_LDFLAGS_NOOPT) $(APP_LIBS)</p>
 
             
             <span class="button next">
-                <a href="http://localhost:1313/posts/2020/11/08/dynamic-taint-analysis-and-pin/">
+                <a href="https://blog.hexterisk.com/posts/2020/11/08/dynamic-taint-analysis-and-pin/">
                     <span class="button__icon">←</span>
                     <span class="button__text">Dynamic Taint Analysis and Pin</span>
                 </a>

@@ -1,20 +1,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on Pwn the world.</title>
-        <link>http://localhost:1313/posts/</link>
+        <link>https://blog.hexterisk.com/posts/</link>
         <description>Recent content in Posts on Pwn the world.</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
         <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate>
-        <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://blog.hexterisk.com/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
             <title>Concurrency Patterns</title>
-            <link>http://localhost:1313/posts/2021/10/01/concurrency-patterns/</link>
+            <link>https://blog.hexterisk.com/posts/2021/10/01/concurrency-patterns/</link>
             <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2021/10/01/concurrency-patterns/</guid>
+            <guid>https://blog.hexterisk.com/posts/2021/10/01/concurrency-patterns/</guid>
             <description>&lt;p&gt;&lt;strong&gt;Concurrency Design Patterns&lt;/strong&gt; describe ways of dealing with concurrent executing code, be it multi-threaded or multi-processed.&lt;/p&gt;
 &lt;h2 id=&#34;active-object&#34;&gt;Active Object&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -211,10 +211,10 @@
         
         <item>
             <title>Structural Patterns</title>
-            <link>http://localhost:1313/posts/2021/09/10/structural-patterns/</link>
+            <link>https://blog.hexterisk.com/posts/2021/09/10/structural-patterns/</link>
             <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2021/09/10/structural-patterns/</guid>
+            <guid>https://blog.hexterisk.com/posts/2021/09/10/structural-patterns/</guid>
             <description>&lt;p&gt;&lt;strong&gt;Structural Design Patterns&lt;/strong&gt; help in composing small structures into larger structures, while ensuring that these larger structures remain flexible and efficient. These larger structures remain simplified through the realization of the relationship between it&amp;rsquo;s smaller component structures, that is, how each component inherits from each other.&lt;/p&gt;
 &lt;h4 id=&#34;structural-class-patterns&#34;&gt;Structural Class Patterns&lt;/h4&gt;
 &lt;ul&gt;
@@ -388,10 +388,10 @@
         
         <item>
             <title>Behavioral Patterns</title>
-            <link>http://localhost:1313/posts/2021/08/16/behavioral-patterns/</link>
+            <link>https://blog.hexterisk.com/posts/2021/08/16/behavioral-patterns/</link>
             <pubDate>Mon, 16 Aug 2021 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2021/08/16/behavioral-patterns/</guid>
+            <guid>https://blog.hexterisk.com/posts/2021/08/16/behavioral-patterns/</guid>
             <description>&lt;p&gt;&lt;strong&gt;Behavioral Design Patterns&lt;/strong&gt; are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.&lt;/p&gt;
 &lt;h4 id=&#34;behavioral-class-patterns&#34;&gt;Behavioral Class Patterns&lt;/h4&gt;
 &lt;p&gt;Inheritance is employed to distribute behavior between classes.&lt;/p&gt;
@@ -550,10 +550,10 @@
         
         <item>
             <title>Creational Patterns</title>
-            <link>http://localhost:1313/posts/2021/07/02/creational-patterns/</link>
+            <link>https://blog.hexterisk.com/posts/2021/07/02/creational-patterns/</link>
             <pubDate>Fri, 02 Jul 2021 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2021/07/02/creational-patterns/</guid>
+            <guid>https://blog.hexterisk.com/posts/2021/07/02/creational-patterns/</guid>
             <description>&lt;p&gt;&lt;strong&gt;Creational Design Patterns&lt;/strong&gt; reduce the complexity in creation of different objects of shared type/properties.&lt;/p&gt;
 &lt;p&gt;These patterns simplify object creation mechanisms by separating the workings of an object&amp;rsquo;s creation, composition and representation. This in turn results in increased flexibility. Instead of hardcoding data into classes for creating objects every time, we can employ these patterns for the instantiation of an object dependent on the situation. This ensures that the set of related objects share a common ancestor for common properties.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p><strong>Creational Design Patterns</strong> reduce the complexity in creation of different objects of shared type/properties.</p>
@@ -623,10 +623,10 @@
         
         <item>
             <title>Reuse</title>
-            <link>http://localhost:1313/posts/2021/05/21/reuse/</link>
+            <link>https://blog.hexterisk.com/posts/2021/05/21/reuse/</link>
             <pubDate>Fri, 21 May 2021 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2021/05/21/reuse/</guid>
+            <guid>https://blog.hexterisk.com/posts/2021/05/21/reuse/</guid>
             <description>&lt;p&gt;While designing a class, always keep the &lt;strong&gt;Open-Closed Principle&lt;/strong&gt; in mind. It states that,&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.&lt;/p&gt;
@@ -723,10 +723,10 @@ int main() {
         
         <item>
             <title>Overview</title>
-            <link>http://localhost:1313/posts/2021/04/28/overview/</link>
+            <link>https://blog.hexterisk.com/posts/2021/04/28/overview/</link>
             <pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2021/04/28/overview/</guid>
+            <guid>https://blog.hexterisk.com/posts/2021/04/28/overview/</guid>
             <description>&lt;p&gt;An general overview of the Design Patterns.&lt;/p&gt;
 &lt;h2 id=&#34;classification&#34;&gt;Classification&lt;/h2&gt;
 &lt;h3 id=&#34;purpose&#34;&gt;Purpose&lt;/h3&gt;
@@ -761,10 +761,10 @@ int main() {
         
         <item>
             <title>Introduction</title>
-            <link>http://localhost:1313/posts/2021/04/10/introduction/</link>
+            <link>https://blog.hexterisk.com/posts/2021/04/10/introduction/</link>
             <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2021/04/10/introduction/</guid>
+            <guid>https://blog.hexterisk.com/posts/2021/04/10/introduction/</guid>
             <description>&lt;p&gt;A design pattern is a code structure used to solve commonly occurring problems in software development. It is a generic description of different components&amp;rsquo; design, their relationships, and how they come together to solve the said problem in the specified context. It is characterized by:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Pattern Name
@@ -917,10 +917,10 @@ int main() {
         
         <item>
             <title>DART &amp; SAGE</title>
-            <link>http://localhost:1313/posts/2021/03/15/dart-sage/</link>
+            <link>https://blog.hexterisk.com/posts/2021/03/15/dart-sage/</link>
             <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2021/03/15/dart-sage/</guid>
+            <guid>https://blog.hexterisk.com/posts/2021/03/15/dart-sage/</guid>
             <description>&lt;h2 id=&#34;dart&#34;&gt;DART&lt;/h2&gt;
 &lt;p&gt;Back in 2005, researchers at Microsoft came up with a concolic testing tool called &lt;strong&gt;DART&lt;/strong&gt;(&lt;strong&gt;Directed Automated Random Testing&lt;/strong&gt;). The tool can be used in the unit testing phase, as well as can be applied to large programs.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1238,10 +1238,10 @@ int main() {
         
         <item>
             <title>Sanitation</title>
-            <link>http://localhost:1313/posts/2021/02/12/sanitation/</link>
+            <link>https://blog.hexterisk.com/posts/2021/02/12/sanitation/</link>
             <pubDate>Fri, 12 Feb 2021 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2021/02/12/sanitation/</guid>
+            <guid>https://blog.hexterisk.com/posts/2021/02/12/sanitation/</guid>
             <description>&lt;p&gt;Sanitation tools, or &lt;a href=&#34;https://github.com/google/sanitizers&#34;&gt;sanitizers&lt;/a&gt;, are a set of libraries that can directly observe and flag an incorrect behavior for a certain class of violation at runtime.&lt;/p&gt;
 &lt;p&gt;Sanitizers are employed by instrumenting the source code. The compiled binary, therefore, essentially has certain tripwires that catch any invalid or incorrect behavior and reports it. The fact that it only brings about minimal performance overhead allows it to be coupled with fuzzing techniques, a powerful combination.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>Sanitation tools, or <a href="https://github.com/google/sanitizers">sanitizers</a>, are a set of libraries that can directly observe and flag an incorrect behavior for a certain class of violation at runtime.</p>
@@ -1339,10 +1339,10 @@ int main() {
         
         <item>
             <title>Architecture</title>
-            <link>http://localhost:1313/posts/2021/01/20/architecture/</link>
+            <link>https://blog.hexterisk.com/posts/2021/01/20/architecture/</link>
             <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2021/01/20/architecture/</guid>
+            <guid>https://blog.hexterisk.com/posts/2021/01/20/architecture/</guid>
             <description>&lt;p&gt;A robust pipeline needs to be established to ensure that a fuzzer is effective and efficient. The pipeline is required to perform the following tasks:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Generate new test cases.&lt;/li&gt;
@@ -1411,10 +1411,10 @@ int main() {
         
         <item>
             <title>Approaches</title>
-            <link>http://localhost:1313/posts/2021/01/01/approaches/</link>
+            <link>https://blog.hexterisk.com/posts/2021/01/01/approaches/</link>
             <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2021/01/01/approaches/</guid>
+            <guid>https://blog.hexterisk.com/posts/2021/01/01/approaches/</guid>
             <description>&lt;p&gt;Fuzzing can be segregated into different types based on the facet of the process we look at.&lt;/p&gt;
 &lt;p&gt; &lt;/p&gt;
 &lt;h2 id=&#34;program-structure&#34;&gt;Program Structure&lt;/h2&gt;
@@ -1499,10 +1499,10 @@ int main() {
         
         <item>
             <title>Introduction</title>
-            <link>http://localhost:1313/posts/2020/12/14/introduction/</link>
+            <link>https://blog.hexterisk.com/posts/2020/12/14/introduction/</link>
             <pubDate>Mon, 14 Dec 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/12/14/introduction/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/12/14/introduction/</guid>
             <description>&lt;p&gt;&lt;strong&gt;Fuzzing&lt;/strong&gt;, or &lt;strong&gt;Fuzz Testing&lt;/strong&gt;, is an automated software testing technique where a target application is placed in an execution environment. An input generation technique is employed to create unique and varying inputs(test cases) for the target. These new inputs are continuously sent to the target and the resultant behavior is observed.&lt;/p&gt;
 &lt;p&gt;NOTE: the phrases “test cases” and “inputs” can be used interchangeably.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../Fuzzing_Introduction/a.png&#34;&gt;
@@ -1549,10 +1549,10 @@ int main() {
         
         <item>
             <title>Classification of Malware Traffic using CNNs</title>
-            <link>http://localhost:1313/posts/2020/11/20/classification-of-malware-traffic-using-cnns/</link>
+            <link>https://blog.hexterisk.com/posts/2020/11/20/classification-of-malware-traffic-using-cnns/</link>
             <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/11/20/classification-of-malware-traffic-using-cnns/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/11/20/classification-of-malware-traffic-using-cnns/</guid>
             <description>&lt;p&gt;Classification of malware traffic has been a hot topic ever since machine learning was introduced to the world of network security domain. There are a number of published researches that explore various techniques to extract features from the traffic and use it classification.&lt;/p&gt;
 &lt;p&gt;The pre-machine learning era saw classification of traffic based on structured rule matching, &lt;strong&gt;DPI&lt;/strong&gt;(&lt;strong&gt;Deep Packet Inspection&lt;/strong&gt;) and &lt;strong&gt;Port Inspection&lt;/strong&gt; being the most popular methods, which were typically rendered ineffective post-encryption.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>Classification of malware traffic has been a hot topic ever since machine learning was introduced to the world of network security domain. There are a number of published researches that explore various techniques to extract features from the traffic and use it classification.</p>
@@ -1593,10 +1593,10 @@ int main() {
         
         <item>
             <title>Dynamic Taint Analysis and Pin</title>
-            <link>http://localhost:1313/posts/2020/11/08/dynamic-taint-analysis-and-pin/</link>
+            <link>https://blog.hexterisk.com/posts/2020/11/08/dynamic-taint-analysis-and-pin/</link>
             <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/11/08/dynamic-taint-analysis-and-pin/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/11/08/dynamic-taint-analysis-and-pin/</guid>
             <description>&lt;p&gt;&lt;strong&gt;Dynamic Taint Analysis&lt;/strong&gt; is a technique used to discover what part of memory or register are controllable by the some data we are interested, such as the user input, at a given program state. This is done by marking the interested data. There on after, any piece of data that comes in contact with the tainted data by any means, like getting computed from the tainted data, is tainted too, thus spreading the taint throughout the execution.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p><strong>Dynamic Taint Analysis</strong> is a technique used to discover what part of memory or register are controllable by the some data we are interested, such as the user input, at a given program state. This is done by marking the interested data. There on after, any piece of data that comes in contact with the tainted data by any means, like getting computed from the tainted data, is tainted too, thus spreading the taint throughout the execution.</p>
 <p><img src="/Dynamic_Taint_Analysis_and_Pin/image.png">
@@ -1843,13 +1843,15 @@ int main() {
         
         <item>
             <title>Dynamic Binary Instrumentation and Pin</title>
-            <link>http://localhost:1313/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</link>
+            <link>https://blog.hexterisk.com/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</link>
             <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</guid>
             <description>&lt;p&gt;&lt;strong&gt;Dynamic Binary Instrumentation&lt;/strong&gt; is the process of monitoring or measuring a binary&amp;rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.&lt;/p&gt;
 &lt;p&gt;We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.&lt;/p&gt;
-&lt;p&gt; &lt;/p&gt;</description>
+&lt;p&gt; &lt;/p&gt;
+&lt;h2 id=&#34;instrumentation-code&#34;&gt;Instrumentation Code&lt;/h2&gt;
+&lt;p&gt;The technique requires injecting &lt;strong&gt;Instrumentation Code&lt;/strong&gt; into a running binary. DBI Frameworks introduce a layer between the OS and the application, making this injected code completely transparent to the application we inject it in. We simply add hooks to parts of interest. These hooks intercept the instruction execution and transfers control to the instrumentation code, thus we can observe and modify the instructions of the program being instrumented, as it executes.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p><strong>Dynamic Binary Instrumentation</strong> is the process of monitoring or measuring a binary&rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.</p>
 <p>We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.</p>
 <p> </p>
@@ -2269,10 +2271,10 @@ $(APP_CC) $(APP_CXXFLAGS_NOOPT) $(COMP_EXE) $(APP_LDFLAGS_NOOPT) $(APP_LIBS)</p>
         
         <item>
             <title>Source Code Instrumentation and LLVM</title>
-            <link>http://localhost:1313/posts/2020/09/28/source-code-instrumentation-and-llvm/</link>
+            <link>https://blog.hexterisk.com/posts/2020/09/28/source-code-instrumentation-and-llvm/</link>
             <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/09/28/source-code-instrumentation-and-llvm/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/09/28/source-code-instrumentation-and-llvm/</guid>
             <description>&lt;p&gt;&lt;strong&gt;Source Code Instrumentation&lt;/strong&gt; adds specific code meant for instrumentation/analysis, called &lt;strong&gt;Instrumentation Code&lt;/strong&gt;, to the source files of the program under consideration. The source files are then compiled and executed. Since the instrumentation code is integrated into the binary itself, the output from the execution includes the dump of the instrumentation code which can then be used for further analysis and component testing.&lt;/p&gt;
 &lt;p&gt; &lt;/p&gt;
 &lt;h2 id=&#34;intermediate-representations&#34;&gt;Intermediate Representations&lt;/h2&gt;
@@ -2816,10 +2818,10 @@ $(APP_CC) $(APP_CXXFLAGS_NOOPT) $(COMP_EXE) $(APP_LDFLAGS_NOOPT) $(APP_LIBS)</p>
         
         <item>
             <title>Symbolic Execution and Angr</title>
-            <link>http://localhost:1313/posts/2020/09/04/symbolic-execution-and-angr/</link>
+            <link>https://blog.hexterisk.com/posts/2020/09/04/symbolic-execution-and-angr/</link>
             <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/09/04/symbolic-execution-and-angr/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/09/04/symbolic-execution-and-angr/</guid>
             <description>&lt;p&gt;&lt;strong&gt;Symbolic Execution&lt;/strong&gt; is mainly focused on converting a program made up of a concrete set of instructions into an equation-like format. This is achieved with two core components:&lt;/p&gt;
 &lt;p&gt; &lt;/p&gt;
 &lt;h2 id=&#34;symbols&#34;&gt;Symbols&lt;/h2&gt;
@@ -3080,10 +3082,10 @@ $(APP_CC) $(APP_CXXFLAGS_NOOPT) $(COMP_EXE) $(APP_LDFLAGS_NOOPT) $(APP_LIBS)</p>
         
         <item>
             <title>Constraint Solvers and Z3</title>
-            <link>http://localhost:1313/posts/2020/08/18/constraint-solvers-and-z3/</link>
+            <link>https://blog.hexterisk.com/posts/2020/08/18/constraint-solvers-and-z3/</link>
             <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/08/18/constraint-solvers-and-z3/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/08/18/constraint-solvers-and-z3/</guid>
             <description>&lt;p&gt;A constraint solver must be versatile, that is, it should be able to act as an:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Interpreter&lt;/strong&gt;: Given the input, solve for the output of the equation.&lt;/li&gt;
@@ -3092,7 +3094,8 @@ $(APP_CC) $(APP_CXXFLAGS_NOOPT) $(COMP_EXE) $(APP_LDFLAGS_NOOPT) $(APP_LIBS)</p>
 &lt;/ul&gt;
 &lt;p&gt; &lt;/p&gt;
 &lt;h2 id=&#34;formulating-programs&#34;&gt;Formulating Programs&lt;/h2&gt;
-&lt;p&gt;Assume a formula &lt;em&gt;𝑆ₚ(𝑥, 𝑦)&lt;/em&gt; which holds if and only if program &lt;em&gt;P(x)&lt;/em&gt; outputs value &lt;em&gt;y&lt;/em&gt; such that:&lt;/p&gt;</description>
+&lt;p&gt;Assume a formula &lt;em&gt;𝑆ₚ(𝑥, 𝑦)&lt;/em&gt; which holds if and only if program &lt;em&gt;P(x)&lt;/em&gt; outputs value &lt;em&gt;y&lt;/em&gt; such that:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Program:&lt;/strong&gt; f(&lt;em&gt;𝑥&lt;/em&gt;) { return &lt;em&gt;𝑥&lt;/em&gt; + &lt;em&gt;𝑥&lt;/em&gt; }&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>A constraint solver must be versatile, that is, it should be able to act as an:</p>
 <ul>
 <li><strong>Interpreter</strong>: Given the input, solve for the output of the equation.</li>
@@ -3226,10 +3229,10 @@ $(APP_CC) $(APP_CXXFLAGS_NOOPT) $(COMP_EXE) $(APP_LDFLAGS_NOOPT) $(APP_LIBS)</p>
         
         <item>
             <title>Classification of Malwares through Dynamic Analysis</title>
-            <link>http://localhost:1313/posts/2020/08/06/classification-of-malwares-through-dynamic-analysis/</link>
+            <link>https://blog.hexterisk.com/posts/2020/08/06/classification-of-malwares-through-dynamic-analysis/</link>
             <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/08/06/classification-of-malwares-through-dynamic-analysis/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/08/06/classification-of-malwares-through-dynamic-analysis/</guid>
             <description>&lt;p&gt;Malwares come in many forms. Sometimes it&amp;rsquo;s a standalone binary whereas sometimes it&amp;rsquo;s a legitimate software having a malware inside it. Sometimes it&amp;rsquo;s a binary with malformed metadata and packed bytes to throw off the analyst whereas sometimes it acts as a downloader/launcher for a more malicious binary. Information extracted from static analysis can therefore be deemed unreliable and not as accurate when compared with information extracted from dynamic analysis.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>Malwares come in many forms. Sometimes it&rsquo;s a standalone binary whereas sometimes it&rsquo;s a legitimate software having a malware inside it. Sometimes it&rsquo;s a binary with malformed metadata and packed bytes to throw off the analyst whereas sometimes it acts as a downloader/launcher for a more malicious binary. Information extracted from static analysis can therefore be deemed unreliable and not as accurate when compared with information extracted from dynamic analysis.</p>
 <p>Dynamic analysis involves analyzing the executable&rsquo;s behavior in a controlled environment. All the actions performed and modifications to system settings cause by the executable are recorded and analyzed afterwards. This process is usually automated using sandboxes such as Cuckoo Sandbox logging the behavior.</p>
@@ -3258,10 +3261,10 @@ The order of API calls made by an executable is the closest one can get to it&rs
         
         <item>
             <title>Classification of Malwares through Static Analysis</title>
-            <link>http://localhost:1313/posts/2020/08/05/classification-of-malwares-through-static-analysis/</link>
+            <link>https://blog.hexterisk.com/posts/2020/08/05/classification-of-malwares-through-static-analysis/</link>
             <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/08/05/classification-of-malwares-through-static-analysis/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/08/05/classification-of-malwares-through-static-analysis/</guid>
             <description>&lt;p&gt;Static analysis is the analysis of an executable file on a structural bases without executing it in controlled environment. It is the analysis of the executable&amp;rsquo;s static attributes such as different sections and memory characteristics.&lt;/p&gt;
 &lt;p&gt;Therefore, static analysis of a PE allows extraction of a lot of metadata that can be useful in further analysis such as names of sections, imported DLLs and strings present which gives an early idea of the functions performed by the binary in question. Malicious binaries with unstructured and improperly formatted metadata (done to achieve sophisticated levels of obfuscation and anti-debugging/anti-reversing defenses) can raise suspicions since a benign PE generally has a well-formed and valid metadata. Therefore, static analysis has been a popular approach towards malware detection in PEs. Since execution of the binary is not required, this approach is much more lightweight and resource-conserving. This allows security teams and researchers quickly perform a preliminary analysis.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>Static analysis is the analysis of an executable file on a structural bases without executing it in controlled environment. It is the analysis of the executable&rsquo;s static attributes such as different sections and memory characteristics.</p>
@@ -3296,10 +3299,10 @@ Collection of subsequent printable bytes can be extremely unreliable since any r
         
         <item>
             <title>Serial 2</title>
-            <link>http://localhost:1313/posts/2020/07/30/serial-2/</link>
+            <link>https://blog.hexterisk.com/posts/2020/07/30/serial-2/</link>
             <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/07/30/serial-2/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/07/30/serial-2/</guid>
             <description>&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;: &lt;a href=&#34;https://stackedit.io/%5Bhttps://www.vulnhub.com/entry/serial-2,373/%5D(https://www.vulnhub.com/entry/serial-2,373/)&#34;&gt;serial: 2&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Date release&lt;/strong&gt;: 27 Sep 2019&lt;/li&gt;
@@ -3313,7 +3316,10 @@ Collection of subsequent printable bytes can be extremely unreliable since any r
 &lt;p&gt;Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.&lt;/p&gt;
 &lt;h3 id=&#34;ip-discovery&#34;&gt;IP Discovery&lt;/h3&gt;
 &lt;p&gt;Run &lt;code&gt;sudo netdiscover&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;It detects online hosts by sending ARP requests.&lt;/p&gt;</description>
+&lt;p&gt;It detects online hosts by sending ARP requests.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;&amp;ldquo;netdiscover&amp;rdquo;&#34; src=&#34;../Serial_2/pmHtp_bhilEmwhFJ0EaVuopytJDO0qqDa3KdbCIKVqbOl_CMDDaxCX1q8h4e3aLkc2XpUbWhvpKxBIniTkano_6rqd64e03ezaeAsEfC0EafGfIe0R6LdGPOtrYOGwfbiCd0MVl1jkf4zngdlQ.png&#34;&gt;
+&lt;em&gt;Output of netdiscover.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;192.168.1.10 happens to be the IP of the VM.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<ul>
 <li><strong>Name</strong>: <a href="https://stackedit.io/%5Bhttps://www.vulnhub.com/entry/serial-2,373/%5D(https://www.vulnhub.com/entry/serial-2,373/)">serial: 2</a></li>
 <li><strong>Date release</strong>: 27 Sep 2019</li>
@@ -3624,10 +3630,10 @@ Here, we are using <a href="https://github.com/danielmiessler/SecLists/blob/mast
         
         <item>
             <title>Serial 1</title>
-            <link>http://localhost:1313/posts/2020/07/22/serial-1/</link>
+            <link>https://blog.hexterisk.com/posts/2020/07/22/serial-1/</link>
             <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/07/22/serial-1/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/07/22/serial-1/</guid>
             <description>&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;: &lt;a href=&#34;https://www.vulnhub.com/entry/serial-1,349/&#34;&gt;serial: 1&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Date release&lt;/strong&gt;: 20 Aug 2019&lt;/li&gt;
@@ -3641,7 +3647,10 @@ Here, we are using <a href="https://github.com/danielmiessler/SecLists/blob/mast
 &lt;p&gt;Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.&lt;/p&gt;
 &lt;h3 id=&#34;ip-discovery&#34;&gt;IP Discovery&lt;/h3&gt;
 &lt;p&gt;Run &lt;code&gt;sudo netdiscover&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;It detects online hosts by sending ARP requests.&lt;/p&gt;</description>
+&lt;p&gt;It detects online hosts by sending ARP requests.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../Serial_1/1_image.png&#34;&gt;
+&lt;em&gt;Output of netdiscover.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;192.168.1.8 happens to be the IP of the VM.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<ul>
 <li><strong>Name</strong>: <a href="https://www.vulnhub.com/entry/serial-1,349/">serial: 1</a></li>
 <li><strong>Date release</strong>: 20 Aug 2019</li>
@@ -3789,10 +3798,10 @@ Here, we are using <a href="https://github.com/danielmiessler/SecLists/blob/mast
         
         <item>
             <title>Taint Analysis</title>
-            <link>http://localhost:1313/posts/2020/07/17/taint-analysis/</link>
+            <link>https://blog.hexterisk.com/posts/2020/07/17/taint-analysis/</link>
             <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/07/17/taint-analysis/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/07/17/taint-analysis/</guid>
             <description>&lt;p&gt;&lt;strong&gt;Taint Analysis&lt;/strong&gt; is a program analysis technique that allows you to determine the influence that a selected program state has on other parts of the program state. Taint any data that a program receives from the network, track that data, and raise an alert if it affects the program counter. If an operation uses the value of some tainted object, say &lt;em&gt;X&lt;/em&gt;, to derive a value for another, say &lt;em&gt;Y&lt;/em&gt;, then object &lt;em&gt;Y&lt;/em&gt; becomes tainted. Object &lt;em&gt;X&lt;/em&gt; tainted the object &lt;em&gt;Y&lt;/em&gt;. Taint Analysis can be classified into two types.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p><strong>Taint Analysis</strong> is a program analysis technique that allows you to determine the influence that a selected program state has on other parts of the program state. Taint any data that a program receives from the network, track that data, and raise an alert if it affects the program counter. If an operation uses the value of some tainted object, say <em>X</em>, to derive a value for another, say <em>Y</em>, then object <em>Y</em> becomes tainted. Object <em>X</em> tainted the object <em>Y</em>. Taint Analysis can be classified into two types.</p>
 <p> </p>
@@ -3864,10 +3873,10 @@ Here, we are using <a href="https://github.com/danielmiessler/SecLists/blob/mast
         
         <item>
             <title>Binary Obfuscation</title>
-            <link>http://localhost:1313/posts/2020/07/08/binary-obfuscation/</link>
+            <link>https://blog.hexterisk.com/posts/2020/07/08/binary-obfuscation/</link>
             <pubDate>Wed, 08 Jul 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/07/08/binary-obfuscation/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/07/08/binary-obfuscation/</guid>
             <description>&lt;p&gt;The main aim of &lt;strong&gt;Binary Obfuscation&lt;/strong&gt; is to hinder the process of static analysis of a binary. &lt;/p&gt;
 &lt;p&gt;Renaming the &lt;strong&gt;symbols&lt;/strong&gt;(variables and functions) of a binary implies that the clues as to what data a variable holds or what task a function performs that could be obtained from their names, are lost. This makes it a little harder for the analysts to keep a track of all the symbols without documenting them. &lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>The main aim of <strong>Binary Obfuscation</strong> is to hinder the process of static analysis of a binary. </p>
@@ -3913,10 +3922,10 @@ Here, we are using <a href="https://github.com/danielmiessler/SecLists/blob/mast
         
         <item>
             <title>Binary Instrumentation</title>
-            <link>http://localhost:1313/posts/2020/06/27/binary-instrumentation/</link>
+            <link>https://blog.hexterisk.com/posts/2020/06/27/binary-instrumentation/</link>
             <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/06/27/binary-instrumentation/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/06/27/binary-instrumentation/</guid>
             <description>&lt;p&gt;Inserting new code at any point in an existing binary to observe or modify the binary’s behavior in some way is called &lt;strong&gt;instrumenting&lt;/strong&gt; the binary. The point where you add new code is called the &lt;strong&gt;instrumentation point&lt;/strong&gt;, and the added code is called &lt;strong&gt;instrumentation code&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../Binary_Instrumentation/3_image.png&#34;&gt;
 &lt;em&gt;Tradeoffs of Dynamic and Static Binary Instrumentation.&lt;/em&gt;&lt;/p&gt;
@@ -3985,10 +3994,10 @@ Here, we are using <a href="https://github.com/danielmiessler/SecLists/blob/mast
         
         <item>
             <title>Principles of Symbolic Execution</title>
-            <link>http://localhost:1313/posts/2020/06/11/principles-of-symbolic-execution/</link>
+            <link>https://blog.hexterisk.com/posts/2020/06/11/principles-of-symbolic-execution/</link>
             <pubDate>Thu, 11 Jun 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/06/11/principles-of-symbolic-execution/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/06/11/principles-of-symbolic-execution/</guid>
             <description>&lt;p&gt;&lt;strong&gt;Symbolic Execution&lt;/strong&gt;, or &lt;strong&gt;symbex&lt;/strong&gt;, is a software analysis technique that expresses program state in terms of logical formulas that you can automatically reason about to answer complex questions about a program’s behavior. Can automatically increase the code coverage of dynamic analyses by generating new inputs that lead to unexplored program paths. Apply it sparingly and carefully because of scalability issues.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Symbex executes (or emulates) an application with &lt;strong&gt;symbolic values.&lt;/strong&gt;
@@ -4162,10 +4171,10 @@ and more.</li>
         
         <item>
             <title>Set 6</title>
-            <link>http://localhost:1313/posts/2020/06/01/set-6/</link>
+            <link>https://blog.hexterisk.com/posts/2020/06/01/set-6/</link>
             <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/06/01/set-6/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/06/01/set-6/</guid>
             <description>&lt;p&gt;Refer to this &lt;a href=&#34;https://github.com/hexterisk/cryptopals-solutions&#34;&gt;repository&lt;/a&gt; for solution scripts and the IPython Notebook pertaining to the explanations here.&lt;/p&gt;
 &lt;p&gt; &lt;/p&gt;
 &lt;h3 id=&#34;challenge-41-implement-unpadded-message-recovery-oracle&#34;&gt;Challenge 41: Implement unpadded message recovery oracle&lt;/h3&gt;
@@ -5115,10 +5124,10 @@ The full Bleichenbacher attack works basically like this:</p>
         
         <item>
             <title>Set 5</title>
-            <link>http://localhost:1313/posts/2020/05/17/set-5/</link>
+            <link>https://blog.hexterisk.com/posts/2020/05/17/set-5/</link>
             <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/05/17/set-5/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/05/17/set-5/</guid>
             <description>&lt;p&gt;Refer to this &lt;a href=&#34;https://github.com/hexterisk/cryptopals-solutions&#34;&gt;repository&lt;/a&gt; for solution scripts and the IPython Notebook pertaining to the explanations here.&lt;/p&gt;
 &lt;h3 id=&#34;challenge-33-implement-diffie-hellman&#34;&gt;Challenge 33: Implement Diffie-Hellman&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://cryptopals.com/sets/4/challenges/33&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;
@@ -6102,10 +6111,10 @@ To decrypt RSA using a simple cube root, leave off the final modulus operation; 
         
         <item>
             <title>Set 4</title>
-            <link>http://localhost:1313/posts/2020/05/06/set-4/</link>
+            <link>https://blog.hexterisk.com/posts/2020/05/06/set-4/</link>
             <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/05/06/set-4/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/05/06/set-4/</guid>
             <description>&lt;p&gt;Refer to this &lt;a href=&#34;https://github.com/hexterisk/cryptopals-solutions&#34;&gt;repository&lt;/a&gt; for solution scripts and the IPython Notebook pertaining to the explanations here.&lt;/p&gt;
 &lt;h3 id=&#34;challenge-25-break-random-access-readwrite-aes-ctr&#34;&gt;Challenge 25: Break &amp;ldquo;random access read/write&amp;rdquo; AES CTR&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://cryptopals.com/sets/4/challenges/25&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;
@@ -6900,10 +6909,10 @@ Using the timing leak in this application, write a program that discovers the va
         
         <item>
             <title>Set 3</title>
-            <link>http://localhost:1313/posts/2020/04/29/set-3/</link>
+            <link>https://blog.hexterisk.com/posts/2020/04/29/set-3/</link>
             <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/04/29/set-3/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/04/29/set-3/</guid>
             <description>&lt;p&gt;Refer to this &lt;a href=&#34;https://github.com/hexterisk/cryptopals-solutions&#34;&gt;repository&lt;/a&gt; for solution scripts and the IPython Notebook pertaining to the explanations here.&lt;/p&gt;
 &lt;p&gt; &lt;/p&gt;
 &lt;h3 id=&#34;challenge-17-the-cbc-padding-oracle&#34;&gt;Challenge 17: The CBC padding oracle&lt;/h3&gt;
@@ -7631,10 +7640,10 @@ Write a function to check if any given password token is actually the product of
         
         <item>
             <title>Set 2</title>
-            <link>http://localhost:1313/posts/2020/04/24/set-2/</link>
+            <link>https://blog.hexterisk.com/posts/2020/04/24/set-2/</link>
             <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/04/24/set-2/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/04/24/set-2/</guid>
             <description>&lt;p&gt;Refer to this &lt;a href=&#34;https://github.com/hexterisk/cryptopals-solutions&#34;&gt;repository&lt;/a&gt; for solution scripts and the IPython Notebook pertaining to the explanations here.&lt;/p&gt;
 &lt;p&gt; &lt;/p&gt;
 &lt;h3 id=&#34;challenge-9-implement-pkcs7-padding&#34;&gt;Challenge 9: Implement PKCS#7 padding&lt;/h3&gt;
@@ -8410,10 +8419,10 @@ Number of bytes of padding required:  7</p>
         
         <item>
             <title>Set 1</title>
-            <link>http://localhost:1313/posts/2020/04/20/set-1/</link>
+            <link>https://blog.hexterisk.com/posts/2020/04/20/set-1/</link>
             <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/04/20/set-1/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/04/20/set-1/</guid>
             <description>&lt;p&gt;Refer to this &lt;a href=&#34;https://github.com/hexterisk/cryptopals-solutions&#34;&gt;repository&lt;/a&gt; for solution scripts and the IPython Notebook pertaining to the explanations here.&lt;/p&gt;
 &lt;h3 id=&#34;challenge-1-convert-hex-to-base64&#34;&gt;Challenge 1: Convert hex to base64&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://cryptopals.com/sets/1/challenges/1&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;
@@ -8963,10 +8972,10 @@ ECB ciphered text index: 132/205</p>
         
         <item>
             <title>Disassembly and Binary Analysis Fundamentals</title>
-            <link>http://localhost:1313/posts/2020/04/02/disassembly-and-binary-analysis-fundamentals/</link>
+            <link>https://blog.hexterisk.com/posts/2020/04/02/disassembly-and-binary-analysis-fundamentals/</link>
             <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/04/02/disassembly-and-binary-analysis-fundamentals/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/04/02/disassembly-and-binary-analysis-fundamentals/</guid>
             <description>&lt;h2 id=&#34;static-disassembly&#34;&gt;Static Disassembly&lt;/h2&gt;
 &lt;p&gt;When people say disassembly, they usually mean static disassembly, which involves extracting the instructions from a binary without executing it.&lt;/p&gt;
 &lt;h3 id=&#34;linear-disassembly&#34;&gt;Linear Disassembly&lt;/h3&gt;
@@ -9222,10 +9231,10 @@ x = x + 10 					# x ∈ [15,∞]</p>
         
         <item>
             <title>Trace Analysis</title>
-            <link>http://localhost:1313/posts/2020/03/25/trace-analysis/</link>
+            <link>https://blog.hexterisk.com/posts/2020/03/25/trace-analysis/</link>
             <pubDate>Wed, 25 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/03/25/trace-analysis/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/03/25/trace-analysis/</guid>
             <description>&lt;h2 id=&#34;system-call-trace&#34;&gt;System Call Trace&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;strace&lt;/strong&gt; can be used to investigate system call behavior. In some cases, you may want to attach strace to a running process. To do this, you need to use the -p pid option, where pid is the process ID of the process you want to attach to.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;$&lt;/span&gt; strace .&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;ctf show_me_the_flag
@@ -9311,7 +9320,7 @@ x = x + 10 					# x ∈ [15,∞]</p>
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;➐&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;exit_group&lt;/span&gt;(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;?&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+++&lt;/span&gt; exited with &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+++&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When tracing a program from the start, strace includes all the system calls used by the program interpreter to set up the process, making the output quite verbose. The first system call in the output is execve, which is called by your shell to launch the program ➊. After that, the program interpreter takes over and starts setting up the execution environment. This involves setting up memory regions and setting the correct memory access permissions using mprotect. Additionally, you can see the system calls used to look up and load the required dynamic libraries. The dynamic linker is searching for the lib5ae9b7f.so library in a number of standard subfolders, followed by in your current working directory (➋ /ch3) since LD_LIBRARY_PATH environment variable was set to it earlier to tell the dynamic linker to add your current working directory to its search path. When the library is found, the dynamic linker reads it and maps it into memory ➌. The setup process is repeated for other required libraries, such as libstdc++.so.6 ➍, and it accounts for the vast majority of the strace output. It isn’t until the last three system calls that you finally see application specific behavior. The first system call used is write, which is used to print checking &amp;lsquo;show_me_the_flag&amp;rsquo; to the screen ➎. You see another write call to print the string ok ➏, and finally, there’s a call to exit_group, which leads to the exit with status code 1 ➐.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<h2 id="system-call-trace">System Call Trace</h2>
 <p><strong>strace</strong> can be used to investigate system call behavior. In some cases, you may want to attach strace to a running process. To do this, you need to use the -p pid option, where pid is the process ID of the process you want to attach to.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span> strace .<span style="color:#f92672">/</span>ctf show_me_the_flag
@@ -9445,10 +9454,10 @@ x = x + 10 					# x ∈ [15,∞]</p>
         
         <item>
             <title>Stack and it&#39;s Frames</title>
-            <link>http://localhost:1313/posts/2020/03/19/stack-and-its-frames/</link>
+            <link>https://blog.hexterisk.com/posts/2020/03/19/stack-and-its-frames/</link>
             <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/03/19/stack-and-its-frames/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/03/19/stack-and-its-frames/</guid>
             <description>&lt;p&gt;&lt;strong&gt;Stack&lt;/strong&gt; is a data structure, and means exactly what it&amp;rsquo;s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a &lt;strong&gt;LIFO&lt;/strong&gt;(last in, first out) structure. &lt;/p&gt;
 &lt;p&gt;Memory for functions, local variables, and flow control is stored in the stack.&lt;/p&gt;
 &lt;p&gt; &lt;/p&gt;
@@ -9540,10 +9549,10 @@ x = x + 10 					# x ∈ [15,∞]</p>
         
         <item>
             <title>Simple Code Injection Techniques for ELF</title>
-            <link>http://localhost:1313/posts/2020/03/15/simple-code-injection-techniques-for-elf/</link>
+            <link>https://blog.hexterisk.com/posts/2020/03/15/simple-code-injection-techniques-for-elf/</link>
             <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/03/15/simple-code-injection-techniques-for-elf/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/03/15/simple-code-injection-techniques-for-elf/</guid>
             <description>&lt;h2 id=&#34;bare-metal-binary-modification&#34;&gt;Bare-Metal Binary Modification&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Modify an existing binary is by directly editing the bytes of a binary file in hexadecimal format, using a program like &lt;em&gt;hexedit&lt;/em&gt;.
@@ -9606,10 +9615,10 @@ x = x + 10 					# x ∈ [15,∞]</p>
         
         <item>
             <title>The PE Format</title>
-            <link>http://localhost:1313/posts/2020/03/12/the-pe-format/</link>
+            <link>https://blog.hexterisk.com/posts/2020/03/12/the-pe-format/</link>
             <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/03/12/the-pe-format/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/03/12/the-pe-format/</guid>
             <description>&lt;ul&gt;
 &lt;li&gt;PE is a modified version of the &lt;strong&gt;Common Object File Format&lt;/strong&gt; (&lt;strong&gt;COFF&lt;/strong&gt;), thus also referred to as &lt;strong&gt;PE/COFF&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;The 64-bit version of PE is called &lt;strong&gt;PE32+.&lt;/strong&gt;&lt;/li&gt;
@@ -9681,10 +9690,10 @@ x = x + 10 					# x ∈ [15,∞]</p>
         
         <item>
             <title>The ELF Format</title>
-            <link>http://localhost:1313/posts/2020/03/07/the-elf-format/</link>
+            <link>https://blog.hexterisk.com/posts/2020/03/07/the-elf-format/</link>
             <pubDate>Sat, 07 Mar 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/03/07/the-elf-format/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/03/07/the-elf-format/</guid>
             <description>&lt;p&gt;ELF binaries really consist of only four types of components: &lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Executable Header&lt;/li&gt;
@@ -9716,7 +9725,7 @@ x = x + 10 					# x ∈ [15,∞]</p>
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;uint16_t&lt;/span&gt; e_shnum; &lt;span style=&#34;color:#75715e&#34;&gt;/* Section header table entry count */&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;uint16_t&lt;/span&gt; e_shstrndx; &lt;span style=&#34;color:#75715e&#34;&gt;/* Section header string table index */&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} Elf64_Ehdr;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt; &lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>ELF binaries really consist of only four types of components: </p>
 <ol>
 <li>Executable Header</li>
@@ -9970,10 +9979,10 @@ x = x + 10 					# x ∈ [15,∞]</p>
         
         <item>
             <title>Anatomy of a Binary</title>
-            <link>http://localhost:1313/posts/2020/02/28/anatomy-of-a-binary/</link>
+            <link>https://blog.hexterisk.com/posts/2020/02/28/anatomy-of-a-binary/</link>
             <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/02/28/anatomy-of-a-binary/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/02/28/anatomy-of-a-binary/</guid>
             <description>&lt;h2 id=&#34;the-c-compilation-process&#34;&gt;The C Compilation Process&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Compilation is the process of translating human readable source code into machine code that the processor can execute.&lt;/li&gt;
@@ -9988,7 +9997,8 @@ x = x + 10 					# x ∈ [15,∞]</p>
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;printf&lt;/span&gt;(FORMAT_STRING, MESSAGE);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;../Anatomy_of_a_Binary/1_image.png&#34;&gt;
+&lt;em&gt;The C Compilation Process.&lt;/em&gt;&lt;/p&gt;</description>
             <content type="html"><![CDATA[<h2 id="the-c-compilation-process">The C Compilation Process</h2>
 <ul>
 <li>Compilation is the process of translating human readable source code into machine code that the processor can execute.</li>
@@ -10174,10 +10184,10 @@ x = x + 10 					# x ∈ [15,∞]</p>
         
         <item>
             <title>Dockerise MySQL &#43; phpMyAdmin</title>
-            <link>http://localhost:1313/posts/2020/02/09/dockerise-mysql--phpmyadmin/</link>
+            <link>https://blog.hexterisk.com/posts/2020/02/09/dockerise-mysql--phpmyadmin/</link>
             <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/02/09/dockerise-mysql--phpmyadmin/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/02/09/dockerise-mysql--phpmyadmin/</guid>
             <description>&lt;p&gt;A common requirement in a large number of software projects is a relational database with an easy to use management tool. Considering how often a developer needs this, setting it up everytime from scratch can be a drag. However, with the advent of containerisation, we can have a setup off the ground in a couple of minutes, whether it&amp;rsquo;s a development or a production environment.&lt;/p&gt;
 &lt;p&gt;The age long discussion of MySQL versus MariaDB is something that an average developer need not bother with unless their requirement is very specific. MariaDB is a fork of MySQL and is developed separately, and therefore contains a number of incompatibilities when compared to the standard MySQL. However, the fundamental infrastructure of the database and indexing are the same:&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>A common requirement in a large number of software projects is a relational database with an easy to use management tool. Considering how often a developer needs this, setting it up everytime from scratch can be a drag. However, with the advent of containerisation, we can have a setup off the ground in a couple of minutes, whether it&rsquo;s a development or a production environment.</p>
@@ -10273,17 +10283,18 @@ x = x + 10 					# x ∈ [15,∞]</p>
         
         <item>
             <title>Authenticated MongoDB Container</title>
-            <link>http://localhost:1313/posts/2020/01/22/authenticated-mongodb-container/</link>
+            <link>https://blog.hexterisk.com/posts/2020/01/22/authenticated-mongodb-container/</link>
             <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
             
-            <guid>http://localhost:1313/posts/2020/01/22/authenticated-mongodb-container/</guid>
+            <guid>https://blog.hexterisk.com/posts/2020/01/22/authenticated-mongodb-container/</guid>
             <description>&lt;p&gt;Unsecured mongodb servers have been prime targets for hacks aimed at exaction of ransom in exchange of data. Therefore, authenticated mongo database server is now more of a necessity to ensure security of your database.&lt;/p&gt;
 &lt;p&gt;There are two ways to setup an authenticated mongo server container.&lt;/p&gt;
 &lt;p&gt; &lt;/p&gt;
 &lt;h2 id=&#34;manually&#34;&gt;Manually&lt;/h2&gt;
 &lt;h3 id=&#34;setup-the-container&#34;&gt;Setup the container&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;../Authenticated_Mongodb/1_image.png&#34;&gt;
-&lt;em&gt;Pulling the mongo docker image from dockerhub as it doesn&amp;rsquo;t exist on server/local machine.&lt;/em&gt;&lt;/p&gt;</description>
+&lt;em&gt;Pulling the mongo docker image from dockerhub as it doesn&amp;rsquo;t exist on server/local machine.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Create a directory for the database to be stored in on the server/local machine.&lt;/p&gt;</description>
             <content type="html"><![CDATA[<p>Unsecured mongodb servers have been prime targets for hacks aimed at exaction of ransom in exchange of data. Therefore, authenticated mongo database server is now more of a necessity to ensure security of your database.</p>
 <p>There are two ways to setup an authenticated mongo server container.</p>
 <p> </p>

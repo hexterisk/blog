@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Pwn the world.</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://blog.hexterisk.com/tags/</link>
     <description>Recent content in Tags on Pwn the world.</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,75 +10,75 @@
     <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.hexterisk.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Active-Object</title>
-      <link>http://localhost:1313/tags/active-object/</link>
+      <link>https://blog.hexterisk.com/tags/active-object/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/tags/active-object/</guid>
+      <guid>https://blog.hexterisk.com/tags/active-object/</guid>
       <description></description>
     </item>
     <item>
       <title>Balking</title>
-      <link>http://localhost:1313/tags/balking/</link>
+      <link>https://blog.hexterisk.com/tags/balking/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/tags/balking/</guid>
+      <guid>https://blog.hexterisk.com/tags/balking/</guid>
       <description></description>
     </item>
     <item>
       <title>Barrier</title>
-      <link>http://localhost:1313/tags/barrier/</link>
+      <link>https://blog.hexterisk.com/tags/barrier/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/tags/barrier/</guid>
+      <guid>https://blog.hexterisk.com/tags/barrier/</guid>
       <description></description>
     </item>
     <item>
       <title>Concurrency</title>
-      <link>http://localhost:1313/tags/concurrency/</link>
+      <link>https://blog.hexterisk.com/tags/concurrency/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/tags/concurrency/</guid>
+      <guid>https://blog.hexterisk.com/tags/concurrency/</guid>
       <description></description>
     </item>
     <item>
       <title>Concurrency-Patterns</title>
-      <link>http://localhost:1313/tags/concurrency-patterns/</link>
+      <link>https://blog.hexterisk.com/tags/concurrency-patterns/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/tags/concurrency-patterns/</guid>
+      <guid>https://blog.hexterisk.com/tags/concurrency-patterns/</guid>
       <description></description>
     </item>
     <item>
       <title>Design-Patterns</title>
-      <link>http://localhost:1313/tags/design-patterns/</link>
+      <link>https://blog.hexterisk.com/tags/design-patterns/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/tags/design-patterns/</guid>
+      <guid>https://blog.hexterisk.com/tags/design-patterns/</guid>
       <description></description>
     </item>
     <item>
       <title>Double-Checked-Locking</title>
-      <link>http://localhost:1313/tags/double-checked-locking/</link>
+      <link>https://blog.hexterisk.com/tags/double-checked-locking/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/tags/double-checked-locking/</guid>
+      <guid>https://blog.hexterisk.com/tags/double-checked-locking/</guid>
       <description></description>
     </item>
     <item>
       <title>Guarded-Suspension</title>
-      <link>http://localhost:1313/tags/guarded-suspension/</link>
+      <link>https://blog.hexterisk.com/tags/guarded-suspension/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/tags/guarded-suspension/</guid>
+      <guid>https://blog.hexterisk.com/tags/guarded-suspension/</guid>
       <description></description>
     </item>
     <item>
       <title>Leader-Follower</title>
-      <link>http://localhost:1313/tags/leader-follower/</link>
+      <link>https://blog.hexterisk.com/tags/leader-follower/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/tags/leader-follower/</guid>
+      <guid>https://blog.hexterisk.com/tags/leader-follower/</guid>
       <description></description>
     </item>
     <item>
       <title>Monitor</title>
-      <link>http://localhost:1313/tags/monitor/</link>
+      <link>https://blog.hexterisk.com/tags/monitor/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/tags/monitor/</guid>
+      <guid>https://blog.hexterisk.com/tags/monitor/</guid>
       <description></description>
     </item>
   </channel>

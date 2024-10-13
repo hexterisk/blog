@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Base64 on Pwn the world.</title>
-    <link>http://localhost:1313/tags/base64/</link>
+    <link>https://blog.hexterisk.com/tags/base64/</link>
     <description>Recent content in Base64 on Pwn the world.</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,19 +10,19 @@
     <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Fri, 24 Apr 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/base64/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.hexterisk.com/tags/base64/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Set 2</title>
-      <link>http://localhost:1313/posts/2020/04/24/set-2/</link>
+      <link>https://blog.hexterisk.com/posts/2020/04/24/set-2/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/posts/2020/04/24/set-2/</guid>
+      <guid>https://blog.hexterisk.com/posts/2020/04/24/set-2/</guid>
       <description>&lt;p&gt;Refer to this &lt;a href=&#34;https://github.com/hexterisk/cryptopals-solutions&#34;&gt;repository&lt;/a&gt; for solution scripts and the IPython Notebook pertaining to the explanations here.&lt;/p&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h3 id=&#34;challenge-9-implement-pkcs7-padding&#34;&gt;Challenge 9: Implement PKCS#7 padding&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cryptopals.com/sets/2/challenges/9&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;A block cipher transforms a fixed-sized block (usually 8 or 16 bytes) of plaintext into ciphertext. But we almost never want to transform a single block; we encrypt irregularly-sized messages.&lt;br&gt;&#xA;One way we account for irregularly-sized messages is by padding, creating a plaintext that is an even multiple of the blocksize. The most popular padding scheme is called PKCS#7.&lt;br&gt;&#xA;So: pad any block to a specific block length, by appending the number of bytes of padding to the end of the block. For instance,&lt;br&gt;&#xA;&lt;strong&gt;&amp;ldquo;YELLOW SUBMARINE&amp;rdquo;&lt;/strong&gt;&lt;br&gt;&#xA;&amp;hellip; padded to 20 bytes would be:&lt;br&gt;&#xA;&lt;strong&gt;&amp;ldquo;YELLOW SUBMARINE\x04\x04\x04\x04&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Set 1</title>
-      <link>http://localhost:1313/posts/2020/04/20/set-1/</link>
+      <link>https://blog.hexterisk.com/posts/2020/04/20/set-1/</link>
       <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/posts/2020/04/20/set-1/</guid>
+      <guid>https://blog.hexterisk.com/posts/2020/04/20/set-1/</guid>
       <description>&lt;p&gt;Refer to this &lt;a href=&#34;https://github.com/hexterisk/cryptopals-solutions&#34;&gt;repository&lt;/a&gt; for solution scripts and the IPython Notebook pertaining to the explanations here.&lt;/p&gt;&#xA;&lt;h3 id=&#34;challenge-1-convert-hex-to-base64&#34;&gt;Challenge 1: Convert hex to base64&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cryptopals.com/sets/1/challenges/1&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;The string:&lt;br&gt;&#xA;&lt;strong&gt;49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f697&lt;/strong&gt;  &lt;strong&gt;36f6e6f7573206d757368726f6f6d&lt;/strong&gt;&lt;br&gt;&#xA;Should produce:&lt;br&gt;&#xA;&lt;strong&gt;SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t&lt;/strong&gt;&lt;br&gt;&#xA;So go ahead and make that happen.&lt;br&gt;&#xA;You&amp;rsquo;ll need to use this code for the rest of the exercises.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Data, essentially raw bytes/binary (0, 1), can be represented in various forms and formats as required. These representations may be used for simply the presentation of data, or may be required by some protocol so as to prevent misinterpretation of data.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Expression on Pwn the world.</title>
-    <link>http://localhost:1313/tags/expression/</link>
+    <link>https://blog.hexterisk.com/tags/expression/</link>
     <description>Recent content in Expression on Pwn the world.</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,33 +10,33 @@
     <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Fri, 04 Sep 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/expression/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.hexterisk.com/tags/expression/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Symbolic Execution and Angr</title>
-      <link>http://localhost:1313/posts/2020/09/04/symbolic-execution-and-angr/</link>
+      <link>https://blog.hexterisk.com/posts/2020/09/04/symbolic-execution-and-angr/</link>
       <pubDate>Fri, 04 Sep 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/posts/2020/09/04/symbolic-execution-and-angr/</guid>
+      <guid>https://blog.hexterisk.com/posts/2020/09/04/symbolic-execution-and-angr/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Symbolic Execution&lt;/strong&gt; is mainly focused on converting a program made up of a concrete set of instructions into an equation-like format. This is achieved with two core components:&lt;/p&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;symbols&#34;&gt;Symbols&lt;/h2&gt;&#xA;&lt;p&gt;Different values in a program(such as the user input) are substituted with &lt;strong&gt;Symbols&lt;/strong&gt;(variables or placeholders). These symbols pertain to a domain full of values, allowing us to explore the program in a much more open form, basically “walking through the program” with a domain full of values(handled by any one of the constraint solving backends like Z3) instead of walking a fixed path due to a fixed hard-coded value/input.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Constraint Solvers and Z3</title>
-      <link>http://localhost:1313/posts/2020/08/18/constraint-solvers-and-z3/</link>
+      <link>https://blog.hexterisk.com/posts/2020/08/18/constraint-solvers-and-z3/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/posts/2020/08/18/constraint-solvers-and-z3/</guid>
-      <description>&lt;p&gt;A constraint solver must be versatile, that is, it should be able to act as an:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Interpreter&lt;/strong&gt;: Given the input, solve for the output of the equation.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Inverter&lt;/strong&gt;: Given the output, solve for the input of the equation.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Synthesizer&lt;/strong&gt;: Act as both Interpreter and Inverter.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;formulating-programs&#34;&gt;Formulating Programs&lt;/h2&gt;&#xA;&lt;p&gt;Assume a formula &lt;em&gt;𝑆ₚ(𝑥, 𝑦)&lt;/em&gt; which holds if and only if program &lt;em&gt;P(x)&lt;/em&gt; outputs value &lt;em&gt;y&lt;/em&gt; such that:&lt;/p&gt;</description>
+      <guid>https://blog.hexterisk.com/posts/2020/08/18/constraint-solvers-and-z3/</guid>
+      <description>&lt;p&gt;A constraint solver must be versatile, that is, it should be able to act as an:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Interpreter&lt;/strong&gt;: Given the input, solve for the output of the equation.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Inverter&lt;/strong&gt;: Given the output, solve for the input of the equation.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Synthesizer&lt;/strong&gt;: Act as both Interpreter and Inverter.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;formulating-programs&#34;&gt;Formulating Programs&lt;/h2&gt;&#xA;&lt;p&gt;Assume a formula &lt;em&gt;𝑆ₚ(𝑥, 𝑦)&lt;/em&gt; which holds if and only if program &lt;em&gt;P(x)&lt;/em&gt; outputs value &lt;em&gt;y&lt;/em&gt; such that:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Program:&lt;/strong&gt; f(&lt;em&gt;𝑥&lt;/em&gt;) { return &lt;em&gt;𝑥&lt;/em&gt; + &lt;em&gt;𝑥&lt;/em&gt; }&lt;/p&gt;</description>
     </item>
     <item>
       <title>Principles of Symbolic Execution</title>
-      <link>http://localhost:1313/posts/2020/06/11/principles-of-symbolic-execution/</link>
+      <link>https://blog.hexterisk.com/posts/2020/06/11/principles-of-symbolic-execution/</link>
       <pubDate>Thu, 11 Jun 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/posts/2020/06/11/principles-of-symbolic-execution/</guid>
+      <guid>https://blog.hexterisk.com/posts/2020/06/11/principles-of-symbolic-execution/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Symbolic Execution&lt;/strong&gt;, or &lt;strong&gt;symbex&lt;/strong&gt;, is a software analysis technique that expresses program state in terms of logical formulas that you can automatically reason about to answer complex questions about a program’s behavior. Can automatically increase the code coverage of dynamic analyses by generating new inputs that lead to unexplored program paths. Apply it sparingly and carefully because of scalability issues.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Symbex executes (or emulates) an application with &lt;strong&gt;symbolic values.&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Symbolic values&lt;/strong&gt; represent a domain covering possible concrete values, represented by symbols like &lt;em&gt;φ&lt;/em&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Symbolic variables&lt;/strong&gt; are just memory addresses that will hold symbolic values.&lt;/li&gt;&#xA;&lt;li&gt;Symbolic execution computes logical formulas over these symbols. These formulas represent the operations performed on the symbols during execution and describe limits for the range of values the symbols can represent.&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Many symbex engines maintain the symbols and formulas as metadata in addition to concrete values rather than replacing the concrete values.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;The collection of symbolic values and formulas that a symbex engine maintains is called the &lt;strong&gt;Symbolic State&lt;/strong&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Symbex engine computes two different kinds of formulas over these symbolic values: a set of &lt;strong&gt;symbolic expressions&lt;/strong&gt; and a &lt;strong&gt;path constraint.&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt; &lt;/p&gt;</description>
     </item>
     <item>
       <title>Stack and it&#39;s Frames</title>
-      <link>http://localhost:1313/posts/2020/03/19/stack-and-its-frames/</link>
+      <link>https://blog.hexterisk.com/posts/2020/03/19/stack-and-its-frames/</link>
       <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/posts/2020/03/19/stack-and-its-frames/</guid>
+      <guid>https://blog.hexterisk.com/posts/2020/03/19/stack-and-its-frames/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Stack&lt;/strong&gt; is a data structure, and means exactly what it&amp;rsquo;s name says - a stack(of objects). It is mainly characterized by pushing and popping operations. You push items onto the stack, and then pop those items off. A stack is therefore a &lt;strong&gt;LIFO&lt;/strong&gt;(last in, first out) structure. &lt;/p&gt;&#xA;&lt;p&gt;Memory for functions, local variables, and flow control is stored in the stack.&lt;/p&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;stack-layout&#34;&gt;Stack Layout&lt;/h2&gt;&#xA;&lt;p&gt;The stack grows from higher addresses to lower addresses. This behavior can be categorized as &lt;em&gt;growing downwards&lt;/em&gt; or &lt;em&gt;allocation in a top-down manner&lt;/em&gt;. Therefore, top of the stack is actually the lower-most address being used by the stack at that moment.&lt;/p&gt;</description>
     </item>
   </channel>

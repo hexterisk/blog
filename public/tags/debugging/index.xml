@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Debugging on Pwn the world.</title>
-    <link>http://localhost:1313/tags/debugging/</link>
+    <link>https://blog.hexterisk.com/tags/debugging/</link>
     <description>Recent content in Debugging on Pwn the world.</description>
     <generator>Hugo</generator>
     <language>en</language>
@@ -10,13 +10,13 @@
     <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Wed, 21 Oct 2020 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.hexterisk.com/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dynamic Binary Instrumentation and Pin</title>
-      <link>http://localhost:1313/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</link>
+      <link>https://blog.hexterisk.com/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</link>
       <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
-      <guid>http://localhost:1313/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Dynamic Binary Instrumentation&lt;/strong&gt; is the process of monitoring or measuring a binary&amp;rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.&lt;/p&gt;&#xA;&lt;p&gt;We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.&lt;/p&gt;&#xA;&lt;p&gt; &lt;/p&gt;</description>
+      <guid>https://blog.hexterisk.com/posts/2020/10/21/dynamic-binary-instrumentation-and-pin/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Dynamic Binary Instrumentation&lt;/strong&gt; is the process of monitoring or measuring a binary&amp;rsquo;s execution and its behavior, such as resource usage, during runtime. It allows us to focus on specific parts of a binary for various purposes such as vulnerability analysis, dynamic tainting and state analysis.&lt;/p&gt;&#xA;&lt;p&gt;We will skip over Source Instrumentation since it requires source code of the application, which is pretty rare in real world scenarios.&lt;/p&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;instrumentation-code&#34;&gt;Instrumentation Code&lt;/h2&gt;&#xA;&lt;p&gt;The technique requires injecting &lt;strong&gt;Instrumentation Code&lt;/strong&gt; into a running binary. DBI Frameworks introduce a layer between the OS and the application, making this injected code completely transparent to the application we inject it in. We simply add hooks to parts of interest. These hooks intercept the instruction execution and transfers control to the instrumentation code, thus we can observe and modify the instructions of the program being instrumented, as it executes.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
