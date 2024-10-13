@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Pwn the world.</title>
+    <link>http://localhost:1313/categories/</link>
+    <description>Recent content in Categories on Pwn the world.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>hexterisk@gmail.com (Bhanupratap Singh)</managingEditor>
+    <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Design-Patterns</title>
+      <link>http://localhost:1313/categories/design-patterns/</link>
+      <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/categories/design-patterns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Art-of-Fuzzing</title>
+      <link>http://localhost:1313/categories/art-of-fuzzing/</link>
+      <pubDate>Mon, 15 Mar 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/categories/art-of-fuzzing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ml-for-Sec</title>
+      <link>http://localhost:1313/categories/ml-for-sec/</link>
+      <pubDate>Fri, 20 Nov 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/categories/ml-for-sec/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Practical-Binary-Analysis</title>
+      <link>http://localhost:1313/categories/practical-binary-analysis/</link>
+      <pubDate>Sun, 08 Nov 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/categories/practical-binary-analysis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pentesting</title>
+      <link>http://localhost:1313/categories/pentesting/</link>
+      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/categories/pentesting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Advanced-Binary-Analysis</title>
+      <link>http://localhost:1313/categories/advanced-binary-analysis/</link>
+      <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/categories/advanced-binary-analysis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cryptopals</title>
+      <link>http://localhost:1313/categories/cryptopals/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/categories/cryptopals/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Basic-Binary-Analysis</title>
+      <link>http://localhost:1313/categories/basic-binary-analysis/</link>
+      <pubDate>Thu, 02 Apr 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/categories/basic-binary-analysis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dev-Ops</title>
+      <link>http://localhost:1313/categories/dev-ops/</link>
+      <pubDate>Sun, 09 Feb 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/categories/dev-ops/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

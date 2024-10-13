@@ -1,0 +1,81 @@
+{
+	"formatVersion": 1,
+	"appVersion": "0.48.7",
+	"files": [
+		{
+			"isClone": false,
+			"noteId": "gzKpzGBQzU7h",
+			"notePath": [
+				"gzKpzGBQzU7h"
+			],
+			"title": "Introduction",
+			"notePosition": 0,
+			"prefix": null,
+			"isExpanded": false,
+			"type": "text",
+			"mime": "text/html",
+			"attributes": [
+				{
+					"type": "relation",
+					"name": "imageLink",
+					"value": "c1o06ziq5Mdk",
+					"isInheritable": false,
+					"position": 18
+				}
+			],
+			"format": "markdown",
+			"dataFileName": "Introduction.md",
+			"dirFileName": "Introduction",
+			"children": [
+				{
+					"isClone": false,
+					"noteId": "fxIPNk4ROAyU",
+					"notePath": [
+						"gzKpzGBQzU7h",
+						"fxIPNk4ROAyU"
+					],
+					"title": "image.png",
+					"notePosition": 0,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "image",
+					"mime": "image/jpg",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "originalFileName",
+							"value": "image.png",
+							"isInheritable": false,
+							"position": 1000
+						}
+					],
+					"dataFileName": "image.png"
+				},
+				{
+					"isClone": false,
+					"noteId": "c1o06ziq5Mdk",
+					"notePath": [
+						"gzKpzGBQzU7h",
+						"c1o06ziq5Mdk"
+					],
+					"title": "a.png",
+					"notePosition": 10,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "image",
+					"mime": "image/jpg",
+					"attributes": [
+						{
+							"type": "label",
+							"name": "originalFileName",
+							"value": "a.png",
+							"isInheritable": false,
+							"position": 1000
+						}
+					],
+					"dataFileName": "a.png"
+				}
+			]
+		}
+	]
+}

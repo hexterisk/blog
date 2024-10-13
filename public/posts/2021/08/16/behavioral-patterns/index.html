@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:hexterisk]">
+<meta name="description" content="Behavioral Design Patterns are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
+Behavioral Class Patterns Inheritance is employed to distribute behavior between classes.
+Behavioral Object Patterns Composition is employed to characterize how a group of objects work with each other to perform a task that cannot be accomplished by a single object.
+" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="http://localhost:1313/posts/2021/08/16/behavioral-patterns/" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+    <title>
+        
+            Behavioral Patterns: Pwn the world.  — A noob&#39;s attempt at blogging.
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../favicon-16x16.png">
+    <link rel="manifest" href="../../../../../site.webmanifest">
+    <link rel="mask-icon" href="../../../../../safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+  <meta itemprop="name" content="Behavioral Patterns">
+  <meta itemprop="description" content="Behavioral Design Patterns are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
+Behavioral Class Patterns Inheritance is employed to distribute behavior between classes.
+Behavioral Object Patterns Composition is employed to characterize how a group of objects work with each other to perform a task that cannot be accomplished by a single object.">
+  <meta itemprop="datePublished" content="2021-08-16T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-08-16T00:00:00+00:00">
+  <meta itemprop="wordCount" content="2441">
+  <meta itemprop="keywords" content="Design-Patterns,Gangs-of-Four,Behavioral-Patterns,Chain-of-Responsibility,Command,Interpreter,Iterator,Mediator,Memento,Observer,State,Strategy,Template,Visitor">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Behavioral Patterns">
+  <meta name="twitter:description" content="Behavioral Design Patterns are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.
+Behavioral Class Patterns Inheritance is employed to distribute behavior between classes.
+Behavioral Object Patterns Composition is employed to characterize how a group of objects work with each other to perform a task that cannot be accomplished by a single object.">
+
+
+
+    <meta property="article:section" content="Design-Patterns" />
+
+
+
+    <meta property="article:published_time" content="2021-08-16 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a class="logo" href="../../../../../">
+    
+        <div class="logo__content">
+            <span class="logo__mark">></span>
+            <span class="logo__text">cd ~/</span>
+            <span class="logo__cursor"></span>
+        </div>
+    
+</a>
+<script>
+    document.documentElement.style.setProperty('--logo-cursor-color', '#ed5565');
+</script>
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="http://localhost:1313/about/">About</a></li><li><a href="http://localhost:1313/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+<main class="post">
+
+    <div class="post-info">
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-clock">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>12 minutes
+
+            
+
+        </p>
+    </div>
+
+    <article>
+        <h1 class="post-title">
+            <a href="http://localhost:1313/posts/2021/08/16/behavioral-patterns/">Behavioral Patterns</a>
+        </h1>
+
+        
+
+        <div class="post-content">
+            <p><strong>Behavioral Design Patterns</strong> are concerned with optimizing the complex flow of control and communication between objects during run-time. Their main goal is to assign responsibilities between objects in a manner that ensures loose coupling.</p>
+<h4 id="behavioral-class-patterns">Behavioral Class Patterns</h4>
+<p>Inheritance is employed to distribute behavior between classes.</p>
+<h4 id="behavioral-object-patterns">Behavioral Object Patterns</h4>
+<p>Composition is employed to characterize how a group of objects work with each other to perform a task that cannot be accomplished by a single object.</p>
+<h2 id="chain-of-responsibility">Chain of Responsibility</h2>
+<blockquote>
+<p>Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it.</p>
+</blockquote>
+<p>The <strong>Chain of Responsibility</strong> pattern establishes a series of objects chained together. Each object contains a reference to the next object in the chain. Incoming requests travel down the chain, wherein each object gets a chance to process them sequentially. This is especially useful in cases where (handler) objects carry assigned priorities. And since this chain of objects can be specified dynamically, it adds flexibility in terms of add or removing handlers at run-time.</p>
+<p>Neither the client, nor the objects in the chain know what all objects are processing a request. They simply know which object to pass the request onto once they receive the request. This results in reduced coupling since none of the parties involved have an explicit knowledge of the chain.</p>
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/image.png">
+<em>Chain of Responsibility Pattern Structure</em></p>
+<p>The <strong>Client</strong> sends a request to the <strong>Handler</strong>, which is essentially an interface <code>HandleRequest()</code> to handle requests. <strong>ConcreteHandler</strong> objects inherit and implement the same interface to receive the request. They pass the request to the successor link, only processing the requests they are responsible for before the pass.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=1z1Z79cOtCE">Chain of Responsibility Pattern</a></p>
+<h2 id="command">Command</h2>
+<blockquote>
+<p>Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations.</p>
+</blockquote>
+<p>The <strong>Command</strong> pattern encapsulates the request, and it&rsquo;s related data into a standalone object. The request “object” can then be passed around as arguments to functions, queued for execution and “support undoable operations”.</p>
+<p>Undoable operations here imply reversal of operations executed on the object. This is possible because Command&rsquo;s execute method supports storing states, thereby reversing the effects of the operations executed in the Command itself.</p>
+<p>The encapsulation of the request causes decoupling of the object that invokes the operation from the one which is going to actually process it.</p>
+<p>The pattern is also known as <strong>Action</strong> and <strong>Transaction</strong>.</p>
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/1_image.png">
+<em>Command Pattern Structure</em></p>
+<p>The <strong>Client</strong> accesses the <strong>Receiver</strong> indirectly by creating <strong>ConcreteCommand</strong>, which implements <strong>Command</strong> and inherits it&rsquo;s <code>Execute()</code> interface. This object is stored by <strong>Invoker</strong>, which is responsible for actually executing the request by calling the <code>Execute()</code> method. When commands are undoable, <strong>ConcreteCommand</strong> stores state for undoing the command prior to invoking <code>Execute()</code>.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=m9KCiLrCErs">Command Pattern</a></p>
+<h2 id="interpreter">Interpreter</h2>
+<blockquote>
+<p>Given a language, define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.</p>
+</blockquote>
+<p>The <strong>Interpreter</strong> pattern allows the client to evaluate an expression in a particular language. A language&rsquo;s grammar is made of several sets of rules on how to represent and understand the statements in that particular language. It is this representation itself which forms the context in which an Interpreter operates. Therefore by this context itself, an interpreter is able to interpret the statements of a language.</p>
+<p>Each grammar rule is represented by a class.</p>
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/2_image.png">
+<em>Interpreter Pattern Structure</em></p>
+<p>The <strong>Context</strong> contains the representational information which is available to the Interpreter, and is used to store and access the states of an Interpreter during the interpretation process. The <strong>Client</strong> invokes the interpretation operation by calling the <code>Interpret(Context)</code> method of the <strong>AbstractExpression</strong>. This <strong>AbstractExpression</strong> is essentially an abstract syntax tree made up of <strong>TerminalExpression</strong> and <strong>NonterminalExpression</strong>.</p>
+<p>To understand how an abstract syntax tree is constructed, let&rsquo;s take a set of sentences as an example. They describe a subject, an object and a verb.</p>
+<ol>
+<li>Mark kicked a ball.</li>
+<li>The dog ran to the pole.</li>
+<li>I ate a biscuit.</li>
+</ol>
+<p>When segregated, the structure of these sentences can be laid out as follows:</p>
+<ul>
+<li>Subject: Mark, Dog, I</li>
+<li>Object: Ball, Pole, Biscuit</li>
+<li>Verb: Kick, Run, Eat</li>
+</ul>
+<p> These sentences will be structured as follows:</p>
+<ol>
+<li><strong>TerminalExpression</strong>
+<ul>
+<li>Symbols that are actual components of the sentences using a language&rsquo;s grammar.</li>
+<li>Taking the language to be English in the example sentences, “Mark”, “Pole”, “Eat” and the other concretely defined words are the <strong>Terminal Symbols</strong> since they actively participate in construction of a statement in the language.</li>
+</ul>
+</li>
+<li><strong>NonterminalExpression</strong>
+<ul>
+<li>Symbols that help with the construction of a statement in a language but don&rsquo;t actively participate in it&rsquo;s construction.</li>
+<li>Also known as <strong>AlternationExpression</strong>, <strong>RepetitionExpression</strong> and <strong>SequenceExpressions</strong>.</li>
+<li>Taking the language to be English in the example sentences, “Subject”, “Object&quot; and “Verb” are <strong>Non-Terminal Symbols</strong>.</li>
+</ul>
+</li>
+</ol>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=6CVymSJQuJE">Interpreter Pattern</a></p>
+<h2 id="iterator">Iterator</h2>
+<blockquote>
+<p>Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.</p>
+</blockquote>
+<p>The <strong>Iterator</strong> pattern, also known as <strong>Cursor</strong>, is aimed at separating a list object from the responsibilities of access and traversal of the list. This ensures that the list object will not get overburdened with implementation of different mechanisms required for traversal. The implementation of the pattern is as follows:</p>
+<ul>
+<li>An Iterator class defines an interface to give the client access to the elements of a list without exposing it&rsquo;s internal structure. </li>
+<li>An Iterator object is instantiated to implement a traversal mechanism and keep track of the elements traversed.</li>
+</ul>
+<p>Iterators have a unicast design structure, that is, once a value is iterated over and consumed, it can never be seen again by any other consumer. This is facilitated by the fact that it tracks the elements traversed. For example, a cursor is used to fetch all rows of a table from MySQL database. Once a row is fetched, it cannot be retrieved again from this cursor. A new cursor has to be instantiated and traversed to reach that row and fetch it.</p>
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/3_image.png">
+<em>Iterator Pattern Structure</em></p>
+<p>An <strong>Aggregate</strong> structure, an abstract class for a particular data structure like a list, defines an interface to create an object of type <strong>Iterator</strong>. This <strong>Iterator</strong> defines various traversal interfaces like <code>First()</code> and <code>Next()</code> to return the first item and the next item in the traversal progress of <strong>Aggregate</strong>. <strong>ConcreteIterator</strong> implements the <strong>Iterator</strong> interface, and <strong>ConcreteAggregate</strong> implements this <strong>Iterator</strong> creation interface to return an instance of <strong>ConcreteIterator</strong>.</p>
+<p><strong>Polymorphic Iterators</strong> support iteration of list objects regardless of the data structure. A common iteration interface is defined, from which concrete iterator subclasses can be created for different implementations. This decouples the iteration mechanism from the actual concrete aggregate data structure.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=RskNd-DfIgM">Iterator Pattern</a></p>
+<h2 id="mediator">Mediator</h2>
+<blockquote>
+<p>Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.</p>
+</blockquote>
+<p>The number of components grows with the increase in functionality of an application. Too many direct interactions between components creates unstructured and complex interdependencies. The reduces the reusability of a component since it would require communication with other components to accomplish a task. <strong>Mediator</strong> pattern brings a central point of control through which different components can interact with each other. The components communicating through the Mediator are called <strong>Colleagues</strong>.</p>
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/5_image.png">
+<em>Mediator Pattern Structure</em></p>
+<p>The <strong>Mediator</strong> defines an interface for communication between objects of type <strong>Colleague</strong>. <strong>ConcreteMediator</strong> implements this interface for coordination between multiple <strong>ConcreteColleague</strong> instances. For example, an Air Traffic Control tower can be considered to be a mediator between different flights. It coordinates the flying schedule and routes, being the  single point of contact for all flights so that the pilots themselves do not have to communicate amongst themselves.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=WO2d88H4_10">Mediator Pattern</a></p>
+<h2 id="memento">Memento</h2>
+<blockquote>
+<p>Without violating encapsulation, capture and externalize an object&rsquo;s internal state so that the object can be restored to this state later.</p>
+</blockquote>
+<p>Encapsulation enforces all object related data (including it&rsquo;s state) to be stored within the object itself. This puts concepts like checkpoints and mechanisms like data restoration in violation of the principle since making any of the internal data of an object accessible to other objects, or storing it externally is discouraged.</p>
+<p>The <strong>Memento</strong> pattern, also known as <strong>Token</strong>, stores the internal state of an object which can then be used to restore the object to a previous (stored) state at a later time. The encapsulation upheld by ensuring that a memento object is bound to the object whose data it is storing.</p>
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/6_image.png">
+<em>Memento Pattern Structure</em></p>
+<p>The <strong>Caretaker</strong> is responsible for instantiating a <strong>Memento</strong>, and solely manages the passing of the right Memento object to the right <strong>Originator</strong>. It never accesses the data inside the <strong>Memento</strong>. The <strong>Originator</strong> requests a Memento through the <code>CreateMemento()</code> method, in which it stores its internal state. The <strong>Memento</strong> stores the data as per the request from the <code>SetMemento(Memento)</code> method.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=_Q5rXfGuyLQ">Memento Pattern</a></p>
+<h2 id="observer">Observer</h2>
+<blockquote>
+<p>Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.</p>
+</blockquote>
+<p>A system where multiple components are cooperating to achieve a functionality may face problems in maintaining consistency between these components. One component changing it&rsquo;s state might directly affect the other components working with it, and it would throw the system out of sync if there is no mechanism for the other components to be updated of such a change.</p>
+<p>The <strong>Observer</strong> pattern, ensures consistency by establishing the relationships between multiple components in a subject and observer structure. A subject may have any number of <strong>Dependents</strong> (observers), which get notified if the subject&rsquo;s state changes. This allows the observers to synchronize with the subject&rsquo;s state. This interaction is known as <strong>Publish-Subscribe</strong>.</p>
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/7_image.png">
+<em>Observer Pattern Structure</em></p>
+<p>The <strong>Subject</strong> provides an interface to attach and detach objects of type <strong>Observer</strong> through <code>Atttach(Observer)</code> and <code>Detach(Observer)</code> methods. <strong>ConcreteSubject</strong> implements <strong>Subject</strong> class. It stores the state which is of interest to <strong>Observer</strong> objects, and sends them a notification in the even of a state change. <strong>ConcreteObserver</strong> the <code>Update()</code> method of <strong>Observer</strong> class. Each <strong>ConcreteObserver</strong> maintains a reference to a <strong>ConcreteSubjet</strong> object and updates its state to maintain consistency with <strong>ConcreteSubject</strong>.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=KAwOtYk7QSE">Observer Pattern</a></p>
+<h2 id="state">State</h2>
+<blockquote>
+<p>Allow an object to alter its behavior when its internal state changes. The object will appear to change its class.</p>
+</blockquote>
+<p>The State pattern maintains the state for objects whose behavior depends on that state at run-time. This state is represented by numerated constants that are used as conditionals to decide the behavior. The State pattern puts each branch of the conditional in a separate class, allowing every state of the object to be its own entity.</p>
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/8_image.png">
+<em>State Pattern Structure</em></p>
+<p>The <strong>Context</strong> defines the interface that a client can interact with. The <strong>State</strong> defines the interface to encapsulate the behavior pertaining to different states of the <strong>Context</strong>. Each <strong>ConcreteState</strong> subclass implements the behavior of the <strong>Context</strong> for a particular state.</p>
+<p>For example, a simple socket will either be in ACCEPT state wherein it will accept connections or it will be in a REJECT state where it will reject all connections.</p>
+<p>A direct effect of implementing the State pattern is that all state-specific behavior is packaged into one object, localizing the state behavior. This makes it easier to add new states and their associated functionality. However, localizing a state&rsquo;s behavior imposes creation of a new subclass for that particular state. This increases the number of classes and makes the codebase less compact.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=G8FTDsD9L_g">State Pattern</a></p>
+<h2 id="strategy">Strategy</h2>
+<blockquote>
+<p>Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</p>
+</blockquote>
+<p>The <strong>Strategy</strong> pattern, also known as <strong>Policy</strong>, divides a single class with multiple behaviors into multiple related classes that only differ in their behavior, called <strong>strategies</strong>. A single parent class, called <strong>Context</strong>, maintains a reference to the strategies, and delegates the work to a strategy object. The client is responsible for declaring the strategy to be used, while the context simply implements a generic interface for triggering the requested strategy. This makes the context independent of strategies, allowing addition of new ones or modification of old ones without the requirement of change in implementation of the context or other strategies. However, this requires the client to be aware of different strategies.</p>
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/10_image.png">
+<em>Strategy Pattern Structure</em></p>
+<p>The <strong>Context</strong> maintains a reference to an object of type <strong>Strategy</strong>, and implements the <code>ContextInterface()</code> interface to communicate with this reference. The Strategy object declares an interface <code>AlgorithmInterface()</code> to delegate the task to a <strong>ConcreteStrategy</strong> object which would implement a particular algorithm. Thus, the <strong>Strategy</strong> and the <strong>Context</strong> interact to implement the chose algorithm.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=rPAmCIX79uE">Strategy Pattern</a></p>
+<h2 id="template">Template</h2>
+<blockquote>
+<p>Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm&rsquo;s structure.</p>
+</blockquote>
+<p>The <strong>Template</strong> pattern defines an algorithm&rsquo;s constant parts, while keeping the variable parts abstract, allowing the subclasses to override this abstract (variable) part with concrete behavior. This prevents code duplication among classes with some common behavior. The effectiveness is inversely proportional to the number of methods required to be overridden by subclasses; the more operations that need overriding, the lesser is the generic functionality a template can offer.</p>
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/11_image.png">
+<em>Template Pattern Structure</em></p>
+<p>The AbstractClass defines a specific behavior with abstract methods like <code>PrimitiveOperation1()</code> which can be overridden by objects of type <strong>ConcreteClass</strong> to implement these operations in it&rsquo;s own way.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=Ltk1UjFXbKU">Template Pattern</a></p>
+<h2 id="visitor">Visitor</h2>
+<blockquote>
+<p>Represent an operation to be performed on the elements of an object structure. Visitor lets you define a new operation without changing the classes of the elements on which it operates.</p>
+</blockquote>
+<p>The <strong>Visitor</strong> pattern facilitates creation of a single object consisting of many classes, where these classes have different interfaces whose output is solely dependent on their concrete class. The visitor (single object) can be shared amongst many classes as it would keep all related operations together, and process output based on the concrete class of the object calling it. This introduces a concept called <strong>Double Dispatch</strong>, that delegates the responsibility of choosing the right method to the object itself rather than the client.</p>
+<p><img src="../../../../../Design_Patterns_Behavioral_Patterns/12_image.png">
+<em>Visitor Pattern Structure</em></p>
+<p>The <strong>ObjectStructure</strong> provides a high-level interface to allow access to its objects of type <strong>Element</strong>. The <strong>Element</strong> declares a method <code>Accept(Visitor)</code> to reference the <strong>Visitor</strong>. Each <strong>ConcreteElement</strong> implements the inherited <code>Accept(Visitor)</code> method. The <strong>Visitor</strong> defines methods for each <strong>ConcreteElement</strong>. The choice of the method executed by the <strong>Visitor</strong> is dependent on the concrete class of the object requesting it, known through the signature of the method in the request. The <strong>ConcreteVisitor</strong> implements the operations declared by the <strong>Visitor</strong>, and provides the context for an algorithm.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=UQP5XqMqtqQ">Visitor Pattern</a></p>
+<p>Citation: <a href="https://www.journaldev.com/31902/gangs-of-four-gof-design-patterns">Gang of Four Design Patterns</a></p>
+
+        </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-tag meta-icon">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                <line x1="7" y1="7" x2="7" y2="7"></line>
+            </svg><span class="tag"><a href="http://localhost:1313/%20tags/design-patterns">design-patterns</a></span><span class="tag"><a href="http://localhost:1313/%20tags/gangs-of-four">gangs-of-four</a></span><span class="tag"><a href="http://localhost:1313/%20tags/behavioral-patterns">behavioral-patterns</a></span><span class="tag"><a href="http://localhost:1313/%20tags/chain-of-responsibility">chain-of-responsibility</a></span><span class="tag"><a href="http://localhost:1313/%20tags/command">command</a></span><span class="tag"><a href="http://localhost:1313/%20tags/interpreter">interpreter</a></span><span class="tag"><a href="http://localhost:1313/%20tags/iterator">iterator</a></span><span class="tag"><a href="http://localhost:1313/%20tags/mediator">mediator</a></span><span class="tag"><a href="http://localhost:1313/%20tags/memento">memento</a></span><span class="tag"><a href="http://localhost:1313/%20tags/observer">observer</a></span><span class="tag"><a href="http://localhost:1313/%20tags/state">state</a></span><span class="tag"><a href="http://localhost:1313/%20tags/strategy">strategy</a></span><span class="tag"><a href="http://localhost:1313/%20tags/template">template</a></span><span class="tag"><a href="http://localhost:1313/%20tags/visitor">visitor</a></span>
+        </p>
+
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-file-text">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>2441 Words</p>
+
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-calendar">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>2021-08-16 05:30 &#43;0530</p>
+    </div>
+
+    
+    <div class="pagination">
+        <div class="pagination__title">
+            <span class="pagination__title-h"></span>
+            <hr />
+        </div>
+
+        <div class="pagination__buttons">
+
+            
+            <span class="button previous">
+                <a href="http://localhost:1313/posts/2021/07/02/creational-patterns/">
+                    <span class="button__text">Creational Patterns</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+
+            
+            <span class="button next">
+                <a href="http://localhost:1313/posts/2021/09/10/structural-patterns/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Structural Patterns</span>
+                </a>
+            </span>
+            
+
+        </div>
+    </div>
+    
+
+    
+</main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+    
+    <div class="footer__svg">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 140 140"
+            stroke="#4DB6AC"
+        >
+            <path stroke-width="122" stroke-dasharray="2,38" d="M9,70h122M70,9v122" />
+            <path stroke-width="33" stroke-linecap="round" d="M70,30h0M110,70h0M30,110v0M70,110h0M110,110h0" />
+        </svg>
+    </div>
+</footer>
+            
+        </div>
+
+        
+
+
+
+
+
+<script type="text/javascript" src="../../../../../bundle.min.45295cbc2d5bbc09b85caead90108f31defa5c6b650a42abb2e79d59a363e5bc2f11614e43687e66e6d47563560a45c3324b75dcb9b3a724a2955a2f1ce2f114.js" integrity="sha512-RSlcvC1bvAm4XK6tkBCPMd76XGtlCkKrsuedWaNj5bwvEWFOQ2h&#43;ZubUdWNWCkXDMkt13LmzpySilVovHOLxFA=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'G-66L1D38RLD', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+    </body>
+</html>

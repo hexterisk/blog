@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Memory-Sanitizer on Pwn the world.</title>
+    <link>http://localhost:1313/tags/memory-sanitizer/</link>
+    <description>Recent content in Memory-Sanitizer on Pwn the world.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>hexterisk@gmail.com (Bhanupratap Singh)</managingEditor>
+    <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Fri, 12 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/memory-sanitizer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sanitation</title>
+      <link>http://localhost:1313/posts/2021/02/12/sanitation/</link>
+      <pubDate>Fri, 12 Feb 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/posts/2021/02/12/sanitation/</guid>
+      <description>&lt;p&gt;Sanitation tools, or &lt;a href=&#34;https://github.com/google/sanitizers&#34;&gt;sanitizers&lt;/a&gt;, are a set of libraries that can directly observe and flag an incorrect behavior for a certain class of violation at runtime.&lt;/p&gt;&#xA;&lt;p&gt;Sanitizers are employed by instrumenting the source code. The compiled binary, therefore, essentially has certain tripwires that catch any invalid or incorrect behavior and reports it. The fact that it only brings about minimal performance overhead allows it to be coupled with fuzzing techniques, a powerful combination.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

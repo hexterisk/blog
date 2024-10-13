@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DHKE on Pwn the world.</title>
+    <link>http://localhost:1313/tags/dhke/</link>
+    <description>Recent content in DHKE on Pwn the world.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>hexterisk@gmail.com (Bhanupratap Singh)</managingEditor>
+    <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/dhke/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Set 5</title>
+      <link>http://localhost:1313/posts/2020/05/17/set-5/</link>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/posts/2020/05/17/set-5/</guid>
+      <description>&lt;p&gt;Refer to this &lt;a href=&#34;https://github.com/hexterisk/cryptopals-solutions&#34;&gt;repository&lt;/a&gt; for solution scripts and the IPython Notebook pertaining to the explanations here.&lt;/p&gt;&#xA;&lt;h3 id=&#34;challenge-33-implement-diffie-hellman&#34;&gt;Challenge 33: Implement Diffie-Hellman&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cryptopals.com/sets/4/challenges/33&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;For one of the most important algorithms in cryptography this exercise couldn&amp;rsquo;t be a whole lot easier.&lt;br&gt;&#xA;Set a variable &amp;ldquo;p&amp;rdquo; to 37 and &amp;ldquo;g&amp;rdquo; to 5. This algorithm is so easy I&amp;rsquo;m not even going to explain it. Just do what I do.&lt;br&gt;&#xA;Generate &amp;ldquo;a&amp;rdquo;, a random number mod 37. Now generate &amp;ldquo;A&amp;rdquo;, which is &amp;ldquo;g&amp;rdquo; raised to the &amp;ldquo;a&amp;rdquo; power mode 37 &amp;mdash; A = (g**a) % p.&lt;br&gt;&#xA;Do the same for &amp;ldquo;b&amp;rdquo; and &amp;ldquo;B&amp;rdquo;.&lt;br&gt;&#xA;&amp;ldquo;A&amp;rdquo; and &amp;ldquo;B&amp;rdquo; are public keys. Generate a session key with them; set &amp;ldquo;s&amp;rdquo; to &amp;ldquo;B&amp;rdquo; raised to the &amp;ldquo;a&amp;rdquo; power mod 37 &amp;mdash; s = (B**a) % p.&lt;br&gt;&#xA;Do the same with A**b, check that you come up with the same &amp;ldquo;s&amp;rdquo;.&lt;br&gt;&#xA;To turn &amp;ldquo;s&amp;rdquo; into a key, you can just hash it to create 128 bits of key material (or SHA256 it to create a key for encrypting and a key for a MAC).&lt;br&gt;&#xA;Ok, that was fun, now repeat the exercise with bignums like in the real world. Here are parameters NIST likes:&lt;br&gt;&#xA;&lt;strong&gt;p:&lt;/strong&gt;&lt;br&gt;&#xA;&lt;strong&gt;ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024&lt;/strong&gt;&lt;br&gt;&#xA;&lt;strong&gt;e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd&lt;/strong&gt;&lt;br&gt;&#xA;&lt;strong&gt;3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec&lt;/strong&gt;&lt;br&gt;&#xA;&lt;strong&gt;6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f&lt;/strong&gt;&lt;br&gt;&#xA;&lt;strong&gt;24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361&lt;/strong&gt;&lt;br&gt;&#xA;&lt;strong&gt;c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552&lt;/strong&gt;&lt;br&gt;&#xA;&lt;strong&gt;bb9ed529077096966d670c354e4abc9804f1746c08ca237327fff&lt;/strong&gt;&lt;br&gt;&#xA;&lt;strong&gt;fffffffffffff&lt;/strong&gt;&lt;br&gt;&#xA;&lt;strong&gt;g: 2&lt;/strong&gt;&lt;br&gt;&#xA;This is very easy to do in Python or Ruby or other high-level languages that auto-promote fixnums to bignums, but it isn&amp;rsquo;t &amp;ldquo;hard&amp;rdquo; anywhere.&lt;br&gt;&#xA;Note that you&amp;rsquo;ll need to write your own modexp (this is blackboard math, don&amp;rsquo;t freak out), because you&amp;rsquo;ll blow out your bignum library raising &amp;ldquo;a&amp;rdquo; to the 1024-bit-numberth power. You can find modexp routines on Rosetta Code for most languages.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

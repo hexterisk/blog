@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vim on Pwn the world.</title>
+    <link>http://localhost:1313/tags/vim/</link>
+    <description>Recent content in Vim on Pwn the world.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>hexterisk@gmail.com (Bhanupratap Singh)</managingEditor>
+    <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Wed, 22 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Serial 1</title>
+      <link>http://localhost:1313/posts/2020/07/22/serial-1/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/posts/2020/07/22/serial-1/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;: &lt;a href=&#34;https://www.vulnhub.com/entry/serial-1,349/&#34;&gt;serial: 1&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Date release&lt;/strong&gt;: 20 Aug 2019&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Author&lt;/strong&gt;: &lt;a href=&#34;https://www.vulnhub.com/author/sk4,633/&#34;&gt;sk4&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Series&lt;/strong&gt;: &lt;a href=&#34;https://www.vulnhub.com/series/serial,231/&#34;&gt;serial&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;initial-discovery&#34;&gt;Initial Discovery&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;VMIP&lt;/code&gt; is the VM’s IP Address&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;LHIP&lt;/code&gt; is the Local Host’s IP Address&lt;/p&gt;&#xA;&lt;p&gt;Compare the commands I ran, and the formats specified to check where you need to replace values according to your machine.&lt;/p&gt;&#xA;&lt;h3 id=&#34;ip-discovery&#34;&gt;IP Discovery&lt;/h3&gt;&#xA;&lt;p&gt;Run &lt;code&gt;sudo netdiscover&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;It detects online hosts by sending ARP requests.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

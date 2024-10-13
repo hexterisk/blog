@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:hexterisk]">
+<meta name="description" content="Concurrency Design Patterns describe ways of dealing with concurrent executing code, be it multi-threaded or multi-processed.
+Active Object Decouple method execution from method invocation for objects that each live in their own thread of control. The goal is to introduce concurrency, by using asynchronous method invocation and a scheduler for handling requests.
+The Active Object pattern introduces the following components:
+Proxy The interface of the object to which a client connects to. Resides in the client thread. Automatically converts an invoked method to a method request. Servant Defines the behavior and state of the active object. Provides implementation of the active object. Activation/Dispatch Queue Maintains a buffer of pending requests created by Proxy. Keeps track of which requests can execute. Scheduler Decides which request should be executed next. Result Handle or Callback Allows Proxy to get the result post execution. Active Object Structure
+" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="http://localhost:1313/posts/2021/10/01/concurrency-patterns/" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+    <title>
+        
+            Concurrency Patterns: Pwn the world.  — A noob&#39;s attempt at blogging.
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../favicon-16x16.png">
+    <link rel="manifest" href="../../../../../site.webmanifest">
+    <link rel="mask-icon" href="../../../../../safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+  <meta itemprop="name" content="Concurrency Patterns">
+  <meta itemprop="description" content="Concurrency Design Patterns describe ways of dealing with concurrent executing code, be it multi-threaded or multi-processed.
+Active Object Decouple method execution from method invocation for objects that each live in their own thread of control. The goal is to introduce concurrency, by using asynchronous method invocation and a scheduler for handling requests.
+The Active Object pattern introduces the following components:
+Proxy The interface of the object to which a client connects to. Resides in the client thread. Automatically converts an invoked method to a method request. Servant Defines the behavior and state of the active object. Provides implementation of the active object. Activation/Dispatch Queue Maintains a buffer of pending requests created by Proxy. Keeps track of which requests can execute. Scheduler Decides which request should be executed next. Result Handle or Callback Allows Proxy to get the result post execution. Active Object Structure">
+  <meta itemprop="datePublished" content="2021-10-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-10-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1665">
+  <meta itemprop="keywords" content="Design-Patterns,Concurrency,Concurrency-Patterns,Active-Object,Balking,Barrier,Double-Checked-Locking,Guarded-Suspension,Leader-Follower,Monitor,Reactor,Readers-Writer-Lock">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Concurrency Patterns">
+  <meta name="twitter:description" content="Concurrency Design Patterns describe ways of dealing with concurrent executing code, be it multi-threaded or multi-processed.
+Active Object Decouple method execution from method invocation for objects that each live in their own thread of control. The goal is to introduce concurrency, by using asynchronous method invocation and a scheduler for handling requests.
+The Active Object pattern introduces the following components:
+Proxy The interface of the object to which a client connects to. Resides in the client thread. Automatically converts an invoked method to a method request. Servant Defines the behavior and state of the active object. Provides implementation of the active object. Activation/Dispatch Queue Maintains a buffer of pending requests created by Proxy. Keeps track of which requests can execute. Scheduler Decides which request should be executed next. Result Handle or Callback Allows Proxy to get the result post execution. Active Object Structure">
+
+
+
+    <meta property="article:section" content="Design-Patterns" />
+
+
+
+    <meta property="article:published_time" content="2021-10-01 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a class="logo" href="../../../../../">
+    
+        <div class="logo__content">
+            <span class="logo__mark">></span>
+            <span class="logo__text">cd ~/</span>
+            <span class="logo__cursor"></span>
+        </div>
+    
+</a>
+<script>
+    document.documentElement.style.setProperty('--logo-cursor-color', '#ed5565');
+</script>
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="http://localhost:1313/about/">About</a></li><li><a href="http://localhost:1313/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+<main class="post">
+
+    <div class="post-info">
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-clock">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>8 minutes
+
+            
+
+        </p>
+    </div>
+
+    <article>
+        <h1 class="post-title">
+            <a href="http://localhost:1313/posts/2021/10/01/concurrency-patterns/">Concurrency Patterns</a>
+        </h1>
+
+        
+
+        <div class="post-content">
+            <p><strong>Concurrency Design Patterns</strong> describe ways of dealing with concurrent executing code, be it multi-threaded or multi-processed.</p>
+<h2 id="active-object">Active Object</h2>
+<blockquote>
+<p>Decouple method execution from method invocation for objects that each live in their own thread of control. The goal is to introduce concurrency, by using asynchronous method invocation and a scheduler for handling requests.</p>
+</blockquote>
+<p>The <strong>Active Object</strong> pattern introduces the following components:</p>
+<ol>
+<li><strong>Proxy</strong>
+<ul>
+<li>The interface of the object to which a client connects to.</li>
+<li>Resides in the client thread.</li>
+<li>Automatically converts an invoked method to a method request.</li>
+</ul>
+</li>
+<li> <strong>Servant</strong>
+<ul>
+<li>Defines the behavior and state of the active object.</li>
+<li>Provides implementation of the active object.</li>
+</ul>
+</li>
+<li><strong>Activation/Dispatch Queue</strong>
+<ul>
+<li>Maintains a buffer of pending requests created by Proxy.</li>
+<li>Keeps track of which requests can execute.</li>
+</ul>
+</li>
+<li><strong>Scheduler</strong>
+<ul>
+<li>Decides which request should be executed next.</li>
+</ul>
+</li>
+<li><strong>Result Handle</strong> or <strong>Callback</strong>
+<ul>
+<li>Allows Proxy to get the result post execution.</li>
+</ul>
+</li>
+</ol>
+<p><img src="../../../../../Design_Patterns_Concurrency_Patterns/1_image.png">
+<strong>Active Object Structure</strong></p>
+<p>A <strong>Client</strong> invokes a method via the <strong>Proxy</strong> on it&rsquo;s thread, such as <code>method_N()</code>. The <strong>Proxy</strong> automatically instantiates this method into an object of type <strong>MethodRequest</strong> while preserving all argument bindings to the method required for execution, and passes it onto the <strong>Scheduler</strong> which stores it in a <strong>Dispatch Queue</strong> via the <code>insert()</code> interface. A <strong>Callback</strong>/<strong>Future</strong> is returned to the <strong>Client</strong> if the method returns any value. The <strong>Scheduler</strong> runs in the same thread as the <strong>Active Object</strong>, and keeps monitoring the <strong>Activation/Dispatch Queue</strong>. If any of the <strong>ConcreteMethodRequest</strong> becomes ready for execution, the <strong>Scheduler</strong> uses the interface <code>dispatch()</code> to pass them onto a <strong>Servant</strong> thread for execution.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=aZ2xxVxhbBU">Active Object Pattern</a></p>
+<h2 id="balking-pattern">Balking Pattern</h2>
+<blockquote>
+<p>Only executes an action on an object when the object is in a particular state.</p>
+</blockquote>
+<p>The <strong>Balking</strong> pattern is meant to deal with incomplete and incorrect states, and ensure synchronization between threads and processes. This allows for coordination among various readers and writers to an object&rsquo;s change of state and reduces inconsistency. When the object is in an inappropriate state, the method simply returns without any execution.</p>
+<p>NOTE: It is considered to be an anti-pattern since an object&rsquo;s state can get stuck and not update for an indefinite amount of time.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=W4-uwPkL1H8">Balking Pattern</a></p>
+<h2 id="barrier-pattern">Barrier Pattern</h2>
+<blockquote>
+<p>Any thread/process must stop at this point and cannot proceed until all other threads/processes reach this barrier.</p>
+</blockquote>
+<p>The <strong>Barrier</strong> pattern imposes a barrier - execution shall not continue till this barrier is lifted. The purpose of this barrier is to ensure that all required data has been gathered before moving forward. </p>
+<p>The Barrier functions as a conjunction of two variables:</p>
+<ol>
+<li>State: Maintains whether the barrier is in the STOP state or PASS state.
+<ul>
+<li>STOP state entails that all threads reaching the barrier will be stopped to wait for other threads.</li>
+<li>PASS state entails that the threads are now allowed to finish.</li>
+</ul>
+</li>
+<li>Counter: Maintains a count of how many threads have reached the barrier.</li>
+</ol>
+<p>The barrier state is initialized in the STOP state by the initial threads reaching the barrier, and all threads coming at the barrier are therefore stopped, until the last thread arrives. The last thread switches the barrier state to PASS state. Till then, the waiting threads keep polling the barrier state for a cue to finish.</p>
+<p><img src="../../../../../Design_Patterns_Concurrency_Patterns/Barrier.png">
+<strong>Barrier Pattern Structure</strong></p>
+<p>Threads 1 and 3 reach the <strong>Barrier</strong> early and invoke <code>SingalAndWait()</code> to wait for the Barrier to be set to PASS state. As soon as Thread 2, the last thread, reaches the <strong>Barrier</strong>, all threads are allowed to pass.</p>
+<p>Since all threads poll the state, the process can result in high communication traffic. In such a scenario, a <strong>Multi-Level Barrier</strong> can be implemented.</p>
+<ol>
+<li><strong>Combining Tree Barrier</strong>
+<ul>
+<li>A <em>k</em>-Tree Barrier has subgroups of <em>k</em> threads wherein all threads shall synchronize within their groups. Once a group has consolidated it&rsquo;s results, the first thread of each group is lifted to the second level where new subgroups of <em>k</em> threads form and synchronize. The procedure continues till the top, at which point the final synchronization releases the barrier and all threads are allowed to pass. </li>
+</ul>
+</li>
+<li><strong>Hardware Barrier Implementation</strong>
+<ul>
+<li>Dedicated circuitry is used to implement a barrier with simple AND/OR operations to act as the barrier state and counter. It is feasible for smaller systems, but large systems are prone to encounter high latency with this design.</li>
+</ul>
+</li>
+</ol>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=3GpyOG0L6zc">Barrier Pattern</a></p>
+<h2 id="double-checked-locking-pattern">Double-Checked Locking Pattern</h2>
+<blockquote>
+<p>Reduce the overhead of acquiring a lock by testing the locking criterion (the &ldquo;lock hint&rdquo;) before acquiring the lock.</p>
+</blockquote>
+<p>The Double-Checked Locking pattern is generally used to reduce synchronization overhead. For lazy-loading conditions, that is, for initializing a value when it is used for the first time, synchronization is important to ensure that:</p>
+<ol>
+<li>the expensive initialization process is not run multiple times, especially when the design dictates a Singleton pattern.</li>
+<li>inconsistency does not creep in when threads simultaneously access the same object.</li>
+</ol>
+<p>This synchronization has additional overhead. The pattern aims to have a check for a valid instance of the object first, and then enter the synchronization. It is only effective when the overhead is significant, and needs to be avoided.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=Z5TRputhzHs">Double-Checked Locking</a></p>
+<h2 id="guarded-suspension-pattern">Guarded Suspension Pattern</h2>
+<blockquote>
+<p>Threads often have to coordinate their actions. They begin by polling a condition that must be true before the execution can proceed.</p>
+</blockquote>
+<p>The <strong>Guarded Suspension</strong> pattern manages execution of a block of code that is guarded by a <strong>Precondition</strong> which must be met before the execution of the block can proceed. An intrinsic <strong>Lock</strong> should be acquired to the state while the <strong>Precondition</strong> is being checked to maintain synchronization between parallelly running readers and writers. If the <strong>Precondition</strong> is not met, </p>
+<ol>
+<li><strong>Precondition</strong> can then be polled for any change of state.
+<ul>
+<li>Potential waste of CPU cycles since continuous polling will keep the state engaged.</li>
+</ul>
+</li>
+<li>The current thread can be suspended with <code>wait()</code> with a notification channel setup using <code>notify()</code> and <code>notifyAll()</code> methods which can be called to update a single/all other threads if a state change occurs to retest the <strong>Precondition</strong> and allow the suspended threads to wake up.
+<ul>
+<li>Efficient since it simply suspends the thread till the appropriate time.</li>
+</ul>
+</li>
+</ol>
+<p>NOTE: The pattern shall only be used when it is known that the thread suspension will be for a finite and reasonable amount of time. For an indefinite amount of time, Balking pattern should be used.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=C4e1Ae_J4ho">Guarded Suspension Pattern</a></p>
+<h2 id="leaderfollower-pattern">Leader/Follower Pattern</h2>
+<blockquote>
+<p>Provides an efficient concurrency model where multiple threads take turns sharing a set of event sources in order to detect, demultiplex, dispatch, and process service requests that occur on these event sources.</p>
+</blockquote>
+<p>The <strong>Leader/Follower</strong> pattern designates one of the threads as a leader. This thread will be responsible to process the next task that comes in to the queue. When a task arrives, the leader thread notifies the next thread in the thread pool, which then becomes the new leader thread after which the old leader proceeds to fulfill the task.</p>
+<p>The following benefits arise from the pattern:</p>
+<ol>
+<li>Minimized locking overheads since no data is exchanged between the threads.</li>
+<li>Removes need for dynamic memory allocation for buffers.</li>
+</ol>
+<p>The following shortcomings are encountered for the pattern:</p>
+<ol>
+<li>Minimized prioritization overheads since the requests are  first-come-first-serve, however, becomes unsuitable if prioritization has to be performed.</li>
+<li>Single thread listens for I/O events at a time, which can introduce a bottleneck.</li>
+</ol>
+<p><img src="../../../../../Design_Patterns_Concurrency_Patterns/2_image.png">
+<strong>Leader/Follower Pattern Structure</strong></p>
+<p>A <strong>Thread</strong> is chosen to be the leader from the <strong>ThreadPool</strong> via the <code>promoteNewLeader()</code> method. It then waits for an I/O event on the <strong>HandleSet</strong>. When a <strong>Client</strong> requests a task, a <strong>ConcreteEventHandle</strong> of type <strong>EventHandler</strong> is instantiated for the task and passed to the leader <strong>Thread</strong>. This <strong>Thread</strong> then uses the <code>notify()</code> method to raise the requirement of a new leader to the <strong>ThreadPool</strong>. When the Thread has completed it&rsquo;s task, the <strong>ThreadPool</strong> uses the <code>join()</code> method to collect the <strong>Thread</strong> back into the pool.</p>
+<h2 id="monitor-pattern">Monitor Pattern</h2>
+<blockquote>
+<p>Synchronizes concurrent method execution to ensure that only one method at a time runs within an object. It also allows an object&rsquo;s methods to cooperatively schedule their execution sequences.</p>
+</blockquote>
+<p>The <strong>Monitor</strong> pattern defines a system wherein threads give up their (exclusive) access to an object and wait for a specified condition to be fulfilled. When the specified condition is fulfilled, the threads repossess the access and resume their execution.</p>
+<p><img src="../../../../../Design_Patterns_Concurrency_Patterns/3_image.png">
+<strong>Monitor Pattern Structure</strong></p>
+<p>The <strong>Client</strong> can communicate with the interfaces defined by the <strong>MonitorObject</strong> such as <code>sync_methodN()</code>. The <strong>MonitorCondition</strong> and <strong>MonitorLock</strong> coordinate to allow and disallow synchronized methods to resume their processing.</p>
+<h2 id="reactor-pattern">Reactor Pattern</h2>
+<blockquote>
+<p>Event handling pattern for handling service requests delivered concurrently to a service handler by one or more inputs.</p>
+</blockquote>
+<p>The Reactor pattern focuses on performing event demultiplexing in a synchronous manner. A service handler is responsible for dispatching service-specific requests, such as incoming connection requests using TCP. The connection is established using a new handler representing the endpoint of the connection. The next connection would be served in a similar way by the service handler. This demultiplexing can be delegated to a dispatcher as well if required.</p>
+<p><img src="../../../../../Design_Patterns_Concurrency_Patterns/4_image.png">
+<strong>Reactor Pattern Structure</strong></p>
+<p><strong>Handle</strong> is used to listen for events so that the <strong>SynchronousEventDemultiplexer</strong> can wait for events to occur on them. The <strong>SynchronousEventDemultiplexer</strong> blocks awaiting events to occur on a set of <strong>Handles</strong>. It returns when it is possible to initiate an operation on a <strong>Handle</strong> without blocking and informs the <strong>InitiationDispatcher</strong>. The <strong>InitiationDispatcher</strong> defines interfaces like <code>regiser_handler(Handler)</code>,  <code>remove_handler(Handler)</code> and <code>handle_events()</code> for registering, removing, and dispatching objects of type <strong>EventHandler</strong>. Applications register <strong>ConcreteEventHandler</strong> with the <strong>InitiationDispatcher</strong> to process certain types of events. When these events arrive, the <strong>InitiationDispatcher</strong> calls back the hook method of the appropriate <strong>ConcreteEventHandler</strong>.</p>
+<h2 id="readers-writer-lock-pattern">Readers-Writer Lock Pattern</h2>
+<blockquote>
+<p>Synchronization primitive that solves one of the readers–writers problems. An RW lock allows concurrent access for read-only operations, while write operations require exclusive access.</p>
+</blockquote>
+<p>The <strong>Readers-Write Lock</strong> pattern ensures allow multiple threads to parallelly read the data, however, to write the data an exclusive lock is required. This exclusive lock ensures that no other thread is able to access the data as long as this exclusive lock is engaged.</p>
+<p>Implementation Example: <a href="https://www.youtube.com/watch?v=TwSx8IlJnTI">Readers-Writer Lock Pattern</a></p>
+<p>Citation: <a href="https://wiki.sch.bme.hu/images/5/50/Sznikak_Pattern-Oriented-SA_vol2.pdf">Pattern-Oriented Software Architecture, Patterns for Concurrent and Networked Objects, Volume 2</a>, <a href="https://home.cs.colorado.edu/~kena/classes/5828/s12/presentation-materials/goldbergdrew.pdf">Drew Goldberg</a>, <a href="https://www.dre.vanderbilt.edu/~schmidt/PDF">Douglas Schmidt</a></p>
+
+        </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-tag meta-icon">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                <line x1="7" y1="7" x2="7" y2="7"></line>
+            </svg><span class="tag"><a href="http://localhost:1313/%20tags/design-patterns">design-patterns</a></span><span class="tag"><a href="http://localhost:1313/%20tags/concurrency">concurrency</a></span><span class="tag"><a href="http://localhost:1313/%20tags/concurrency-patterns">concurrency-patterns</a></span><span class="tag"><a href="http://localhost:1313/%20tags/active-object">active-object</a></span><span class="tag"><a href="http://localhost:1313/%20tags/balking">balking</a></span><span class="tag"><a href="http://localhost:1313/%20tags/barrier">barrier</a></span><span class="tag"><a href="http://localhost:1313/%20tags/double-checked-locking">double-checked-locking</a></span><span class="tag"><a href="http://localhost:1313/%20tags/guarded-suspension">guarded-suspension</a></span><span class="tag"><a href="http://localhost:1313/%20tags/leader-follower">leader-follower</a></span><span class="tag"><a href="http://localhost:1313/%20tags/monitor">monitor</a></span><span class="tag"><a href="http://localhost:1313/%20tags/reactor">reactor</a></span><span class="tag"><a href="http://localhost:1313/%20tags/readers-writer-lock">readers-writer-lock</a></span>
+        </p>
+
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-file-text">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>1665 Words</p>
+
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-calendar">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>2021-10-01 05:30 &#43;0530</p>
+    </div>
+
+    
+    <div class="pagination">
+        <div class="pagination__title">
+            <span class="pagination__title-h"></span>
+            <hr />
+        </div>
+
+        <div class="pagination__buttons">
+
+            
+            <span class="button previous">
+                <a href="http://localhost:1313/posts/2021/09/10/structural-patterns/">
+                    <span class="button__text">Structural Patterns</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+
+            
+
+        </div>
+    </div>
+    
+
+    
+</main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+    
+    <div class="footer__svg">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 140 140"
+            stroke="#4DB6AC"
+        >
+            <path stroke-width="122" stroke-dasharray="2,38" d="M9,70h122M70,9v122" />
+            <path stroke-width="33" stroke-linecap="round" d="M70,30h0M110,70h0M30,110v0M70,110h0M110,110h0" />
+        </svg>
+    </div>
+</footer>
+            
+        </div>
+
+        
+
+
+
+
+
+<script type="text/javascript" src="../../../../../bundle.min.45295cbc2d5bbc09b85caead90108f31defa5c6b650a42abb2e79d59a363e5bc2f11614e43687e66e6d47563560a45c3324b75dcb9b3a724a2955a2f1ce2f114.js" integrity="sha512-RSlcvC1bvAm4XK6tkBCPMd76XGtlCkKrsuedWaNj5bwvEWFOQ2h&#43;ZubUdWNWCkXDMkt13LmzpySilVovHOLxFA=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'G-66L1D38RLD', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+    </body>
+</html>

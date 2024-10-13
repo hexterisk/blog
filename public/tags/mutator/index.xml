@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mutator on Pwn the world.</title>
+    <link>http://localhost:1313/tags/mutator/</link>
+    <description>Recent content in Mutator on Pwn the world.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>hexterisk@gmail.com (Bhanupratap Singh)</managingEditor>
+    <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mutator/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Architecture</title>
+      <link>http://localhost:1313/posts/2021/01/20/architecture/</link>
+      <pubDate>Wed, 20 Jan 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/posts/2021/01/20/architecture/</guid>
+      <description>&lt;p&gt;A robust pipeline needs to be established to ensure that a fuzzer is effective and efficient. The pipeline is required to perform the following tasks:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Generate new test cases.&lt;/li&gt;&#xA;&lt;li&gt;Ensure delivery of the test cases to, and safe execution, of the target.&lt;/li&gt;&#xA;&lt;li&gt;Record the statistics from the execution of the test cases.&lt;/li&gt;&#xA;&lt;li&gt;Reproduce the crashes.&lt;/li&gt;&#xA;&lt;li&gt;Triage the crashes.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../../Fuzzing_Architecture/chart.jpg&#34;&gt;&#xA;&lt;em&gt;Generic fuzzing pipeline.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Separate modules perform different set of the aforementioned tasks. The underlying code in these modules is aligned with the principles of code resusability and modularity. This way, different modules can be swapped as per requirement of the program being fuzzed.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Approaches</title>
+      <link>http://localhost:1313/posts/2021/01/01/approaches/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/posts/2021/01/01/approaches/</guid>
+      <description>&lt;p&gt;Fuzzing can be segregated into different types based on the facet of the process we look at.&lt;/p&gt;&#xA;&lt;p&gt; &lt;/p&gt;&#xA;&lt;h2 id=&#34;program-structure&#34;&gt;Program Structure&lt;/h2&gt;&#xA;&lt;p&gt;Knowledge of the internals of the target application directly results into maintaining a certain structure to the fuzzing process, which can result into achieving a higher code coverage in a shorter span of time. This results in a much more effective fuzzing exercise.&lt;/p&gt;&#xA;&lt;h3 id=&#34;blackbox-fuzzing&#34;&gt;Blackbox Fuzzing&lt;/h3&gt;&#xA;&lt;p&gt;This approach involves the assumption that the target is a black box since we don&amp;rsquo;t have any knowledge of the internal behavior, source code or the implementation of the target application, hence the name.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

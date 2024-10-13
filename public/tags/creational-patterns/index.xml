@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Creational-Patterns on Pwn the world.</title>
+    <link>http://localhost:1313/tags/creational-patterns/</link>
+    <description>Recent content in Creational-Patterns on Pwn the world.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>hexterisk@gmail.com (Bhanupratap Singh)</managingEditor>
+    <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Fri, 02 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/creational-patterns/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creational Patterns</title>
+      <link>http://localhost:1313/posts/2021/07/02/creational-patterns/</link>
+      <pubDate>Fri, 02 Jul 2021 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/posts/2021/07/02/creational-patterns/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Creational Design Patterns&lt;/strong&gt; reduce the complexity in creation of different objects of shared type/properties.&lt;/p&gt;&#xA;&lt;p&gt;These patterns simplify object creation mechanisms by separating the workings of an object&amp;rsquo;s creation, composition and representation. This in turn results in increased flexibility. Instead of hardcoding data into classes for creating objects every time, we can employ these patterns for the instantiation of an object dependent on the situation. This ensures that the set of related objects share a common ancestor for common properties.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

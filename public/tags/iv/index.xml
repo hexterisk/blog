@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IV on Pwn the world.</title>
+    <link>http://localhost:1313/tags/iv/</link>
+    <description>Recent content in IV on Pwn the world.</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>hexterisk@gmail.com (Bhanupratap Singh)</managingEditor>
+    <webMaster>hexterisk@gmail.com (Bhanupratap Singh)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Wed, 06 May 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/iv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Set 4</title>
+      <link>http://localhost:1313/posts/2020/05/06/set-4/</link>
+      <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate><author>hexterisk@gmail.com (Bhanupratap Singh)</author>
+      <guid>http://localhost:1313/posts/2020/05/06/set-4/</guid>
+      <description>&lt;p&gt;Refer to this &lt;a href=&#34;https://github.com/hexterisk/cryptopals-solutions&#34;&gt;repository&lt;/a&gt; for solution scripts and the IPython Notebook pertaining to the explanations here.&lt;/p&gt;&#xA;&lt;h3 id=&#34;challenge-25-break-random-access-readwrite-aes-ctr&#34;&gt;Challenge 25: Break &amp;ldquo;random access read/write&amp;rdquo; AES CTR&lt;/h3&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://cryptopals.com/sets/4/challenges/25&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Back to CTR. Encrypt the recovered plaintext from &lt;a href=&#34;https://cryptopals.com/static/challenge-data/25.txt&#34;&gt;this file&lt;/a&gt; (the ECB exercise) under CTR with a random key (for this exercise the key should be unknown to you, but hold on to it).&lt;/p&gt;&#xA;&lt;p&gt;Now, write the code that allows you to &amp;ldquo;seek&amp;rdquo; into the ciphertext, decrypt, and re-encrypt with different plaintext. Expose this as a function, like, &lt;em&gt;&amp;ldquo;edit(ciphertext, key, offset, newtext)&amp;rdquo;&lt;/em&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="map[name:hexterisk]">
+<meta name="description" content="While designing a class, always keep the Open-Closed Principle in mind. It states that,
+software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+This implies that an entity shall allow extensions to itself, but no modification to its source code. We are therefore allowed to extend our base class, and consequently implement re-usability.
+Class Inheritance Inheritance models an Is-A relationship, where the child class inherits properties from the parent class, making the child class a specialized version of the parent class.
+" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="http://localhost:1313/posts/2021/05/21/reuse/" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+    <title>
+        
+            Reuse: Pwn the world.  — A noob&#39;s attempt at blogging.
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+<link rel="stylesheet" href="../../../../../main.min.723994d490d4e7b39bc5e6e49a15a79441ef3b16ff6e0d6db0d78feeca11d458.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../../favicon-16x16.png">
+    <link rel="manifest" href="../../../../../site.webmanifest">
+    <link rel="mask-icon" href="../../../../../safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="../../../../../favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+  <meta itemprop="name" content="Reuse">
+  <meta itemprop="description" content="While designing a class, always keep the Open-Closed Principle in mind. It states that,
+software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+This implies that an entity shall allow extensions to itself, but no modification to its source code. We are therefore allowed to extend our base class, and consequently implement re-usability.
+Class Inheritance Inheritance models an Is-A relationship, where the child class inherits properties from the parent class, making the child class a specialized version of the parent class.">
+  <meta itemprop="datePublished" content="2021-05-21T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2021-05-21T00:00:00+00:00">
+  <meta itemprop="wordCount" content="1572">
+  <meta itemprop="keywords" content="Design-Patterns,Gangs-of-Four,Frameworks,Toolkits">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Reuse">
+  <meta name="twitter:description" content="While designing a class, always keep the Open-Closed Principle in mind. It states that,
+software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+This implies that an entity shall allow extensions to itself, but no modification to its source code. We are therefore allowed to extend our base class, and consequently implement re-usability.
+Class Inheritance Inheritance models an Is-A relationship, where the child class inherits properties from the parent class, making the child class a specialized version of the parent class.">
+
+
+
+    <meta property="article:section" content="Design-Patterns" />
+
+
+
+    <meta property="article:published_time" content="2021-05-21 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a class="logo" href="../../../../../">
+    
+        <div class="logo__content">
+            <span class="logo__mark">></span>
+            <span class="logo__text">cd ~/</span>
+            <span class="logo__cursor"></span>
+        </div>
+    
+</a>
+<script>
+    document.documentElement.style.setProperty('--logo-cursor-color', '#ed5565');
+</script>
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="http://localhost:1313/about/">About</a></li><li><a href="http://localhost:1313/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+<main class="post">
+
+    <div class="post-info">
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-clock">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>8 minutes
+
+            
+
+        </p>
+    </div>
+
+    <article>
+        <h1 class="post-title">
+            <a href="http://localhost:1313/posts/2021/05/21/reuse/">Reuse</a>
+        </h1>
+
+        
+
+        <div class="post-content">
+            <p>While designing a class, always keep the <strong>Open-Closed Principle</strong> in mind. It states that,</p>
+<blockquote>
+<p>software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.</p>
+</blockquote>
+<p>This implies that an entity shall allow extensions to itself, but no modification to its source code. We are therefore allowed to extend our base class, and consequently implement re-usability.</p>
+<h2 id="class-inheritance">Class Inheritance</h2>
+<p><strong>Inheritance</strong> models an <code>Is-A</code> relationship, where the child class inherits properties from the parent class, making the child class a specialized version of the parent class.</p>
+<p>New functionality is achieved by constructing a child class (child class) that extends the functionality of the parent class. This is achieved through class inheritance, which implies that all the original attributes and methods will be inherited by the new child class. This reuse technique is therefore called <strong>White-Box Reuse</strong> since all internal details of the parent class are visible to the child class.</p>
+<p>Inheritance reused needs to be implemented carefully, otherwise we can run into <strong>Class Explosion</strong> (a design anti-pattern) where the number of classes grows exponentially to the point where it becomes unmanageable. For example, for every employee type, the original class is extended such as one for freelancing payroll and one for salaried. This will get extended to multiple departments in different branches at different locations, leading to an exponentially large number of classes.</p>
+<p><img src="../../../../../Design_Patterns_Reuse/image.png"></p>
+<p>Inheritance reuse implementation for employees leads to class explosion.</p>
+<p>Class inheritance is statically defined, and makes it easy to modify functionality through redefinition of the attributes and methods of classes, or overriding methods in sub-classes. However, this implies that implementations cannot be modified at run-time.</p>
+<p>If the parent class has some data attributes well defined, and doesn&rsquo;t extend much functionality, the implementation of the child class becomes tightly bound with its parent class, so much so that any change in the parent class&rsquo; implementation would change the child class too. If such an implementation dependency arises, the parent class should be rewritten since this dependency causes a loss in flexibility and subsequently, re-usability.</p>
+<p>Encapsulation ensures that all the methods and their respective data are bundled together. However, the ability of a child class to manipulate the parent class&rsquo; data directly through protected access modifier has lead OOP purists to believe that,</p>
+<blockquote>
+<p>inheritance breaks encapsulation.</p>
+</blockquote>
+<p>Since derived classes can be given the ability to manipulate base class&rsquo; data, this further leads us to the <strong>Fragile Base Class Problem</strong>, where the base classes (parent classes) is deemed “fragile” because modifications of the base class that seem safe may cause derived classes (child classes) to malfunction.</p>
+<p>It is therefore said that the programmer cannot deem a modification to be safe solely by examining the definitions of the base class. If a derived class is allowed to access members inherited from a base class, changes in the base class may require maintenance of the derived class as well.</p>
+<p>A good practice is to inherit from abstract classes only, since they provide little or no implementation.</p>
+<h2 id="association">Association</h2>
+<p><strong>Association</strong> is the relationship established between classes through their objects. Complex types can be constructed through a combination of different objects.</p>
+<p>For example, an employee of a bank can be working in any of it&rsquo;s departments. A Branch&rsquo;s information tells us which Department the Employee is “associated” with.</p>
+<p><img src="../../../../../Design_Patterns_Reuse/1_image.png"></p>
+<p>An Employee (object) is associated with a Department (object) in a Branch (object).</p>
+<h3 id="aggregation">Aggregation</h3>
+<p>Restricted form of Association.</p>
+<p><strong>Aggregation</strong> models a <code>Has-A</code> relationship, where a cluster of objects are to be treated as a single unit. The relationship is unidirectional as one object is responsible for others, and a vice-versa relationship is not possible. However, objects on both the sides of the relationship can exist individually and one object&rsquo;s lifetime has no bearing on the other objects in the relationship. Therefore, Aggregation is said to be a weak type of Association.</p>
+<p>For example, a department would be a container for all the various branches it exists in, while maintaining all the employees that work in the said department.</p>
+<p><img src="../../../../../Design_Patterns_Reuse/2_image.png"></p>
+<p>Description of the relationship between different aspects of a bank&rsquo;s branch.</p>
+<p>If a department is said to close, a branch housing more than one department would still be functional and will continue to exist. Moreover, since the employees are ultimately employed by the bank (only “associated” to a department), they may still be retained and transferred to other departments.</p>
+<p>Thus, all objects under the parent container would still exist even if the parent container&rsquo;s life cycle ends. </p>
+<h3 id="acquaintance">Acquaintance</h3>
+<p><strong>Acquaintance</strong> models a <code>Using</code> relationship, where objects are aware of other objects and therefore may request operations over each other. Also known as <strong>Association</strong>. However, objects are not responsible for each other.</p>
+<h3 id="object-composition">Object Composition</h3>
+<p>Restricted form of Aggregation.</p>
+<p><strong>Composition</strong> models a <code>Part-Of</code> relationship. For example, a class composite can contain an object of another class component implying that a composite “has a” component. Object composition is dynamically defined at run-time through objects acquiring references to other objects, and therefore their interfaces shall be well defined to facilitate the intercommunication between objects. This reuse technique is therefore called <strong>Black-Box Reuse</strong> since no internal details of the parent object are visible to the child object. </p>
+<p>Composition enables the reuse of the implementation of components through composite classes without any inheritance. Continuing with the previous example, the branch class is a class composite with an interface for the department and the address. These two attributes have a separate class of their own, making them class components. Their objects are initialized and then composed with a branch object.</p>
+<p><img src="../../../../../Design_Patterns_Reuse/3_image.png"></p>
+<p>New functionality is achieved by making one object responsible for managing another object&rsquo;s life-cycle. This directly implies the destruction of all child objects of a parent object when it is itself destroyed. If the bank itself is said to close, then all departments would cease to exist, and so would all the branches. Moreover, the employees too would be terminated. Therefore, Composition is said to be a strong type of Association.</p>
+<p>Now, object composition re-usability doesn&rsquo;t break encapsulation since objects are only accessible through interfaces, and are replaceable among the same type. Moreover, since an object&rsquo;s implementation is defined in terms of it&rsquo;s interfaces, implementation dependencies are minimum.</p>
+<blockquote>
+<p>Favor object composition over class inheritance.</p>
+</blockquote>
+<p>This ideology allows us to keep each class encapsulated for one task, reducing the risks for a class to grow exponentially to extend functionality, and the system&rsquo;s behavior would depend on the objects&rsquo; interrelationships.</p>
+<p>Ideally, composition of existing components should provide all the desired functionality, but it is seldom the case. Inheritance, on the other hand, makes it easy to make new components based on old ones. Thus, both reuse methods have their appropriate uses and should be used as and when required.</p>
+<h2 id="delegation-pattern">Delegation Pattern</h2>
+<p><strong>Delegation Pattern</strong> models a <code>Is-A-Role-Played-By</code> relationship, where two objects service a request together - one receives the request and forwards it to the other for processing. This implies that an object of the secondary class which contains the logic for completing a task, is used as a class member for the primary class that receives the request.</p>
+<p>For example,</p>
+<pre><code>class First {
+	public:
+    	void print() { cout &lt;&lt; &quot;The Delegate&quot;; }
+};
+
+class Second {
+    First ob;
+	
+	public:
+    	void print() { ob.print(); }
+};
+
+int main() {
+    Second ob1;
+    ob1.print();
+    return 0;
+}
+</code></pre>
+<p>This is behavior is somewhat analogous to inheritance, except the new class has an instance of the original class making the pattern more generalized and structurally different from inheritance. This also provides more run-time flexibility since the delegate can be changed easily during execution, like in the example, changing <code>print</code> method of <code>class First</code> would change what is displayed on the console.</p>
+<p>While composition is much more efficient for reuse than inheritance, it isn&rsquo;t as powerful since a composition of existing components cannot always provide the desired functionality.</p>
+<h2 id="parameterized-types">Parameterized Types</h2>
+<p>Parameterized types allows you to change the types being used by a class. The language implementation will create a customized version of the List class template for each type of element. For example in C, an array can be of type integer, char or long.</p>
+<h3 id="templates-in-c">Templates in C++</h3>
+<p><strong>Templates</strong> ensures compatibility of a code module with different data types through a <strong>Template Signature</strong>, that is, passing a data type as a parameter to the code.</p>
+<p>Templates behave like macros. They are expanded at compile-time where the compiler performs type checking and matching before appropriately replacing the code at the call point.</p>
+<p><img alt="templates-cpp" src="../../../../../Design_Patterns_Reuse/templates-cpp.jpg"></p>
+<p>Template expansion at compile-time.</p>
+<h2 id="structures">Structures</h2>
+<h3 id="run-time">Run Time</h3>
+<p>The focus is mainly on the instances of objects since the structure of the program at run-time bears little to no resemblance to the actual code structure. This is because only certain fields of the structure store data during run-time, which is discarded as soon as the program is destroyed. Moreover, it keeps involving as the data changes and the object communicates with other objects. Therefore, only the actual implementation is important in such a case.</p>
+<p>The behavior composition of objects can be changed at run-time in the case of Object Composition, but not in Inheritance and Parameterized Types.</p>
+<h3 id="compile-time">Compile Time</h3>
+<p>The focus is mainly on the code structure (interfaces and classes) since at compilation, the definitions and their relationships (such as inheritance) are preserved. Such relationships therefore shall be defined with utmost care since it will affect the run-time structure as well.</p>
+<p>Inheritance provides default implementations for operations while keeping provision for override through subclasses, and Parameterized Types allows change of types being used by a class.</p>
+
+        </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-tag meta-icon">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                <line x1="7" y1="7" x2="7" y2="7"></line>
+            </svg><span class="tag"><a href="http://localhost:1313/%20tags/design-patterns">design-patterns</a></span><span class="tag"><a href="http://localhost:1313/%20tags/gangs-of-four">gangs-of-four</a></span><span class="tag"><a href="http://localhost:1313/%20tags/frameworks">frameworks</a></span><span class="tag"><a href="http://localhost:1313/%20tags/toolkits">toolkits</a></span>
+        </p>
+
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-file-text">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>1572 Words</p>
+
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="feather feather-calendar">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>2021-05-21 05:30 &#43;0530</p>
+    </div>
+
+    
+    <div class="pagination">
+        <div class="pagination__title">
+            <span class="pagination__title-h"></span>
+            <hr />
+        </div>
+
+        <div class="pagination__buttons">
+
+            
+            <span class="button previous">
+                <a href="http://localhost:1313/posts/2021/04/28/overview/">
+                    <span class="button__text">Overview</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+
+            
+            <span class="button next">
+                <a href="http://localhost:1313/posts/2021/07/02/creational-patterns/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Creational Patterns</span>
+                </a>
+            </span>
+            
+
+        </div>
+    </div>
+    
+
+    
+</main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+    
+    <div class="footer__svg">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 140 140"
+            stroke="#4DB6AC"
+        >
+            <path stroke-width="122" stroke-dasharray="2,38" d="M9,70h122M70,9v122" />
+            <path stroke-width="33" stroke-linecap="round" d="M70,30h0M110,70h0M30,110v0M70,110h0M110,110h0" />
+        </svg>
+    </div>
+</footer>
+            
+        </div>
+
+        
+
+
+
+
+
+<script type="text/javascript" src="../../../../../bundle.min.45295cbc2d5bbc09b85caead90108f31defa5c6b650a42abb2e79d59a363e5bc2f11614e43687e66e6d47563560a45c3324b75dcb9b3a724a2955a2f1ce2f114.js" integrity="sha512-RSlcvC1bvAm4XK6tkBCPMd76XGtlCkKrsuedWaNj5bwvEWFOQ2h&#43;ZubUdWNWCkXDMkt13LmzpySilVovHOLxFA=="></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'G-66L1D38RLD', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+    </body>
+</html>
